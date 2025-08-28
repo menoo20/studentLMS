@@ -1,0 +1,52 @@
+[
+  {
+    "id": "sch1",
+    "date": "2024-08-26",
+    "time": "09:00", 
+    "subject": "Mathematics Advanced",
+    "group": "Group A",
+    "room": "Room 101",
+    "type": "Lecture",
+    "duration": "90 minutes"
+  },
+  {
+    "id": "sch2",
+    "date": "2024-08-26",
+    "time": "11:00",
+    "subject": "Mathematics Basic", 
+    "group": "Group B",
+    "room": "Room 102",
+    "type": "Tutorial",
+    "duration": "60 minutes"
+  },
+  {
+    "id": "sch3",
+    "date": "2024-08-27",
+    "time": "10:00",
+    "subject": "Mathematics Advanced",
+    "group": "Group A", 
+    "room": "Room 101",
+    "type": "Lab",
+    "duration": "120 minutes"
+  },
+  {
+    "id": "sch4",
+    "date": "2024-08-28",
+    "time": "14:00",
+    "subject": "Mathematics Basic",
+    "group": "Group B",
+    "room": "Room 103",
+    "type": "Lecture", 
+    "duration": "90 minutes"
+  },
+  {
+    "id": "sch5",
+    "date": "2024-08-29",
+    "time": "09:00",
+    "subject": "Mathematics Advanced",
+    "group": "Group A",
+    "room": "Room 101",
+    "type": "Exam",
+    "duration": "180 minutes"
+  }
+]
