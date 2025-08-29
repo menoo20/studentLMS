@@ -8,13 +8,29 @@ export default {
     extend: {
       colors: {
         primary: {
-          50: '#eff6ff',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
-        }
-      }
+          500: '#2563eb',
+          600: '#1e40af',
+          400: '#3b82f6',
+          DEFAULT: '#2563eb',
+        },
+        secondary: {
+          500: '#f59e42',
+          600: '#b45309',
+          400: '#fbbf24',
+          DEFAULT: '#f59e42',
+        },
+        blackGold: {
+          900: '#181818', // black
+          500: '#FFD700', // gold
+          700: '#BFA100',
+          50: '#fff',
+          accent: '#F5C542', // accent gold from logo
+          bg: '#181818',
+          gold: '#FFD700',
+          goldDark: '#BFA100',
+          white: '#fff',
+        },
+      },
     },
   },
-  plugins: [],
 }

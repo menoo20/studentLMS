@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/my-annual-plan/',
+  base: process.env.NODE_ENV === 'production' ? '/my-annual-plan/' : '/',
   build: {
     outDir: 'dist',
   },

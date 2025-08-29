@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
+import { useTheme } from '../components/ThemeContext'
 
 const Syllabus = () => {
+  const { theme } = useTheme()
   const [syllabusData, setSyllabusData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [selectedUnit, setSelectedUnit] = useState(null)
@@ -10,7 +12,8 @@ const Syllabus = () => {
   useEffect(() => {
     const loadSyllabus = async () => {
       try {
-        const response = await fetch('/my-annual-plan/data/syllabus_jolly_phonics.json')
+        const basePath = import.meta.env.PROD ? '/my-annual-plan' : ''
+        const response = await fetch(`${basePath}/data/syllabus_jolly_phonics.json`)
         const data = await response.json()
         setSyllabusData(data)
       } catch (error) {
@@ -27,7 +30,7 @@ const Syllabus = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center py-12">
-        <div className="text-lg text-gray-600">Loading syllabus...</div>
+        <div className={`text-lg ${theme === 'blackGold' ? 'text-white' : 'text-gray-600'}`}>Loading syllabus...</div>
       </div>
     )
   }
@@ -36,8 +39,8 @@ const Syllabus = () => {
     return (
       <div className="card text-center py-12">
         <div className="text-6xl mb-4">📚</div>
-        <h3 className="text-xl font-semibold text-gray-900 mb-2">No Syllabus Data</h3>
-        <p className="text-gray-600">Add your syllabus.json file to get started.</p>
+        <h3 className={`text-xl font-semibold mb-2 ${theme === 'blackGold' ? 'text-blackGold-500' : 'text-gray-900'}`}>No Syllabus Data</h3>
+        <p className={`${theme === 'blackGold' ? 'text-white' : 'text-gray-600'}`}>Add your syllabus.json file to get started.</p>
       </div>
     )
   }
@@ -61,17 +64,19 @@ const Syllabus = () => {
       <div className="space-y-6">
         {/* Course Information */}
         <div className="card">
-          <div className="flex items-center justify-between mb-4">
-            <div>
-              <h3 className="text-xl font-semibold text-gray-900">{syllabusData.courseInfo.subject}</h3>
-              <p className="text-gray-600">{syllabusData.courseInfo.description}</p>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+            <div className="lg:col-span-2">
+              <h3 className="text-xl font-semibold mb-2 text-gray-900">{syllabusData.courseInfo.subject}</h3>
+              <p className="mt-2 text-gray-600">{syllabusData.courseInfo.description}</p>
               {syllabusData.courseInfo.methodology && (
-                <p className="text-sm text-blue-600 mt-1">📚 {syllabusData.courseInfo.methodology}</p>
+                <p className="text-sm text-blue-600 mt-3">📚 {syllabusData.courseInfo.methodology}</p>
               )}
             </div>
-            <div className="text-right">
-              <div className="text-sm text-gray-500">Academic Year</div>
-              <div className="font-medium">{syllabusData.courseInfo.academicYear}</div>
+            <div className="lg:col-span-1">
+              <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-r-4 border-blue-400 text-center">
+                <div className="text-sm text-gray-500 mb-1">Academic Year</div>
+                <div className="font-semibold text-lg text-gray-900">{syllabusData.courseInfo.academicYear}</div>
+              </div>
             </div>
           </div>
           
@@ -97,7 +102,7 @@ const Syllabus = () => {
 
         {/* Units Timeline */}
         <div className="card">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Units Timeline</h3>
+          <h3 className="text-lg font-semibold mb-4 text-gray-900">Units Timeline</h3>
           <div className="space-y-4">
             {syllabusData.units.map((unit, index) => (
               <div 
@@ -421,8 +426,8 @@ const Syllabus = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Course Syllabus</h1>
-        <p className="text-gray-600">Track your annual teaching plan and daily progress</p>
+        <h1 className={`text-3xl font-bold mb-2 ${theme === 'blackGold' ? 'text-blackGold-500' : 'text-gray-900'}`}>Course Syllabus</h1>
+        <p className={`${theme === 'blackGold' ? 'text-white' : 'text-gray-600'}`}>Track your annual teaching plan and daily progress</p>
       </div>
 
       {viewMode === 'annual' && renderAnnualOverview()}

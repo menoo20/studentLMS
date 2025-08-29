@@ -10,7 +10,8 @@ const Syllabus = () => {
   useEffect(() => {
     const loadSyllabus = async () => {
       try {
-        const response = await fetch('/my-annual-plan/data/syllabus_jolly_phonics.json')
+        const basePath = import.meta.env.PROD ? '/my-annual-plan' : ''
+        const response = await fetch(`${basePath}/data/syllabus_jolly_phonics.json`)
         const data = await response.json()
         setSyllabusData(data)
       } catch (error) {

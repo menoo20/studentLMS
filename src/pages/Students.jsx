@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
+import { useTheme } from '../components/ThemeContext'
 
 const Students = () => {
+  const { theme } = useTheme()
   const [students, setStudents] = useState([])
   const [groups, setGroups] = useState([])
   const [marks, setMarks] = useState([])
@@ -12,11 +14,12 @@ const Students = () => {
     // Load data from JSON files
     const loadData = async () => {
       try {
+        const basePath = import.meta.env.PROD ? '/my-annual-plan' : ''
         const [studentsRes, groupsRes, marksRes, examsRes] = await Promise.all([
-          fetch('/data/students.json').catch(() => ({ json: () => [] })),
-          fetch('/data/groups.json').catch(() => ({ json: () => [] })),
-          fetch('/data/marks.json').catch(() => ({ json: () => [] })),
-          fetch('/data/exams.json').catch(() => ({ json: () => [] })),
+          fetch(`${basePath}/data/students.json`).catch(() => ({ json: () => [] })),
+          fetch(`${basePath}/data/groups.json`).catch(() => ({ json: () => [] })),
+          fetch(`${basePath}/data/marks.json`).catch(() => ({ json: () => [] })),
+          fetch(`${basePath}/data/exams.json`).catch(() => ({ json: () => [] })),
         ])
 
         const studentsData = await studentsRes.json()
@@ -63,7 +66,7 @@ const Students = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center py-12">
-        <div className="text-lg text-gray-600">Loading student data...</div>
+        <div className={`text-lg ${theme === 'blackGold' ? 'text-white' : 'text-gray-600'}`}>Loading student data...</div>
       </div>
     )
   }
@@ -71,14 +74,14 @@ const Students = () => {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold text-gray-900">Student Progress</h2>
+        <h2 className={`text-2xl font-bold ${theme === 'blackGold' ? 'text-blackGold-500' : 'text-gray-900'}`}>Student Progress</h2>
       </div>
 
       {students.length === 0 ? (
         <div className="card text-center py-12">
           <div className="text-6xl mb-4">📚</div>
-          <h3 className="text-xl font-semibold text-gray-900 mb-2">No Student Data</h3>
-          <p className="text-gray-600 mb-6">
+          <h3 className={`text-xl font-semibold mb-2 ${theme === 'blackGold' ? 'text-blackGold-500' : 'text-gray-900'}`}>No Student Data</h3>
+          <p className={`mb-6 ${theme === 'blackGold' ? 'text-blackGold-500/80' : 'text-gray-600'}`}>
             Add your students.json file to the /data folder to get started.
           </p>
           <div className="text-left max-w-md mx-auto bg-gray-50 p-4 rounded-lg">
@@ -100,7 +103,7 @@ const Students = () => {
           {/* Groups Overview */}
           {groups.length > 0 && (
             <div className="card">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Groups</h3>
+              <h3 className="text-lg font-semibold mb-4 text-gray-900">Groups</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {groups.map(group => {
                   const groupStudents = students.filter(s => s.groupId === group.id)
@@ -129,8 +132,8 @@ const Students = () => {
             /* Guidance Message when no group is selected */
             <div className="card text-center py-16">
               <div className="text-6xl mb-6">👆</div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">Select a Group to View Students</h3>
-              <p className="text-lg text-gray-600 mb-6">
+              <h3 className="text-2xl font-semibold mb-4 text-gray-900">Select a Group to View Students</h3>
+              <p className="text-lg mb-6 text-gray-600">
                 Click on any group above to see the students and their marks
               </p>
               <div className="flex justify-center space-x-6 text-sm text-gray-500">
@@ -147,7 +150,7 @@ const Students = () => {
           ) : (
             /* Marks Table when group is selected */
             <div className="card">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">
+              <h3 className="text-lg font-semibold mb-4 text-gray-900">
                 Student Marks - {groups.find(g => g.id === selectedGroup)?.name}
               </h3>
               

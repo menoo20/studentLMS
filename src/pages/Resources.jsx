@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
+import { useTheme } from '../components/ThemeContext'
 
 const Resources = () => {
+  const { theme } = useTheme()
   const [resources, setResources] = useState([])
   const [loading, setLoading] = useState(true)
   const [selectedCategory, setSelectedCategory] = useState('')
@@ -9,7 +11,8 @@ const Resources = () => {
   useEffect(() => {
     const loadResources = async () => {
       try {
-        const response = await fetch('/data/resources.json')
+        const basePath = import.meta.env.PROD ? '/my-annual-plan' : ''
+        const response = await fetch(`${basePath}/data/resources.json`)
         const data = await response.json()
         setResources(data)
       } catch (error) {
@@ -70,7 +73,7 @@ const Resources = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center py-12">
-        <div className="text-lg text-gray-600">Loading resources...</div>
+        <div className={`text-lg ${theme === 'blackGold' ? 'text-white' : 'text-gray-600'}`}>Loading resources...</div>
       </div>
     )
   }
@@ -78,7 +81,7 @@ const Resources = () => {
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
-        <h2 className="text-2xl font-bold text-gray-900">Resources & Content Hub</h2>
+        <h2 className={`text-2xl font-bold ${theme === 'blackGold' ? 'text-blackGold-500' : 'text-gray-900'}`}>Resources & Content Hub</h2>
         
         <div className="flex flex-col sm:flex-row gap-3">
           <input
@@ -86,28 +89,16 @@ const Resources = () => {
             placeholder="Search resources..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-500"
+            className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-500 bg-white text-gray-900 placeholder-gray-500"
           />
-          <select
-            value={selectedCategory}
-            onChange={(e) => setSelectedCategory(e.target.value)}
-            className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-500"
-          >
-            <option value="">All Categories</option>
-            {categories.map(category => (
-              <option key={category} value={category}>
-                {category}
-              </option>
-            ))}
-          </select>
         </div>
       </div>
 
       {resources.length === 0 ? (
         <div className="card text-center py-12">
           <div className="text-6xl mb-4">📁</div>
-          <h3 className="text-xl font-semibold text-gray-900 mb-2">No Resources Data</h3>
-          <p className="text-gray-600 mb-6">
+          <h3 className="text-xl font-semibold mb-2 text-gray-900">No Resources Data</h3>
+          <p className={`mb-6 ${theme === 'blackGold' ? 'text-gray-600' : 'text-gray-600'}`}>
             Add your resources.json file to the /data folder to display your educational resources.
           </p>
           <div className="text-left max-w-md mx-auto bg-gray-50 p-4 rounded-lg">
@@ -159,7 +150,7 @@ const Resources = () => {
 
           {/* Search Results Info */}
           <div className="flex items-center justify-between">
-            <div className="text-sm text-gray-600">
+            <div className={`text-sm ${theme === 'blackGold' ? 'text-white' : 'text-gray-600'}`}>
               Showing {filteredResources.length} of {resources.length} resources
               {selectedCategory && ` in ${selectedCategory}`}
               {searchTerm && ` matching "${searchTerm}"`}

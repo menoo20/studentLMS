@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
+import { useTheme } from '../components/ThemeContext'
 
 const Schedule = () => {
+  const { theme } = useTheme()
   const [schedule, setSchedule] = useState([])
   const [loading, setLoading] = useState(true)
   const [currentWeek, setCurrentWeek] = useState(new Date())
@@ -8,7 +10,8 @@ const Schedule = () => {
   useEffect(() => {
     const loadSchedule = async () => {
       try {
-        const response = await fetch('/data/schedule.json')
+        const basePath = import.meta.env.PROD ? '/my-annual-plan' : ''
+        const response = await fetch(`${basePath}/data/schedule.json`)
         const data = await response.json()
         setSchedule(data)
       } catch (error) {
@@ -81,7 +84,7 @@ const Schedule = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center py-12">
-        <div className="text-lg text-gray-600">Loading schedule...</div>
+        <div className={`text-lg ${theme === 'blackGold' ? 'text-white' : 'text-gray-600'}`}>Loading schedule...</div>
       </div>
     )
   }
@@ -89,7 +92,7 @@ const Schedule = () => {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold text-gray-900">Teaching Schedule</h2>
+        <h2 className={`text-2xl font-bold ${theme === 'blackGold' ? 'text-blackGold-500' : 'text-gray-900'}`}>Teaching Schedule</h2>
         <div className="flex items-center space-x-4">
           <button
             onClick={goToPreviousWeek}
@@ -115,8 +118,8 @@ const Schedule = () => {
       {schedule.length === 0 ? (
         <div className="card text-center py-12">
           <div className="text-6xl mb-4">📅</div>
-          <h3 className="text-xl font-semibold text-gray-900 mb-2">No Schedule Data</h3>
-          <p className="text-gray-600 mb-6">
+          <h3 className={`text-xl font-semibold mb-2 ${theme === 'blackGold' ? 'text-blackGold-500' : 'text-gray-900'}`}>No Schedule Data</h3>
+          <p className={`mb-6 ${theme === 'blackGold' ? 'text-white' : 'text-gray-600'}`}>
             Add your schedule.json file to the /data folder to display your teaching schedule.
           </p>
           <div className="text-left max-w-md mx-auto bg-gray-50 p-4 rounded-lg">

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useTheme } from '../components/ThemeContext';
 import { Link } from 'react-router-dom'
 
 const Home = () => {
@@ -18,13 +19,14 @@ const Home = () => {
 
   const loadStats = async () => {
     try {
+      const basePath = import.meta.env.PROD ? '/my-annual-plan' : ''
       const [studentsRes, examsRes, scheduleRes, resourcesRes, marksRes, syllabusRes] = await Promise.all([
-        fetch('/my-annual-plan/data/students.json').catch(() => ({ json: () => [] })),
-        fetch('/my-annual-plan/data/exams.json').catch(() => ({ json: () => [] })),
-        fetch('/my-annual-plan/data/schedule.json').catch(() => ({ json: () => [] })),
-        fetch('/my-annual-plan/data/resources.json').catch(() => ({ json: () => [] })),
-        fetch('/my-annual-plan/data/marks.json').catch(() => ({ json: () => [] })),
-        fetch('/my-annual-plan/data/syllabus.json').catch(() => ({ json: () => ({}) })),
+        fetch(`${basePath}/data/students.json`).catch(() => ({ json: () => [] })),
+        fetch(`${basePath}/data/exams.json`).catch(() => ({ json: () => [] })),
+        fetch(`${basePath}/data/schedule.json`).catch(() => ({ json: () => [] })),
+        fetch(`${basePath}/data/resources.json`).catch(() => ({ json: () => [] })),
+        fetch(`${basePath}/data/marks.json`).catch(() => ({ json: () => [] })),
+        fetch(`${basePath}/data/syllabus.json`).catch(() => ({ json: () => ({}) })),
       ])
 
       const students = await studentsRes.json()
@@ -69,14 +71,15 @@ const Home = () => {
     }
   }
 
+  const { theme } = useTheme();
   return (
     <div className="space-y-8">
       {/* Welcome Section */}
       <div className="text-center">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">
+        <h2 className={`text-3xl font-bold mb-4 ${theme === 'blackGold' ? 'text-blackGold-500' : 'text-gray-900'}`}>
           Welcome to Student Management System
         </h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <p className={`text-lg max-w-2xl mx-auto ${theme === 'blackGold' ? 'text-blackGold-500/80' : 'text-gray-600'}`}>
           Manage your students' progress, schedules, and academic resources all in one place.
         </p>
       </div>
