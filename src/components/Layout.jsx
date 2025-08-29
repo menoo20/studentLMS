@@ -18,6 +18,11 @@ const Layout = ({ children }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
+              <img 
+                src="/images/logo.png" 
+                alt="Logo" 
+                className="w-8 mr-3"
+              />
               <h1 className="text-2xl font-bold text-gray-900">
                 Student Management System
               </h1>

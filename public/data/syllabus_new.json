@@ -1,0 +1,223 @@
+{
+  "courseInfo": {
+    "subject": "English",
+    "courseType": "annual", 
+    "academicYear": "2024-2025",
+    "totalWeeks": 52,
+    "startDate": "2024-09-01",
+    "endDate": "2025-08-31",
+    "instructor": "English Teacher",
+    "description": "Comprehensive English language training for vocational students"
+  },
+  "units": [
+    {
+      "id": "unit1",
+      "title": "Basic Communication",
+      "description": "Fundamental English communication skills for workplace",
+      "duration": "8 weeks",
+      "startWeek": 1,
+      "endWeek": 8,
+      "status": "completed",
+      "objectives": [
+        "Introduce yourself and others",
+        "Ask and answer basic questions",
+        "Use common workplace greetings",
+        "Understand simple instructions"
+      ],
+      "weeklyPlan": [
+        {
+          "week": 1,
+          "topic": "Introductions and Greetings",
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Personal introductions",
+              "activities": "Name practice, greeting role-play",
+              "notes": ""
+            },
+            {
+              "day": "Monday", 
+              "focus": "Workplace greetings",
+              "activities": "Professional greeting scenarios",
+              "notes": ""
+            },
+            {
+              "day": "Tuesday",
+              "focus": "Basic questions",
+              "activities": "What/Where/When question practice",
+              "notes": ""
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Practice session",
+              "activities": "Combined practice and review",
+              "notes": ""
+            },
+            {
+              "day": "Thursday",
+              "focus": "Assessment",
+              "activities": "Oral assessment of introductions",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "week": 2,
+          "topic": "Basic Personal Information",
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Personal details vocabulary",
+              "activities": "Name, age, job, location practice",
+              "notes": ""
+            },
+            {
+              "day": "Monday",
+              "focus": "Asking for information",
+              "activities": "Question formation practice",
+              "notes": ""
+            },
+            {
+              "day": "Tuesday", 
+              "focus": "Giving information",
+              "activities": "Response practice and fluency",
+              "notes": ""
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Information exchange",
+              "activities": "Pair work and conversation practice",
+              "notes": ""
+            },
+            {
+              "day": "Thursday",
+              "focus": "Review and practice",
+              "activities": "Mixed practice session",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit2", 
+      "title": "Workplace Safety",
+      "description": "Safety-related English for vocational environments",
+      "duration": "6 weeks",
+      "startWeek": 9,
+      "endWeek": 14,
+      "status": "in-progress",
+      "objectives": [
+        "Understand safety signs and warnings",
+        "Report workplace hazards",
+        "Follow safety instructions",
+        "Use emergency vocabulary"
+      ],
+      "weeklyPlan": [
+        {
+          "week": 9,
+          "topic": "Safety Signs and Symbols",
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Safety sign recognition",
+              "activities": "Visual identification and vocabulary",
+              "notes": ""
+            },
+            {
+              "day": "Monday",
+              "focus": "Warning vocabulary",
+              "activities": "Danger, caution, prohibited words",
+              "notes": ""
+            },
+            {
+              "day": "Tuesday",
+              "focus": "Reading safety signs",
+              "activities": "Sign comprehension exercises",
+              "notes": ""
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Practice session",
+              "activities": "Safety sign scenarios",
+              "notes": ""
+            },
+            {
+              "day": "Thursday",
+              "focus": "Assessment",
+              "activities": "Safety sign quiz",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit3",
+      "title": "Technical Vocabulary",
+      "description": "Job-specific English vocabulary for different trades",
+      "duration": "10 weeks",
+      "startWeek": 15,
+      "endWeek": 24,
+      "status": "planned",
+      "objectives": [
+        "Learn trade-specific vocabulary",
+        "Understand technical instructions",
+        "Describe work processes",
+        "Use measurement and quantity terms"
+      ],
+      "weeklyPlan": []
+    },
+    {
+      "id": "unit4",
+      "title": "Written Communication",
+      "description": "Basic writing skills for workplace documentation",
+      "duration": "8 weeks",
+      "startWeek": 25,
+      "endWeek": 32,
+      "status": "planned",
+      "objectives": [
+        "Write simple reports",
+        "Fill out forms and documents",
+        "Write basic emails",
+        "Document work activities"
+      ],
+      "weeklyPlan": []
+    }
+  ],
+  "shortCourses": [
+    {
+      "id": "short1",
+      "title": "Emergency English",
+      "description": "Quick intensive course for emergency situations",
+      "duration": "2 weeks",
+      "startDate": "2024-11-01",
+      "endDate": "2024-11-14",
+      "status": "planned",
+      "target": "All groups",
+      "objectives": [
+        "Emergency vocabulary",
+        "Calling for help",
+        "Reporting incidents"
+      ],
+      "dailyPlan": [
+        {
+          "day": 1,
+          "focus": "Emergency vocabulary",
+          "activities": "Key emergency words and phrases"
+        },
+        {
+          "day": 2,
+          "focus": "Making emergency calls",
+          "activities": "Phone call practice and role-play"
+        }
+      ]
+    }
+  ],
+  "progress": {
+    "currentWeek": 15,
+    "completedUnits": 1,
+    "totalUnits": 4,
+    "percentageComplete": 25
+  }
+}

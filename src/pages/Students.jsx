@@ -72,20 +72,6 @@ const Students = () => {
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold text-gray-900">Student Progress</h2>
-        <div className="flex items-center space-x-4">
-          <select
-            value={selectedGroup}
-            onChange={(e) => setSelectedGroup(e.target.value)}
-            className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-500"
-          >
-            <option value="">Select a Group...</option>
-            {groups.map(group => (
-              <option key={group.id} value={group.id}>
-                {group.name}
-              </option>
-            ))}
-          </select>
-        </div>
       </div>
 
       {students.length === 0 ? (
@@ -129,6 +115,7 @@ const Students = () => {
                       onClick={() => setSelectedGroup(selectedGroup === group.id ? '' : group.id)}
                     >
                       <div className="font-medium text-gray-900">{group.name}</div>
+                      <div className="text-sm text-blue-600 font-medium">{group.position}</div>
                       <div className="text-sm text-gray-600">{groupStudents.length} students</div>
                     </div>
                   )
@@ -191,7 +178,6 @@ const Students = () => {
                         <tr key={student.id} className="hover:bg-gray-50">
                           <td className="px-6 py-4 whitespace-nowrap text-right">
                             <div className="font-medium text-gray-900">{student.name}</div>
-                            <div className="text-sm text-gray-500">{student.position}</div>
                           </td>
                           {exams.map(exam => {
                             const mark = marks.find(m => m.studentId === student.id && m.examId === exam.id)

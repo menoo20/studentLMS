@@ -1,126 +1,537 @@
-[
-  {
-    "id": "syl1",
-    "subject": "Mathematics",
-    "unit": "Algebra", 
-    "topic": "Linear Equations",
-    "description": "Solving linear equations in one and two variables, graphing linear functions",
-    "duration": "3 weeks",
-    "status": "completed",
-    "startDate": "2024-01-15",
-    "endDate": "2024-02-05",
-    "resources": ["linear_equations_notes.pdf", "practice_worksheets.pdf"],
-    "objectives": [
-      "Solve linear equations in one variable",
-      "Solve systems of linear equations", 
-      "Graph linear functions"
-    ],
-    "subtopics": [
-      {
-        "name": "One Variable Linear Equations",
-        "completed": true
-      },
-      {
-        "name": "Two Variable Linear Equations", 
-        "completed": true
-      },
-      {
-        "name": "Graphing Linear Functions",
-        "completed": true
-      }
-    ]
+{
+  "courseInfo": {
+    "subject": "English - Jolly Phonics for Adult ESL",
+    "courseType": "annual", 
+    "academicYear": "2024-2025",
+    "totalWeeks": 52,
+    "startDate": "2024-09-01",
+    "endDate": "2025-08-31",
+    "instructor": "English Teacher",
+    "description": "Jolly Phonics methodology adapted for adult vocational ESL learners",
+    "methodology": "Jolly Phonics systematic synthetic phonics approach",
+    "target_audience": "Adult vocational trainees (A1-B1 ESL level)"
   },
-  {
-    "id": "syl2",
-    "subject": "Mathematics",
-    "unit": "Algebra",
-    "topic": "Quadratic Equations", 
-    "description": "Solving quadratic equations using various methods, graphing parabolas",
-    "duration": "4 weeks",
-    "status": "in-progress",
-    "startDate": "2024-02-06",
-    "endDate": "2024-03-05",
-    "resources": ["quadratic_equations_guide.pdf", "graphing_calculator_tutorial.mp4"],
-    "objectives": [
-      "Solve quadratic equations by factoring",
-      "Use the quadratic formula",
-      "Graph quadratic functions"
-    ],
-    "subtopics": [
-      {
-        "name": "Factoring Method",
-        "completed": true
-      },
-      {
-        "name": "Quadratic Formula",
-        "completed": false
-      },
-      {
-        "name": "Graphing Parabolas", 
-        "completed": false
-      }
-    ]
-  },
-  {
-    "id": "syl3",
-    "subject": "Mathematics", 
-    "unit": "Geometry",
-    "topic": "Triangles and Trigonometry",
-    "description": "Properties of triangles, trigonometric ratios, solving triangles",
-    "duration": "5 weeks",
-    "status": "planned",
-    "startDate": "2024-03-06",
-    "endDate": "2024-04-09", 
-    "resources": ["trigonometry_handbook.pdf", "triangle_properties_video.mp4"],
-    "objectives": [
-      "Identify triangle properties",
-      "Calculate trigonometric ratios",
-      "Solve right triangles"
-    ],
-    "subtopics": [
-      {
-        "name": "Triangle Classification",
-        "completed": false
-      },
-      {
-        "name": "Pythagorean Theorem",
-        "completed": false 
-      },
-      {
-        "name": "Trigonometric Ratios",
-        "completed": false
-      }
-    ]
-  },
-  {
-    "id": "syl4",
-    "subject": "Statistics",
-    "unit": "Descriptive Statistics",
-    "topic": "Data Analysis",
-    "description": "Collection, organization, and interpretation of data",
-    "duration": "3 weeks", 
-    "status": "not-started",
-    "startDate": "2024-04-10",
-    "endDate": "2024-04-30",
-    "resources": ["statistics_textbook.pdf", "data_analysis_software.exe"],
-    "objectives": [
-      "Collect and organize data",
-      "Calculate measures of central tendency",
-      "Create data visualizations"
-    ],
-    "subtopics": [
-      {
-        "name": "Data Collection Methods",
-        "completed": false
-      },
-      {
-        "name": "Mean, Median, Mode",
-        "completed": false
-      },
-      {
-        "name": "Charts and Graphs",
-        "completed": false
-      }
-    ]
+  "units": [
+    {
+      "id": "jp-foundation",
+      "title": "Jolly Phonics Foundation (Groups 1-3)",
+      "description": "Basic letter-sound correspondences: s a t i p n | c/k e h r m d | g o u l f b",
+      "duration": "4 weeks",
+      "startWeek": 1,
+      "endWeek": 4,
+      "status": "completed",
+      "phonics_groups": [
+        {
+          "group_id": 1,
+          "sounds": ["s", "a", "t", "i", "p", "n"],
+          "focus": "Basic consonants and vowels"
+        },
+        {
+          "group_id": 2, 
+          "sounds": ["c/k", "e", "h", "r", "m", "d"],
+          "focus": "Extended consonants"
+        },
+        {
+          "group_id": 3,
+          "sounds": ["g", "o", "u", "l", "f", "b"],
+          "focus": "Completing basic alphabet"
+        }
+      ],
+      "objectives": [
+        "Master basic letter-sound correspondences",
+        "Develop basic blending skills for CVC words", 
+        "Practice letter formation for workplace documentation",
+        "Introduction to basic tricky words: the, I, no, go, into"
+      ],
+      "weeklyPlan": [
+        {
+          "week": 1,
+          "topic": "Group 1: s a t i p n",
+          "focus": "First sounds and basic blending",
+          "workplace_vocabulary": ["sit", "pan", "tip", "tap", "pin", "pit"],
+          "tricky_words": ["the", "I"],
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Sounds s, a, t",
+              "activities": "Sound introduction, actions, letter formation",
+              "notes": ""
+            },
+            {
+              "day": "Monday", 
+              "focus": "Sounds i, p, n",
+              "activities": "Complete Group 1, basic blending",
+              "notes": ""
+            },
+            {
+              "day": "Tuesday",
+              "focus": "CVC blending practice",
+              "activities": "Blend words: sat, sit, pan, tip",
+              "notes": ""
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Workplace contexts",
+              "activities": "Use Group 1 words in workplace scenarios",
+              "notes": ""
+            },
+            {
+              "day": "Thursday",
+              "focus": "Assessment and review",
+              "activities": "Group 1 sounds check, blending assessment",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "week": 2,
+          "topic": "Group 2: c/k e h r m d",
+          "focus": "Extended consonants and vowel e",
+          "workplace_vocabulary": ["red", "hard", "met", "care", "term"],
+          "tricky_words": ["no", "go"],
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Sounds c/k, e, h",
+              "activities": "New sounds with actions and formation",
+              "notes": ""
+            },
+            {
+              "day": "Monday",
+              "focus": "Sounds r, m, d", 
+              "activities": "Complete Group 2, review Group 1",
+              "notes": ""
+            },
+            {
+              "day": "Tuesday",
+              "focus": "Blending Groups 1-2",
+              "activities": "Blend: red, met, had, him, etc.",
+              "notes": ""
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Workplace application",
+              "activities": "Safety words and basic instructions",
+              "notes": ""
+            },
+            {
+              "day": "Thursday",
+              "focus": "Consolidation",
+              "activities": "Groups 1-2 review and assessment",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "week": 3,
+          "topic": "Group 3: g o u l f b",
+          "focus": "Completing basic phonics foundation",
+          "workplace_vocabulary": ["log", "fuel", "bug", "gulf", "fold"],
+          "tricky_words": ["into"],
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Sounds g, o, u",
+              "activities": "New sounds with workplace contexts",
+              "notes": ""
+            },
+            {
+              "day": "Monday",
+              "focus": "Sounds l, f, b",
+              "activities": "Complete Group 3, cumulative review",
+              "notes": ""
+            },
+            {
+              "day": "Tuesday", 
+              "focus": "Advanced blending",
+              "activities": "Multi-syllable workplace words",
+              "notes": ""
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Reading practice",
+              "activities": "Simple workplace texts and forms",
+              "notes": ""
+            },
+            {
+              "day": "Thursday",
+              "focus": "Foundation assessment",
+              "activities": "Groups 1-3 comprehensive test",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "week": 4,
+          "topic": "Foundation consolidation",
+          "focus": "Strengthening basic skills before advanced phonics",
+          "workplace_vocabulary": ["All Groups 1-3 vocabulary combined"],
+          "tricky_words": ["Review: the, I, no, go, into"],
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Speed and fluency",
+              "activities": "Quick sound recognition drills",
+              "notes": ""
+            },
+            {
+              "day": "Monday",
+              "focus": "Reading fluency",
+              "activities": "Read simple workplace passages",
+              "notes": ""
+            },
+            {
+              "day": "Tuesday",
+              "focus": "Writing practice", 
+              "activities": "Dictation and form completion",
+              "notes": ""
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Real-world application",
+              "activities": "Use phonics in actual workplace tasks",
+              "notes": ""
+            },
+            {
+              "day": "Thursday",
+              "focus": "Preparation for advanced phonics",
+              "activities": "Introduce concept of digraphs and long vowels",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jp-month1",
+      "title": "Jolly Phonics Month 1 (Groups 4-5)",
+      "description": "Advanced phonics patterns: ai j oa ie ee or | z w ng v oo oo",
+      "duration": "4 weeks",
+      "startWeek": 5,
+      "endWeek": 8,
+      "status": "in-progress",
+      "phonics_groups": [
+        {
+          "group_id": 4,
+          "sounds": ["ai", "j", "oa", "ie", "ee", "or"],
+          "focus": "Long vowel patterns and consonant extensions"
+        },
+        {
+          "group_id": 5,
+          "sounds": ["z", "w", "ng", "v", "oo(short)", "oo(long)"],
+          "focus": "Consonant clusters and vowel distinctions"
+        }
+      ],
+      "objectives": [
+        "Consolidate letter-sound knowledge with adult-relevant contexts",
+        "Improve letter formation tied to workplace documentation", 
+        "Blend learned sounds to read job-related words and phrases",
+        "Segment workplace vocabulary for accurate spelling",
+        "Master tricky words: to, do, was, are, said, of"
+      ],
+      "weeklyPlan": [
+        {
+          "week": 5,
+          "topic": "Group 4 Introduction: ai j oa ie ee or",
+          "focus": "Long vowel digraphs and new consonants",
+          "workplace_vocabulary": ["rain", "tail", "jet", "job", "goat", "road", "tree", "sleep", "fork", "storm"],
+          "tricky_words": ["to", "do", "was"],
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "ai and j sounds",
+              "activities": "Maintenance request forms using ai/j words",
+              "notes": ""
+            },
+            {
+              "day": "Monday",
+              "focus": "oa and ie sounds", 
+              "activities": "Safety signage reading with oa/ie",
+              "notes": ""
+            },
+            {
+              "day": "Tuesday",
+              "focus": "ee and or sounds",
+              "activities": "Shift notes writing with ee/or words",
+              "notes": ""
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Group 4 consolidation",
+              "activities": "Workplace scenarios using all Group 4",
+              "notes": ""
+            },
+            {
+              "day": "Thursday",
+              "focus": "Assessment",
+              "activities": "Group 4 sounds and tricky words test",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jp-month2", 
+      "title": "Jolly Phonics Advanced (Groups 6-7)",
+      "description": "Complex phonics patterns for workplace literacy",
+      "duration": "4 weeks",
+      "startWeek": 9,
+      "endWeek": 12,
+      "status": "planned",
+      "objectives": [
+        "Master complex digraphs and trigraphs",
+        "Apply phonics to technical vocabulary",
+        "Develop workplace reading fluency",
+        "Complete comprehensive phonics foundation"
+      ],
+      "weeklyPlan": []
+    },
+    {
+      "id": "reading-fluency",
+      "title": "Reading Fluency & Comprehension", 
+      "description": "Applying phonics skills to workplace texts",
+      "duration": "8 weeks",
+      "startWeek": 13,
+      "endWeek": 20,
+      "status": "planned",
+      "objectives": [
+        "Read workplace documents fluently",
+        "Comprehend safety procedures and instructions",
+        "Complete forms and reports accurately",
+        "Develop independent reading strategies"
+      ],
+      "weeklyPlan": []
+    }
+  ],
+  "shortCourses": [
+    {
+      "id": "safety-english",
+      "title": "Emergency Safety English",
+      "description": "Critical safety vocabulary and phrases",
+      "duration": "1 week intensive",
+      "schedule": "Week 21",
+      "priority": "high"
+    },
+    {
+      "id": "technical-writing",
+      "title": "Basic Technical Writing",
+      "description": "Writing maintenance reports and incident forms", 
+      "duration": "2 weeks",
+      "schedule": "Weeks 22-23",
+      "priority": "medium"
+    }
+  ]
+}
+  "units": [
+    {
+      "id": "unit1",
+      "title": "Basic Communication",
+      "description": "Fundamental English communication skills for workplace",
+      "duration": "8 weeks",
+      "startWeek": 1,
+      "endWeek": 8,
+      "status": "completed",
+      "objectives": [
+        "Introduce yourself and others",
+        "Ask and answer basic questions",
+        "Use common workplace greetings",
+        "Understand simple instructions"
+      ],
+      "weeklyPlan": [
+        {
+          "week": 1,
+          "topic": "Introductions and Greetings",
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Personal introductions",
+              "activities": "Name practice, greeting role-play",
+              "notes": ""
+            },
+            {
+              "day": "Monday", 
+              "focus": "Workplace greetings",
+              "activities": "Professional greeting scenarios",
+              "notes": ""
+            },
+            {
+              "day": "Tuesday",
+              "focus": "Basic questions",
+              "activities": "What/Where/When question practice",
+              "notes": ""
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Practice session",
+              "activities": "Combined practice and review",
+              "notes": ""
+            },
+            {
+              "day": "Thursday",
+              "focus": "Assessment",
+              "activities": "Oral assessment of introductions",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "week": 2,
+          "topic": "Basic Personal Information",
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Personal details vocabulary",
+              "activities": "Name, age, job, location practice",
+              "notes": ""
+            },
+            {
+              "day": "Monday",
+              "focus": "Asking for information",
+              "activities": "Question formation practice",
+              "notes": ""
+            },
+            {
+              "day": "Tuesday", 
+              "focus": "Giving information",
+              "activities": "Response practice and fluency",
+              "notes": ""
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Information exchange",
+              "activities": "Pair work and conversation practice",
+              "notes": ""
+            },
+            {
+              "day": "Thursday",
+              "focus": "Review and practice",
+              "activities": "Mixed practice session",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit2", 
+      "title": "Workplace Safety",
+      "description": "Safety-related English for vocational environments",
+      "duration": "6 weeks",
+      "startWeek": 9,
+      "endWeek": 14,
+      "status": "in-progress",
+      "objectives": [
+        "Understand safety signs and warnings",
+        "Report workplace hazards",
+        "Follow safety instructions",
+        "Use emergency vocabulary"
+      ],
+      "weeklyPlan": [
+        {
+          "week": 9,
+          "topic": "Safety Signs and Symbols",
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Safety sign recognition",
+              "activities": "Visual identification and vocabulary",
+              "notes": ""
+            },
+            {
+              "day": "Monday",
+              "focus": "Warning vocabulary",
+              "activities": "Danger, caution, prohibited words",
+              "notes": ""
+            },
+            {
+              "day": "Tuesday",
+              "focus": "Reading safety signs",
+              "activities": "Sign comprehension exercises",
+              "notes": ""
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Practice session",
+              "activities": "Safety sign scenarios",
+              "notes": ""
+            },
+            {
+              "day": "Thursday",
+              "focus": "Assessment",
+              "activities": "Safety sign quiz",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit3",
+      "title": "Technical Vocabulary",
+      "description": "Job-specific English vocabulary for different trades",
+      "duration": "10 weeks",
+      "startWeek": 15,
+      "endWeek": 24,
+      "status": "planned",
+      "objectives": [
+        "Learn trade-specific vocabulary",
+        "Understand technical instructions",
+        "Describe work processes",
+        "Use measurement and quantity terms"
+      ],
+      "weeklyPlan": []
+    },
+    {
+      "id": "unit4",
+      "title": "Written Communication",
+      "description": "Basic writing skills for workplace documentation",
+      "duration": "8 weeks",
+      "startWeek": 25,
+      "endWeek": 32,
+      "status": "planned",
+      "objectives": [
+        "Write simple reports",
+        "Fill out forms and documents",
+        "Write basic emails",
+        "Document work activities"
+      ],
+      "weeklyPlan": []
+    }
+  ],
+  "shortCourses": [
+    {
+      "id": "short1",
+      "title": "Emergency English",
+      "description": "Quick intensive course for emergency situations",
+      "duration": "2 weeks",
+      "startDate": "2024-11-01",
+      "endDate": "2024-11-14",
+      "status": "planned",
+      "target": "All groups",
+      "objectives": [
+        "Emergency vocabulary",
+        "Calling for help",
+        "Reporting incidents"
+      ],
+      "dailyPlan": [
+        {
+          "day": 1,
+          "focus": "Emergency vocabulary",
+          "activities": "Key emergency words and phrases"
+        },
+        {
+          "day": 2,
+          "focus": "Making emergency calls",
+          "activities": "Phone call practice and role-play"
+        }
+      ]
+    }
+  ],
+  "progress": {
+    "currentWeek": 15,
+    "completedUnits": 1,
+    "totalUnits": 4,
+    "percentageComplete": 25
   }
-]
+}

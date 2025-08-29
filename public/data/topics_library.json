@@ -1,0 +1,158 @@
+{
+  "masterTopics": {
+    "JP-Foundation": {
+      "topic_id": "JP-Foundation",
+      "title": "Jolly Phonics Foundation - Groups 1-3",
+      "cohort": "Adult vocational trainees (A1–B1 ESL)",
+      "duration_weeks": 4,
+      "prerequisites": [],
+      "learning_objectives": [
+        "Master basic letter-sound correspondences for s a t i p n c/k e h r m d g o u l f b",
+        "Develop basic blending skills for CVC words",
+        "Practice letter formation for workplace documentation",
+        "Introduction to basic tricky words"
+      ],
+      "phonics_groups": {
+        "group_1": {
+          "group_id": 1,
+          "sounds": ["s", "a", "t", "i", "p", "n"],
+          "focus": "Basic consonants and vowels",
+          "workplace_vocabulary": ["sit", "pan", "tip", "tap", "pin", "pit"]
+        },
+        "group_2": {
+          "group_id": 2,
+          "sounds": ["c/k", "e", "h", "r", "m", "d"],
+          "focus": "Extended consonants",
+          "workplace_vocabulary": ["red", "hard", "met", "care", "term"]
+        },
+        "group_3": {
+          "group_id": 3,
+          "sounds": ["g", "o", "u", "l", "f", "b"],
+          "focus": "Completing basic alphabet",
+          "workplace_vocabulary": ["log", "fuel", "bug", "gulf", "fold"]
+        }
+      },
+      "tricky_words": ["the", "I", "no", "go", "into"],
+      "assessment_plan": {
+        "baseline": "Letter recognition and basic sound knowledge",
+        "formative": "Daily sound checks and blending practice",
+        "summative": "Groups 1-3 consolidation quiz"
+      }
+    },
+
+    "JP-M1-Adults-ESL": {
+      "topic_id": "JP-M1-Adults-ESL",
+      "title": "Jolly Phonics Month 1 – Adult Vocational ESL",
+      "cohort": "Adult vocational trainees (A1–B1 ESL)",
+      "duration_weeks": 4,
+      "timeframe": "2024-09-01 to 2024-09-28",
+      "prerequisites": [
+        "Completed Groups 1–3: s a t i p n | c/k e h r m d | g o u l f b"
+      ],
+      "learning_objectives": [
+        "Consolidate letter-sound knowledge per Jolly order (42 sounds) with adult-relevant contexts",
+        "Improve letter formation and legibility tied to workplace documentation",
+        "Blend learned sounds to read job-related words and phrases",
+        "Segment workplace vocabulary for accurate spelling in forms and reports",
+        "Introduce and practice tricky words relevant to safety and operations"
+      ],
+      "esl_adaptations": [
+        "Use multisensory actions judiciously with adult-appropriate visuals and contexts",
+        "Embed tasks in workplace scenarios (forms, signage, shift notes, HSE briefings)",
+        "Model pronunciation and minimal pairs relevant to American English accent goals"
+      ],
+      "phonics_groups": {
+        "group_4": {
+          "group_id": 4,
+          "sounds": ["ai", "j", "oa", "ie", "ee", "or"],
+          "focus": "Long vowel patterns and consonant extensions",
+          "workplace_vocabulary": ["rain", "tail", "jet", "job", "goat", "road", "lie", "tied", "tree", "sleep", "fork", "storm"],
+          "minimal_pairs": ["rain/ran", "goat/got", "tree/tree"]
+        },
+        "group_5": {
+          "group_id": 5,
+          "sounds": ["z", "w", "ng", "v", "oo(short)", "oo(long)"],
+          "focus": "Consonant clusters and vowel distinctions",
+          "workplace_vocabulary": ["zip", "web", "sing", "long", "van", "vet", "good", "book", "zoo", "moon"],
+          "minimal_pairs": ["good/mood", "book/boot"]
+        }
+      },
+      "tricky_words_focus": ["to", "do", "was", "are", "said", "of"],
+      "assessment_plan": {
+        "baseline": "Review quiz on Groups 1–3 at start of Week 2",
+        "formative": "Daily dictation, blending/segmenting checks, exit tickets",
+        "summative": "End-of-week quizzes and a month-end phonics+reading assessment",
+        "pronunciation": "Weekly short oral check on target sounds and minimal pairs"
+      },
+      "materials": {
+        "print": ["Sound sheets", "word banks", "dictation lists", "workplace word cards"],
+        "digital": ["Projected slides", "audio for sounds", "document camera for formation"],
+        "actions_reference": "Jolly Phonics Actions sheet for mnemonic consistency"
+      },
+      "planned_weeks": [
+        {
+          "week_id": "JP-W2",
+          "focus_groups": [4, 5],
+          "description": "ai, j, oa, ie, ee, or | z, w, ng, v, oo, oo"
+        },
+        {
+          "week_id": "JP-W3", 
+          "focus_groups": [6, 7],
+          "description": "y, x, ch, sh, th, th | qu, ou, oi, ue, er, ar"
+        },
+        {
+          "week_id": "JP-W4",
+          "focus_groups": ["consolidation"],
+          "description": "Review + tricky words + fluency"
+        }
+      ],
+      "reporting": {
+        "evidence": ["Annotated sound sheets", "Dictation samples", "Reading logs", "Quiz scores"],
+        "reflection": "Note pacing adjustments for adults and any needed intervention"
+      }
+    }
+  },
+
+  "communicative_tasks": {
+    "workplace_forms": {
+      "task_id": "forms_001",
+      "title": "Maintenance Request Forms",
+      "description": "Complete workplace forms using target phonics patterns",
+      "target_sounds": ["ai", "j", "oa", "ie"],
+      "difficulty": "intermediate",
+      "materials": ["Sample forms", "Word banks", "Vocabulary cards"]
+    },
+    "safety_signage": {
+      "task_id": "safety_001", 
+      "title": "Safety Sign Recognition",
+      "description": "Read and match safety signage containing target graphemes",
+      "target_sounds": ["oa", "ie", "ee", "or"],
+      "difficulty": "beginner",
+      "materials": ["Safety signs", "Matching exercises", "Workplace photos"]
+    },
+    "shift_notes": {
+      "task_id": "notes_001",
+      "title": "Shift Handover Notes",
+      "description": "Write short shift notes using target phonics patterns",
+      "target_sounds": ["ee", "or", "z", "w"],
+      "difficulty": "intermediate", 
+      "materials": ["Note templates", "Scenario cards", "Vocabulary guides"]
+    },
+    "toolbox_talks": {
+      "task_id": "talks_001",
+      "title": "Toolbox Talk Role-play",
+      "description": "Role-play safety briefings using target vocabulary",
+      "target_sounds": ["ng", "v", "oo"],
+      "difficulty": "advanced",
+      "materials": ["Role-play cards", "Safety topics", "Speaking prompts"]
+    },
+    "hse_notices": {
+      "task_id": "hse_001",
+      "title": "HSE Notice Reading",
+      "description": "Read health, safety, and environment notices highlighting target sounds",
+      "target_sounds": ["v", "oo(short)", "oo(long)"],
+      "difficulty": "intermediate",
+      "materials": ["HSE documents", "Highlighting exercises", "Comprehension questions"]
+    }
+  }
+}

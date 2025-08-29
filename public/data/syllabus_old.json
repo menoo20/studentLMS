@@ -1,0 +1,126 @@
+[
+  {
+    "id": "syl1",
+    "subject": "Mathematics",
+    "unit": "Algebra", 
+    "topic": "Linear Equations",
+    "description": "Solving linear equations in one and two variables, graphing linear functions",
+    "duration": "3 weeks",
+    "status": "completed",
+    "startDate": "2024-01-15",
+    "endDate": "2024-02-05",
+    "resources": ["linear_equations_notes.pdf", "practice_worksheets.pdf"],
+    "objectives": [
+      "Solve linear equations in one variable",
+      "Solve systems of linear equations", 
+      "Graph linear functions"
+    ],
+    "subtopics": [
+      {
+        "name": "One Variable Linear Equations",
+        "completed": true
+      },
+      {
+        "name": "Two Variable Linear Equations", 
+        "completed": true
+      },
+      {
+        "name": "Graphing Linear Functions",
+        "completed": true
+      }
+    ]
+  },
+  {
+    "id": "syl2",
+    "subject": "Mathematics",
+    "unit": "Algebra",
+    "topic": "Quadratic Equations", 
+    "description": "Solving quadratic equations using various methods, graphing parabolas",
+    "duration": "4 weeks",
+    "status": "in-progress",
+    "startDate": "2024-02-06",
+    "endDate": "2024-03-05",
+    "resources": ["quadratic_equations_guide.pdf", "graphing_calculator_tutorial.mp4"],
+    "objectives": [
+      "Solve quadratic equations by factoring",
+      "Use the quadratic formula",
+      "Graph quadratic functions"
+    ],
+    "subtopics": [
+      {
+        "name": "Factoring Method",
+        "completed": true
+      },
+      {
+        "name": "Quadratic Formula",
+        "completed": false
+      },
+      {
+        "name": "Graphing Parabolas", 
+        "completed": false
+      }
+    ]
+  },
+  {
+    "id": "syl3",
+    "subject": "Mathematics", 
+    "unit": "Geometry",
+    "topic": "Triangles and Trigonometry",
+    "description": "Properties of triangles, trigonometric ratios, solving triangles",
+    "duration": "5 weeks",
+    "status": "planned",
+    "startDate": "2024-03-06",
+    "endDate": "2024-04-09", 
+    "resources": ["trigonometry_handbook.pdf", "triangle_properties_video.mp4"],
+    "objectives": [
+      "Identify triangle properties",
+      "Calculate trigonometric ratios",
+      "Solve right triangles"
+    ],
+    "subtopics": [
+      {
+        "name": "Triangle Classification",
+        "completed": false
+      },
+      {
+        "name": "Pythagorean Theorem",
+        "completed": false 
+      },
+      {
+        "name": "Trigonometric Ratios",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "id": "syl4",
+    "subject": "Statistics",
+    "unit": "Descriptive Statistics",
+    "topic": "Data Analysis",
+    "description": "Collection, organization, and interpretation of data",
+    "duration": "3 weeks", 
+    "status": "not-started",
+    "startDate": "2024-04-10",
+    "endDate": "2024-04-30",
+    "resources": ["statistics_textbook.pdf", "data_analysis_software.exe"],
+    "objectives": [
+      "Collect and organize data",
+      "Calculate measures of central tendency",
+      "Create data visualizations"
+    ],
+    "subtopics": [
+      {
+        "name": "Data Collection Methods",
+        "completed": false
+      },
+      {
+        "name": "Mean, Median, Mode",
+        "completed": false
+      },
+      {
+        "name": "Charts and Graphs",
+        "completed": false
+      }
+    ]
+  }
+]

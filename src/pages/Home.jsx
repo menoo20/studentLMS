@@ -19,12 +19,12 @@ const Home = () => {
   const loadStats = async () => {
     try {
       const [studentsRes, examsRes, scheduleRes, resourcesRes, marksRes, syllabusRes] = await Promise.all([
-        fetch('/data/students.json').catch(() => ({ json: () => [] })),
-        fetch('/data/exams.json').catch(() => ({ json: () => [] })),
-        fetch('/data/schedule.json').catch(() => ({ json: () => [] })),
-        fetch('/data/resources.json').catch(() => ({ json: () => [] })),
-        fetch('/data/marks.json').catch(() => ({ json: () => [] })),
-        fetch('/data/syllabus.json').catch(() => ({ json: () => [] })),
+        fetch('/my-annual-plan/data/students.json').catch(() => ({ json: () => [] })),
+        fetch('/my-annual-plan/data/exams.json').catch(() => ({ json: () => [] })),
+        fetch('/my-annual-plan/data/schedule.json').catch(() => ({ json: () => [] })),
+        fetch('/my-annual-plan/data/resources.json').catch(() => ({ json: () => [] })),
+        fetch('/my-annual-plan/data/marks.json').catch(() => ({ json: () => [] })),
+        fetch('/my-annual-plan/data/syllabus.json').catch(() => ({ json: () => ({}) })),
       ])
 
       const students = await studentsRes.json()
@@ -32,14 +32,23 @@ const Home = () => {
       const schedule = await scheduleRes.json()
       const resources = await resourcesRes.json()
       const marks = await marksRes.json()
-      const syllabus = await syllabusRes.json()
+      const syllabusData = await syllabusRes.json()
 
       // Calculate average grade
       const totalMarks = marks.reduce((sum, mark) => sum + mark.score, 0)
       const avgGrade = marks.length > 0 ? (totalMarks / marks.length).toFixed(1) : 0
 
-      // Count completed syllabus topics
-      const completed = syllabus.filter(topic => topic.status === 'completed').length
+      // Count completed syllabus topics from the new structure
+      let completed = 0
+      if (syllabusData.units && Array.isArray(syllabusData.units)) {
+        syllabusData.units.forEach(unit => {
+          if (unit.weeks && Array.isArray(unit.weeks)) {
+            unit.weeks.forEach(week => {
+              if (week.status === 'completed') completed++
+            })
+          }
+        })
+      }
 
       // Count upcoming classes (today and future)
       const today = new Date().toISOString().split('T')[0]

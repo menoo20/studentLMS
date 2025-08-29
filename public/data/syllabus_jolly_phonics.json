@@ -1,0 +1,1496 @@
+{
+  "courseInfo": {
+    "subject": "English for Adult Vocational Learners",
+    "courseType": "annual", 
+    "academicYear": "2024-2025",
+    "totalWeeks": 52,
+    "startDate": "2024-09-01",
+    "endDate": "2025-08-31",
+    "instructor": "English Teacher",
+    "description": "Comprehensive English language training for adult vocational students covering phonics, communication, technical vocabulary, and workplace literacy",
+    "methodology": "Multi-approach: Jolly Phonics foundation, communicative language teaching, and vocational English",
+    "target_audience": "Adult vocational trainees (A1-B1 ESL level)"
+  },
+  "units": [
+    {
+      "id": "jolly-phonics-foundation",
+      "title": "Jolly Phonics Foundation Month",
+      "description": "1-month intensive phonics foundation using Jolly Phonics methodology (Groups 1-7)",
+      "duration": "4 weeks",
+      "startWeek": 1,
+      "endWeek": 4,
+      "status": "completed",
+      "methodology": "Jolly Phonics systematic synthetic phonics",
+      "grammar_focus": {
+        "main_concepts": ["Phonics Groups 1-7", "Sound Recognition", "Letter Formation"],
+        "display_tags": ["Phonics Groups 1-7", "Sound Recognition", "Letter Formation"]
+      },
+      "phonics_groups": [
+        {
+          "group_id": 1,
+          "sounds": ["s", "a", "t", "i", "p", "n"],
+          "focus": "Basic consonants and vowels"
+        },
+        {
+          "group_id": 2, 
+          "sounds": ["c/k", "e", "h", "r", "m", "d"],
+          "focus": "Extended consonants"
+        },
+        {
+          "group_id": 3,
+          "sounds": ["g", "o", "u", "l", "f", "b"],
+          "focus": "Completing basic alphabet"
+        },
+        {
+          "group_id": 4,
+          "sounds": ["ai", "j", "oa", "ie", "ee", "or"],
+          "focus": "Long vowel patterns and consonant extensions"
+        },
+        {
+          "group_id": 5,
+          "sounds": ["z", "w", "ng", "v", "oo(short)", "oo(long)"],
+          "focus": "Consonant clusters and vowel distinctions"
+        },
+        {
+          "group_id": 6,
+          "sounds": ["y", "x", "ch", "sh", "th(unvoiced)", "th(voiced)"],
+          "focus": "Semi-vowels and digraphs"
+        },
+        {
+          "group_id": 7,
+          "sounds": ["qu", "ou", "oi", "ue", "er", "ar"],
+          "focus": "Complex patterns and r-controlled vowels"
+        }
+      ],
+      "objectives": [
+        "Master systematic phonics approach for reading foundation",
+        "Develop letter-sound correspondence for workplace vocabulary", 
+        "Build blending and segmenting skills for spelling accuracy",
+        "Apply phonics knowledge to basic workplace texts",
+        "Complete foundation for independent reading development"
+      ],
+      "weeklyPlan": [
+        {
+          "week": 1,
+          "topic": "Groups 1-3 Foundation: s a t i p n | c/k e h r m d | g o u l f b",
+          "focus": "Complete basic phonics foundation - all basic sounds",
+          "workplace_vocabulary": ["sit", "pan", "tip", "tap", "pin", "pit", "red", "hard", "met", "care", "term", "log", "fuel", "bug", "gulf", "fold"],
+          "tricky_words": ["the", "I", "no", "go", "into"],
+          "phonics_groups_covered": [1, 2, 3],
+          "status": "completed",
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Group 1: s a t i p n",
+              "activities": "Sound introduction, basic blending, workplace contexts",
+              "notes": "Foundation sounds completed"
+            },
+            {
+              "day": "Monday", 
+              "focus": "Group 2: c/k e h r m d",
+              "activities": "Extended consonants, more complex blending",
+              "notes": "Students progressing well"
+            },
+            {
+              "day": "Tuesday",
+              "focus": "Group 3: g o u l f b",
+              "activities": "Complete basic alphabet, workplace vocabulary",
+              "notes": "Basic foundation established"
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Groups 1-3 consolidation",
+              "activities": "Review all sounds, workplace application",
+              "notes": "Ready for advanced phonics"
+            },
+            {
+              "day": "Thursday",
+              "focus": "Assessment and fluency",
+              "activities": "Groups 1-3 comprehensive test, reading practice",
+              "notes": "Foundation secure, moving to Group 4"
+            }
+          ]
+        },
+        {
+          "week": 2,
+          "topic": "Group 4: ai j oa ie ee or",
+          "focus": "Long vowel patterns and digraphs",
+          "workplace_vocabulary": ["rain", "tail", "jet", "job", "goat", "road", "lie", "tied", "tree", "sleep", "fork", "storm"],
+          "tricky_words": ["to", "do", "was"],
+          "phonics_groups_covered": [4],
+          "status": "in-progress",
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "ai and j sounds",
+              "activities": "Long vowel ai, consonant j, workplace forms",
+              "notes": ""
+            },
+            {
+              "day": "Monday",
+              "focus": "oa and ie sounds", 
+              "activities": "Digraphs oa/ie, safety signage reading",
+              "notes": ""
+            },
+            {
+              "day": "Tuesday",
+              "focus": "ee and or sounds",
+              "activities": "Long ee, r-controlled or, shift notes",
+              "notes": ""
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Group 4 consolidation",
+              "activities": "All Group 4 sounds in workplace contexts",
+              "notes": ""
+            },
+            {
+              "day": "Thursday",
+              "focus": "Group 4 assessment",
+              "activities": "Testing Group 4 mastery, prepare for Group 5",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "week": 3,
+          "topic": "Group 5: z w ng v oo oo | Group 6: y x ch sh th th",
+          "focus": "Consonant clusters and fricatives/digraphs",
+          "workplace_vocabulary": ["zip", "web", "sing", "long", "van", "vet", "good", "book", "zoo", "moon", "yes", "box", "chip", "shop", "thick", "that"],
+          "tricky_words": ["are", "said", "of"],
+          "phonics_groups_covered": [5, 6],
+          "status": "planned",
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Group 5: z w ng",
+              "activities": "Consonants z/w, digraph ng, workplace contexts",
+              "notes": ""
+            },
+            {
+              "day": "Monday",
+              "focus": "Group 5: v oo(short) oo(long)", 
+              "activities": "Consonant v, vowel distinctions oo, toolbox talks",
+              "notes": ""
+            },
+            {
+              "day": "Tuesday",
+              "focus": "Group 6: y x ch sh",
+              "activities": "Semi-vowel y, consonant x, digraphs ch/sh",
+              "notes": ""
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Group 6: th(voiced) th(unvoiced)",
+              "activities": "Digraph th variations, HSE notices reading",
+              "notes": ""
+            },
+            {
+              "day": "Thursday",
+              "focus": "Groups 5-6 assessment",
+              "activities": "Combined Groups 5-6 testing and review",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "week": 4,
+          "topic": "Group 7: qu ou oi ue er ar | Jolly Phonics Completion",
+          "focus": "Final phonics patterns and comprehensive review",
+          "workplace_vocabulary": ["quick", "quiet", "loud", "about", "oil", "point", "blue", "true", "her", "water", "car", "start"],
+          "tricky_words": ["all", "some", "come", "were", "there"],
+          "phonics_groups_covered": [7],
+          "status": "planned",
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Group 7: qu ou oi",
+              "activities": "Digraph qu, diphthongs ou/oi, workplace scenarios",
+              "notes": ""
+            },
+            {
+              "day": "Monday",
+              "focus": "Group 7: ue er ar", 
+              "activities": "Digraph ue, r-controlled vowels er/ar",
+              "notes": ""
+            },
+            {
+              "day": "Tuesday",
+              "focus": "All 42 sounds review",
+              "activities": "Complete Jolly Phonics sound review, speed drills",
+              "notes": ""
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Phonics application",
+              "activities": "Reading workplace texts using all phonics knowledge",
+              "notes": ""
+            },
+            {
+              "day": "Thursday",
+              "focus": "Jolly Phonics completion assessment",
+              "activities": "Comprehensive phonics test, reading fluency check",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pronouns-foundation",
+      "title": "Personal Pronouns and Possessive Adjectives",
+      "description": "Essential pronoun system: personal pronouns in active voice and possessive adjectives",
+      "duration": "1 week",
+      "startWeek": 5,
+      "endWeek": 5,
+      "status": "planned",
+      "methodology": "Direct instruction with workplace application and communicative practice",
+      "grammar_focus": {
+        "main_concepts": ["Personal Pronouns", "Possessive Adjectives"],
+        "personal_pronouns": ["I", "you", "he", "she", "it", "we", "they"],
+        "possessive_adjectives": ["my", "your", "his", "her", "its", "our", "their"]
+      },
+      "key_highlights": [
+        "👤 Master all personal pronouns (I, you, he, she, it, we, they)",
+        "🏠 Learn possessive adjectives (my, your, his, her, its, our, their)", 
+        "🔄 Practice pronoun-verb agreement in workplace contexts",
+        "💼 Apply pronouns in workplace communication and documentation"
+      ],
+      "objectives": [
+        "Master all personal pronouns in subject position",
+        "Use possessive adjectives correctly with workplace nouns",
+        "Practice pronoun-verb agreement",
+        "Apply pronoun knowledge in workplace scenarios"
+      ],
+      "visual_style": {
+        "primary_color": "bg-cyan-100",
+        "border_color": "border-cyan-300",
+        "text_color": "text-cyan-800",
+        "accent_color": "bg-cyan-200"
+      },
+      "grammar_groups": [
+        {
+          "group_id": "personal-pronouns",
+          "title": "Personal Pronouns (Subject)",
+          "forms": ["I", "you", "he", "she", "it", "we", "they"],
+          "focus": "Subject pronouns for workplace communication",
+          "workplace_usage": "Talking about workers, equipment, tasks, and team activities"
+        },
+        {
+          "group_id": "possessive-adjectives", 
+          "title": "Possessive Adjectives",
+          "forms": ["my", "your", "his", "her", "its", "our", "their"],
+          "focus": "Showing ownership and responsibility",
+          "workplace_usage": "Tools, equipment, tasks, responsibilities, workplace belongings"
+        }
+      ],
+      "weeklyPlan": [
+        {
+          "week": 5,
+          "topic": "Personal Pronouns and Possessive Adjectives Mastery",
+          "focus": "Complete pronoun system for workplace communication",
+          "grammar_focus": ["I", "you", "he", "she", "it", "we", "they", "my", "your", "his", "her", "its", "our", "their"],
+          "workplace_vocabulary": ["worker", "supervisor", "team", "equipment", "tools", "responsibility", "shift", "task"],
+          "sentence_patterns": ["I work...", "He operates...", "My tools...", "Their equipment..."],
+          "status": "planned",
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Personal Pronouns (I, you, we, they)",
+              "activities": "Workplace introductions, team roles, and responsibilities",
+              "examples": ["I am a welder", "You are the supervisor", "We are a team", "They are new workers"],
+              "practice": "Create sentences about workplace roles using I, you, we, they",
+              "notes": "Focus on subject-verb agreement"
+            },
+            {
+              "day": "Monday",
+              "focus": "Personal Pronouns (he, she, it)",
+              "activities": "Describing colleagues, equipment, and workplace situations",
+              "examples": ["He is an engineer", "She is on break", "It is a new machine"],
+              "practice": "Describe people and things in the workplace using he, she, it",
+              "notes": "Practice with 'is' and basic verbs"
+            },
+            {
+              "day": "Tuesday",
+              "focus": "All Possessive Adjectives",
+              "activities": "Describing ownership of tools, responsibilities, and team projects",
+              "examples": ["This is my helmet", "That is his job", "This is our project", "Her tools are new"],
+              "practice": "Combine possessive adjectives with workplace nouns",
+              "notes": "Merge of original Tuesday and Wednesday content."
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Recycling & Review",
+              "activities": "Practice games, dialogues, and error correction for all personal pronouns and possessive adjectives.",
+              "examples": "Role-play: 'This is my colleague, he is an electrician. This is his toolbox.'",
+              "practice": "Mixed exercises, peer correction, and communicative activities.",
+              "notes": "Consolidate learning before the assessment."
+            },
+            {
+              "day": "Thursday",
+              "focus": "Week 5 assessment",
+              "activities": "Comprehensive pronoun and possessive adjective test",
+              "examples": "Written quiz and practical dialogue assessment",
+              "practice": "Complete assessment and review common mistakes",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "basic-grammar-foundation",
+      "title": "Basic Grammar Foundation",
+      "description": "Essential grammar building blocks: verb to be, parts of speech, and sentence structure",
+      "duration": "3 weeks",
+      "startWeek": 6,
+      "endWeek": 8,
+      "status": "planned",
+      "methodology": "Structured grammar instruction with workplace context and practical application",
+      "grammar_focus": {
+        "main_concepts": ["Verb 'To Be'", "Parts of Speech", "Sentence Structure"],
+        "verb_forms": ["am", "is", "are", "was", "were"],
+        "parts_of_speech": ["Nouns", "Verbs", "Adjectives"],
+        "sentence_patterns": ["S + V", "S + V + O", "S + V + O + Details"]
+      },
+      "key_highlights": [
+        "🔤 Master all forms of 'to be' (am, is, are, was, were)",
+        "📝 Identify nouns, verbs, and adjectives in workplace contexts", 
+        "🏗️ Build proper sentence structure with correct word order",
+        "💼 Apply grammar knowledge to workplace communication"
+      ],
+      "objectives": [
+        "Master the verb 'to be' in all forms (am, is, are, was, were)",
+        "Identify and use basic parts of speech (noun, verb, adjective)",
+        "Construct simple sentences with proper word order",
+        "Apply grammar knowledge in workplace contexts"
+      ],
+      "visual_style": {
+        "primary_color": "bg-blue-100",
+        "border_color": "border-blue-300",
+        "text_color": "text-blue-800",
+        "accent_color": "bg-blue-200"
+      },
+      "grammar_groups": [
+        {
+          "group_id": "verb-to-be",
+          "title": "Verb 'To Be' Forms",
+          "forms": ["am", "is", "are", "was", "were"],
+          "focus": "Present and past tense identity and description",
+          "workplace_usage": "Job roles, status, conditions, reports"
+        },
+        {
+          "group_id": "parts-of-speech",
+          "title": "Essential Parts of Speech",
+          "components": ["Nouns (people/places/things)", "Verbs (actions)", "Adjectives (descriptions)"],
+          "focus": "Building vocabulary and understanding word functions",
+          "workplace_usage": "Technical descriptions, safety procedures, task instructions"
+        },
+        {
+          "group_id": "sentence-structure",
+          "title": "Sentence Construction",
+          "patterns": ["Subject + Verb", "Subject + Verb + Object", "Extended sentences"],
+          "focus": "Proper word order and complete thoughts",
+          "workplace_usage": "Instructions, reports, communication clarity"
+        }
+      ],
+      "weeklyPlan": [
+        {
+          "week": 6,
+          "topic": "Verb 'To Be' Mastery",
+          "focus": "Present and past forms of 'to be' with workplace applications",
+          "grammar_focus": ["am", "is", "are", "was", "were"],
+          "workplace_vocabulary": ["worker", "job", "safe", "ready", "busy", "tired", "present", "absent"],
+          "sentence_patterns": ["I am...", "He/She is...", "We are...", "It was...", "They were..."],
+          "status": "planned",
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Present tense: am, is, are",
+              "activities": "Identity statements, job descriptions, workplace status",
+              "examples": ["I am a welder", "She is ready", "We are at work"],
+              "practice": "Complete sentences about workplace roles",
+              "notes": ""
+            },
+            {
+              "day": "Monday",
+              "focus": "Past tense: was, were",
+              "activities": "Yesterday's events, shift reports, past conditions",
+              "examples": ["I was at the meeting", "They were on break", "It was dangerous"],
+              "practice": "Describe yesterday's work activities",
+              "notes": ""
+            },
+            {
+              "day": "Tuesday",
+              "focus": "Questions & Negative Forms with 'to be'",
+              "activities": "Asking about status, location, condition and making negative statements.",
+              "examples": ["Are you ready?", "Is the machine working?", "It is not safe.", "We were not ready."],
+              "practice": "Question formation and expressing negatives for workplace scenarios.",
+              "notes": "Merged original Tuesday and Wednesday content."
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Recycling & Review",
+              "activities": "Practice games, dialogues, and error correction for all forms of 'to be' (positive, negative, questions).",
+              "examples": "Role-play: 'Were you at the meeting? No, I was not. I was busy.'",
+              "practice": "Mixed exercises, peer correction, and communicative activities.",
+              "notes": "Consolidate learning before the assessment."
+            },
+            {
+              "day": "Thursday",
+              "focus": "Week 6 assessment",
+              "activities": "Comprehensive 'to be' test, workplace dialogue practice",
+              "examples": "Mixed tense conversation about work situations",
+              "practice": "Complete assessment and peer practice",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "week": 7,
+          "topic": "Parts of Speech Fundamentals",
+          "focus": "Nouns, verbs, and adjectives in workplace contexts",
+          "grammar_focus": ["nouns", "verbs", "adjectives"],
+          "workplace_vocabulary": ["tools", "equipment", "safety", "procedures", "heavy", "hot", "sharp", "work", "repair", "check"],
+          "sentence_patterns": ["Noun + verb", "Adjective + noun", "Subject + verb + object"],
+          "status": "planned",
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Nouns - people, places, things",
+              "activities": "Identify workplace nouns, categorize objects and people",
+              "examples": ["worker", "factory", "helmet", "supervisor", "office", "machine"],
+              "practice": "Noun identification in workplace contexts",
+              "notes": ""
+            },
+            {
+              "day": "Monday",
+              "focus": "Verbs - action words",
+              "activities": "Workplace actions, daily tasks, procedures",
+              "examples": ["work", "repair", "check", "operate", "clean", "install"],
+              "practice": "Match verbs to workplace activities",
+              "notes": ""
+            },
+            {
+              "day": "Tuesday",
+              "focus": "Adjectives & Combinations",
+              "activities": "Safety descriptions, equipment conditions, and building descriptive phrases.",
+              "examples": ["safe", "dangerous", "heavy equipment", "experienced worker"],
+              "practice": "Describe workplace items and situations using adjectives and combine them with nouns.",
+              "notes": "Merged original Tuesday and Wednesday content."
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Recycling & Review",
+              "activities": "Practice games, identification drills, and sentence building with nouns, verbs, and adjectives.",
+              "examples": "Activity: 'Describe the picture using 3 nouns, 2 verbs, and 2 adjectives.'",
+              "practice": "Mixed exercises, peer correction, and communicative activities.",
+              "notes": "Consolidate learning before the assessment."
+            },
+            {
+              "day": "Thursday",
+              "focus": "Week 7 assessment",
+              "activities": "Parts of speech identification and usage test",
+              "examples": "Analyze workplace texts for parts of speech",
+              "practice": "Complete assessment and practical application",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "week": 8,
+          "topic": "Sentence Structure and Construction",
+          "focus": "Building complete sentences with proper word order",
+          "grammar_focus": ["subject + verb", "subject + verb + object", "word order"],
+          "workplace_vocabulary": ["operates", "maintains", "follows", "reports", "procedures", "problems", "solutions", "requirements"],
+          "sentence_patterns": ["S + V", "S + V + O", "S + V + O + complement"],
+          "status": "planned",
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Simple sentences: Subject + Verb",
+              "activities": "Basic workplace statements, who does what",
+              "examples": ["Workers arrive", "Machine operates", "Supervisor checks"],
+              "practice": "Create simple sentences about daily work activities",
+              "notes": ""
+            },
+            {
+              "day": "Monday",
+              "focus": "Complete sentences: Subject + Verb + Object",
+              "activities": "Workplace actions with objects, task descriptions",
+              "examples": ["Workers operate machines", "I follow procedures", "She repairs equipment"],
+              "practice": "Build complete sentences for work procedures",
+              "notes": ""
+            },
+            {
+              "day": "Tuesday",
+              "focus": "Word Order & Sentence Expansion",
+              "activities": "Adding details (time, place) and using common workplace sentence patterns.",
+              "examples": ["Workers operate machines safely.", "I follow safety procedures daily.", "Report any problems immediately."],
+              "practice": "Expand basic sentences and write workplace instructions.",
+              "notes": "Merged original Tuesday and Wednesday content."
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Recycling & Review",
+              "activities": "Sentence building games, error correction, and creating short workplace dialogues.",
+              "examples": "Activity: Combine S+V and S+V+O sentences to describe a work process.",
+              "practice": "Mixed exercises, peer correction, and communicative activities.",
+              "notes": "Consolidate all sentence structure concepts."
+            },
+            {
+              "day": "Thursday",
+              "focus": "Unit 3 comprehensive assessment",
+              "activities": "Combined grammar test: to be + parts of speech + sentence structure",
+              "examples": "Create workplace dialogue using all unit concepts",
+              "practice": "Final assessment and practical application",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit4",
+      "title": "Unit 4: Countries, Nationalities and Origins",
+      "description": "Using personal and possessive pronouns with countries, nationalities, and the preposition 'from'",
+      "duration": "2 weeks",
+      "timeline": "Weeks 9-10",
+      "textbook": "New Headway 5th/3rd Edition",
+      "methodology": "Textbook-based instruction with cultural awareness and workplace diversity focus",
+      "grammar_focus": {
+        "main_concepts": ["Countries & Nationalities", "Pronouns with Origins", "Preposition 'From'"],
+        "display_tags": ["Countries & Nationalities", "Pronouns + Origins", "Preposition 'From'"]
+      },
+      "learning_objectives": [
+        "Identify countries and their corresponding nationalities",
+        "Use personal pronouns with nationality statements",
+        "Apply possessive pronouns to describe origins",
+        "Correctly use preposition 'from' for origins",
+        "Practice through New Headway textbook exercises"
+      ],
+      "visual_style": {
+        "primary_color": "bg-teal-100",
+        "border_color": "border-teal-300",
+        "text_color": "text-teal-800",
+        "accent_color": "bg-teal-200"
+      },
+      "highlights": {
+        "key_countries": ["Egypt", "Saudi Arabia", "Philippines", "India", "Pakistan", "Bangladesh"],
+        "essential_patterns": ["I am from [country]", "I am [nationality]", "Where are you from?"],
+        "workplace_focus": "International team communication and cultural diversity",
+        "textbook_integration": "New Headway systematic approach with structured exercises"
+      },
+      "grammar_groups": [
+        {
+          "group_id": "countries-nationalities",
+          "title": "🌍 Countries and Nationalities",
+          "components": ["Country names", "Nationality adjectives", "Cultural awareness"],
+          "focus": "Major countries relevant to workplace diversity",
+          "workplace_usage": "Team introductions, international projects, cultural understanding"
+        },
+        {
+          "group_id": "pronouns-with-origins",
+          "title": "👥 Pronouns with Origins",
+          "components": ["Personal pronouns + from", "Possessive + country", "Team descriptions"],
+          "focus": "Combining pronoun knowledge with origin statements",
+          "workplace_usage": "Describing team backgrounds, international experience, cultural diversity"
+        },
+        {
+          "group_id": "preposition-from",
+          "title": "📍 Preposition 'From'",
+          "components": ["I am from...", "He/She comes from...", "We work from..."],
+          "focus": "Correct usage of 'from' with countries and origins",
+          "workplace_usage": "Origin statements, work locations, international assignments"
+        }
+      ],
+      "weeklyPlan": [
+        {
+          "week": 9,
+          "topic": "Countries and Nationalities Introduction",
+          "focus": "Learning country names, nationality adjectives, and basic origin statements",
+          "grammar_focus": ["country names", "nationality adjectives", "I am from...", "He/She is from..."],
+          "textbook_reference": "New Headway - Countries and Nationalities unit",
+          "workplace_vocabulary": ["international", "foreign", "local", "overseas", "domestic", "global"],
+          "sentence_patterns": ["I am from [country]", "I am [nationality]", "He/She is from [country]", "We are [nationality]"],
+          "status": "planned",
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Major countries and nationalities",
+              "activities": "Textbook exercises on common countries, nationality matching activities",
+              "examples": ["Egypt - Egyptian", "Saudi Arabia - Saudi", "Philippines - Filipino", "India - Indian"],
+              "practice": "New Headway exercises on country-nationality pairs",
+              "textbook_pages": "As per New Headway unit",
+              "notes": ""
+            },
+            {
+              "day": "Monday",
+              "focus": "Personal pronouns with nationalities",
+              "activities": "Combining pronouns with nationality statements, workplace introductions",
+              "examples": ["I am Egyptian", "He is Filipino", "She is Indian", "We are international workers"],
+              "practice": "Textbook dialogues and workplace introduction scenarios",
+              "textbook_pages": "New Headway conversation practice",
+              "notes": ""
+            },
+            {
+              "day": "Tuesday",
+              "focus": "Using 'from' & Combining Concepts",
+              "activities": "Preposition practice, origin statements, and complex statements about origins.",
+              "examples": ["I am from Egypt.", "My colleague is from India.", "Their team is international."],
+              "practice": "New Headway grammar exercises and speaking activities.",
+              "textbook_pages": "Grammar focus and speaking practice sections.",
+              "notes": "Merged original Tuesday and Wednesday content."
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Recycling & Review",
+              "activities": "Practice games, quizzes, and dialogues covering countries, nationalities, pronouns, and 'from'.",
+              "examples": "Role-play: Introduce a team of international workers, stating their name, nationality, and country of origin.",
+              "practice": "Mixed exercises from textbook, peer correction, and communicative activities.",
+              "notes": "Consolidate learning before the assessment."
+            },
+            {
+              "day": "Thursday",
+              "focus": "Week 9 assessment and practice",
+              "activities": "Countries/nationalities quiz, textbook review exercises",
+              "examples": "Mixed practice from New Headway unit",
+              "practice": "Complete textbook unit assessment",
+              "textbook_pages": "Unit review and test",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "week": 10,
+          "topic": "Advanced Origins and Workplace Applications",
+          "focus": "Complex origin statements, possessive forms, and workplace diversity communication",
+          "grammar_focus": ["possessive pronouns with origins", "question formation", "workplace diversity"],
+          "textbook_reference": "New Headway - Extended practice and conversation",
+          "workplace_vocabulary": ["background", "experience", "culture", "language", "team", "diversity", "international experience"],
+          "sentence_patterns": ["Where are you from?", "My country is...", "His background is...", "Our team comes from..."],
+          "status": "planned",
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Possessive pronouns with origins",
+              "activities": "Advanced possessive forms, describing others' backgrounds",
+              "examples": ["My country is Egypt", "His nationality is Filipino", "Their culture is different"],
+              "practice": "New Headway advanced exercises on possessive forms",
+              "textbook_pages": "Extended grammar practice",
+              "notes": ""
+            },
+            {
+              "day": "Monday",
+              "focus": "Questions about origins",
+              "activities": "Question formation, workplace getting-to-know conversations",
+              "examples": ["Where are you from?", "What is your nationality?", "Which country do you come from?"],
+              "practice": "Textbook dialogue practice and workplace conversations",
+              "textbook_pages": "Question formation exercises",
+              "notes": ""
+            },
+            {
+              "day": "Tuesday",
+              "focus": "Workplace Diversity & Cultural Exchange",
+              "activities": "Team introductions, multicultural workplace scenarios, and describing cultural backgrounds.",
+              "examples": ["Our team is international.", "In my country, we...", "Their way of working is..."],
+              "practice": "Role-play activities and extended speaking practice from New Headway.",
+              "textbook_pages": "Real-world application and cultural communication sections.",
+              "notes": "Merged original Tuesday and Wednesday content."
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Recycling & Review",
+              "activities": "Practice games, debates, and presentation practice on cultural topics.",
+              "examples": "Activity: 'Prepare a short presentation about your country's work culture.'",
+              "practice": "Mixed exercises, peer correction, and communicative activities.",
+              "notes": "Consolidate all concepts from Unit 4."
+            },
+            {
+              "day": "Thursday",
+              "focus": "Unit 4 comprehensive assessment",
+              "activities": "Complete unit test covering countries, nationalities, pronouns, and 'from'",
+              "examples": "Integrated assessment using all unit concepts",
+              "practice": "New Headway unit test and practical workplace application",
+              "textbook_pages": "Complete unit assessment",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit5",
+      "title": "Unit 5: Introduction to Tenses and Questions",
+      "description": "Basic tense structure, helping verbs, and question formation for beginners",
+      "duration": "3 weeks",
+      "timeline": "Weeks 11-13",
+      "level": "Beginner Introduction",
+      "methodology": "Simplified pattern recognition with practical workplace question-answer training",
+      "grammar_focus": {
+        "main_concepts": ["Helping Verbs", "Question Formation", "Question Words"],
+        "display_tags": ["Helping Verbs", "Question Formation", "Question Words"]
+      },
+      "learning_objectives": [
+        "Understand what helping verbs are and their basic function",
+        "Learn simple forms of helping verbs (do, does, did, am, is, are, was, were)",
+        "Practice basic question formation with helping verbs",
+        "Recognize different types of questions (yes/no, wh-questions)",
+        "Apply basic tense concepts in workplace scenarios"
+      ],
+      "visual_style": {
+        "primary_color": "bg-indigo-100",
+        "border_color": "border-indigo-300",
+        "text_color": "text-indigo-800",
+        "accent_color": "bg-indigo-200"
+      },
+      "highlights": {
+        "helping_verbs": ["do", "does", "did", "am", "is", "are", "was", "were"],
+        "question_patterns": ["Do you...?", "Does he...?", "Are you...?", "What do you...?", "Where is...?"],
+        "beginner_focus": "Simple recognition and basic patterns - not complex grammar rules",
+        "workplace_application": "Practical question-answer skills for workplace communication"
+      },
+      "grammar_groups": [
+        {
+          "group_id": "helping-verbs-do",
+          "title": "🔧 Helping Verbs: Do Family",
+          "components": ["do", "does", "did"],
+          "focus": "Present and past helping verbs for questions and emphasis",
+          "workplace_usage": "Questions about work tasks, completed activities, daily routines"
+        },
+        {
+          "group_id": "helping-verbs-be",
+          "title": "🏗️ Helping Verbs: Be Family",
+          "components": ["am", "is", "are", "was", "were"],
+          "focus": "Continuous actions and states in workplace contexts",
+          "workplace_usage": "Current work status, ongoing projects, past conditions"
+        },
+        {
+          "group_id": "question-formation",
+          "title": "❓ Question Formation",
+          "components": ["Yes/No questions", "Wh-questions", "Question word order"],
+          "focus": "Basic question patterns for workplace communication",
+          "workplace_usage": "Getting information, clarifying tasks, workplace conversations"
+        },
+        {
+          "group_id": "question-words",
+          "title": "📝 Question Words",
+          "components": ["what", "who", "where", "when", "why", "how"],
+          "focus": "Information gathering in workplace scenarios",
+          "workplace_usage": "Task details, responsibilities, locations, timing, methods"
+        }
+      ],
+      "weeklyPlan": [
+        {
+          "week": 11,
+          "topic": "Introduction to Helping Verbs",
+          "focus": "Understanding what helping verbs are and their basic forms",
+          "grammar_focus": ["helping verbs concept", "do/does/did", "am/is/are/was/were"],
+          "workplace_vocabulary": ["help", "assist", "support", "complete", "finish", "start", "work", "operate"],
+          "sentence_patterns": ["I do work", "She does work", "We did work", "He is working", "They are working"],
+          "status": "planned",
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "What are helping verbs?",
+              "activities": "Introduction to concept, identifying helping verbs in simple sentences",
+              "examples": ["I do work (do helps)", "She is working (is helps)", "We have finished (have helps)"],
+              "practice": "Identify helping verbs in workplace sentences",
+              "notes": "Keep it very simple - focus on recognition, not complex rules"
+            },
+            {
+              "day": "Monday",
+              "focus": "Forms of 'do' - do, does, did",
+              "activities": "Present and past forms, when to use each form",
+              "examples": ["I do my job", "He does his work", "We did the task yesterday"],
+              "practice": "Fill in correct form of 'do' in workplace contexts",
+              "notes": "Emphasize simple patterns, not grammar terminology"
+            },
+            {
+              "day": "Tuesday",
+              "focus": "Forms of 'be' & Workplace Application",
+              "activities": "Review 'to be' as helping verb and apply all helping verbs in workplace conversations.",
+              "examples": ["I am working.", "She is helping.", "Do you work here?", "We did complete the project."],
+              "practice": "Use correct form of 'be' and role-play workplace scenarios using all helping verbs.",
+              "notes": "Merged original Tuesday and Wednesday content."
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Recycling & Review",
+              "activities": "Practice games, drills, and error correction for all helping verbs (do, does, did, am, is, are, was, were).",
+              "examples": "Activity: 'Find the helping verb' in workplace safety manuals.",
+              "practice": "Mixed exercises, peer correction, and communicative activities.",
+              "notes": "Consolidate learning before moving to questions."
+            },
+            {
+              "day": "Thursday",
+              "focus": "Week 11 practice and review",
+              "activities": "Helping verb recognition and basic usage assessment",
+              "examples": "Mixed practice identifying and using helping verbs",
+              "practice": "Simple assessment focusing on recognition and basic usage",
+              "notes": "Keep assessment stress-free and practical"
+            }
+          ]
+        },
+        {
+          "week": 12,
+          "topic": "Basic Question Formation",
+          "focus": "How to make questions using helping verbs",
+          "grammar_focus": ["yes/no questions", "question word order", "question formation with helping verbs"],
+          "workplace_vocabulary": ["ask", "answer", "question", "information", "details", "clarify", "confirm"],
+          "sentence_patterns": ["Do you...?", "Does he...?", "Are you...?", "Is she...?", "Did we...?"],
+          "status": "planned",
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Yes/No questions with 'do'",
+              "activities": "Making simple questions, changing statements to questions",
+              "examples": ["You work here → Do you work here?", "He helps → Does he help?"],
+              "practice": "Convert workplace statements into yes/no questions",
+              "notes": "Start with very simple transformations"
+            },
+            {
+              "day": "Monday",
+              "focus": "Yes/No questions with 'be'",
+              "activities": "Question formation with am/is/are/was/were",
+              "examples": ["You are ready → Are you ready?", "She was busy → Was she busy?"],
+              "practice": "Make questions about workplace status and conditions",
+              "notes": "Use familiar workplace situations"
+            },
+            {
+              "day": "Tuesday",
+              "focus": "Question Word Order & Answering",
+              "activities": "Understanding word order (verb+subject) and practicing short answers.",
+              "examples": ["Do + you + work? Yes, I do.", "Is + he + ready? No, he isn't."],
+              "practice": "Arrange words to make questions and practice question-answer pairs.",
+              "notes": "Merged original Tuesday and Wednesday content."
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Recycling & Review",
+              "activities": "Practice games, drills, and creating dialogues with yes/no questions.",
+              "examples": "Role-play: A supervisor asks a worker a series of yes/no questions about task readiness.",
+              "practice": "Mixed exercises, peer correction, and communicative activities.",
+              "notes": "Consolidate question formation before learning wh-words."
+            },
+            {
+              "day": "Thursday",
+              "focus": "Week 12 assessment",
+              "activities": "Question formation practice and assessment",
+              "examples": "Make and answer workplace questions",
+              "practice": "Practical question-answer assessment in workplace context",
+              "notes": "Assess practical communication, not grammar rules"
+            }
+          ]
+        },
+        {
+          "week": 13,
+          "topic": "Question Words and Types of Questions",
+          "focus": "Introduction to wh-questions and different question types",
+          "grammar_focus": ["question words", "what, who, where, when, why, how", "wh-question formation"],
+          "workplace_vocabulary": ["information", "details", "location", "time", "reason", "method", "person", "thing"],
+          "sentence_patterns": ["What do you...?", "Where is...?", "When did...?", "Who does...?", "How do...?"],
+          "status": "planned",
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Basic question words introduction",
+              "activities": "Learning what, who, where, when, why, how and their meanings",
+              "examples": ["What = thing", "Who = person", "Where = place", "When = time"],
+              "practice": "Match question words with their meanings using workplace examples",
+              "notes": "Use lots of visual aids and simple examples"
+            },
+            {
+              "day": "Monday",
+              "focus": "Simple wh-questions with 'do' and 'be'",
+              "activities": "Making basic information questions with both helping verb families.",
+              "examples": ["What do you do?", "Where is the office?", "When do you start?", "Who is your supervisor?"],
+              "practice": "Ask and answer basic workplace information questions using both 'do' and 'be'.",
+              "notes": "Merged original Monday and Tuesday content."
+            },
+            {
+              "day": "Tuesday",
+              "focus": "Types of Questions Review",
+              "activities": "Distinguishing yes/no questions from information (wh-) questions.",
+              "examples": ["Yes/No: Do you work here?", "Information: Where do you work?"],
+              "practice": "Categorize questions and practice asking and answering both types.",
+              "notes": "Focus on understanding the different purposes of questions."
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Recycling & Review",
+              "activities": "Practice games, information-gap activities, and creating full workplace dialogues.",
+              "examples": "Activity: One student has a problem, the other asks wh- and yes/no questions to understand the situation.",
+              "practice": "Mixed exercises, peer correction, and communicative activities.",
+              "notes": "Consolidate all question types before final assessment."
+            },
+            {
+              "day": "Thursday",
+              "focus": "Unit 5 comprehensive assessment",
+              "activities": "Complete assessment covering helping verbs, question formation, and question words",
+              "examples": "Practical workplace communication using all unit concepts",
+              "practice": "Integrated assessment focusing on practical communication skills",
+              "notes": "Assessment should feel like natural workplace interaction"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit6",
+      "title": "Unit 6: Present Simple Tense",
+      "description": "Daily routines, habits, and workplace procedures using present simple tense",
+      "duration": "3 weeks",
+      "timeline": "Weeks 14-16",
+      "textbook": "New Headway 5th/3rd Edition - Present Simple Units",
+      "methodology": "Communicative approach with textbook support and workplace application focus",
+      "grammar_focus": {
+        "main_concepts": ["Present Simple Positive", "Present Simple Questions", "Present Simple Negative"],
+        "display_tags": ["Present Simple Positive", "Present Simple Questions", "Present Simple Negative"]
+      },
+      "learning_objectives": [
+        "Form positive statements in present simple (I work, He works)",
+        "Create questions using do/does (Do you work? Does he start early?)",
+        "Make negative statements with don't/doesn't (I don't work weekends)",
+        "Apply present simple to describe workplace routines and procedures",
+        "Use time expressions with present simple (always, usually, never, every day)"
+      ],
+      "visual_style": {
+        "primary_color": "bg-violet-100",
+        "border_color": "border-violet-300",
+        "text_color": "text-violet-800",
+        "accent_color": "bg-violet-200"
+      },
+      "highlights": {
+        "key_patterns": ["I work", "He works", "Do you work?", "I don't work", "Does he work?"],
+        "third_person_rule": "Add -s to verbs with he/she/it (He works, She starts, It operates)",
+        "workplace_focus": "Daily routines, job descriptions, and workplace procedures",
+        "textbook_integration": "New Headway systematic present simple progression"
+      },
+      "grammar_groups": [
+        {
+          "group_id": "present-simple-positive",
+          "title": "✅ Present Simple Positive",
+          "components": ["I/You/We/They + verb", "He/She/It + verb+s"],
+          "focus": "Daily routines and workplace procedures",
+          "workplace_usage": "Job descriptions, daily tasks, company procedures, work schedules"
+        },
+        {
+          "group_id": "present-simple-questions",
+          "title": "❓ Present Simple Questions",
+          "components": ["Do + I/you/we/they + verb?", "Does + he/she/it + verb?"],
+          "focus": "Information gathering about work routines and procedures",
+          "workplace_usage": "Asking about schedules, responsibilities, procedures, work habits"
+        },
+        {
+          "group_id": "present-simple-negative",
+          "title": "❌ Present Simple Negative",
+          "components": ["I/You/We/They + don't + verb", "He/She/It + doesn't + verb"],
+          "focus": "Expressing what doesn't happen in workplace routines",
+          "workplace_usage": "Explaining limitations, restrictions, non-standard procedures"
+        },
+        {
+          "group_id": "time-expressions",
+          "title": "⏰ Time Expressions",
+          "components": ["always", "usually", "often", "sometimes", "never", "every day"],
+          "focus": "Frequency and regularity in workplace contexts",
+          "workplace_usage": "Describing work patterns, safety procedures, routine maintenance"
+        }
+      ],
+      "weeklyPlan": [
+        {
+          "week": 14,
+          "topic": "Present Simple Positive Statements",
+          "focus": "Daily routines, job descriptions, and workplace procedures",
+          "grammar_focus": ["I/you/we/they + verb", "he/she/it + verb+s", "subject-verb agreement"],
+          "textbook_reference": "New Headway - Present Simple introduction and positive forms",
+          "workplace_vocabulary": ["work", "start", "finish", "operate", "check", "maintain", "report", "follow"],
+          "sentence_patterns": ["I work in construction", "He starts at 8am", "We follow safety procedures", "The machine operates daily"],
+          "status": "planned",
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Present simple with I, you, we, they",
+              "activities": "Workplace routines, job descriptions, team activities",
+              "examples": ["I work in the factory", "You operate the machine", "We start at 7am", "They check the equipment"],
+              "practice": "New Headway exercises on first and second person present simple",
+              "textbook_pages": "Present simple introduction section",
+              "notes": "Focus on workplace routines and clear pronunciation"
+            },
+            {
+              "day": "Monday",
+              "focus": "Present simple with he, she, it (adding -s)",
+              "activities": "Describing colleagues' work, equipment functions, third person descriptions",
+              "examples": ["He works night shift", "She operates the crane", "It runs automatically", "The supervisor checks everything"],
+              "practice": "New Headway exercises on third person singular forms",
+              "textbook_pages": "Third person singular practice section",
+              "notes": "Emphasize the -s ending rule with workplace examples"
+            },
+            {
+              "day": "Tuesday",
+              "focus": "Mixed Practice & Time Expressions",
+              "activities": "Combining all forms with time expressions, describing work schedules and frequencies",
+              "examples": ["I always wear my helmet", "He usually starts early", "We sometimes work overtime", "The machine never stops"],
+              "practice": "New Headway exercises combining present simple with time expressions",
+              "textbook_pages": "Time expressions and frequency adverbs section",
+              "notes": "Merged content focusing on complete workplace descriptions"
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Recycling & Review",
+              "activities": "Practice games, drills, and creating workplace routine descriptions",
+              "examples": "Activity: 'Describe your typical work day' using present simple and time expressions",
+              "practice": "Mixed exercises, peer correction, and communicative activities",
+              "notes": "Consolidate positive present simple before moving to questions"
+            },
+            {
+              "day": "Thursday",
+              "focus": "Week 14 assessment",
+              "activities": "Present simple positive forms test with workplace contexts",
+              "examples": "Complete sentences about work routines and job descriptions",
+              "practice": "Assessment covering subject-verb agreement and time expressions",
+              "notes": "Focus on practical workplace communication"
+            }
+          ]
+        },
+        {
+          "week": 15,
+          "topic": "Present Simple Questions and Negatives",
+          "focus": "Information gathering and expressing limitations in workplace contexts",
+          "grammar_focus": ["do/does questions", "don't/doesn't negatives", "yes/no answers"],
+          "textbook_reference": "New Headway - Present Simple questions and negatives",
+          "workplace_vocabulary": ["schedule", "responsibility", "procedure", "requirement", "available", "busy", "free", "overtime"],
+          "sentence_patterns": ["Do you work weekends?", "Does he operate machinery?", "I don't work nights", "She doesn't handle chemicals"],
+          "status": "planned",
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Yes/No questions with do/does",
+              "activities": "Asking about work schedules, responsibilities, and procedures",
+              "examples": ["Do you work overtime?", "Does he start early?", "Do they follow procedures?", "Does the machine work properly?"],
+              "practice": "New Headway question formation exercises with workplace scenarios",
+              "textbook_pages": "Present simple questions section",
+              "notes": "Build on question knowledge from Unit 5"
+            },
+            {
+              "day": "Monday",
+              "focus": "Short answers and negative statements",
+              "activities": "Answering workplace questions and expressing limitations",
+              "examples": ["Do you work weekends? No, I don't", "I don't operate heavy machinery", "He doesn't work night shifts"],
+              "practice": "New Headway exercises on short answers and negative forms",
+              "textbook_pages": "Negative forms and short answers section",
+              "notes": "Emphasize don't vs doesn't distinction"
+            },
+            {
+              "day": "Tuesday",
+              "focus": "Wh-questions & Complex Workplace Scenarios",
+              "activities": "Information questions about work and comprehensive workplace dialogues",
+              "examples": ["What do you do?", "Where does he work?", "When do they start?", "How does the machine operate?"],
+              "practice": "New Headway wh-question exercises and extended workplace conversations",
+              "textbook_pages": "Information questions and dialogue practice sections",
+              "notes": "Merged content for comprehensive question practice"
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Recycling & Review",
+              "activities": "Question-answer practice, workplace interview simulations, error correction",
+              "examples": "Role-play: Job interview questions using present simple forms",
+              "practice": "Mixed exercises, peer correction, and communicative activities",
+              "notes": "Consolidate all question and negative forms"
+            },
+            {
+              "day": "Thursday",
+              "focus": "Week 15 assessment",
+              "activities": "Comprehensive present simple test: positive, negative, and questions",
+              "examples": "Workplace interview simulation and written assessment",
+              "practice": "Complete assessment covering all present simple forms",
+              "notes": "Focus on natural workplace communication"
+            }
+          ]
+        },
+        {
+          "week": 16,
+          "topic": "Present Simple Advanced Applications",
+          "focus": "Workplace procedures, company policies, and professional descriptions",
+          "grammar_focus": ["complex workplace descriptions", "company procedures", "professional routines"],
+          "textbook_reference": "New Headway - Present Simple extended practice and real-world applications",
+          "workplace_vocabulary": ["policy", "procedure", "regulation", "standard", "requirement", "responsibility", "safety protocol", "maintenance"],
+          "sentence_patterns": ["Our company requires...", "This procedure involves...", "Safety regulations state...", "The maintenance team checks..."],
+          "status": "planned",
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Company procedures and policies",
+              "activities": "Describing workplace rules, safety procedures, and company standards",
+              "examples": ["Our company requires hard hats", "Safety procedures include daily checks", "The policy states that workers must..."],
+              "practice": "New Headway exercises on describing procedures and rules",
+              "textbook_pages": "Extended practice and real-world application sections",
+              "notes": "Focus on formal workplace language"
+            },
+            {
+              "day": "Monday",
+              "focus": "Professional job descriptions",
+              "activities": "Detailed descriptions of job roles, responsibilities, and qualifications",
+              "examples": ["An engineer designs systems", "Supervisors manage teams", "Technicians maintain equipment", "Safety officers inspect worksites"],
+              "practice": "New Headway extended speaking practice on professional roles",
+              "textbook_pages": "Professional vocabulary and job description sections",
+              "notes": "Build professional vocabulary and confidence"
+            },
+            {
+              "day": "Tuesday",
+              "focus": "Integration & Real-world Application",
+              "activities": "Complex workplace scenarios, procedure explanations, and professional communication",
+              "examples": ["Explain your company's safety procedure", "Describe your typical work week", "Compare different job responsibilities"],
+              "practice": "Extended New Headway speaking activities and workplace presentations",
+              "textbook_pages": "Integration and communication skills sections",
+              "notes": "Prepare for comprehensive unit assessment"
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Recycling & Review",
+              "activities": "Comprehensive review games, presentation practice, error correction",
+              "examples": "Activity: 'Present your job role to new colleagues' - using all present simple forms",
+              "practice": "Mixed exercises, peer correction, and communicative activities",
+              "notes": "Final consolidation before unit assessment"
+            },
+            {
+              "day": "Thursday",
+              "focus": "Unit 6 comprehensive assessment",
+              "activities": "Complete present simple assessment covering all forms and workplace applications",
+              "examples": "Integrated assessment: job interview, procedure explanation, and written test",
+              "practice": "Comprehensive evaluation of present simple mastery in workplace contexts",
+              "notes": "Assessment should demonstrate practical communication competence"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit7",
+      "title": "Unit 7: Present Continuous Tense",
+      "description": "Ongoing actions, current activities, and temporary situations in workplace contexts",
+      "duration": "3 weeks",
+      "timeline": "Weeks 17-19",
+      "textbook": "New Headway 5th/3rd Edition - Present Continuous Units",
+      "methodology": "Contrastive approach comparing present simple vs continuous with workplace scenarios",
+      "grammar_focus": {
+        "main_concepts": ["Present Continuous Positive", "Present Continuous Questions", "Present vs Continuous Contrast"],
+        "display_tags": ["Present Continuous Positive", "Present Continuous Questions", "Present vs Continuous Contrast"]
+      },
+      "learning_objectives": [
+        "Form present continuous with am/is/are + verb-ing (I am working, He is operating)",
+        "Create questions and negatives in present continuous (Are you working? He isn't operating)",
+        "Distinguish between present simple (routines) and present continuous (current actions)",
+        "Apply present continuous to describe current workplace activities and temporary situations",
+        "Use time expressions specific to present continuous (now, at the moment, currently, today)"
+      ],
+      "visual_style": {
+        "primary_color": "bg-rose-100",
+        "border_color": "border-rose-300",
+        "text_color": "text-rose-800",
+        "accent_color": "bg-rose-200"
+      },
+      "highlights": {
+        "key_patterns": ["I am working", "He is fixing", "Are you operating?", "We aren't working", "What are you doing?"],
+        "ing_rule": "Add -ing to verbs (work→working, fix→fixing, operate→operating)",
+        "workplace_focus": "Current activities, ongoing projects, temporary situations",
+        "textbook_integration": "New Headway present continuous with contrastive practice"
+      },
+      "grammar_groups": [
+        {
+          "group_id": "present-continuous-positive",
+          "title": "🔄 Present Continuous Positive",
+          "components": ["am/is/are + verb-ing", "Current actions", "Ongoing activities"],
+          "focus": "What's happening now in the workplace",
+          "workplace_usage": "Current tasks, ongoing projects, temporary work situations"
+        },
+        {
+          "group_id": "present-continuous-questions",
+          "title": "❓ Present Continuous Questions",
+          "components": ["Am/Is/Are + subject + verb-ing?", "What/Where/Why + are you doing?"],
+          "focus": "Asking about current activities and ongoing situations",
+          "workplace_usage": "Checking on current tasks, project status, immediate activities"
+        },
+        {
+          "group_id": "present-continuous-negative",
+          "title": "❌ Present Continuous Negative",
+          "components": ["am not/isn't/aren't + verb-ing", "Current limitations", "What's not happening"],
+          "focus": "Expressing what isn't currently happening",
+          "workplace_usage": "Equipment downtime, unavailable workers, stopped processes"
+        },
+        {
+          "group_id": "simple-vs-continuous",
+          "title": "⚖️ Simple vs Continuous",
+          "components": ["Routine vs Current", "Always vs Now", "General vs Temporary"],
+          "focus": "Choosing the right tense for the situation",
+          "workplace_usage": "Distinguishing daily routines from current activities"
+        }
+      ],
+      "weeklyPlan": [
+        {
+          "week": 17,
+          "topic": "Present Continuous Formation and Basic Usage",
+          "focus": "Current workplace activities and ongoing tasks",
+          "grammar_focus": ["am/is/are + verb-ing", "spelling rules for -ing", "current time expressions"],
+          "textbook_reference": "New Headway - Present Continuous introduction and formation",
+          "workplace_vocabulary": ["working", "operating", "fixing", "checking", "installing", "maintaining", "monitoring", "preparing"],
+          "sentence_patterns": ["I am working on a project", "He is fixing the machine", "We are preparing for inspection", "The system is running"],
+          "status": "planned",
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Present continuous formation (am/is/are + verb-ing)",
+              "activities": "Introduction to ongoing actions, current workplace activities",
+              "examples": ["I am working", "You are operating the machine", "He is checking equipment", "We are preparing the site"],
+              "practice": "New Headway exercises on present continuous formation",
+              "textbook_pages": "Present continuous introduction section",
+              "notes": "Focus on clear pronunciation of -ing endings"
+            },
+            {
+              "day": "Monday",
+              "focus": "Spelling rules for -ing verbs",
+              "activities": "Adding -ing to different verb types, workplace verb practice",
+              "examples": ["work→working", "fix→fixing", "run→running", "operate→operating", "prepare→preparing"],
+              "practice": "New Headway spelling exercises with workplace verbs",
+              "textbook_pages": "Spelling rules and practice section",
+              "notes": "Emphasize common workplace verbs and their -ing forms"
+            },
+            {
+              "day": "Tuesday",
+              "focus": "Time expressions & Current Activities",
+              "activities": "Using 'now', 'at the moment', 'currently', 'today' with workplace situations",
+              "examples": ["I am working now", "He is fixing the machine at the moment", "We are currently preparing", "They are installing equipment today"],
+              "practice": "New Headway exercises combining time expressions with present continuous",
+              "textbook_pages": "Time expressions and context section",
+              "notes": "Merged content focusing on complete workplace descriptions"
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Recycling & Review",
+              "activities": "Practice games, describing current workplace scenes, error correction",
+              "examples": "Activity: 'What's happening in the workshop right now?' - describe ongoing activities",
+              "practice": "Mixed exercises, peer correction, and communicative activities",
+              "notes": "Consolidate present continuous formation before questions"
+            },
+            {
+              "day": "Thursday",
+              "focus": "Week 17 assessment",
+              "activities": "Present continuous formation test with workplace contexts",
+              "examples": "Describe current activities and ongoing workplace projects",
+              "practice": "Assessment covering -ing formation and time expressions",
+              "notes": "Focus on accurate formation and workplace relevance"
+            }
+          ]
+        },
+        {
+          "week": 18,
+          "topic": "Present Continuous Questions and Negatives",
+          "focus": "Information gathering about current activities and expressing current limitations",
+          "grammar_focus": ["Am/Is/Are + subject + verb-ing?", "am not/isn't/aren't + verb-ing", "wh-questions"],
+          "textbook_reference": "New Headway - Present Continuous questions and negatives",
+          "workplace_vocabulary": ["available", "busy", "free", "occupied", "functioning", "broken", "operational", "offline"],
+          "sentence_patterns": ["Are you working on the project?", "Is the machine running?", "I'm not working today", "The system isn't functioning"],
+          "status": "planned",
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Yes/No questions with present continuous",
+              "activities": "Asking about current activities, equipment status, ongoing projects",
+              "examples": ["Are you working overtime?", "Is he fixing the machine?", "Are they preparing the report?", "Is the system running?"],
+              "practice": "New Headway question formation exercises with workplace scenarios",
+              "textbook_pages": "Present continuous questions section",
+              "notes": "Build on question patterns from previous units"
+            },
+            {
+              "day": "Monday",
+              "focus": "Negative forms and short answers",
+              "activities": "Expressing what isn't currently happening, equipment downtime",
+              "examples": ["I'm not working today", "He isn't operating the crane", "The machine isn't running", "Are you busy? No, I'm not"],
+              "practice": "New Headway exercises on negative forms and short answers",
+              "textbook_pages": "Negative forms and short answers section",
+              "notes": "Emphasize contractions (isn't, aren't) in natural speech"
+            },
+            {
+              "day": "Tuesday",
+              "focus": "Wh-questions & Complex Workplace Scenarios",
+              "activities": "Information questions about current activities and comprehensive status updates",
+              "examples": ["What are you doing?", "Where is he working?", "Why are they stopping?", "How is the project going?"],
+              "practice": "New Headway wh-question exercises and extended workplace dialogues",
+              "textbook_pages": "Information questions and dialogue practice sections",
+              "notes": "Merged content for comprehensive question practice"
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Recycling & Review",
+              "activities": "Question-answer practice, workplace status updates, error correction",
+              "examples": "Role-play: Supervisor checking on current work progress with team members",
+              "practice": "Mixed exercises, peer correction, and communicative activities",
+              "notes": "Consolidate all present continuous question and negative forms"
+            },
+            {
+              "day": "Thursday",
+              "focus": "Week 18 assessment",
+              "activities": "Comprehensive present continuous test: positive, negative, and questions",
+              "examples": "Workplace status update simulation and written assessment",
+              "practice": "Complete assessment covering all present continuous forms",
+              "notes": "Focus on natural workplace communication"
+            }
+          ]
+        },
+        {
+          "week": 19,
+          "topic": "Present Simple vs Present Continuous",
+          "focus": "Choosing the correct tense for workplace situations",
+          "grammar_focus": ["routine vs current actions", "permanent vs temporary", "general vs specific"],
+          "textbook_reference": "New Headway - Present Simple vs Present Continuous contrast",
+          "workplace_vocabulary": ["usually vs currently", "always vs today", "generally vs at the moment", "routine vs emergency"],
+          "sentence_patterns": ["I usually work days, but I'm working nights this week", "He operates machinery, and he's operating the crane now"],
+          "status": "planned",
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Routine vs current actions",
+              "activities": "Contrasting daily routines with current activities",
+              "examples": ["I work in the office (routine) vs I'm working in the field today (current)", "He fixes machines (general) vs He's fixing this machine (now)"],
+              "practice": "New Headway contrastive exercises on routine vs current actions",
+              "textbook_pages": "Present simple vs continuous comparison section",
+              "notes": "Focus on clear distinction between general and specific"
+            },
+            {
+              "day": "Monday",
+              "focus": "Permanent vs temporary situations",
+              "activities": "Distinguishing long-term jobs from temporary assignments",
+              "examples": ["She works in engineering (permanent) vs She's working on a special project (temporary)", "We operate heavy machinery (job) vs We're operating a new system (current)"],
+              "practice": "New Headway exercises on permanent vs temporary workplace situations",
+              "textbook_pages": "Permanent vs temporary situations section",
+              "notes": "Emphasize workplace context and time frame differences"
+            },
+            {
+              "day": "Tuesday",
+              "focus": "Mixed Practice & Real-world Applications",
+              "activities": "Complex workplace scenarios requiring both tenses, comprehensive communication",
+              "examples": ["I usually start at 8am, but I'm starting at 6am today", "Our team normally works on maintenance, but we're working on installation this week"],
+              "practice": "New Headway mixed exercises and extended workplace conversations",
+              "textbook_pages": "Mixed practice and real-world application sections",
+              "notes": "Prepare for comprehensive unit assessment"
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Recycling & Review",
+              "activities": "Comprehensive review games, tense selection practice, error correction",
+              "examples": "Activity: 'Describe your normal work vs what you're doing today' - using both tenses appropriately",
+              "practice": "Mixed exercises, peer correction, and communicative activities",
+              "notes": "Final consolidation before unit assessment"
+            },
+            {
+              "day": "Thursday",
+              "focus": "Unit 7 comprehensive assessment",
+              "activities": "Complete assessment covering present continuous and contrast with present simple",
+              "examples": "Integrated assessment: workplace scenarios requiring appropriate tense selection",
+              "practice": "Comprehensive evaluation of present continuous mastery and tense contrast",
+              "notes": "Assessment should demonstrate practical tense usage in workplace contexts"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "safety-english",
+      "title": "Safety and Emergency English",
+      "description": "Critical safety vocabulary and emergency procedures",
+      "duration": "4 weeks",
+      "startWeek": 8,
+      "endWeek": 11,
+      "status": "planned",
+      "objectives": [
+        "Master safety vocabulary and warning signs",
+        "Understand emergency procedures and instructions",
+        "Learn to report incidents and hazards",
+        "Practice safety briefing participation"
+      ],
+      "weeklyPlan": []
+    },
+    {
+      "id": "technical-vocabulary",
+      "title": "Technical Vocabulary by Trade",
+      "description": "Job-specific English vocabulary for different trades",
+      "duration": "8 weeks",
+      "startWeek": 12,
+      "endWeek": 19,
+      "status": "planned",
+      "objectives": [
+        "Learn trade-specific vocabulary and terminology",
+        "Understand technical instructions and procedures",
+        "Practice using tools and equipment terminology",
+        "Develop reading skills for technical documentation"
+      ],
+      "weeklyPlan": []
+    },
+    {
+      "id": "workplace-documentation",
+      "title": "Workplace Documentation and Forms",
+      "description": "Reading and completing workplace documents",
+      "duration": "6 weeks",
+      "startWeek": 20,
+      "endWeek": 25,
+      "status": "planned",
+      "objectives": [
+        "Complete work orders and maintenance forms",
+        "Write incident reports and shift notes",
+        "Read and understand workplace notices",
+        "Practice form completion and documentation"
+      ],
+      "weeklyPlan": []
+    },
+    {
+      "id": "advanced-communication",
+      "title": "Advanced Workplace Communication",
+      "description": "Complex workplace interactions and problem-solving",
+      "duration": "8 weeks",
+      "startWeek": 26,
+      "endWeek": 33,
+      "status": "planned",
+      "objectives": [
+        "Participate in team meetings and discussions",
+        "Handle workplace conflicts and problems",
+        "Give and receive complex instructions",
+        "Develop presentation and reporting skills"
+      ],
+      "weeklyPlan": []
+    },
+    {
+      "id": "consolidation-review",
+      "title": "Course Review and Assessment",
+      "description": "Comprehensive review and final assessments",
+      "duration": "4 weeks",
+      "startWeek": 34,
+      "endWeek": 37,
+      "status": "planned",
+      "objectives": [
+        "Review all course content and skills",
+        "Complete comprehensive assessments",
+        "Identify areas for continued improvement",
+        "Plan for ongoing English development"
+      ],
+      "weeklyPlan": []
+    }
+  ],
+  "shortCourses": [
+    {
+      "id": "safety-english",
+      "title": "Emergency Safety English",
+      "description": "Critical safety vocabulary and phrases",
+      "duration": "1 week intensive",
+      "schedule": "Week 21",
+      "priority": "high"
+    },
+    {
+      "id": "technical-writing",
+      "title": "Basic Technical Writing",
+      "description": "Writing maintenance reports and incident forms", 
+      "duration": "2 weeks",
+      "schedule": "Weeks 22-23",
+      "priority": "medium"
+    }
+  ]
+}

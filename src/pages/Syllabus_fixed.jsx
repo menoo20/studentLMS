@@ -125,25 +125,6 @@ const Syllabus = () => {
                           </span>
                         </div>
                       )}
-                      {unit.grammar_focus && (
-                        <div className="mt-1">
-                          <span className="text-xs text-green-600">
-                            📝 Grammar Focus: {unit.grammar_focus.main_concepts.join(' • ')}
-                          </span>
-                        </div>
-                      )}
-                      {unit.key_highlights && (
-                        <div className="mt-2 flex flex-wrap gap-1">
-                          {unit.key_highlights.slice(0, 2).map((highlight, idx) => (
-                            <span key={idx} className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">
-                              {highlight.split(' ')[0]} {/* Show just the emoji and first word */}
-                            </span>
-                          ))}
-                          {unit.key_highlights.length > 2 && (
-                            <span className="text-xs text-gray-500">+{unit.key_highlights.length - 2} more</span>
-                          )}
-                        </div>
-                      )}
                     </div>
                   </div>
                   <div className="text-right flex items-center space-x-4">
@@ -215,20 +196,6 @@ const Syllabus = () => {
           </div>
         </div>
 
-        {/* Key Highlights */}
-        {selectedUnit.key_highlights && (
-          <div className="mb-6">
-            <h4 className="font-medium text-gray-900 mb-3">Key Learning Highlights</h4>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              {selectedUnit.key_highlights.map((highlight, index) => (
-                <div key={index} className="bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-lg p-3">
-                  <span className="text-sm font-medium text-blue-800">{highlight}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
         {/* Learning Objectives */}
         {selectedUnit.objectives && (
           <div className="mb-6">
@@ -256,53 +223,6 @@ const Syllabus = () => {
                         {sound}
                       </span>
                     ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Grammar Groups */}
-        {selectedUnit.grammar_groups && (
-          <div className="mb-6">
-            <h4 className="font-medium text-gray-900 mb-3">Grammar Components</h4>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {selectedUnit.grammar_groups.map((group) => (
-                <div key={group.group_id} className="border border-green-200 rounded-lg p-4 bg-green-50">
-                  <div className="font-medium text-green-900 mb-2">{group.title}</div>
-                  <div className="text-sm text-green-700 mb-2">{group.focus}</div>
-                  <div className="space-y-2">
-                    {group.forms && (
-                      <div className="flex flex-wrap gap-1">
-                        {group.forms.map((form, index) => (
-                          <span key={index} className="bg-green-200 text-green-800 px-2 py-1 rounded text-sm font-bold">
-                            {form}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                    {group.components && (
-                      <div className="space-y-1">
-                        {group.components.map((component, index) => (
-                          <div key={index} className="text-xs text-green-600 bg-white px-2 py-1 rounded">
-                            {component}
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                    {group.patterns && (
-                      <div className="space-y-1">
-                        {group.patterns.map((pattern, index) => (
-                          <div key={index} className="text-xs text-green-600 bg-white px-2 py-1 rounded font-mono">
-                            {pattern}
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                  <div className="mt-2 text-xs text-green-600 border-t border-green-200 pt-2">
-                    💼 {group.workplace_usage}
                   </div>
                 </div>
               ))}

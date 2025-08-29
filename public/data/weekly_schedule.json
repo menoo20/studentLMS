@@ -1,0 +1,192 @@
+{
+  "weekly_plans": {
+    "JP-W2": {
+      "week_id": "JP-W2",
+      "week_title": "Week 2 – Groups 4–5 Focus",
+      "date_range": "2024-09-08 to 2024-09-12",
+      "focus_groups": [
+        {
+          "group": 4,
+          "sounds": ["ai", "j", "oa", "ie", "ee", "or"]
+        },
+        {
+          "group": 5,
+          "sounds": ["z", "w", "ng", "v", "oo(short)", "oo(long)"]
+        }
+      ],
+      "weekly_objectives": [
+        "Teach 4–6 new sounds with accurate pronunciation and actions",
+        "Blend/segment cumulative word banks including workplace lexicon",
+        "Introduce 2–4 tricky words in context"
+      ],
+      "daily_schedule": {
+        "day_1": {
+          "date": "2024-09-08",
+          "day_name": "Sunday",
+          "new_sounds": ["ai", "j"],
+          "review_sounds": ["s", "a", "t", "i", "p", "n", "c/k", "e", "h", "r", "m", "d", "g", "o", "u", "l", "f", "b"],
+          "letter_formation_focus": ["a", "i", "j"],
+          "multisensory_actions": true,
+          "blending_bank": ["rain", "tail", "jet", "job"],
+          "segmenting_bank": ["paint", "join"],
+          "tricky_words": ["to", "do"],
+          "communicative_task": {
+            "task_id": "forms_001",
+            "description": "Complete a maintenance request form using target words",
+            "target_words": ["rain", "tail", "jet", "job"]
+          },
+          "assessment": "Exit ticket: blend 4 words, segment 2 words, oral check on /ai/ /j/",
+          "actual_progress": {
+            "completed": false,
+            "notes": "",
+            "sounds_mastered": [],
+            "challenges": "",
+            "next_day_focus": ""
+          }
+        },
+        "day_2": {
+          "date": "2024-09-09",
+          "day_name": "Monday",
+          "new_sounds": ["oa", "ie"],
+          "review_sounds": ["ai", "j"],
+          "letter_formation_focus": ["o", "e"],
+          "blending_bank": ["goat", "road", "lie", "tied"],
+          "segmenting_bank": ["soap", "tie"],
+          "tricky_words": ["was"],
+          "communicative_task": {
+            "task_id": "safety_001",
+            "description": "Read and match safety signage containing target graphemes",
+            "target_words": ["goat", "road", "lie", "tied"]
+          },
+          "assessment": "Dictation of 4 words and one short phrase",
+          "actual_progress": {
+            "completed": false,
+            "notes": "",
+            "sounds_mastered": [],
+            "challenges": "",
+            "next_day_focus": ""
+          }
+        },
+        "day_3": {
+          "date": "2024-09-10",
+          "day_name": "Tuesday",
+          "new_sounds": ["ee", "or"],
+          "review_sounds": ["oa", "ie"],
+          "letter_formation_focus": ["e", "r"],
+          "blending_bank": ["tree", "sleep", "fork", "storm"],
+          "segmenting_bank": ["corn", "bee"],
+          "tricky_words": ["are"],
+          "communicative_task": {
+            "task_id": "notes_001",
+            "description": "Write a short shift note using at least two target words",
+            "target_words": ["tree", "sleep", "fork", "storm"]
+          },
+          "assessment": "Oral minimal pairs for vowel length; quick reading check",
+          "actual_progress": {
+            "completed": false,
+            "notes": "",
+            "sounds_mastered": [],
+            "challenges": "",
+            "next_day_focus": ""
+          }
+        },
+        "day_4": {
+          "date": "2024-09-11",
+          "day_name": "Wednesday",
+          "new_sounds": ["z", "w", "ng"],
+          "review_sounds": ["ee", "or"],
+          "letter_formation_focus": ["z", "w"],
+          "blending_bank": ["zip", "web", "sing", "long"],
+          "segmenting_bank": ["buzz", "bang"],
+          "tricky_words": ["said"],
+          "communicative_task": {
+            "task_id": "talks_001",
+            "description": "Role-play a toolbox talk including target words",
+            "target_words": ["zip", "web", "sing", "long"]
+          },
+          "assessment": "Quick quiz: identify grapheme from sound and vice versa",
+          "actual_progress": {
+            "completed": false,
+            "notes": "",
+            "sounds_mastered": [],
+            "challenges": "",
+            "next_day_focus": ""
+          }
+        },
+        "day_5": {
+          "date": "2024-09-12",
+          "day_name": "Thursday",
+          "new_sounds": ["v", "oo(short)", "oo(long)"],
+          "review_sounds": ["z", "w", "ng"],
+          "letter_formation_focus": ["v"],
+          "blending_bank": ["van", "vet", "good", "book", "zoo", "moon"],
+          "segmenting_bank": ["cook", "pool"],
+          "tricky_words": ["of"],
+          "communicative_task": {
+            "task_id": "hse_001",
+            "description": "Read a short HSE notice; underline target graphemes",
+            "target_words": ["van", "vet", "good", "book", "zoo", "moon"]
+          },
+          "assessment": "Weekly quiz covering Groups 4–5 sounds and tricky words",
+          "actual_progress": {
+            "completed": false,
+            "notes": "",
+            "sounds_mastered": [],
+            "challenges": "",
+            "next_day_focus": ""
+          }
+        }
+      },
+      "week_summary": {
+        "sounds_introduced": 12,
+        "tricky_words_taught": 6,
+        "communicative_tasks_completed": 5,
+        "assessments_conducted": 5,
+        "overall_progress": {
+          "completed": false,
+          "teacher_notes": "",
+          "student_feedback": "",
+          "adjustments_needed": ""
+        }
+      }
+    }
+  },
+
+  "progress_tracking": {
+    "current_week": "JP-W2",
+    "academic_year": "2024-2025",
+    "start_date": "2024-09-01",
+    "total_weeks_planned": 52,
+    "weeks_completed": 1,
+    "current_unit": "JP-M1-Adults-ESL",
+    
+    "cumulative_progress": {
+      "sounds_mastered": {
+        "group_1": ["s", "a", "t", "i", "p", "n"],
+        "group_2": ["c/k", "e", "h", "r", "m", "d"],
+        "group_3": ["g", "o", "u", "l", "f", "b"],
+        "group_4": [],
+        "group_5": []
+      },
+      "tricky_words_mastered": ["the", "I", "no", "go", "into"],
+      "workplace_tasks_completed": [],
+      "assessment_scores": {
+        "baseline_groups_1_3": null,
+        "weekly_quizzes": [],
+        "pronunciation_checks": []
+      }
+    },
+
+    "daily_logs": {
+      "2024-09-01": {
+        "planned_content": "Review Groups 1-3, baseline assessment",
+        "actual_content": "",
+        "attendance": "",
+        "challenges": "",
+        "successes": "",
+        "homework_assigned": "",
+        "next_day_prep": ""
+      }
+    }
+  }
+}

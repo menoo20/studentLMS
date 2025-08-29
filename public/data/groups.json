@@ -74,36 +74,36 @@
   {
     "id": "sam3",
     "name": "SAM 3",
-    "description": "English Class - Vocational Training",
+    "description": "English Class - Rig",
     "subject": "English",
-    "position": "Vocational Training",
+    "position": "Rig",
     "year": "2024-2025",
     "semester": "Fall"
   },
   {
     "id": "sam4",
     "name": "SAM 4",
-    "description": "English Class - Vocational Training",
+    "description": "English Class - Rig",
     "subject": "English",
-    "position": "Vocational Training",
+    "position": "Rig",
     "year": "2024-2025",
     "semester": "Fall"
   },
   {
     "id": "sam5",
     "name": "SAM 5",
-    "description": "English Class - Vocational Training",
+    "description": "English Class - Scaffolding",
     "subject": "English",
-    "position": "Vocational Training",
+    "position": "Scaffolding",
     "year": "2024-2025",
     "semester": "Fall"
   },
   {
     "id": "sam6",
     "name": "SAM 6",
-    "description": "English Class - Vocational Training",
+    "description": "English Class - Scaffolding",
     "subject": "English",
-    "position": "Vocational Training",
+    "position": "Scaffolding",
     "year": "2024-2025",
     "semester": "Fall"
   },
@@ -119,9 +119,9 @@
   {
     "id": "dabal_fahss",
     "name": "Dabal +Fahss",
-    "description": "English Class - Vocational Training",
+    "description": "English Class - Scaffolding",
     "subject": "English",
-    "position": "Vocational Training",
+    "position": "Scaffolding",
     "year": "2024-2025",
     "semester": "Fall"
   },
