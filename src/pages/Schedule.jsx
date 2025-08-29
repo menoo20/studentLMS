@@ -29,7 +29,7 @@ const Schedule = () => {
     const week = []
     const startOfWeek = new Date(date)
     const day = startOfWeek.getDay()
-    const diff = startOfWeek.getDate() - day + (day === 0 ? -6 : 1) // Adjust for Monday start
+    const diff = startOfWeek.getDate() - day // Adjust for Sunday start (Arabic countries)
     startOfWeek.setDate(diff)
 
     for (let i = 0; i < 7; i++) {
@@ -55,7 +55,7 @@ const Schedule = () => {
 
   const timeSlots = [
     '08:00', '09:00', '10:00', '11:00', '12:00',
-    '13:00', '14:00', '15:00', '16:00', '17:00'
+    '13:00', '14:00', '15:00'
   ]
 
   const getClassAtTime = (date, time) => {

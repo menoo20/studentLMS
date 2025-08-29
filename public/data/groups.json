@@ -1,5 +1,14 @@
 [
   {
+    "id": "nesma",
+    "name": "NESMA",
+    "description": "Online English Class - 3 sessions per week",
+    "subject": "English",
+    "position": "Online Training",
+    "year": "2024-2025",
+    "semester": "Fall"
+  },
+  {
     "id": "saipem6",
     "name": "SAIPEM 6",
     "description": "English Class - Vocational Training",
