@@ -8,7 +8,22 @@ const Schedule = () => {
   const [schedule, setSchedule] = useState([])
   const [loading, setLoading] = useState(true)
   const [currentWeek, setCurrentWeek] = useState(new Date())
+  const [viewMode, setViewMode] = useState('week') // 'week', 'daily'
+  const [selectedDay, setSelectedDay] = useState(0)
   const [highlightGroup, setHighlightGroup] = useState(null)
+
+  // Auto-switch to daily view on small screens
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) { // md breakpoint
+        setViewMode('daily')
+      }
+    }
+    
+    handleResize() // Check on mount
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   useEffect(() => {
     const loadSchedule = async () => {
@@ -40,13 +55,16 @@ const Schedule = () => {
     const week = []
     const startOfWeek = new Date(date)
     const day = startOfWeek.getDay()
-    const diff = startOfWeek.getDate() - day // Adjust for Sunday start (Arabic countries)
+    
+    // Calculate Sunday as start of week (day 0)
+    const diff = startOfWeek.getDate() - day
     startOfWeek.setDate(diff)
 
-    for (let i = 0; i < 7; i++) {
-      const day = new Date(startOfWeek)
-      day.setDate(startOfWeek.getDate() + i)
-      week.push(day)
+    // Only add Sunday through Thursday (5 working days)
+    for (let i = 0; i < 5; i++) {
+      const workDay = new Date(startOfWeek)
+      workDay.setDate(startOfWeek.getDate() + i)
+      week.push(workDay)
     }
     return week
   }
@@ -205,33 +223,63 @@ const Schedule = () => {
       ) : (
         <div className="card">
           <div className="mb-6">
-            <h3 className={`text-xl font-semibold text-gray-900`}>
-              Week of {formatDate(weekDates[0])} — {formatDate(weekDates[6])}
-            </h3>
-            <p className={`text-sm mt-2 text-gray-600`}>
-              Your weekly teaching schedule • {timeSlots.length} time slots • Sunday-based week
-            </p>
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
+              <div>
+                <h3 className={`text-xl font-semibold text-gray-900`}>
+                  Week of {formatDate(weekDates[0])} — {formatDate(weekDates[4])}
+                </h3>
+                <p className={`text-sm mt-2 text-gray-600`}>
+                  Your weekly teaching schedule • {timeSlots.length} time slots • Working days (Sun-Thu)
+                </p>
+              </div>
+              
+              {/* View Mode Controls - Hidden on mobile (auto-switches) */}
+              <div className="hidden md:flex gap-2">
+                <button
+                  onClick={() => setViewMode('week')}
+                  className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+                    viewMode === 'week'
+                      ? 'bg-blue-500 text-white'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                >
+                  📅 Week View
+                </button>
+                <button
+                  onClick={() => setViewMode('daily')}
+                  className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+                    viewMode === 'daily'
+                      ? 'bg-blue-500 text-white'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                >
+                  📱 Daily View
+                </button>
+              </div>
+            </div>
           </div>
 
-          <div className="overflow-x-auto">
-            <table className="min-w-full">
-              <thead>
-                <tr className="border-b border-gray-200">
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900 bg-gray-50/80 w-24 min-w-24">Time</th>
-                  {weekDates.map((date, index) => (
-                    <th key={index} className="px-6 py-4 text-center min-w-48 w-48 bg-gray-50/80">
-                      <div className="font-semibold text-gray-900 text-sm">{date.toLocaleDateString('en-US', { weekday: 'short' })}</div>
-                      <div className="text-xs font-normal text-gray-500 mt-1">
-                        {date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
-                      </div>
-                    </th>
-                  ))}
-                </tr>
-              </thead>
+          {/* Week View - Responsive Table Layout */}
+          {viewMode === 'week' && (
+            <div className="overflow-x-auto">
+              <table className="min-w-full">
+                <thead>
+                  <tr className="border-b border-gray-200">
+                    <th className="px-3 py-4 text-left text-sm font-semibold text-gray-900 bg-gray-50/80 w-16 min-w-16">Time</th>
+                    {weekDates.map((date, index) => (
+                      <th key={index} className="px-3 py-4 text-center min-w-40 w-40 bg-gray-50/80">
+                        <div className="font-semibold text-gray-900 text-xs sm:text-sm">{date.toLocaleDateString('en-US', { weekday: 'short' })}</div>
+                        <div className="text-xs font-normal text-gray-500 mt-1">
+                          {date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                        </div>
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
               <tbody className="bg-white divide-y divide-gray-100">
                 {timeSlots.map(time => (
                   <tr key={time} className="hover:bg-gray-50/50 transition-colors duration-150">
-                    <td className="px-6 py-4 text-sm font-semibold text-gray-900 bg-gray-50/50 border-r border-gray-100 w-24 min-w-24">
+                    <td className="px-3 py-4 text-sm font-semibold text-gray-900 bg-gray-50/50 border-r border-gray-100 w-16 min-w-16">
                       <div className="font-mono text-sm">{time}</div>
                     </td>
                     {weekDates.map((date, index) => {
@@ -246,7 +294,7 @@ const Schedule = () => {
                       return (
                         <td 
                           key={index} 
-                          className="px-3 py-4 text-center relative w-48 min-w-48"
+                          className="px-3 py-4 text-center relative w-40 min-w-40"
                           rowSpan={classItem && classItem.group === 'NESMA' ? 2 : 1}
                         >
                           {classItem ? (
@@ -256,14 +304,14 @@ const Schedule = () => {
                                 :  'bg-gradient-to-br from-indigo-500 to-indigo-600 text-white shadow-lg shadow-indigo-500/30'
                               }
                               ${classItem.group === 'NESMA' 
-                                ? 'rounded-2xl min-h-32 relative overflow-hidden' 
-                                : 'rounded-xl min-h-24'
+                                ? 'rounded-xl min-h-28 relative overflow-hidden' 
+                                : 'rounded-lg min-h-20'
                               }
                               ${highlightGroup && classItem.group.toLowerCase().includes(highlightGroup) 
                                 ? 'ring-4 ring-yellow-300 ring-opacity-60 transform scale-105 shadow-2xl' 
                                 : ''
                               }
-                              p-3 text-sm transition-all duration-200 hover:scale-105 hover:shadow-xl
+                              p-2 text-xs transition-all duration-200 hover:scale-105 hover:shadow-xl
                               border border-white/20 w-full
                             `}>
                               {/* NESMA Online Class Special Design */}
@@ -347,6 +395,90 @@ const Schedule = () => {
               </tbody>
             </table>
           </div>
+          )}
+
+          {/* Daily View - Mobile Friendly */}
+          {viewMode === 'daily' && (
+            <div>
+              {/* Day Selector */}
+              <div className="flex overflow-x-auto gap-2 mb-6 pb-2">
+                {weekDates.map((date, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setSelectedDay(index)}
+                    className={`flex-shrink-0 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
+                      selectedDay === index
+                        ? 'bg-blue-500 text-white shadow-lg'
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                  >
+                    <div className="font-semibold">{date.toLocaleDateString('en-US', { weekday: 'short' })}</div>
+                    <div className="text-xs opacity-75 mt-1">
+                      {date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                    </div>
+                  </button>
+                ))}
+              </div>
+
+              {/* Daily Schedule */}
+              <div className="space-y-4">
+                <h4 className="text-lg font-semibold text-gray-900 mb-4">
+                  {weekDates[selectedDay].toLocaleDateString('en-US', { 
+                    weekday: 'long', 
+                    month: 'long', 
+                    day: 'numeric' 
+                  })}
+                </h4>
+                
+                {timeSlots.map(time => {
+                  const classItem = getClassAtTime(weekDates[selectedDay], time)
+                  return (
+                    <div key={time} className="flex gap-4 p-4 bg-gray-50 rounded-lg">
+                      <div className="flex-shrink-0 w-20">
+                        <div className="font-mono text-sm font-semibold text-gray-900">{time}</div>
+                      </div>
+                      <div className="flex-1">
+                        {classItem ? (
+                          <div className={`
+                            ${classItem.group === 'NESMA' 
+                              ?  'bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 text-white shadow-xl shadow-blue-500/40 border-2 border-blue-300'
+                              :  'bg-gradient-to-br from-indigo-500 to-indigo-600 text-white shadow-lg shadow-indigo-500/30'
+                            }
+                            ${highlightGroup && classItem.group.toLowerCase().includes(highlightGroup) 
+                              ? 'ring-4 ring-yellow-300 ring-opacity-60 transform scale-105 shadow-2xl' 
+                              : ''
+                            }
+                            p-4 rounded-xl transition-all duration-200 hover:scale-105 hover:shadow-xl
+                            border border-white/20
+                          `}>
+                            <div className="font-semibold text-sm mb-1">{classItem.subject}</div>
+                            <div className="opacity-90 text-xs font-medium mb-2">{classItem.group}</div>
+                            
+                            {classItem.group === 'NESMA' ? (
+                              <div className="text-xs text-white/90 flex items-center gap-1">
+                                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                  <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                                </svg>
+                                <span>Online Class</span>
+                              </div>
+                            ) : (
+                              <>
+                                <div className="text-xs text-white/80 mb-1">📍 {classItem.location}</div>
+                                <div className="text-xs text-white/80">{classItem.duration}</div>
+                              </>
+                            )}
+                          </div>
+                        ) : (
+                          <div className="text-gray-400 text-sm italic">No class scheduled</div>
+                        )}
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          )}
+
         </div>
       )}
 
