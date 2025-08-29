@@ -92,39 +92,70 @@ const Schedule = () => {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h2 className={`text-2xl font-bold ${theme === 'blackGold' ? 'text-blackGold-500' : 'text-gray-900'}`}>Teaching Schedule</h2>
-        <div className="flex items-center space-x-4">
+        <h2 className={`text-3xl font-bold ${theme === 'blackGold' ? 'text-blackGold-500' : 'text-gray-900'}`}>Teaching Schedule</h2>
+        <div className="flex items-center space-x-3">
           <button
             onClick={goToPreviousWeek}
-            className="btn-secondary"
+            className={`
+              px-4 py-2 rounded-xl font-medium text-sm transition-all duration-200
+              ${theme === 'blackGold' 
+                ? 'bg-gray-700 text-white hover:bg-gray-600 border border-gray-600' 
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200'
+              }
+              hover:scale-105 hover:shadow-lg flex items-center gap-2
+            `}
           >
-            ← Previous Week
+            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd"/>
+            </svg>
+            Previous Week
           </button>
           <button
             onClick={goToCurrentWeek}
-            className="btn-primary"
+            className={`
+              px-6 py-2 rounded-xl font-semibold text-sm transition-all duration-200
+              ${theme === 'blackGold' 
+                ? 'bg-blackGold-500 text-black hover:bg-blackGold-400 shadow-lg shadow-blackGold-500/30' 
+                : 'bg-blue-500 text-white hover:bg-blue-600 shadow-lg shadow-blue-500/30'
+              }
+              hover:scale-105 hover:shadow-xl
+            `}
           >
             Current Week
           </button>
           <button
             onClick={goToNextWeek}
-            className="btn-secondary"
+            className={`
+              px-4 py-2 rounded-xl font-medium text-sm transition-all duration-200
+              ${theme === 'blackGold' 
+                ? 'bg-gray-700 text-white hover:bg-gray-600 border border-gray-600' 
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200'
+              }
+              hover:scale-105 hover:shadow-lg flex items-center gap-2
+            `}
           >
-            Next Week →
+            Next Week
+            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"/>
+            </svg>
           </button>
         </div>
       </div>
 
       {schedule.length === 0 ? (
-        <div className="card text-center py-12">
-          <div className="text-6xl mb-4">📅</div>
-          <h3 className={`text-xl font-semibold mb-2 ${theme === 'blackGold' ? 'text-blackGold-500' : 'text-gray-900'}`}>No Schedule Data</h3>
-          <p className={`mb-6 ${theme === 'blackGold' ? 'text-white' : 'text-gray-600'}`}>
+        <div className="card text-center py-16">
+          <div className="text-8xl mb-6">📅</div>
+          <h3 className={`text-2xl font-bold mb-4 ${theme === 'blackGold' ? 'text-blackGold-500' : 'text-gray-900'}`}>
+            No Schedule Data
+          </h3>
+          <p className={`text-lg mb-8 ${theme === 'blackGold' ? 'text-white' : 'text-gray-600'}`}>
             Add your schedule.json file to the /data folder to display your teaching schedule.
           </p>
-          <div className="text-left max-w-md mx-auto bg-gray-50 p-4 rounded-lg">
-            <p className="text-sm font-medium text-gray-700 mb-2">Expected format:</p>
-            <pre className="text-xs text-gray-600 overflow-x-auto">
+          <div className={`text-left max-w-lg mx-auto rounded-xl p-6 ${theme === 'blackGold' ? 'bg-gray-800 border border-gray-700' : 'bg-gray-50 border border-gray-200'}`}>
+            <p className={`text-sm font-semibold mb-3 ${theme === 'blackGold' ? 'text-blackGold-500' : 'text-gray-700'}`}>
+              Expected JSON format:
+            </p>
+            <pre className={`text-xs overflow-x-auto font-mono p-3 rounded-lg ${theme === 'blackGold' ? 'bg-gray-900 text-gray-300' : 'bg-white text-gray-600'}`}>
 {`[
   {
     "id": "1",
@@ -141,50 +172,82 @@ const Schedule = () => {
         </div>
       ) : (
         <div className="card">
-          <div className="mb-4">
-            <h3 className="text-lg font-semibold text-gray-900">
-              Week of {formatDate(weekDates[0])} - {formatDate(weekDates[6])}
+          <div className="mb-6">
+            <h3 className={`text-xl font-semibold ${theme === 'blackGold' ? 'text-white' : 'text-gray-900'}`}>
+              Week of {formatDate(weekDates[0])} — {formatDate(weekDates[6])}
             </h3>
+            <p className={`text-sm mt-2 ${theme === 'blackGold' ? 'text-gray-300' : 'text-gray-600'}`}>
+              Your weekly teaching schedule • {timeSlots.length} time slots • Sunday-based week
+            </p>
           </div>
 
           <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
-                <tr>
-                  <th className="table-header px-4 py-3 text-left w-20">Time</th>
+            <table className="min-w-full">
+              <thead>
+                <tr className="border-b border-gray-200">
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900 bg-gray-50/80 w-24 min-w-24">Time</th>
                   {weekDates.map((date, index) => (
-                    <th key={index} className="table-header px-4 py-3 text-center min-w-32">
-                      <div className="font-semibold">{date.toLocaleDateString('en-US', { weekday: 'short' })}</div>
-                      <div className="text-xs font-normal text-gray-500">
+                    <th key={index} className="px-6 py-4 text-center min-w-48 w-48 bg-gray-50/80">
+                      <div className="font-semibold text-gray-900 text-sm">{date.toLocaleDateString('en-US', { weekday: 'short' })}</div>
+                      <div className="text-xs font-normal text-gray-500 mt-1">
                         {date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
                       </div>
                     </th>
                   ))}
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
+              <tbody className="bg-white divide-y divide-gray-100">
                 {timeSlots.map(time => (
-                  <tr key={time} className="hover:bg-gray-50">
-                    <td className="px-4 py-3 text-sm font-medium text-gray-900 bg-gray-50">
-                      {time}
+                  <tr key={time} className="hover:bg-gray-50/50 transition-colors duration-150">
+                    <td className="px-6 py-4 text-sm font-semibold text-gray-900 bg-gray-50/50 border-r border-gray-100 w-24 min-w-24">
+                      <div className="font-mono text-sm">{time}</div>
                     </td>
                     {weekDates.map((date, index) => {
                       const classItem = getClassAtTime(date, time)
                       return (
-                        <td key={index} className="px-4 py-3 text-center">
+                        <td key={index} className="px-3 py-4 text-center relative w-48 min-w-48">
                           {classItem ? (
-                            <div className="bg-primary-100 text-primary-800 rounded-lg p-2 text-xs">
-                              <div className="font-semibold">{classItem.subject}</div>
-                              <div className="text-primary-600">{classItem.group}</div>
-                              <div className="text-primary-600">{classItem.room}</div>
-                              {classItem.type && (
-                                <div className="mt-1 text-primary-500 text-xs">
-                                  {classItem.type}
+                            <div className={`
+                              ${classItem.group === 'NESMA' 
+                                ? theme === 'blackGold' 
+                                  ? 'bg-gradient-to-br from-blackGold-500 to-blackGold-600 text-white shadow-lg shadow-blackGold-500/30' 
+                                  : 'bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-500/30'
+                                : theme === 'blackGold'
+                                  ? 'bg-gradient-to-br from-gray-700 to-gray-800 text-white shadow-lg shadow-gray-700/30'
+                                  : 'bg-gradient-to-br from-indigo-500 to-indigo-600 text-white shadow-lg shadow-indigo-500/30'
+                              }
+                              rounded-xl p-3 text-sm transition-all duration-200 hover:scale-105 hover:shadow-xl
+                              border border-white/20 w-full min-h-24
+                            `}>
+                              <div className="font-semibold text-sm leading-tight mb-1">{classItem.subject}</div>
+                              <div className="opacity-90 text-xs font-medium mb-2">{classItem.group}</div>
+                              <div className="opacity-75 text-xs flex items-center justify-center gap-1 mb-2">
+                                {classItem.room === 'Online' ? (
+                                  <>
+                                    <svg className="w-3 h-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                      <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                                    </svg>
+                                    <span className="truncate">Online</span>
+                                  </>
+                                ) : (
+                                  <>
+                                    <svg className="w-3 h-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                      <path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-6a1 1 0 00-1-1H9a1 1 0 00-1 1v6a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clipRule="evenodd"/>
+                                    </svg>
+                                    <span className="truncate">{classItem.room}</span>
+                                  </>
+                                )}
+                              </div>
+                              {classItem.duration && (
+                                <div className="opacity-60 text-xs font-normal bg-black/10 px-2 py-1 rounded-full">
+                                  {classItem.duration}
                                 </div>
                               )}
                             </div>
                           ) : (
-                            <div className="text-gray-300">-</div>
+                            <div className="h-24 flex items-center justify-center">
+                              <div className="text-gray-300 text-xs">—</div>
+                            </div>
                           )}
                         </td>
                       )
@@ -200,27 +263,62 @@ const Schedule = () => {
       {/* Upcoming Classes */}
       {schedule.length > 0 && (
         <div className="card">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Upcoming Classes</h3>
-          <div className="space-y-2">
+          <h3 className={`text-xl font-semibold mb-6 ${theme === 'blackGold' ? 'text-blackGold-500' : 'text-gray-900'}`}>
+            📅 Upcoming Classes
+          </h3>
+          <div className="space-y-3">
             {schedule
               .filter(item => new Date(item.date + 'T' + item.time) > new Date())
               .sort((a, b) => new Date(a.date + 'T' + a.time) - new Date(b.date + 'T' + b.time))
               .slice(0, 5)
               .map(item => (
-                <div key={item.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                  <div>
-                    <div className="font-medium text-gray-900">{item.subject}</div>
-                    <div className="text-sm text-gray-600">{item.group} • {item.room}</div>
+                <div key={item.id} className={`
+                  flex items-center justify-between p-4 rounded-xl transition-all duration-200 hover:scale-[1.02]
+                  ${theme === 'blackGold' ? 'bg-gray-800/30 hover:bg-gray-800/50' : 'bg-gray-50 hover:bg-gray-100'}
+                  border ${theme === 'blackGold' ? 'border-gray-700' : 'border-gray-200'}
+                `}>
+                  <div className="flex items-center gap-4">
+                    <div className={`
+                      w-3 h-3 rounded-full flex-shrink-0
+                      ${item.group === 'NESMA' 
+                        ? theme === 'blackGold' ? 'bg-blackGold-500' : 'bg-blue-500'
+                        : theme === 'blackGold' ? 'bg-gray-500' : 'bg-indigo-500'
+                      }
+                    `}></div>
+                    <div>
+                      <div className={`font-semibold ${theme === 'blackGold' ? 'text-white' : 'text-gray-900'}`}>
+                        {item.subject} • {item.group}
+                      </div>
+                      <div className={`text-sm flex items-center gap-2 mt-1 ${theme === 'blackGold' ? 'text-gray-300' : 'text-gray-600'}`}>
+                        {item.room === 'Online' ? (
+                          <>
+                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                              <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                            </svg>
+                            Online Class
+                          </>
+                        ) : (
+                          <>
+                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-6a1 1 0 00-1-1H9a1 1 0 00-1 1v6a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clipRule="evenodd"/>
+                            </svg>
+                            {item.room}
+                          </>
+                        )}
+                      </div>
+                    </div>
                   </div>
-                  <div className="text-right">
-                    <div className="text-sm font-medium text-gray-900">
+                  <div className="text-right flex-shrink-0">
+                    <div className={`text-sm font-semibold ${theme === 'blackGold' ? 'text-blackGold-500' : 'text-blue-600'}`}>
                       {new Date(item.date).toLocaleDateString('en-US', { 
                         weekday: 'short', 
                         month: 'short', 
                         day: 'numeric' 
                       })}
                     </div>
-                    <div className="text-sm text-gray-600">{item.time}</div>
+                    <div className={`text-sm font-mono ${theme === 'blackGold' ? 'text-gray-300' : 'text-gray-600'}`}>
+                      {item.time}
+                    </div>
                   </div>
                 </div>
               ))}
