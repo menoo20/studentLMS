@@ -7,7 +7,7 @@ const Schedule = () => {
   const [searchParams] = useSearchParams()
   const [schedule, setSchedule] = useState([])
   const [loading, setLoading] = useState(true)
-  const [currentWeek, setCurrentWeek] = useState(new Date())
+  const [currentWeek, setCurrentWeek] = useState(new Date('2025-08-24')) // Start with the week containing our schedule data
   const [viewMode, setViewMode] = useState('week') // 'week', 'daily'
   const [selectedDay, setSelectedDay] = useState(0)
   const [highlightGroup, setHighlightGroup] = useState(null)
@@ -17,6 +17,8 @@ const Schedule = () => {
     const handleResize = () => {
       if (window.innerWidth < 768) { // md breakpoint
         setViewMode('daily')
+        // Set to Sunday (day 0) when switching to daily view
+        setSelectedDay(0)
       }
     }
     
@@ -50,6 +52,11 @@ const Schedule = () => {
       setHighlightGroup(highlightParam.toLowerCase())
     }
   }, [searchParams])
+
+  // Reset to Sunday when week changes
+  useEffect(() => {
+    setSelectedDay(0)
+  }, [currentWeek])
 
   const getWeekDates = (date) => {
     const week = []
