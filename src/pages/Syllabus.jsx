@@ -1,14 +1,122 @@
 import { useState, useEffect } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { useTheme } from '../components/ThemeContext'
 
 const Syllabus = () => {
   const { theme } = useTheme()
+  const [searchParams] = useSearchParams()
   const [syllabusData, setSyllabusData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [selectedUnit, setSelectedUnit] = useState(null)
   const [selectedWeek, setSelectedWeek] = useState(null)
   const [expandedCourse, setExpandedCourse] = useState(null) // New state for expanded course
   const [viewMode, setViewMode] = useState('annual') // 'annual', 'units', 'weekly', 'daily'
+  const [highlightedDate, setHighlightedDate] = useState(null)
+  const [highlightedGroup, setHighlightedGroup] = useState(null)
+
+  // Week mapping configuration - starting from Aug 24, 2025 (Sunday)
+  const COURSE_START_DATE = new Date('2025-08-24') // Sunday, Aug 24
+  
+  // Helper function to get the date range for a specific syllabus week
+  const getWeekDateRange = (weekNumber) => {
+    const startDate = new Date(COURSE_START_DATE)
+    startDate.setDate(COURSE_START_DATE.getDate() + (weekNumber - 1) * 7)
+    
+    const endDate = new Date(startDate)
+    endDate.setDate(startDate.getDate() + 6) // Sunday to Saturday (7 days)
+    
+    return { startDate, endDate }
+  }
+
+  // Helper function to get specific day date within a week
+  const getDayDateInWeek = (weekNumber, dayName) => {
+    const { startDate } = getWeekDateRange(weekNumber)
+    const dayIndex = {
+      'Sunday': 0,
+      'Monday': 1, 
+      'Tuesday': 2,
+      'Wednesday': 3,
+      'Thursday': 4,
+      'Friday': 5,
+      'Saturday': 6
+    }[dayName]
+    
+    if (dayIndex === undefined) return null
+    
+    const dayDate = new Date(startDate)
+    dayDate.setDate(startDate.getDate() + dayIndex)
+    return dayDate
+  }
+
+  // Helper function to find which syllabus week and day a given date falls into
+  const findWeekAndDayForDate = (targetDate) => {
+    const target = new Date(targetDate)
+    
+    if (!syllabusData?.units) return null
+    
+    // Search through all units and their weekly plans
+    for (const unit of syllabusData.units) {
+      if (unit.weeklyPlan) {
+        for (const weekPlan of unit.weeklyPlan) {
+          const { startDate, endDate } = getWeekDateRange(weekPlan.week)
+          
+          // Check if target date falls within this week
+          if (target >= startDate && target <= endDate) {
+            // Find the specific day
+            const dayName = target.toLocaleDateString('en-US', { weekday: 'long' })
+            const dayPlan = weekPlan.dailyPlans?.find(day => day.day === dayName)
+            
+            return {
+              unit,
+              weekPlan,
+              dayPlan,
+              weekNumber: weekPlan.week,
+              dayName
+            }
+          }
+        }
+      }
+    }
+    return null
+  }
+
+  // Helper function to calculate dynamic status based on current date
+  const calculateDynamicStatus = (item, type = 'week') => {
+    const today = new Date()
+    today.setHours(0, 0, 0, 0) // Reset time to start of day for accurate comparison
+    
+    if (type === 'week' && item.week) {
+      const { startDate, endDate } = getWeekDateRange(item.week)
+      
+      if (today > endDate) {
+        return 'completed'
+      } else if (today >= startDate && today <= endDate) {
+        return 'current'
+      } else {
+        return 'planned'
+      }
+    } else if (type === 'unit' && item.weeklyPlan) {
+      // For units, check the date range of all weeks within the unit
+      const firstWeek = item.weeklyPlan[0]?.week
+      const lastWeek = item.weeklyPlan[item.weeklyPlan.length - 1]?.week
+      
+      if (firstWeek && lastWeek) {
+        const { startDate } = getWeekDateRange(firstWeek)
+        const { endDate } = getWeekDateRange(lastWeek)
+        
+        if (today > endDate) {
+          return 'completed'
+        } else if (today >= startDate && today <= endDate) {
+          return 'in-progress'
+        } else {
+          return 'planned'
+        }
+      }
+    }
+    
+    // Fallback to original status
+    return item.status || 'planned'
+  }
 
   useEffect(() => {
     const loadSyllabus = async () => {
@@ -27,6 +135,29 @@ const Syllabus = () => {
 
     loadSyllabus()
   }, [])
+
+  // Handle URL parameters from schedule clicks
+  useEffect(() => {
+    const date = searchParams.get('date')
+    const group = searchParams.get('group')
+    
+    if (date && group && syllabusData) {
+      setHighlightedDate(date)
+      setHighlightedGroup(group)
+      
+      // Find the exact week and day for this date
+      const weekDayInfo = findWeekAndDayForDate(date)
+      
+      if (weekDayInfo) {
+        // Auto-expand to show the relevant content
+        setSelectedUnit(weekDayInfo.unit.id)
+        setSelectedWeek(weekDayInfo.weekPlan)
+        
+        // Show daily detail view for specific day content
+        setViewMode('daily')
+      }
+    }
+  }, [searchParams, syllabusData])
 
   if (loading) {
     return (
@@ -121,8 +252,21 @@ const Syllabus = () => {
                         {index + 1}
                       </div>
                     </div>
-                    <div>
-                      <h4 className="font-medium text-gray-900">{unit.title}</h4>
+                    <div className="flex-1">
+                      <div className="flex items-center gap-3 mb-1">
+                        <h4 className="font-medium text-gray-900">{unit.title}</h4>
+                        {unit.weeklyPlan && unit.weeklyPlan.length > 0 && (
+                          <span className="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full font-medium">
+                            {(() => {
+                              const firstWeek = unit.weeklyPlan[0].week
+                              const lastWeek = unit.weeklyPlan[unit.weeklyPlan.length - 1].week
+                              const { startDate } = getWeekDateRange(firstWeek)
+                              const { endDate } = getWeekDateRange(lastWeek)
+                              return `${startDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} - ${endDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`
+                            })()}
+                          </span>
+                        )}
+                      </div>
                       <p className="text-sm text-gray-600">{unit.description}</p>
                       {unit.phonics_groups && (
                         <div className="mt-1">
@@ -157,8 +301,8 @@ const Syllabus = () => {
                       <div className="text-sm text-gray-500">{unit.duration}</div>
                       <div className="text-xs text-gray-400">Weeks {unit.startWeek}-{unit.endWeek}</div>
                     </div>
-                    <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(unit.status)}`}>
-                      {unit.status}
+                    <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(calculateDynamicStatus(unit, 'unit'))}`}>
+                      {calculateDynamicStatus(unit, 'unit')}
                     </span>
                   </div>
                 </div>
@@ -234,22 +378,41 @@ const Syllabus = () => {
                       
                       {/* Weekly Plan */}
                       <div className="space-y-3">
-                        {course.weeklyPlan.map((week, index) => (
-                          <div key={index} className={`border rounded-lg p-3 ${
-                            week.status === 'completed' ? 'border-green-200 bg-green-50' :
-                            week.status === 'current' ? 'border-blue-200 bg-blue-50' :
-                            'border-gray-200 bg-white'
+                        {course.weeklyPlan.map((week, index) => {
+                          // Check if this week matches the highlighted date using our new date mapping
+                          const isHighlightedWeek = highlightedDate && (() => {
+                            const weekDayInfo = findWeekAndDayForDate(highlightedDate)
+                            return weekDayInfo && weekDayInfo.weekPlan.week === week.week
+                          })()
+                          
+                          const dynamicStatus = calculateDynamicStatus(week, 'week')
+                          
+                          return (
+                          <div key={index} className={`border rounded-lg p-3 transition-all ${
+                            isHighlightedWeek 
+                              ? 'border-blue-400 bg-blue-100 shadow-lg ring-2 ring-blue-200' 
+                              : dynamicStatus === 'completed' ? 'border-green-200 bg-green-50' :
+                                dynamicStatus === 'current' ? 'border-blue-200 bg-blue-50' :
+                                'border-gray-200 bg-white'
                           }`}>
                             <div className="flex items-center justify-between mb-2">
-                              <h6 className="font-medium text-gray-900">
-                                Week {week.week}: {week.topic}
-                              </h6>
+                              <div>
+                                <h6 className="font-medium text-gray-900">
+                                  Week {week.week}: {week.topic}
+                                </h6>
+                                <div className="text-xs text-gray-500 mt-1">
+                                  {(() => {
+                                    const { startDate, endDate } = getWeekDateRange(week.week)
+                                    return `${startDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} - ${endDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`
+                                  })()}
+                                </div>
+                              </div>
                               <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                                week.status === 'completed' ? 'bg-green-100 text-green-800' :
-                                week.status === 'current' ? 'bg-blue-100 text-blue-800' :
-                                'bg-gray-100 text-gray-800'
+                                dynamicStatus === 'completed' ? 'bg-green-100 text-green-800' :
+                                dynamicStatus === 'current' ? 'bg-blue-100 text-blue-800' :
+                                'bg-yellow-100 text-yellow-800'
                               }`}>
-                                {week.status}
+                                {dynamicStatus}
                               </span>
                             </div>
                             <p className="text-sm text-gray-600 mb-2">{week.focus}</p>
@@ -259,18 +422,30 @@ const Syllabus = () => {
                             {week.dailyPlans && (
                               <div className="mt-3 space-y-2">
                                 <h7 className="text-xs font-medium text-gray-700">Daily Activities:</h7>
-                                {week.dailyPlans.map((day, dayIndex) => (
+                                {week.dailyPlans.map((day, dayIndex) => {
+                                  const dayDate = getDayDateInWeek(week.week, day.day)
+                                  return (
                                   <div key={dayIndex} className="text-xs bg-white rounded p-2">
-                                    <span className="font-medium text-gray-800">{day.day}:</span> {day.focus}
+                                    <div className="flex items-center gap-2 mb-1">
+                                      <span className="font-medium text-gray-800">{day.day}</span>
+                                      {dayDate && (
+                                        <span className="px-1.5 py-0.5 bg-blue-100 text-blue-700 rounded text-xs">
+                                          {dayDate.toLocaleDateString('en-US', { month: 'numeric', day: 'numeric' })}
+                                        </span>
+                                      )}
+                                    </div>
+                                    <div>{day.focus}</div>
                                     {day.assessment && (
                                       <div className="text-green-600 mt-1">✓ {day.assessment}</div>
                                     )}
                                   </div>
-                                ))}
+                                  )
+                                })}
                               </div>
                             )}
                           </div>
-                        ))}
+                          )
+                        })}
                       </div>
                       
                       {/* Assessments */}
@@ -323,8 +498,8 @@ const Syllabus = () => {
           <h3 className="text-xl font-semibold text-gray-900">{selectedUnit.title}</h3>
           <p className="text-gray-600">{selectedUnit.description}</p>
           <div className="flex items-center space-x-4 mt-2">
-            <span className={`px-2 py-1 text-xs font-medium rounded-full ${getStatusColor(selectedUnit.status)}`}>
-              {selectedUnit.status}
+            <span className={`px-2 py-1 text-xs font-medium rounded-full ${getStatusColor(calculateDynamicStatus(selectedUnit, 'unit'))}`}>
+              {calculateDynamicStatus(selectedUnit, 'unit')}
             </span>
             <span className="text-sm text-gray-500">{selectedUnit.duration}</span>
             <span className="text-sm text-gray-500">Weeks {selectedUnit.startWeek}-{selectedUnit.endWeek}</span>
@@ -441,8 +616,16 @@ const Syllabus = () => {
                   }}
                 >
                   <div className="flex items-center justify-between">
-                    <div>
-                      <h5 className="font-medium text-gray-900">Week {week.week}: {week.topic}</h5>
+                    <div className="flex-1">
+                      <div className="flex items-center gap-3 mb-2">
+                        <h5 className="font-medium text-gray-900">Week {week.week}: {week.topic}</h5>
+                        <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full font-medium">
+                          {(() => {
+                            const { startDate, endDate } = getWeekDateRange(week.week)
+                            return `${startDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} - ${endDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`
+                          })()}
+                        </span>
+                      </div>
                       <p className="text-sm text-gray-600">{week.focus}</p>
                       {week.workplace_vocabulary && (
                         <div className="mt-2">
@@ -477,7 +660,15 @@ const Syllabus = () => {
 
       <div className="card">
         <div className="mb-6">
-          <h3 className="text-xl font-semibold text-gray-900">Week {selectedWeek.week}: {selectedWeek.topic}</h3>
+          <div className="flex items-center gap-3 mb-2">
+            <h3 className="text-xl font-semibold text-gray-900">Week {selectedWeek.week}: {selectedWeek.topic}</h3>
+            <span className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full font-medium">
+              {(() => {
+                const { startDate, endDate } = getWeekDateRange(selectedWeek.week)
+                return `${startDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} - ${endDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`
+              })()}
+            </span>
+          </div>
           <p className="text-gray-600">{selectedWeek.focus}</p>
         </div>
 
@@ -513,10 +704,19 @@ const Syllabus = () => {
           <div>
             <h4 className="font-medium text-gray-900 mb-3">Daily Plans</h4>
             <div className="space-y-4">
-              {selectedWeek.dailyPlans.map((day, index) => (
+              {selectedWeek.dailyPlans.map((day, index) => {
+                const dayDate = getDayDateInWeek(selectedWeek.week, day.day)
+                return (
                 <div key={index} className="border border-gray-200 rounded-lg p-4">
                   <div className="flex items-center justify-between mb-3">
-                    <h5 className="font-medium text-gray-900">{day.day}</h5>
+                    <div className="flex items-center gap-3">
+                      <h5 className="font-medium text-gray-900">{day.day}</h5>
+                      {dayDate && (
+                        <span className="px-2 py-1 bg-blue-50 text-blue-700 text-xs rounded-full font-medium">
+                          {dayDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                        </span>
+                      )}
+                    </div>
                     <div className="text-sm text-gray-500">{day.focus}</div>
                   </div>
                   <p className="text-sm text-gray-600 mb-2">{day.activities}</p>
@@ -526,7 +726,8 @@ const Syllabus = () => {
                     </div>
                   )}
                 </div>
-              ))}
+                )
+              })}
             </div>
           </div>
         )}
@@ -534,8 +735,162 @@ const Syllabus = () => {
     </div>
   )
 
+  const renderDayDetail = () => {
+    if (!highlightedDate) return null
+    
+    const weekDayInfo = findWeekAndDayForDate(highlightedDate)
+    if (!weekDayInfo) return null
+
+    const { unit, weekPlan, dayPlan, dayName } = weekDayInfo
+    const dayDate = getDayDateInWeek(weekPlan.week, dayName)
+
+    return (
+      <div className="space-y-6">
+        {/* Day Header */}
+        <div className="card">
+          <div className="border-l-4 border-blue-500 pl-6">
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">
+              {dayName} Class Content
+            </h2>
+            <p className="text-gray-600 mb-4">
+              {dayDate?.toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+              })} • Week {weekPlan.week} • {highlightedGroup}
+            </p>
+            <div className="bg-blue-50 p-4 rounded-lg">
+              <h3 className="font-semibold text-blue-900 mb-2">Week Topic</h3>
+              <p className="text-blue-800">{weekPlan.topic}</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Day Content */}
+        {dayPlan ? (
+          <div className="card">
+            <h3 className="text-xl font-semibold mb-4 text-gray-900">Today's Learning Content</h3>
+            
+            <div className="space-y-4">
+              <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                <h4 className="font-semibold text-green-900 mb-2">📚 Focus Area</h4>
+                <p className="text-green-800">{dayPlan.focus}</p>
+              </div>
+
+              <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                <h4 className="font-semibold text-amber-900 mb-2">🎯 Activities</h4>
+                <p className="text-amber-800">{dayPlan.activities}</p>
+              </div>
+
+              {dayPlan.notes && (
+                <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                  <h4 className="font-semibold text-gray-900 mb-2">📝 Notes</h4>
+                  <p className="text-gray-700">{dayPlan.notes}</p>
+                </div>
+              )}
+
+              {dayPlan.assessment && (
+                <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
+                  <h4 className="font-semibold text-purple-900 mb-2">✅ Assessment</h4>
+                  <p className="text-purple-800">{dayPlan.assessment}</p>
+                </div>
+              )}
+            </div>
+
+            {/* Week Context */}
+            <div className="mt-6 pt-6 border-t border-gray-200">
+              <h4 className="font-semibold text-gray-900 mb-3">Week Context</h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <h5 className="font-medium text-gray-700 mb-2">Unit: {unit.title}</h5>
+                  <p className="text-sm text-gray-600">{unit.description}</p>
+                </div>
+                <div>
+                  <h5 className="font-medium text-gray-700 mb-2">Week Focus</h5>
+                  <p className="text-sm text-gray-600">{weekPlan.focus}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Navigation */}
+            <div className="mt-6 pt-6 border-t border-gray-200 flex gap-4">
+              <button
+                onClick={() => setViewMode('weekly')}
+                className="btn-primary"
+              >
+                📅 View Full Week
+              </button>
+              <button
+                onClick={() => setViewMode('units')}
+                className="btn-secondary"
+              >
+                📚 View Unit
+              </button>
+              <button
+                onClick={() => window.history.back()}
+                className="btn-secondary"
+              >
+                ← Back to Schedule
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div className="card text-center py-8">
+            <div className="text-4xl mb-4">📅</div>
+            <h3 className="text-xl font-semibold mb-2 text-gray-900">No Specific Content</h3>
+            <p className="text-gray-600 mb-4">
+              No detailed daily plan found for {dayName}, {dayDate?.toLocaleDateString()}
+            </p>
+            <button
+              onClick={() => setViewMode('weekly')}
+              className="btn-primary"
+            >
+              View Week Overview
+            </button>
+          </div>
+        )}
+      </div>
+    )
+  }
+
   return (
     <div className="container mx-auto px-4 py-8">
+      {/* Class Context Banner - shown when coming from schedule (but not in daily view) */}
+      {highlightedDate && highlightedGroup && (
+        <div className="mb-6 bg-blue-50 border border-blue-200 rounded-lg p-4 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="bg-blue-500 text-white p-2 rounded-full">
+              📅
+            </div>
+            <div>
+              <h3 className="font-semibold text-blue-900">
+                Class Content for {highlightedGroup}
+              </h3>
+              <p className="text-blue-700 text-sm">
+                Showing syllabus content for {new Date(highlightedDate).toLocaleDateString('en-US', { 
+                  weekday: 'long', 
+                  year: 'numeric', 
+                  month: 'long', 
+                  day: 'numeric' 
+                })}
+              </p>
+            </div>
+          </div>
+          <button
+            onClick={() => {
+              setHighlightedDate(null)
+              setHighlightedGroup(null)
+              setViewMode('annual')
+              // Clear URL parameters
+              window.history.replaceState({}, '', window.location.pathname)
+            }}
+            className="text-blue-500 hover:text-blue-700 p-1"
+          >
+            ✕
+          </button>
+        </div>
+      )}
+
       <div className="mb-8">
         <h1 className={`text-3xl font-bold mb-2 ${theme === 'blackGold' ? 'text-blackGold-500' : 'text-gray-900'}`}>Course Syllabus</h1>
         <p className={`${theme === 'blackGold' ? 'text-white' : 'text-gray-600'}`}>Track your annual teaching plan and daily progress</p>
@@ -544,6 +899,7 @@ const Syllabus = () => {
       {viewMode === 'annual' && renderAnnualOverview()}
       {viewMode === 'units' && selectedUnit && renderUnitDetail()}
       {viewMode === 'weekly' && selectedWeek && renderWeeklyDetail()}
+      {viewMode === 'daily' && renderDayDetail()}
     </div>
   )
 }

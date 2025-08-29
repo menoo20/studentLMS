@@ -19,7 +19,7 @@
       "duration": "4 weeks",
       "startWeek": 1,
       "endWeek": 4,
-      "status": "completed",
+      "status": "in-progress",
       "methodology": "Jolly Phonics systematic synthetic phonics",
       "grammar_focus": {
         "main_concepts": ["Phonics Groups 1-7", "Sound Recognition", "Letter Formation"],
@@ -77,7 +77,7 @@
           "workplace_vocabulary": ["sit", "pan", "tip", "tap", "pin", "pit", "red", "hard", "met", "care", "term", "log", "fuel", "bug", "gulf", "fold"],
           "tricky_words": ["the", "I", "no", "go", "into"],
           "phonics_groups_covered": [1, 2, 3],
-          "status": "completed",
+          "status": "current",
           "dailyPlans": [
             {
               "day": "Sunday",

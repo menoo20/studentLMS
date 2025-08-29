@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { useSearchParams, useNavigate } from 'react-router-dom'
 import { useTheme } from '../components/ThemeContext'
 
 const Schedule = () => {
   const { theme } = useTheme()
   const [searchParams] = useSearchParams()
+  const navigate = useNavigate()
   const [schedule, setSchedule] = useState([])
   const [loading, setLoading] = useState(true)
   const [currentWeek, setCurrentWeek] = useState(new Date('2025-08-24')) // Start with the week containing our schedule data
@@ -120,6 +121,27 @@ const Schedule = () => {
     return now >= classDate && now <= classEndTime
   }
 
+  const handleClassClick = (classItem) => {
+    if (!classItem) return
+    
+    // Determine which syllabus to navigate to based on the group
+    let syllabusPath = '/syllabus'
+    
+    // Add URL parameters to highlight the specific date and group
+    const searchParams = new URLSearchParams()
+    searchParams.set('date', classItem.date)
+    searchParams.set('group', classItem.group)
+    
+    // Navigate to the appropriate syllabus with parameters
+    if (classItem.group === 'NESMA') {
+      // NESMA uses Jolly Phonics syllabus
+      navigate(`${syllabusPath}?${searchParams.toString()}`)
+    } else {
+      // Other groups (SAM5, SAIPEM6, etc.) use the main syllabus
+      navigate(`${syllabusPath}?${searchParams.toString()}`)
+    }
+  }
+
   const weekDates = getWeekDates(currentWeek)
 
   const goToPreviousWeek = () => {
@@ -149,13 +171,16 @@ const Schedule = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
+      {/* Header - Responsive Layout */}
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
         <h2 className={`text-3xl font-bold ${theme === 'blackGold' ? 'text-blackGold-500' : 'text-gray-900'}`}>Teaching Schedule</h2>
-        <div className="flex items-center space-x-3">
+        
+        {/* Week Navigation - Horizontal scroll on mobile */}
+        <div className="flex items-center space-x-2 overflow-x-auto pb-2 sm:pb-0">
           <button
             onClick={goToPreviousWeek}
             className={`
-              px-4 py-2 rounded-xl font-medium text-sm transition-all duration-200
+              flex-shrink-0 px-3 py-2 rounded-xl font-medium text-sm transition-all duration-200
               ${theme === 'blackGold' 
                 ? 'bg-gray-700 text-white hover:bg-gray-600 border border-gray-600' 
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200'
@@ -171,7 +196,7 @@ const Schedule = () => {
           <button
             onClick={goToCurrentWeek}
             className={`
-              px-6 py-2 rounded-xl font-semibold text-sm transition-all duration-200
+              flex-shrink-0 px-4 py-2 rounded-xl font-semibold text-sm transition-all duration-200
               ${theme === 'blackGold' 
                 ? 'bg-blackGold-500 text-black hover:bg-blackGold-400 shadow-lg shadow-blackGold-500/30' 
                 : 'bg-blue-500 text-white hover:bg-blue-600 shadow-lg shadow-blue-500/30'
@@ -184,7 +209,7 @@ const Schedule = () => {
           <button
             onClick={goToNextWeek}
             className={`
-              px-4 py-2 rounded-xl font-medium text-sm transition-all duration-200
+              flex-shrink-0 px-3 py-2 rounded-xl font-medium text-sm transition-all duration-200
               ${theme === 'blackGold' 
                 ? 'bg-gray-700 text-white hover:bg-gray-600 border border-gray-600' 
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200'
@@ -306,7 +331,9 @@ const Schedule = () => {
                           rowSpan={classItem && classItem.group === 'NESMA' ? 2 : 1}
                         >
                           {classItem ? (
-                            <div className={`
+                            <div 
+                              onClick={() => handleClassClick(classItem)}
+                              className={`
                               ${classItem.group === 'NESMA' 
                                 ?  'bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 text-white shadow-xl shadow-blue-500/40 border-2 border-blue-300'
                                 :  'bg-gradient-to-br from-indigo-500 to-indigo-600 text-white shadow-lg shadow-indigo-500/30'
@@ -319,7 +346,7 @@ const Schedule = () => {
                                 ? 'ring-4 ring-yellow-300 ring-opacity-60 transform scale-105 shadow-2xl' 
                                 : ''
                               }
-                              p-2 text-xs transition-all duration-200 hover:scale-105 hover:shadow-xl
+                              p-2 text-xs transition-all duration-200 hover:scale-105 hover:shadow-xl cursor-pointer
                               border border-white/20 w-full
                             `}>
                               {/* NESMA Online Class Special Design */}
@@ -447,7 +474,9 @@ const Schedule = () => {
                       </div>
                       <div className="flex-1">
                         {classItem ? (
-                          <div className={`
+                          <div 
+                            onClick={() => handleClassClick(classItem)}
+                            className={`
                             ${classItem.group === 'NESMA' 
                               ?  'bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 text-white shadow-xl shadow-blue-500/40 border-2 border-blue-300'
                               :  'bg-gradient-to-br from-indigo-500 to-indigo-600 text-white shadow-lg shadow-indigo-500/30'
@@ -456,7 +485,7 @@ const Schedule = () => {
                               ? 'ring-4 ring-yellow-300 ring-opacity-60 transform scale-105 shadow-2xl' 
                               : ''
                             }
-                            p-4 rounded-xl transition-all duration-200 hover:scale-105 hover:shadow-xl
+                            p-4 rounded-xl transition-all duration-200 hover:scale-105 hover:shadow-xl cursor-pointer
                             border border-white/20
                           `}>
                             <div className="font-semibold text-sm mb-1">{classItem.subject}</div>

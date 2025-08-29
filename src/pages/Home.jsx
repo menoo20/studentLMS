@@ -86,52 +86,52 @@ const Home = () => {
 
       {/* Quick Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div className="card text-center">
+        <Link to="/students" className="card text-center hover:shadow-lg transition-all duration-200 hover:scale-105 cursor-pointer">
           <div className="text-3xl mb-2">👥</div>
           <div className="text-2xl font-bold text-gray-900">
             {loading ? '...' : stats.totalStudents}
           </div>
           <div className="text-sm text-gray-600">Total Students</div>
-        </div>
-        <div className="card text-center">
+        </Link>
+        <Link to="/students" className="card text-center hover:shadow-lg transition-all duration-200 hover:scale-105 cursor-pointer">
           <div className="text-3xl mb-2">📊</div>
           <div className="text-2xl font-bold text-gray-900">
             {loading ? '...' : stats.totalExams}
           </div>
           <div className="text-sm text-gray-600">Exams Available</div>
-        </div>
-        <div className="card text-center">
+        </Link>
+        <Link to="/schedule" className="card text-center hover:shadow-lg transition-all duration-200 hover:scale-105 cursor-pointer">
           <div className="text-3xl mb-2">📅</div>
           <div className="text-2xl font-bold text-gray-900">
             {loading ? '...' : stats.scheduledClasses}
           </div>
           <div className="text-sm text-gray-600">Upcoming Classes</div>
-        </div>
-        <div className="card text-center">
+        </Link>
+        <Link to="/resources" className="card text-center hover:shadow-lg transition-all duration-200 hover:scale-105 cursor-pointer">
           <div className="text-3xl mb-2">📚</div>
           <div className="text-2xl font-bold text-gray-900">
             {loading ? '...' : stats.totalResources}
           </div>
           <div className="text-sm text-gray-600">Resources Available</div>
-        </div>
+        </Link>
       </div>
 
       {/* Additional Stats */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="card text-center">
+        <Link to="/students" className="card text-center hover:shadow-lg transition-all duration-200 hover:scale-105 cursor-pointer">
           <div className="text-3xl mb-2">📈</div>
           <div className="text-2xl font-bold text-primary-600">
             {loading ? '...' : stats.averageGrade}%
           </div>
           <div className="text-sm text-gray-600">Average Grade</div>
-        </div>
-        <div className="card text-center">
+        </Link>
+        <Link to="/syllabus" className="card text-center hover:shadow-lg transition-all duration-200 hover:scale-105 cursor-pointer">
           <div className="text-3xl mb-2">✅</div>
           <div className="text-2xl font-bold text-green-600">
             {loading ? '...' : stats.completedTopics}
           </div>
           <div className="text-sm text-gray-600">Completed Topics</div>
-        </div>
+        </Link>
       </div>
 
       {/* Quick Actions */}
