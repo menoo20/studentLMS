@@ -7,6 +7,7 @@ const Students = () => {
   const navigate = useNavigate()
   const [students, setStudents] = useState([])
   const [groups, setGroups] = useState([])
+  const [allGroups, setAllGroups] = useState([]) // Store all groups for future use
   const [marks, setMarks] = useState([])
   const [exams, setExams] = useState([])
   const [selectedGroup, setSelectedGroup] = useState('')
@@ -17,20 +18,27 @@ const Students = () => {
     const loadData = async () => {
       try {
         const basePath = import.meta.env.PROD ? '/my-annual-plan' : ''
-        const [studentsRes, groupsRes, marksRes, examsRes] = await Promise.all([
+        const [studentsRes, groupsRes, marksRes, examsRes, configRes] = await Promise.all([
           fetch(`${basePath}/data/students.json`).catch(() => ({ json: () => [] })),
           fetch(`${basePath}/data/groups.json`).catch(() => ({ json: () => [] })),
           fetch(`${basePath}/data/marks.json`).catch(() => ({ json: () => [] })),
           fetch(`${basePath}/data/exams.json`).catch(() => ({ json: () => [] })),
+          fetch(`${basePath}/data/teaching_config.json`).catch(() => ({ json: () => ({ activeGroups: [] }) })),
         ])
 
         const studentsData = await studentsRes.json()
         const groupsData = await groupsRes.json()
         const marksData = await marksRes.json()
         const examsData = await examsRes.json()
+        const configData = await configRes.json()
+
+        // Filter groups to show only active ones
+        const activeGroupIds = configData.activeGroups || []
+        const activeGroups = groupsData.filter(group => activeGroupIds.includes(group.id))
 
         setStudents(studentsData)
-        setGroups(groupsData)
+        setAllGroups(groupsData) // Store all groups for future use
+        setGroups(activeGroups) // Show only active groups
         setMarks(marksData)
         setExams(examsData)
       } catch (error) {
@@ -45,7 +53,11 @@ const Students = () => {
 
   const filteredStudents = selectedGroup
     ? students.filter(student => student.groupId === selectedGroup)
-    : students
+    : students.filter(student => {
+        // Only show students from active groups
+        const activeGroupIds = groups.map(g => g.id)
+        return activeGroupIds.includes(student.groupId)
+      })
 
   const handlePlacementTestClick = (student) => {
     // Navigate to Resources page with NESMA group filter
@@ -123,7 +135,15 @@ const Students = () => {
           {/* Groups Overview */}
           {groups.length > 0 && (
             <div className="card">
-              <h3 className="text-lg font-semibold mb-4 text-gray-900">Groups</h3>
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-lg font-semibold text-gray-900">Currently Taught Groups</h3>
+                <div className="flex items-center text-sm text-blue-600">
+                  <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                  </svg>
+                  Showing {groups.length} active groups
+                </div>
+              </div>
               <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {groups.map(group => {
                   const groupStudents = students.filter(s => s.groupId === group.id)

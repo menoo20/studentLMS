@@ -151,5 +151,14 @@
     "position": "Vocational Training",
     "year": "2024-2025",
     "semester": "Fall"
+  },
+  {
+    "id": "sam8",
+    "name": "SAM 8",
+    "description": "English Class - Scaffolding",
+    "subject": "English",
+    "position": "Scaffolding",
+    "year": "2024-2025",
+    "semester": "Fall"
   }
 ]
