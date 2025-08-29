@@ -86,5 +86,50 @@
     "tags": ["formulas", "reference", "quick"],
     "dateAdded": "2024-03-05",
     "size": "500 KB"
+  },
+  {
+    "id": "nesma-study-portal",
+    "title": "NESMA English Study Portal",
+    "description": "Comprehensive study portal for NESMA students featuring placement test analysis, performance tracking, and personalized study plans",
+    "category": "Student Portal",
+    "type": "portal",
+    "url": "https://menoo20.github.io/Nesma-English-study-plan/index.html",
+    "tags": ["nesma", "english", "placement test", "analysis", "study plan"],
+    "dateAdded": "2025-08-29",
+    "size": "Interactive Portal",
+    "specialFeatures": {
+      "placementTestResults": {
+        "أسمة معازي المالكي": {
+          "score": "31/70",
+          "percentage": "44.3%",
+          "strengths": ["Basic vocabulary", "Simple sentences"],
+          "improvements": ["Grammar structure", "Tenses", "Question formation"]
+        },
+        "مشاعل المطيري": {
+          "score": "35/70", 
+          "percentage": "50.0%",
+          "strengths": ["Reading comprehension", "Phonics sounds"],
+          "improvements": ["Writing skills", "Complex sentences", "Passive voice"]
+        },
+        "خالد الغامدي": {
+          "score": "22/70",
+          "percentage": "31.4%", 
+          "strengths": ["Listening skills", "Basic words"],
+          "improvements": ["Grammar fundamentals", "Sentence structure", "Verb usage"]
+        }
+      },
+      "studyResources": [
+        "Personalized grammar lessons",
+        "Interactive phonics exercises", 
+        "Practice worksheets with corrections",
+        "Audio pronunciation guides",
+        "Progress tracking dashboard"
+      ],
+      "courseAccess": "NESMA Group Only",
+      "lastUpdated": "2025-08-29"
+    },
+    "accessLevel": "restricted",
+    "eligibleStudents": ["أسمة معازي المالكي", "مشاعل المطيري", "خالد الغامدي"],
+    "instructor": "English Teacher"
   }
 ]

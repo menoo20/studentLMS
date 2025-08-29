@@ -1,5 +1,13 @@
 [
   {
+    "id": "placement_test",
+    "name": "Placement Test",
+    "subject": "English",
+    "date": "2025-08-24",
+    "maxScore": 70,
+    "type": "placement"
+  },
+  {
     "id": "exam1",
     "name": "Midterm Exam",
     "subject": "Mathematics",

@@ -194,10 +194,10 @@ const Schedule = () => {
       ) : (
         <div className="card">
           <div className="mb-6">
-            <h3 className={`text-xl font-semibold ${theme === 'blackGold' ? 'text-white' : 'text-gray-900'}`}>
+            <h3 className={`text-xl font-semibold text-gray-900`}>
               Week of {formatDate(weekDates[0])} — {formatDate(weekDates[6])}
             </h3>
-            <p className={`text-sm mt-2 ${theme === 'blackGold' ? 'text-gray-300' : 'text-gray-600'}`}>
+            <p className={`text-sm mt-2 text-gray-600`}>
               Your weekly teaching schedule • {timeSlots.length} time slots • Sunday-based week
             </p>
           </div>
@@ -241,12 +241,8 @@ const Schedule = () => {
                           {classItem ? (
                             <div className={`
                               ${classItem.group === 'NESMA' 
-                                ? theme === 'blackGold' 
-                                  ? 'bg-gradient-to-br from-blackGold-400 via-blackGold-500 to-blackGold-600 text-black shadow-xl shadow-blackGold-500/40 border-2 border-blackGold-300' 
-                                  : 'bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 text-white shadow-xl shadow-blue-500/40 border-2 border-blue-300'
-                                : theme === 'blackGold'
-                                  ? 'bg-gradient-to-br from-gray-700 to-gray-800 text-white shadow-lg shadow-gray-700/30'
-                                  : 'bg-gradient-to-br from-indigo-500 to-indigo-600 text-white shadow-lg shadow-indigo-500/30'
+                                ?  'bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 text-white shadow-xl shadow-blue-500/40 border-2 border-blue-300'
+                                :  'bg-gradient-to-br from-indigo-500 to-indigo-600 text-white shadow-lg shadow-indigo-500/30'
                               }
                               ${classItem.group === 'NESMA' 
                                 ? 'rounded-2xl min-h-32 relative overflow-hidden' 
@@ -272,7 +268,7 @@ const Schedule = () => {
                                   
                                   {/* Zoom logo */}
                                   <div className="flex items-center justify-center mb-2">
-                                    <div className={`p-2 rounded-full ${theme === 'blackGold' ? 'bg-white/10' : 'bg-white/20'}`}>
+                                    <div className={`p-2 rounded-full bg-white/20`}>
                                       <img 
                                         src={`${import.meta.env.PROD ? '/my-annual-plan' : ''}/images/zoom_logo.png`}
                                         alt="Zoom"
@@ -292,19 +288,17 @@ const Schedule = () => {
                               
                               {classItem.group === 'NESMA' ? (
                                 <div className="text-center space-y-2">
-                                  <div className={`text-xs flex items-center justify-center gap-1 ${theme === 'blackGold' ? 'text-black/80' : 'text-white/90'}`}>
+                                  <div className={`text-xs flex items-center justify-center gap-1 text-white/90`}>
                                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                                       <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
                                     </svg>
                                     <span className="font-semibold">Online Class</span>
                                   </div>
-                                  <div className={`text-lg font-bold ${theme === 'blackGold' ? 'text-black' : 'text-white'}`}>
+                                  <div className={`text-lg font-bold text-white`}>
                                     9:00 - 11:00 AM
                                   </div>
                                   {classItem.duration && (
-                                    <div className={`text-xs font-semibold px-3 py-1 rounded-full
-                                      ${theme === 'blackGold' ? 'bg-black/15 text-black' : 'bg-white/25 text-white'}
-                                    `}>
+                                    <div className={`text-xs font-semibold px-3 py-1 rounded-full bg-white/25 text-white`}>                               
                                       {classItem.duration}
                                     </div>
                                   )}
@@ -355,22 +349,24 @@ const Schedule = () => {
               .map(item => (
                 <div key={item.id} className={`
                   flex items-center justify-between p-4 rounded-xl transition-all duration-200 hover:scale-[1.02]
-                  ${theme === 'blackGold' ? 'bg-gray-800/30 hover:bg-gray-800/50' : 'bg-gray-50 hover:bg-gray-100'}
-                  border ${theme === 'blackGold' ? 'border-gray-700' : 'border-gray-200'}
+                  ${theme === 'blackGold' 
+                    ? 'bg-gray-50 hover:bg-gray-100 shadow-md hover:shadow-lg border border-gray-200' 
+                    : 'bg-gray-50 hover:bg-gray-100 border border-gray-200'
+                  }
                 `}>
                   <div className="flex items-center gap-4">
                     <div className={`
                       w-3 h-3 rounded-full flex-shrink-0
                       ${item.group === 'NESMA' 
-                        ? theme === 'blackGold' ? 'bg-blackGold-500' : 'bg-blue-500'
-                        : theme === 'blackGold' ? 'bg-gray-500' : 'bg-indigo-500'
+                        ? theme === 'blackGold' ? 'bg-gradient-to-r from-blue-500 to-blue-600 shadow-lg' : 'bg-blue-500'
+                        : theme === 'blackGold' ? 'bg-gradient-to-r from-indigo-500 to-purple-600 shadow-lg' : 'bg-indigo-500'
                       }
                     `}></div>
                     <div>
-                      <div className={`font-semibold ${theme === 'blackGold' ? 'text-white' : 'text-gray-900'}`}>
+                      <div className={`font-semibold ${theme === 'blackGold' ? 'text-gray-900' : 'text-gray-900'}`}>
                         {item.subject} • {item.group}
                       </div>
-                      <div className={`text-sm flex items-center gap-2 mt-1 ${theme === 'blackGold' ? 'text-gray-300' : 'text-gray-600'}`}>
+                      <div className={`text-sm flex items-center gap-2 mt-1 ${theme === 'blackGold' ? 'text-gray-600' : 'text-gray-600'}`}>
                         {item.room === 'Online' ? (
                           <>
                             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
@@ -390,14 +386,14 @@ const Schedule = () => {
                     </div>
                   </div>
                   <div className="text-right flex-shrink-0">
-                    <div className={`text-sm font-semibold ${theme === 'blackGold' ? 'text-blackGold-500' : 'text-blue-600'}`}>
+                    <div className={`text-sm font-semibold ${theme === 'blackGold' ? 'text-blue-600' : 'text-blue-600'}`}>
                       {new Date(item.date).toLocaleDateString('en-US', { 
                         weekday: 'short', 
                         month: 'short', 
                         day: 'numeric' 
                       })}
                     </div>
-                    <div className={`text-sm font-mono ${theme === 'blackGold' ? 'text-gray-300' : 'text-gray-600'}`}>
+                    <div className={`text-sm font-mono ${theme === 'blackGold' ? 'text-gray-700' : 'text-gray-600'}`}>
                       {item.time}
                     </div>
                   </div>

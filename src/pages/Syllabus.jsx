@@ -7,6 +7,7 @@ const Syllabus = () => {
   const [loading, setLoading] = useState(true)
   const [selectedUnit, setSelectedUnit] = useState(null)
   const [selectedWeek, setSelectedWeek] = useState(null)
+  const [expandedCourse, setExpandedCourse] = useState(null) // New state for expanded course
   const [viewMode, setViewMode] = useState('annual') // 'annual', 'units', 'weekly', 'daily'
 
   useEffect(() => {
@@ -169,24 +170,134 @@ const Syllabus = () => {
         {/* Short Courses */}
         {syllabusData.shortCourses && syllabusData.shortCourses.length > 0 && (
           <div className="card">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Short Courses</h3>
+            <h3 className={`text-lg font-semibold mb-4 ${theme === 'blackGold' ? 'text-white' : 'text-gray-900'}`}>Short Courses</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {syllabusData.shortCourses.map((course) => (
-                <div key={course.id} className="border border-gray-200 rounded-lg p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <h4 className="font-medium text-gray-900">{course.title}</h4>
-                    <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                      course.priority === 'high' ? 'bg-red-100 text-red-800' : 
-                      course.priority === 'medium' ? 'bg-yellow-100 text-yellow-800' : 
-                      'bg-green-100 text-green-800'
-                    }`}>
-                      {course.priority}
-                    </span>
+                <div key={course.id} className="border border-gray-200 rounded-lg">
+                  <div 
+                    className="p-4 cursor-pointer hover:bg-gray-50 transition-colors"
+                    onClick={() => setExpandedCourse(expandedCourse === course.id ? null : course.id)}
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <h4 className={`font-medium ${theme === 'blackGold' ? 'text-white' : 'text-gray-900'}`}>{course.title}</h4>
+                      <div className="flex items-center gap-2">
+                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                          course.priority === 'in-progress' ? 'bg-blue-100 text-blue-800' :
+                          course.priority === 'high' ? 'bg-red-100 text-red-800' : 
+                          course.priority === 'medium' ? 'bg-yellow-100 text-yellow-800' : 
+                          'bg-green-100 text-green-800'
+                        }`}>
+                          {course.priority === 'in-progress' ? 'in progress' : course.priority}
+                        </span>
+                        <svg 
+                          className={`w-5 h-5 transition-transform ${
+                            expandedCourse === course.id ? 'rotate-180' : ''
+                          } ${theme === 'blackGold' ? 'text-white' : 'text-gray-500'}`}
+                          fill="none" 
+                          stroke="currentColor" 
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </div>
+                    </div>
+                    <p className={`text-sm mb-2 ${theme === 'blackGold' ? 'text-gray-300' : 'text-gray-600'}`}>{course.description}</p>
+                    <div className={`text-xs ${theme === 'blackGold' ? 'text-gray-400' : 'text-gray-500'}`}>
+                      📅 {course.schedule} • ⏱️ {course.duration}
+                      {course.students && <span> • 👥 {course.students.length} students</span>}
+                    </div>
                   </div>
-                  <p className="text-sm text-gray-600 mb-2">{course.description}</p>
-                  <div className="text-xs text-gray-500">
-                    📅 {course.schedule} • ⏱️ {course.duration}
-                  </div>
+                  
+                  {/* Expanded Course Content */}
+                  {expandedCourse === course.id && course.weeklyPlan && (
+                    <div className={`border-t border-gray-200 p-4 ${theme === 'blackGold' ? 'bg-gray-800/20' : 'bg-gray-50'}`}>
+                      <h5 className={`font-semibold mb-3 ${theme === 'blackGold' ? 'text-white' : 'text-gray-900'}`}>Course Content</h5>
+                      
+                      {/* Students List */}
+                      {course.students && (
+                        <div className="mb-4">
+                          <h6 className={`text-sm font-medium mb-2 ${theme === 'blackGold' ? 'text-gray-300' : 'text-gray-700'}`}>Students:</h6>
+                          <div className="flex flex-wrap gap-2">
+                            {course.students.map((student, index) => (
+                              <span 
+                                key={index}
+                                className={`px-2 py-1 rounded-full text-xs ${
+                                  theme === 'blackGold' ? 'bg-blackGold-500/20 text-blackGold-500' : 'bg-blue-100 text-blue-800'
+                                }`}
+                              >
+                                {student}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                      
+                      {/* Weekly Plan */}
+                      <div className="space-y-3">
+                        {course.weeklyPlan.map((week, index) => (
+                          <div key={index} className={`border rounded-lg p-3 ${
+                            week.status === 'completed' ? 'border-green-200 bg-green-50' :
+                            week.status === 'current' ? 'border-blue-200 bg-blue-50' :
+                            'border-gray-200 bg-white'
+                          }`}>
+                            <div className="flex items-center justify-between mb-2">
+                              <h6 className="font-medium text-gray-900">
+                                Week {week.week}: {week.topic}
+                              </h6>
+                              <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                                week.status === 'completed' ? 'bg-green-100 text-green-800' :
+                                week.status === 'current' ? 'bg-blue-100 text-blue-800' :
+                                'bg-gray-100 text-gray-800'
+                              }`}>
+                                {week.status}
+                              </span>
+                            </div>
+                            <p className="text-sm text-gray-600 mb-2">{week.focus}</p>
+                            <div className="text-xs text-gray-500">{week.dates}</div>
+                            
+                            {/* Daily Plans */}
+                            {week.dailyPlans && (
+                              <div className="mt-3 space-y-2">
+                                <h7 className="text-xs font-medium text-gray-700">Daily Activities:</h7>
+                                {week.dailyPlans.map((day, dayIndex) => (
+                                  <div key={dayIndex} className="text-xs bg-white rounded p-2">
+                                    <span className="font-medium text-gray-800">{day.day}:</span> {day.focus}
+                                    {day.assessment && (
+                                      <div className="text-green-600 mt-1">✓ {day.assessment}</div>
+                                    )}
+                                  </div>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                      
+                      {/* Assessments */}
+                      {course.assessments && (
+                        <div className="mt-4">
+                          <h6 className={`text-sm font-medium mb-2 ${theme === 'blackGold' ? 'text-gray-300' : 'text-gray-700'}`}>Assessments:</h6>
+                          <div className="grid grid-cols-1 gap-2">
+                            {course.assessments.map((assessment, index) => (
+                              <div key={index} className={`flex items-center justify-between p-2 rounded ${
+                                assessment.status === 'completed' ? 'bg-green-100' : 'bg-gray-100'
+                              }`}>
+                                <span className="text-sm font-medium text-gray-900">{assessment.name}</span>
+                                <div className="flex items-center gap-2">
+                                  <span className="text-xs text-gray-600">{assessment.date}</span>
+                                  <span className={`px-2 py-1 rounded-full text-xs ${
+                                    assessment.status === 'completed' ? 'bg-green-200 text-green-800' : 'bg-yellow-200 text-yellow-800'
+                                  }`}>
+                                    {assessment.status}
+                                  </span>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>

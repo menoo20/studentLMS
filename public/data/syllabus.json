@@ -314,224 +314,213 @@
       "priority": "high"
     },
     {
-      "id": "technical-writing",
-      "title": "Basic Technical Writing",
-      "description": "Writing maintenance reports and incident forms", 
-      "duration": "2 weeks",
-      "schedule": "Weeks 22-23",
-      "priority": "medium"
-    }
-  ]
-}
-  "units": [
-    {
-      "id": "unit1",
-      "title": "Basic Communication",
-      "description": "Fundamental English communication skills for workplace",
-      "duration": "8 weeks",
-      "startWeek": 1,
-      "endWeek": 8,
-      "status": "completed",
+      "id": "nesma-basic-english",
+      "title": "Basic English Communication - NESMA Group",
+      "description": "Comprehensive English foundation covering phonics, grammar, and workplace communication for adult learners",
+      "duration": "4 weeks",
+      "schedule": "Aug 24 - Sep 20, 2025",
+      "priority": "high",
+      "group": "NESMA",
+      "instructor": "English Teacher",
+      "students": ["أسمه معازي المالكي", "مشاعل المطيري", "خالد الغامدي"],
       "objectives": [
-        "Introduce yourself and others",
-        "Ask and answer basic questions",
-        "Use common workplace greetings",
-        "Understand simple instructions"
+        "Master basic phonics groups 1-3",
+        "Understand sentence structure and parts of speech",
+        "Form questions correctly",
+        "Apply active and passive voice",
+        "Develop listening and reading comprehension",
+        "Build workplace English vocabulary"
       ],
       "weeklyPlan": [
         {
           "week": 1,
-          "topic": "Introductions and Greetings",
+          "dates": "Aug 24-30, 2025",
+          "topic": "Phonics Foundation",
+          "status": "completed",
+          "focus": "Basic letter-sound correspondences and phonics groups",
+          "objectives": [
+            "Master phonics groups 1, 2, and 3",
+            "Practice basic letter sounds and blending",
+            "Introduction to simple word formation"
+          ],
+          "content": {
+            "phonics_groups": [
+              {
+                "group": 1,
+                "sounds": ["s", "a", "t", "i", "p", "n"],
+                "focus": "Basic consonants and vowels"
+              },
+              {
+                "group": 2,
+                "sounds": ["c/k", "e", "h", "r", "m", "d"],
+                "focus": "Extended consonants"
+              },
+              {
+                "group": 3,
+                "sounds": ["g", "o", "u", "l", "f", "b"],
+                "focus": "Completing basic alphabet"
+              }
+            ]
+          },
           "dailyPlans": [
             {
               "day": "Sunday",
-              "focus": "Personal introductions",
-              "activities": "Name practice, greeting role-play",
-              "notes": ""
+              "focus": "Phonics Group 1: s, a, t, i, p, n",
+              "activities": "Sound recognition, letter formation, basic blending",
+              "assessment": "Placement test administered (31/70, 35/70, 22/70)"
             },
             {
-              "day": "Monday", 
-              "focus": "Workplace greetings",
-              "activities": "Professional greeting scenarios",
-              "notes": ""
-            },
-            {
-              "day": "Tuesday",
-              "focus": "Basic questions",
-              "activities": "What/Where/When question practice",
-              "notes": ""
-            },
-            {
-              "day": "Wednesday",
-              "focus": "Practice session",
-              "activities": "Combined practice and review",
-              "notes": ""
+              "day": "Tuesday", 
+              "focus": "Phonics Group 2: c/k, e, h, r, m, d",
+              "activities": "Sound practice, CVC word building, pronunciation drills"
             },
             {
               "day": "Thursday",
-              "focus": "Assessment",
-              "activities": "Oral assessment of introductions",
-              "notes": ""
+              "focus": "Phonics Group 3: g, o, u, l, f, b",
+              "activities": "Complete alphabet review, simple word reading, phonics games"
             }
           ]
         },
         {
           "week": 2,
-          "topic": "Basic Personal Information",
+          "dates": "Aug 31-Sep 6, 2025",
+          "topic": "Grammar Foundations",
+          "status": "current",
+          "focus": "Sentence structure, tenses, and parts of speech",
+          "objectives": [
+            "Understand basic sentence structure (Subject + Verb + Object)",
+            "Identify and use parts of speech correctly",
+            "Master present, past, and future tense structures",
+            "Form simple and compound sentences"
+          ],
+          "content": {
+            "grammar_topics": [
+              "Sentence structure (SVO pattern)",
+              "Parts of speech (nouns, verbs, adjectives, adverbs)",
+              "Present tense (simple and continuous)",
+              "Past tense (simple and continuous)", 
+              "Future tense (will/going to)"
+            ]
+          },
           "dailyPlans": [
             {
               "day": "Sunday",
-              "focus": "Personal details vocabulary",
-              "activities": "Name, age, job, location practice",
-              "notes": ""
-            },
-            {
-              "day": "Monday",
-              "focus": "Asking for information",
-              "activities": "Question formation practice",
-              "notes": ""
-            },
-            {
-              "day": "Tuesday", 
-              "focus": "Giving information",
-              "activities": "Response practice and fluency",
-              "notes": ""
-            },
-            {
-              "day": "Wednesday",
-              "focus": "Information exchange",
-              "activities": "Pair work and conversation practice",
-              "notes": ""
-            },
-            {
-              "day": "Thursday",
-              "focus": "Review and practice",
-              "activities": "Mixed practice session",
-              "notes": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "unit2", 
-      "title": "Workplace Safety",
-      "description": "Safety-related English for vocational environments",
-      "duration": "6 weeks",
-      "startWeek": 9,
-      "endWeek": 14,
-      "status": "in-progress",
-      "objectives": [
-        "Understand safety signs and warnings",
-        "Report workplace hazards",
-        "Follow safety instructions",
-        "Use emergency vocabulary"
-      ],
-      "weeklyPlan": [
-        {
-          "week": 9,
-          "topic": "Safety Signs and Symbols",
-          "dailyPlans": [
-            {
-              "day": "Sunday",
-              "focus": "Safety sign recognition",
-              "activities": "Visual identification and vocabulary",
-              "notes": ""
-            },
-            {
-              "day": "Monday",
-              "focus": "Warning vocabulary",
-              "activities": "Danger, caution, prohibited words",
-              "notes": ""
+              "focus": "Sentence Structure Basics",
+              "activities": "SVO pattern practice, sentence building exercises, identifying subjects and predicates"
             },
             {
               "day": "Tuesday",
-              "focus": "Reading safety signs",
-              "activities": "Sign comprehension exercises",
-              "notes": ""
+              "focus": "Parts of Speech",
+              "activities": "Noun/verb identification, adjective usage, adverb placement in sentences"
             },
             {
-              "day": "Wednesday",
-              "focus": "Practice session",
-              "activities": "Safety sign scenarios",
-              "notes": ""
+              "day": "Thursday", 
+              "focus": "Tense Structures",
+              "activities": "Present/past/future tense formation, time expressions, tense conversion exercises"
+            }
+          ]
+        },
+        {
+          "week": 3,
+          "dates": "Sep 7-13, 2025",
+          "topic": "Questions and Voice",
+          "status": "upcoming",
+          "focus": "Question formation, active/passive voice, and comprehension skills",
+          "objectives": [
+            "Form WH-questions and Yes/No questions correctly",
+            "Understand and use active and passive voice",
+            "Develop listening comprehension skills",
+            "Improve reading comprehension and vocabulary"
+          ],
+          "content": {
+            "language_skills": [
+              "Question formation (WH-questions, Yes/No questions)",
+              "Question words (who, what, where, when, why, how)",
+              "Active voice construction",
+              "Passive voice transformation",
+              "Listening strategies",
+              "Reading comprehension techniques"
+            ]
+          },
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Question Formation",
+              "activities": "WH-question practice, Yes/No question drills, question-answer pair work"
+            },
+            {
+              "day": "Tuesday",
+              "focus": "Active and Passive Voice",
+              "activities": "Voice identification, transformation exercises, workplace examples"
             },
             {
               "day": "Thursday",
-              "focus": "Assessment",
-              "activities": "Safety sign quiz",
-              "notes": ""
+              "focus": "Listening and Reading",
+              "activities": "Audio comprehension exercises, reading passages, vocabulary building"
+            }
+          ]
+        },
+        {
+          "week": 4,
+          "dates": "Sep 14-20, 2025",
+          "topic": "Integration and Application",
+          "status": "upcoming",
+          "focus": "Consolidation of skills and practical application",
+          "objectives": [
+            "Integrate all learned grammar concepts",
+            "Apply English skills in workplace scenarios",
+            "Demonstrate improved communication confidence",
+            "Complete final assessment and course evaluation"
+          ],
+          "content": {
+            "integration_activities": [
+              "Comprehensive grammar review",
+              "Workplace communication scenarios",
+              "Presentation skills",
+              "Written communication practice",
+              "Speaking confidence building",
+              "Course assessment and feedback"
+            ]
+          },
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Grammar Integration",
+              "activities": "Mixed grammar exercises, error correction, comprehensive review games"
+            },
+            {
+              "day": "Tuesday",
+              "focus": "Workplace Communication",
+              "activities": "Job-related vocabulary, workplace scenarios, professional conversations"
+            },
+            {
+              "day": "Thursday",
+              "focus": "Assessment and Graduation",
+              "activities": "Final assessment, course evaluation, progress celebration, next steps discussion"
             }
           ]
         }
-      ]
-    },
-    {
-      "id": "unit3",
-      "title": "Technical Vocabulary",
-      "description": "Job-specific English vocabulary for different trades",
-      "duration": "10 weeks",
-      "startWeek": 15,
-      "endWeek": 24,
-      "status": "planned",
-      "objectives": [
-        "Learn trade-specific vocabulary",
-        "Understand technical instructions",
-        "Describe work processes",
-        "Use measurement and quantity terms"
       ],
-      "weeklyPlan": []
-    },
-    {
-      "id": "unit4",
-      "title": "Written Communication",
-      "description": "Basic writing skills for workplace documentation",
-      "duration": "8 weeks",
-      "startWeek": 25,
-      "endWeek": 32,
-      "status": "planned",
-      "objectives": [
-        "Write simple reports",
-        "Fill out forms and documents",
-        "Write basic emails",
-        "Document work activities"
-      ],
-      "weeklyPlan": []
-    }
-  ],
-  "shortCourses": [
-    {
-      "id": "short1",
-      "title": "Emergency English",
-      "description": "Quick intensive course for emergency situations",
-      "duration": "2 weeks",
-      "startDate": "2024-11-01",
-      "endDate": "2024-11-14",
-      "status": "planned",
-      "target": "All groups",
-      "objectives": [
-        "Emergency vocabulary",
-        "Calling for help",
-        "Reporting incidents"
-      ],
-      "dailyPlan": [
+      "assessments": [
         {
-          "day": 1,
-          "focus": "Emergency vocabulary",
-          "activities": "Key emergency words and phrases"
+          "type": "placement",
+          "name": "Placement Test",
+          "date": "Aug 24, 2025",
+          "status": "completed"
         },
         {
-          "day": 2,
-          "focus": "Making emergency calls",
-          "activities": "Phone call practice and role-play"
+          "type": "progress",
+          "name": "Mid-Course Assessment",
+          "date": "Sep 7, 2025",
+          "status": "scheduled"
+        },
+        {
+          "type": "final",
+          "name": "Final Assessment",
+          "date": "Sep 20, 2025", 
+          "status": "scheduled"
         }
       ]
     }
-  ],
-  "progress": {
-    "currentWeek": 15,
-    "completedUnits": 1,
-    "totalUnits": 4,
-    "percentageComplete": 25
-  }
+  ]
 }

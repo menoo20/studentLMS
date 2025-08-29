@@ -49,7 +49,8 @@ const Resources = () => {
       'image': '🖼️',
       'audio': '🎵',
       'folder': '📁',
-      'drive': '💾'
+      'drive': '💾',
+      'portal': '🌐'
     }
     return icons[type] || '📎'
   }
@@ -65,7 +66,8 @@ const Resources = () => {
       'image': 'bg-pink-100 text-pink-800',
       'audio': 'bg-yellow-100 text-yellow-800',
       'folder': 'bg-indigo-100 text-indigo-800',
-      'drive': 'bg-cyan-100 text-cyan-800'
+      'drive': 'bg-cyan-100 text-cyan-800',
+      'portal': 'bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800'
     }
     return colors[type] || 'bg-gray-100 text-gray-800'
   }
@@ -171,20 +173,29 @@ const Resources = () => {
           {/* Resources Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredResources.map(resource => (
-              <div key={resource.id} className="card hover:shadow-lg transition-shadow">
+              <div key={resource.id} className={`card hover:shadow-lg transition-shadow ${
+                resource.id === 'nesma-study-portal' ? 'border-2 border-blue-300 bg-gradient-to-br from-blue-50 to-purple-50' : ''
+              }`}>
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex items-center space-x-2">
                     <span className="text-2xl">{getResourceIcon(resource.type)}</span>
                     <span className={`px-2 py-1 rounded-full text-xs font-medium ${getResourceTypeColor(resource.type)}`}>
                       {resource.type.toUpperCase()}
                     </span>
+                    {resource.accessLevel === 'restricted' && (
+                      <span className="px-2 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
+                        🔒 RESTRICTED
+                      </span>
+                    )}
                   </div>
                   {resource.size && (
                     <span className="text-xs text-gray-500">{resource.size}</span>
                   )}
                 </div>
 
-                <h4 className="font-semibold text-gray-900 mb-2 line-clamp-2">
+                <h4 className={`font-semibold mb-2 line-clamp-2 ${
+                  resource.id === 'nesma-study-portal' ? 'text-blue-900' : 'text-gray-900'
+                }`}>
                   {resource.title}
                 </h4>
 
@@ -194,8 +205,37 @@ const Resources = () => {
                   </p>
                 )}
 
+                {/* Special NESMA Portal Features */}
+                {resource.id === 'nesma-study-portal' && resource.specialFeatures && (
+                  <div className="mb-4 p-3 bg-white rounded-lg border border-blue-200">
+                    <h5 className="text-sm font-semibold text-blue-900 mb-2">📊 Placement Test Results</h5>
+                    <div className="space-y-2 text-xs">
+                      {Object.entries(resource.specialFeatures.placementTestResults).map(([student, data]) => (
+                        <div key={student} className="flex justify-between items-center">
+                          <span className="font-medium text-gray-700">{student}</span>
+                          <span className={`px-2 py-1 rounded-full font-medium ${
+                            parseFloat(data.percentage) >= 50 ? 'bg-green-100 text-green-800' : 
+                            parseFloat(data.percentage) >= 40 ? 'bg-yellow-100 text-yellow-800' : 
+                            'bg-red-100 text-red-800'
+                          }`}>
+                            {data.score} ({data.percentage})
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                    
+                    <div className="mt-3 pt-2 border-t border-blue-100">
+                      <p className="text-xs text-blue-700">
+                        ✨ Includes: Analysis, corrections, and personalized study plans
+                      </p>
+                    </div>
+                  </div>
+                )}
+
                 <div className="mb-3">
-                  <span className="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">
+                  <span className={`inline-block text-xs px-2 py-1 rounded-full ${
+                    resource.category === 'Student Portal' ? 'bg-purple-100 text-purple-800' : 'bg-blue-100 text-blue-800'
+                  }`}>
                     {resource.category}
                   </span>
                 </div>
@@ -220,6 +260,21 @@ const Resources = () => {
                   </div>
                 )}
 
+                {/* Show eligible students for restricted access */}
+                {resource.eligibleStudents && (
+                  <div className="mb-3 p-2 bg-yellow-50 rounded-lg border border-yellow-200">
+                    <p className="text-xs font-medium text-yellow-800 mb-1">👥 Eligible Students:</p>
+                    <div className="text-xs text-yellow-700">
+                      {resource.eligibleStudents.slice(0, 2).map((student, index) => (
+                        <span key={index}>{student}{index < Math.min(1, resource.eligibleStudents.length - 1) ? ', ' : ''}</span>
+                      ))}
+                      {resource.eligibleStudents.length > 2 && (
+                        <span> +{resource.eligibleStudents.length - 2} more</span>
+                      )}
+                    </div>
+                  </div>
+                )}
+
                 <div className="flex items-center justify-between mt-auto pt-3 border-t border-gray-100">
                   <div className="text-xs text-gray-500">
                     {resource.dateAdded && new Date(resource.dateAdded).toLocaleDateString()}
@@ -230,9 +285,13 @@ const Resources = () => {
                       href={resource.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn-primary text-xs py-1 px-3"
+                      className={`text-xs py-1 px-3 rounded ${
+                        resource.id === 'nesma-study-portal' 
+                          ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600'
+                          : 'btn-primary'
+                      }`}
                     >
-                      Open
+                      {resource.id === 'nesma-study-portal' ? '🚀 Open Portal' : 'Open'}
                     </a>
                   ) : (
                     <button className="btn-secondary text-xs py-1 px-3" disabled>
