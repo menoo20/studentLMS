@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { useTheme } from '../components/ThemeContext'
 
 const Resources = () => {
   const { theme } = useTheme()
+  const [searchParams, setSearchParams] = useSearchParams()
   const [resources, setResources] = useState([])
   const [loading, setLoading] = useState(true)
   const [selectedCategory, setSelectedCategory] = useState('')
@@ -25,6 +27,17 @@ const Resources = () => {
 
     loadResources()
   }, [])
+
+  // Handle URL parameters for group filtering
+  useEffect(() => {
+    const groupParam = searchParams.get('group')
+    if (groupParam) {
+      // If NESMA group is specified, filter to show NESMA-related resources
+      if (groupParam.toLowerCase().includes('nesma')) {
+        setSearchTerm('nesma')
+      }
+    }
+  }, [searchParams])
 
   const categories = [...new Set(resources.map(item => item.category))]
   

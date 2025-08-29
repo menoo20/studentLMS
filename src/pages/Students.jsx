@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useTheme } from '../components/ThemeContext'
 
 const Students = () => {
   const { theme } = useTheme()
+  const navigate = useNavigate()
   const [students, setStudents] = useState([])
   const [groups, setGroups] = useState([])
   const [marks, setMarks] = useState([])
@@ -52,15 +54,28 @@ const Students = () => {
   const getStudentAverage = (studentId) => {
     const studentMarks = getStudentMarks(studentId)
     if (studentMarks.length === 0) return 0
-    const total = studentMarks.reduce((sum, mark) => sum + mark.score, 0)
-    return (total / studentMarks.length).toFixed(1)
+    
+    // Calculate percentage-based average
+    const percentages = studentMarks.map(mark => {
+      const exam = exams.find(e => e.id === mark.examId)
+      return exam ? (mark.score / exam.maxScore) * 100 : 0
+    })
+    
+    const total = percentages.reduce((sum, percentage) => sum + percentage, 0)
+    return (total / percentages.length).toFixed(1)
   }
 
   const getExamAverage = (examId) => {
     const examMarks = marks.filter(mark => mark.examId === examId)
     if (examMarks.length === 0) return 0
-    const total = examMarks.reduce((sum, mark) => sum + mark.score, 0)
-    return (total / examMarks.length).toFixed(1)
+    
+    const exam = exams.find(e => e.id === examId)
+    if (!exam) return 0
+    
+    // Calculate percentage-based average
+    const percentages = examMarks.map(mark => (mark.score / exam.maxScore) * 100)
+    const total = percentages.reduce((sum, percentage) => sum + percentage, 0)
+    return (total / percentages.length).toFixed(1)
   }
 
   if (loading) {
@@ -150,9 +165,46 @@ const Students = () => {
           ) : (
             /* Marks Table when group is selected */
             <div className="card">
-              <h3 className="text-lg font-semibold mb-4 text-gray-900">
-                Student Marks - {groups.find(g => g.id === selectedGroup)?.name}
-              </h3>
+              <div className="flex items-center justify-between mb-6">
+                <h3 className={`text-lg font-semibold ${theme === 'blackGold' ? 'text-white' : 'text-gray-900'}`}>
+                  Student Marks - {groups.find(g => g.id === selectedGroup)?.name}
+                </h3>
+              </div>
+
+              {/* Quick Access Buttons for Selected Group */}
+              {selectedGroup && (
+                <div className="mb-6 p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg border border-blue-200">
+                  <h4 className="text-sm font-semibold text-blue-900 mb-3">📚 Quick Access</h4>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <button
+                      onClick={() => {
+                        const groupName = groups.find(g => g.id === selectedGroup)?.name || selectedGroup
+                        navigate(`/resources?group=${encodeURIComponent(groupName)}`)
+                      }}
+                      className="flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-200 transform hover:scale-105 shadow-md"
+                    >
+                      <span className="text-lg">📚</span>
+                      <span className="font-medium">My Resources</span>
+                      <span className="text-xs opacity-75">Study materials & portal</span>
+                    </button>
+                    
+                    <button
+                      onClick={() => {
+                        const groupName = groups.find(g => g.id === selectedGroup)?.name || selectedGroup
+                        navigate(`/schedule?highlight=${encodeURIComponent(groupName)}`)
+                      }}
+                      className="flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-lg hover:from-purple-600 hover:to-purple-700 transition-all duration-200 transform hover:scale-105 shadow-md"
+                    >
+                      <span className="text-lg">📅</span>
+                      <span className="font-medium">My Schedule</span>
+                      <span className="text-xs opacity-75">Classes & progress</span>
+                    </button>
+                  </div>
+                  <p className="text-xs text-blue-600 mt-2">
+                    💡 Access your personalized content and track your course progress
+                  </p>
+                </div>
+              )}
               
               {exams.length === 0 ? (
                 <div className="text-center py-8">
@@ -169,11 +221,11 @@ const Students = () => {
                             {exam.name}
                             <br />
                             <span className="text-xs font-normal text-gray-500">
-                              Avg: {getExamAverage(exam.id)}
+                              Max: {exam.maxScore} | Avg: {getExamAverage(exam.id)}%
                             </span>
                           </th>
                         ))}
-                        <th className="table-header px-6 py-3 text-center">Average</th>
+                        <th className="table-header px-6 py-3 text-center">Average (%)</th>
                       </tr>
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200">
@@ -184,22 +236,28 @@ const Students = () => {
                           </td>
                           {exams.map(exam => {
                             const mark = marks.find(m => m.studentId === student.id && m.examId === exam.id)
+                            const percentage = mark ? Math.round((mark.score / exam.maxScore) * 100) : 0
                             return (
                               <td key={exam.id} className="px-6 py-4 text-center">
                                 <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
                                   mark ? (
-                                    mark.score >= 80 ? 'bg-green-100 text-green-800' :
-                                    mark.score >= 60 ? 'bg-yellow-100 text-yellow-800' :
+                                    percentage >= 80 ? 'bg-green-100 text-green-800' :
+                                    percentage >= 60 ? 'bg-yellow-100 text-yellow-800' :
                                     'bg-red-100 text-red-800'
                                   ) : 'bg-gray-100 text-gray-800'
                                 }`}>
-                                  {mark ? mark.score : '-'}
+                                  {mark ? `${mark.score}/${exam.maxScore}` : '-'}
                                 </span>
+                                {mark && (
+                                  <div className="text-xs text-gray-500 mt-1">
+                                    {percentage}%
+                                  </div>
+                                )}
                               </td>
                             )
                           })}
                           <td className="px-6 py-4 text-center font-medium">
-                            {getStudentAverage(student.id)}
+                            {getStudentAverage(student.id)}%
                           </td>
                         </tr>
                       ))}

@@ -30,6 +30,20 @@ export default {
           goldDark: '#BFA100',
           white: '#fff',
         },
+        vibrantGradient: {
+          900: '#0D1164', // Deep Navy Blue
+          800: '#640D5F', // Rich Purple  
+          500: '#EA2264', // Bright Pink
+          400: '#F78D60', // Coral Orange
+          50: '#fff',
+          accent: '#EA2264', // Bright Pink accent
+          bg: 'linear-gradient(135deg, #0D1164 0%, #640D5F 35%, #EA2264 70%, #F78D60 100%)',
+          navy: '#0D1164',
+          purple: '#640D5F',
+          pink: '#EA2264',
+          coral: '#F78D60',
+          white: '#fff',
+        },
       },
     },
   },

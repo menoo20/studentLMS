@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { useTheme } from '../components/ThemeContext'
 
 const Schedule = () => {
   const { theme } = useTheme()
+  const [searchParams] = useSearchParams()
   const [schedule, setSchedule] = useState([])
   const [loading, setLoading] = useState(true)
   const [currentWeek, setCurrentWeek] = useState(new Date())
+  const [highlightGroup, setHighlightGroup] = useState(null)
 
   useEffect(() => {
     const loadSchedule = async () => {
@@ -24,6 +27,14 @@ const Schedule = () => {
 
     loadSchedule()
   }, [])
+
+  // Handle URL parameters for group highlighting
+  useEffect(() => {
+    const highlightParam = searchParams.get('highlight')
+    if (highlightParam) {
+      setHighlightGroup(highlightParam.toLowerCase())
+    }
+  }, [searchParams])
 
   const getWeekDates = (date) => {
     const week = []
@@ -247,6 +258,10 @@ const Schedule = () => {
                               ${classItem.group === 'NESMA' 
                                 ? 'rounded-2xl min-h-32 relative overflow-hidden' 
                                 : 'rounded-xl min-h-24'
+                              }
+                              ${highlightGroup && classItem.group.toLowerCase().includes(highlightGroup) 
+                                ? 'ring-4 ring-yellow-300 ring-opacity-60 transform scale-105 shadow-2xl' 
+                                : ''
                               }
                               p-3 text-sm transition-all duration-200 hover:scale-105 hover:shadow-xl
                               border border-white/20 w-full
