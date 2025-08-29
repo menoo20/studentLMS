@@ -135,7 +135,8 @@ const Schedule = () => {
   }
 
   const goToCurrentWeek = () => {
-    setCurrentWeek(new Date())
+    // Go to the week containing our main schedule data (Aug 24-28, 2025)
+    setCurrentWeek(new Date('2025-08-24'))
   }
 
   if (loading) {
