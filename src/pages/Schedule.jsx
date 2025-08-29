@@ -63,6 +63,27 @@ const Schedule = () => {
     return daySchedule.find(item => item.time === time)
   }
 
+  const isNesmaSpanSlot = (date, time) => {
+    // Check if this is the 10:00 slot and there's a NESMA class at 09:00
+    if (time === '10:00') {
+      const daySchedule = getScheduleForDate(date)
+      const nesmaClass = daySchedule.find(item => item.time === '09:00' && item.group === 'NESMA')
+      return nesmaClass ? true : false
+    }
+    return false
+  }
+
+  const isClassLive = (classItem) => {
+    if (!classItem || classItem.group !== 'NESMA') return false
+    
+    const now = new Date()
+    const classDate = new Date(classItem.date + 'T' + classItem.time)
+    const classEndTime = new Date(classDate.getTime() + 120 * 60000) // Add 120 minutes (2 hours)
+    
+    // Check if current time is between class start and end time
+    return now >= classDate && now <= classEndTime
+  }
+
   const weekDates = getWeekDates(currentWeek)
 
   const goToPreviousWeek = () => {
@@ -204,44 +225,104 @@ const Schedule = () => {
                     </td>
                     {weekDates.map((date, index) => {
                       const classItem = getClassAtTime(date, time)
+                      const isSpanSlot = isNesmaSpanSlot(date, time)
+                      
+                      // Skip rendering if this is a 10:00 slot occupied by NESMA spanning from 09:00
+                      if (isSpanSlot) {
+                        return null
+                      }
+                      
                       return (
-                        <td key={index} className="px-3 py-4 text-center relative w-48 min-w-48">
+                        <td 
+                          key={index} 
+                          className="px-3 py-4 text-center relative w-48 min-w-48"
+                          rowSpan={classItem && classItem.group === 'NESMA' ? 2 : 1}
+                        >
                           {classItem ? (
                             <div className={`
                               ${classItem.group === 'NESMA' 
                                 ? theme === 'blackGold' 
-                                  ? 'bg-gradient-to-br from-blackGold-500 to-blackGold-600 text-white shadow-lg shadow-blackGold-500/30' 
-                                  : 'bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-500/30'
+                                  ? 'bg-gradient-to-br from-blackGold-400 via-blackGold-500 to-blackGold-600 text-black shadow-xl shadow-blackGold-500/40 border-2 border-blackGold-300' 
+                                  : 'bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 text-white shadow-xl shadow-blue-500/40 border-2 border-blue-300'
                                 : theme === 'blackGold'
                                   ? 'bg-gradient-to-br from-gray-700 to-gray-800 text-white shadow-lg shadow-gray-700/30'
                                   : 'bg-gradient-to-br from-indigo-500 to-indigo-600 text-white shadow-lg shadow-indigo-500/30'
                               }
-                              rounded-xl p-3 text-sm transition-all duration-200 hover:scale-105 hover:shadow-xl
-                              border border-white/20 w-full min-h-24
+                              ${classItem.group === 'NESMA' 
+                                ? 'rounded-2xl min-h-32 relative overflow-hidden' 
+                                : 'rounded-xl min-h-24'
+                              }
+                              p-3 text-sm transition-all duration-200 hover:scale-105 hover:shadow-xl
+                              border border-white/20 w-full
                             `}>
-                              <div className="font-semibold text-sm leading-tight mb-1">{classItem.subject}</div>
-                              <div className="opacity-90 text-xs font-medium mb-2">{classItem.group}</div>
-                              <div className="opacity-75 text-xs flex items-center justify-center gap-1 mb-2">
-                                {classItem.room === 'Online' ? (
-                                  <>
-                                    <svg className="w-3 h-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                              {/* NESMA Online Class Special Design */}
+                              {classItem.group === 'NESMA' && (
+                                <>
+                                  {/* Live indicator badge - only show during class time */}
+                                  {isClassLive(classItem) && (
+                                    <div className={`absolute top-2 right-2 flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold
+                                      ${theme === 'blackGold' ? 'bg-red-600 text-white' : 'bg-red-500 text-white'}
+                                      shadow-lg animate-pulse
+                                    `}>
+                                      {/* Red live indicator dot */}
+                                      <div className="w-2 h-2 bg-red-300 rounded-full animate-ping"></div>
+                                      <span>LIVE</span>
+                                    </div>
+                                  )}
+                                  
+                                  {/* Zoom logo */}
+                                  <div className="flex items-center justify-center mb-2">
+                                    <div className={`p-2 rounded-full ${theme === 'blackGold' ? 'bg-white/10' : 'bg-white/20'}`}>
+                                      <img 
+                                        src={`${import.meta.env.PROD ? '/my-annual-plan' : ''}/images/zoom_logo.png`}
+                                        alt="Zoom"
+                                        className="w-6 h-6 object-contain"
+                                      />
+                                    </div>
+                                  </div>
+                                </>
+                              )}
+                              
+                              <div className={`font-semibold text-sm leading-tight mb-1 ${classItem.group === 'NESMA' ? 'text-center' : ''}`}>
+                                {classItem.subject}
+                              </div>
+                              <div className={`opacity-90 text-xs font-medium mb-2 ${classItem.group === 'NESMA' ? 'text-center font-bold' : ''}`}>
+                                {classItem.group}
+                              </div>
+                              
+                              {classItem.group === 'NESMA' ? (
+                                <div className="text-center space-y-2">
+                                  <div className={`text-xs flex items-center justify-center gap-1 ${theme === 'blackGold' ? 'text-black/80' : 'text-white/90'}`}>
+                                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                                       <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
                                     </svg>
-                                    <span className="truncate">Online</span>
-                                  </>
-                                ) : (
-                                  <>
+                                    <span className="font-semibold">Online Class</span>
+                                  </div>
+                                  <div className={`text-lg font-bold ${theme === 'blackGold' ? 'text-black' : 'text-white'}`}>
+                                    9:00 - 11:00 AM
+                                  </div>
+                                  {classItem.duration && (
+                                    <div className={`text-xs font-semibold px-3 py-1 rounded-full
+                                      ${theme === 'blackGold' ? 'bg-black/15 text-black' : 'bg-white/25 text-white'}
+                                    `}>
+                                      {classItem.duration}
+                                    </div>
+                                  )}
+                                </div>
+                              ) : (
+                                <>
+                                  <div className="opacity-75 text-xs flex items-center justify-center gap-1 mb-2">
                                     <svg className="w-3 h-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                       <path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-6a1 1 0 00-1-1H9a1 1 0 00-1 1v6a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clipRule="evenodd"/>
                                     </svg>
                                     <span className="truncate">{classItem.room}</span>
-                                  </>
-                                )}
-                              </div>
-                              {classItem.duration && (
-                                <div className="opacity-60 text-xs font-normal bg-black/10 px-2 py-1 rounded-full">
-                                  {classItem.duration}
-                                </div>
+                                  </div>
+                                  {classItem.duration && (
+                                    <div className="opacity-60 text-xs font-normal bg-black/10 px-2 py-1 rounded-full">
+                                      {classItem.duration}
+                                    </div>
+                                  )}
+                                </>
                               )}
                             </div>
                           ) : (
