@@ -47,6 +47,11 @@ const Students = () => {
     ? students.filter(student => student.groupId === selectedGroup)
     : students
 
+  const handlePlacementTestClick = (student) => {
+    // Navigate to Resources page with NESMA group filter
+    navigate('/resources?group=nesma')
+  }
+
   const getStudentMarks = (studentId) => {
     return marks.filter(mark => mark.studentId === studentId)
   }
@@ -237,20 +242,36 @@ const Students = () => {
                           {exams.map(exam => {
                             const mark = marks.find(m => m.studentId === student.id && m.examId === exam.id)
                             const percentage = mark ? Math.round((mark.score / exam.maxScore) * 100) : 0
+                            
+                            // Check if this is a placement test mark for a NESMA student
+                            const isNESMAPlacementTest = exam.type === 'placement' && student.groupId === 'nesma' && mark
+                            
                             return (
                               <td key={exam.id} className="px-6 py-4 text-center">
-                                <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                                  mark ? (
-                                    percentage >= 80 ? 'bg-green-100 text-green-800' :
-                                    percentage >= 60 ? 'bg-yellow-100 text-yellow-800' :
-                                    'bg-red-100 text-red-800'
-                                  ) : 'bg-gray-100 text-gray-800'
-                                }`}>
+                                <span 
+                                  className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                                    mark ? (
+                                      percentage >= 80 ? 'bg-green-100 text-green-800' :
+                                      percentage >= 60 ? 'bg-yellow-100 text-yellow-800' :
+                                      'bg-red-100 text-red-800'
+                                    ) : 'bg-gray-100 text-gray-800'
+                                  } ${isNESMAPlacementTest ? 'cursor-pointer hover:shadow-lg hover:scale-105 transition-all duration-200 border-2 border-blue-300 hover:border-blue-500' : ''}`}
+                                  onClick={isNESMAPlacementTest ? () => handlePlacementTestClick(student) : undefined}
+                                  title={isNESMAPlacementTest ? 'Click to view NESMA Study Portal with placement test analysis' : undefined}
+                                >
                                   {mark ? `${mark.score}/${exam.maxScore}` : '-'}
+                                  {isNESMAPlacementTest && (
+                                    <span className="ml-1 text-blue-600">🔗</span>
+                                  )}
                                 </span>
                                 {mark && (
                                   <div className="text-xs text-gray-500 mt-1">
                                     {percentage}%
+                                    {isNESMAPlacementTest && (
+                                      <div className="text-xs text-blue-600 font-medium">
+                                        Click for Study Portal
+                                      </div>
+                                    )}
                                   </div>
                                 )}
                               </td>
