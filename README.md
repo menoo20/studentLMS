@@ -1,8 +1,21 @@
-# Student Management System
+# Black Gold Training Institute - Student Management System
 
-A modern, responsive static website for managing and displaying student information, built with React and Tailwind CSS.
+A modern, responsive static website for managing and displaying student information, built with React and Tailwind CSS. Features a professional dual-theme system with Black Gold Training Institute branding.
+
+## 🎯 Current Status
+- ✅ **Complete theme system** with Light and Black Gold themes
+- ✅ **345 students** with Arabic RTL support and department grouping
+- ✅ **7-unit curriculum** based on Jolly Phonics methodology
+- ✅ **Full visibility optimizations** for both themes
+- ✅ **Production ready** with deployment configuration
 
 ## Features
+
+### 🎨 **Dual Theme System**
+- Light theme for standard use
+- Black Gold theme for Black Gold Training Institute branding
+- Seamless theme switching with proper visibility
+- Professional color palette with accessibility compliance
 
 ### 📊 **Student Progress Tracking**
 - View students organized by groups
@@ -18,16 +31,16 @@ A modern, responsive static website for managing and displaying student informat
 - Upcoming classes preview
 - Mobile-responsive design
 
-### 📚 **Annual Plan & Syllabus**
-- Track curriculum progress by subject
-- Expandable topic details with subtopics
-- Progress indicators and status tracking
-- Resource links and learning objectives
-- Completion tracking
+### 📚 **Jolly Phonics Curriculum**
+- 7 comprehensive units covering phonics to grammar
+- Weekly planning with daily activities
+- Progress tracking and unit completion status
+- Recycling & Review sessions for knowledge retention
+- English for Adult Vocational Learners focus
 
 ### 📁 **Resource Hub**
 - Categorized resource library
-- Search and filter functionality
+- Search functionality (category dropdown removed for cleaner UX)
 - Support for various file types (PDF, videos, links, etc.)
 - Drive integration for file sharing
 - Tag-based organization
