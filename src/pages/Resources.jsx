@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { useSearchParams, Link } from 'react-router-dom'
 import { useTheme } from '../components/ThemeContext'
 
 const Resources = () => {
@@ -187,7 +187,8 @@ const Resources = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredResources.map(resource => (
               <div key={resource.id} className={`card hover:shadow-lg transition-shadow ${
-                resource.id === 'nesma-study-portal' ? 'border-2 border-blue-300 bg-gradient-to-br from-blue-50 to-purple-50' : ''
+                resource.id === 'nesma-study-portal' ? 'border-2 border-blue-300 bg-gradient-to-br from-blue-50 to-purple-50' : 
+                resource.id === 'jolly-phonics-youtube' ? 'border-2 border-purple-300 bg-gradient-to-br from-purple-50 to-red-50' : ''
               }`}>
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex items-center space-x-2">
@@ -206,9 +207,17 @@ const Resources = () => {
                   )}
                 </div>
 
-                <h4 className={`font-semibold mb-2 line-clamp-2 ${
-                  resource.id === 'nesma-study-portal' ? 'text-blue-900' : 'text-gray-900'
+                <h4 className={`font-semibold mb-2 line-clamp-2 flex items-center gap-2 ${
+                  resource.id === 'nesma-study-portal' ? 'text-blue-900' : 
+                  resource.id === 'jolly-phonics-youtube' ? 'text-purple-900' : 'text-gray-900'
                 }`}>
+                  {resource.id === 'jolly-phonics-youtube' && (
+                    <img 
+                      src={`${import.meta.env.PROD ? '/my-annual-plan' : ''}/images/speak_3069810.png`}
+                      alt="Speaking icon"
+                      className="w-5 h-5"
+                    />
+                  )}
                   {resource.title}
                 </h4>
 
@@ -216,6 +225,51 @@ const Resources = () => {
                   <p className="text-sm text-gray-600 mb-3 line-clamp-3">
                     {resource.description}
                   </p>
+                )}
+
+                {/* YouTube Playlist Thumbnail and Features */}
+                {resource.id === 'jolly-phonics-youtube' && (
+                  <div className="mb-4 space-y-3">
+                    {/* Clickable Thumbnail */}
+                    <a 
+                      href={resource.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block"
+                    >
+                      <div className="relative rounded-lg overflow-hidden bg-gradient-to-br from-red-50 to-purple-50 border border-red-200 cursor-pointer hover:shadow-lg transition-shadow">
+                        <div className="aspect-video bg-gray-200 relative overflow-hidden">
+                          <img 
+                            src={`${import.meta.env.PROD ? '/my-annual-plan' : ''}/images/hqdefault.avif`}
+                            alt="Jolly Phonics YouTube Playlist Thumbnail"
+                            className="w-full h-full object-cover"
+                          />
+                          {/* Play button overlay */}
+                          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 opacity-0 hover:opacity-100 transition-opacity">
+                            <div className="bg-red-600 rounded-full p-3 shadow-lg">
+                              <svg className="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded text-xs font-medium">
+                          YouTube
+                        </div>
+                      </div>
+                    </a>
+                    
+                    {/* Curriculum Connection */}
+                    <div className="p-3 bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg border border-purple-200 text-center">
+                      <p className="text-sm font-medium text-purple-900 mb-2">📚 Jolly Phonics Foundation Month</p>
+                      <Link 
+                        to="/syllabus" 
+                        className="inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded text-xs font-medium transition-colors"
+                      >
+                        📖 View in Syllabus (Weeks 1-4) →
+                      </Link>
+                    </div>
+                  </div>
                 )}
 
                 {/* Special NESMA Portal Features */}
@@ -301,10 +355,13 @@ const Resources = () => {
                       className={`text-xs py-1 px-3 rounded ${
                         resource.id === 'nesma-study-portal' 
                           ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600'
+                          : resource.id === 'jolly-phonics-youtube'
+                          ? 'bg-gradient-to-r from-red-500 to-purple-500 text-white hover:from-red-600 hover:to-purple-600 flex items-center gap-1'
                           : 'btn-primary'
                       }`}
                     >
-                      {resource.id === 'nesma-study-portal' ? '🚀 Open Portal' : 'Open'}
+                      {resource.id === 'nesma-study-portal' ? '🚀 Open Portal' : 
+                       resource.id === 'jolly-phonics-youtube' ? '▶️ Watch Playlist' : 'Open'}
                     </a>
                   ) : (
                     <button className="btn-secondary text-xs py-1 px-3" disabled>

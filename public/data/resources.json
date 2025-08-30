@@ -131,5 +131,62 @@
     "accessLevel": "restricted",
     "eligibleStudents": ["أسمة معازي المالكي", "مشاعل المطيري", "خالد الغامدي"],
     "instructor": "English Teacher"
+  },
+  {
+    "id": "jolly-phonics-youtube",
+    "title": "English Phonics Course - Arabic Instruction",
+    "description": "Complete phonics course in Arabic teaching correct English letter pronunciation. Created by zAmericanEnglish, this 14-video series covers comprehensive phonetics and sound training for English language learners. Perfect for Arabic-speaking students learning English pronunciation from beginner level.",
+    "category": "Video Lectures",
+    "type": "video",
+    "url": "https://www.youtube.com/playlist?list=PLp22-4PivYmIiXGqtQMrfE_tzmqE6r7Tc",
+    "tags": ["phonics", "english pronunciation", "arabic instruction", "zAmericanEnglish", "letter sounds", "pronunciation training", "english learning", "curriculum support"],
+    "dateAdded": "2025-08-30",
+    "size": "14 videos (Last updated Jun 20, 2019)",
+    "specialFeatures": {
+      "playlistType": "Educational Video Series",
+      "targetAge": "Adult learners and students",
+      "methodology": "Arabic-instructed English Phonics",
+      "instructor": "zAmericanEnglish",
+      "videoCount": "14 videos",
+      "lastUpdated": "June 20, 2019",
+      "curriculumAlignment": "jolly-phonics-foundation",
+      "keyTopics": [
+        "English letter pronunciation",
+        "Arabic phonetic instruction", 
+        "Sound recognition and training",
+        "Pronunciation correction techniques",
+        "English phonetics fundamentals"
+      ],
+      "learningOutcomes": [
+        "Master correct English letter pronunciation",
+        "Understand phonetic differences between Arabic and English",
+        "Develop clear English speaking skills",
+        "Build foundation for English communication",
+        "Improve accent and pronunciation accuracy"
+      ],
+      "instructionalFeatures": [
+        "Arabic language instruction",
+        "Step-by-step pronunciation guide",
+        "Comparative phonetics (Arabic vs English)",
+        "Visual pronunciation demonstrations",
+        "Systematic phonetic training"
+      ],
+      "supportsMaterial": [
+        "English alphabet pronunciation",
+        "Phonetic sound training",
+        "Pronunciation exercises",
+        "Audio-visual learning support"
+      ]
+    },
+    "accessLevel": "public",
+    "instructor": "zAmericanEnglish Channel",
+    "relatedSyllabus": "syllabus_jolly_phonics.json",
+    "curriculumUnit": "jolly-phonics-foundation",
+    "localThumbnail": "/images/hqdefault.avif",
+    "estimatedDuration": "14 videos (varies per video)",
+    "difficulty": "Beginner to Intermediate",
+    "language": "Arabic instruction for English phonics",
+    "subtitles": "Arabic",
+    "usageInstructions": "Excellent resource for Arabic-speaking students learning English pronunciation. Use alongside phonics curriculum to reinforce correct English letter sounds with native Arabic explanations."
   }
 ]
