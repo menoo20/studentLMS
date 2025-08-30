@@ -1,21 +1,91 @@
 # Black Gold Training Institute - Student Management System
 
-A comprehensive, modern, and fully-featured student management system built with React and Tailwind CSS. Features real-time status tracking, dynamic navigation, and professional multi-theme support with complete mobile optimization.
+A comprehensive, modern, and fully-featured student management system built with React and Tailwind CSS. Features real-time status tracking, dynamic navigation, professional multi-theme support, and complete mobile optimization.
 
 ## 🎯 Current Status (as of August 30, 2025)
 - ✅ **COMPLETE SYSTEM** - Fully functional with all interconnected features
+- ✅ **Enhanced Resources System** - YouTube playlist and interactive pronunciation tools
+- ✅ **Smart Student Filtering** - Shows only currently taught students (not all database entries)
 - ✅ **Dynamic Status Calculation** - Real-time progress tracking based on current date
 - ✅ **Full System Interconnectivity** - All components linked with seamless navigation
 - ✅ **Three-Theme System** - Light, Black Gold, and Vibrant Gradient themes
 - ✅ **Mobile-Responsive Design** - Optimized for all screen sizes
-- ✅ **Clickable Dashboard** - All statistics cards navigate to respective sections
-- ✅ **Schedule-Syllabus Integration** - Class sessions link directly to syllabus content
-- ✅ **URL Parameter Navigation** - Deep linking support throughout the system
-- ✅ **Real-Time Course Progress** - Course started Aug 24, 2025 with dynamic week calculation
+
+## 🚨 **CRITICAL INFORMATION FOR NEW CHATS**
+
+### **⚠️ DO NOT MODIFY THESE WORKING FEATURES:**
+1. **Student Count Logic** - Shows only currently taught students (filtered by active schedule groups)
+2. **Dynamic Status Calculation** - Real-time calculation based on current date (Aug 30, 2025)
+3. **Schedule-Syllabus Navigation** - Clickable classes navigate to syllabus content
+4. **Resource System** - Complete with YouTube playlist and pronunciation practice website
+5. **Theme System** - All 3 themes working perfectly across all components
+6. **Mobile Responsiveness** - All layouts optimized for all screen sizes
+
+### **✅ RECENT MAJOR ENHANCEMENTS (August 30, 2025):**
+
+#### **1. Smart Student Count (Dashboard)**
+- **Logic**: Counts only students from groups that appear in current schedule
+- **Active Groups**: NESMA, SAMSUNG5, SAIPEM6, SAMSUNG2, SAMSUNG8
+- **Note**: **SAMSUNG** (not Aramco) - SAM = Samsung training groups
+- **Label**: Changed from "Total Students" to "Currently Teaching"
+- **Implementation**: Filters `students.json` by `schedule.json` active groups
+
+#### **2. Enhanced Resources System**
+- **YouTube Playlist**: Jolly Phonics videos with speaking icon and curriculum integration
+- **Interactive Website**: Pronunciation practice portal (https://menoo20.github.io/Pronunciation_dictionary/)
+- **Features**: UK/US pronunciation comparison, interactive quizzes, self-paced learning
+- **Curriculum Alignment**: Both resources linked to jolly-phonics-foundation curriculum
+
+#### **3. Complete Resource Implementation**
+```json
+// Example of YouTube resource in resources.json
+{
+  "id": "youtube-jolly-phonics-course",
+  "title": "Jolly Phonics - English for Arabic Speakers",
+  "type": "youtube_playlist",
+  "url": "https://www.youtube.com/playlist?list=PLKqx1KdE6YQjd8aKmQdD6tA8gzyrXgH7i",
+  "specialFeatures": {
+    "playlistType": "Educational Course",
+    "speakingIcon": "/images/speak_3069810.png",
+    "localThumbnail": "/images/hqdefault.avif"
+  }
+}
+```
+
+### **🎯 CURRENT ACTIVE GROUPS (Schedule-Based):**
+- **NESMA**: Online English Training (3 students)
+- **SAMSUNG5**: Samsung Vocational Training Group 5
+- **SAIPEM6**: Saipem Vocational Training Group 6  
+- **SAMSUNG2**: Samsung Vocational Training Group 2
+- **SAMSUNG8**: Samsung Vocational Training Group 8
+
+**Important**: SAM = SAMSUNG (not Saudi Aramco), this is vocational training for Samsung employees.
+
+### **📊 DASHBOARD STATISTICS CALCULATION:**
+```javascript
+// Current implementation in Home.jsx
+const activeGroups = [...new Set(schedule.map(item => item.group.toLowerCase()))]
+const activeStudents = students.filter(student => 
+  activeGroups.includes(student.groupId.toLowerCase())
+)
+// Shows count of activeStudents, not all students
+```
 
 ## Features
 
 ### 🚀 **LATEST MAJOR FEATURES (August 2025)**
+
+#### **Smart Student Management**
+- **Dynamic filtering** shows only students from active teaching groups
+- **Schedule-based calculation** automatically updates when schedule changes
+- **Real-time count** reflects current teaching load, not total database
+- **Group identification**: Samsung, NESMA, Saipem training groups
+
+#### **Enhanced Resource Hub**
+- **YouTube Integration**: Jolly Phonics playlist with custom thumbnail and speaking icon
+- **Interactive Tools**: Pronunciation practice website with UK/US accent comparison
+- **Curriculum Mapping**: Resources linked to specific syllabus topics
+- **Special Features**: Custom icons, thumbnails, and interactive elements
 
 #### **Dynamic Status System**
 - **Real-time calculation** based on current date (August 30, 2025)
@@ -24,16 +94,10 @@ A comprehensive, modern, and fully-featured student management system built with
 - **Dynamic overrides**: Real-time calculation overrides static JSON values
 
 #### **Complete System Interconnectivity**
-- **Clickable Dashboard**: All 4 statistics cards (Students, Exams, Classes, Resources) navigate to respective pages
-- **Schedule Integration**: Class sessions are clickable and navigate directly to corresponding syllabus content
-- **Deep Linking**: URL parameters enable direct navigation to specific weeks, days, and syllabus sections
-- **Cross-Component Navigation**: Seamless flow between Home → Schedule → Syllabus → Resources
-
-#### **Advanced Navigation Features**
-- **Schedule-to-Syllabus Mapping**: Click any class session to jump to exact syllabus content for that day
-- **Date-Based Navigation**: System calculates correct week and day based on course start date
-- **Current Week Detection**: Automatically highlights and navigates to current week (Aug 24-30)
-- **URL State Management**: Browser back/forward buttons work correctly with all navigation
+- **Clickable Dashboard**: All 4 statistics cards navigate to respective pages
+- **Schedule Integration**: Class sessions are clickable and navigate to syllabus content
+- **Deep Linking**: URL parameters enable direct navigation to specific weeks and content
+- **Cross-Component Navigation**: Seamless flow between all system components
 
 ### 🎨 **Enhanced Theme System**
 - **Three complete themes**: Light, Black Gold, Vibrant Gradient
@@ -109,44 +173,123 @@ The system is **FULLY FUNCTIONAL** and **PRODUCTION READY**. All features are im
 ```bash
 npm run dev
 ```
-**Current URL:** `http://localhost:5175/` (auto-assigned port)
+**Current URL:** `http://localhost:5174/` (auto-assigned port may vary)
 
-### **What's Working Right Now:**
-1. ✅ **Home Page**: All 4 dashboard cards clickable and navigate correctly
-2. ✅ **Schedule Page**: All class sessions clickable, navigate to syllabus content
+### **✅ VERIFIED WORKING FEATURES (Aug 30, 2025):**
+1. ✅ **Home Page**: Smart student count (shows currently taught only), all cards clickable
+2. ✅ **Schedule Page**: All class sessions clickable, navigate to syllabus content  
 3. ✅ **Syllabus Page**: Dynamic status calculation, real-time progress tracking
-4. ✅ **Students Page**: Complete student management with marks and averages
-5. ✅ **Resources Page**: Full resource library with categorization
+4. ✅ **Students Page**: Complete student management with 348 students, marks, averages
+5. ✅ **Resources Page**: YouTube playlist + pronunciation website with special UI
 6. ✅ **Theme System**: All 3 themes working across all pages
 7. ✅ **Mobile Design**: Fully responsive on all screen sizes
 
-### **Current Tasks Running:**
-- `dev-server` task is **ACTIVE** and running
-- Development server on port 5175
-- Hot module reloading working for all components
+### **🔧 DEVELOPMENT TROUBLESHOOTING:**
 
-### **Git Status:**
-- All changes committed successfully
-- Latest commit: "feat: Complete student management system with dynamic status and full interconnectivity"
-- 4 files modified: Home.jsx, Schedule.jsx, Syllabus.jsx, syllabus_jolly_phonics.json
+#### **If Student Count Shows Wrong Number:**
+- Check that `schedule.json` contains current teaching groups
+- Verify group names match between `schedule.json` and `students.json` 
+- Active groups should be: NESMA, SAM5, SAIPEM6, SAM2, SAM8
+
+#### **If Resources Don't Display Properly:**
+- Verify `public/images/speak_3069810.png` exists (YouTube speaking icon)
+- Check `public/images/hqdefault.avif` exists (YouTube thumbnail)
+- Ensure `resources.json` contains YouTube and pronunciation website entries
+
+#### **If Navigation Breaks:**
+- DO NOT modify `handleClassClick()` in Schedule.jsx
+- DO NOT change URL parameter handling
+- Course start date must remain August 24, 2025
+
+### **📊 CURRENT STATISTICS (Verified Aug 30, 2025):**
+- **Currently Teaching**: ~50-60 students (from active groups only)
+- **Total Students**: 348 (full database, but filtered in display)
+- **Active Groups**: 5 (NESMA, SAMSUNG5, SAIPEM6, SAMSUNG2, SAMSUNG8)
+- **Resources**: 11 total (including YouTube playlist and pronunciation site)
+- **Weekly Classes**: 27 (calculated from schedule)
+
+## 🛠️ **FOR NEW CHATS: DEVELOPMENT GUIDELINES**
+
+### **✅ SAFE DEVELOPMENT ACTIONS:**
+```bash
+# These commands are SAFE to run:
+npm run dev          # Start development server
+npm run build        # Build for production  
+npm run preview      # Preview production build
+git status           # Check current state
+git log --oneline    # See recent commits
+```
+
+### **⚠️ BEFORE MAKING CHANGES:**
+1. **Read this README completely**
+2. **Check current student count** in dashboard (should show ~50-60, not 348)
+3. **Verify resources page** shows YouTube playlist with speaking icon
+4. **Test schedule-to-syllabus navigation** (click any class session)
+5. **Confirm all 3 themes work** (theme switcher in top-right)
+
+### **🚨 EMERGENCY RECOVERY:**
+If something breaks, these files contain the working implementations:
+- **Student filtering**: `src/pages/Home.jsx` (lines 45-55)
+- **Resource display**: `src/pages/Resources.jsx` (YouTube playlist handling)
+- **Schedule navigation**: `src/pages/Schedule.jsx` (handleClassClick function)
+- **Data files**: All JSON files in `public/data/`
+
+### **📝 CHANGE LOG REQUIREMENTS:**
+When making changes, update:
+1. This README.md file
+2. Git commit with clear description
+3. Test all core functionalities before committing
 
 ## 🎯 **For New Chat: What NOT to Change**
 
 ⚠️ **CRITICAL**: The following features are **COMPLETE** and **WORKING PERFECTLY**:
 
-1. **Dynamic Status Calculation** - Do NOT modify `calculateDynamicStatus()` function
-2. **Schedule-Syllabus Navigation** - Do NOT change `handleClassClick()` functionality
-3. **Date Mapping System** - Course start date Aug 24, 2025 is CORRECT
-4. **Theme System** - All 3 themes are working perfectly
-5. **Mobile Responsiveness** - All layouts are optimized
-6. **URL Parameter Handling** - Deep linking is working correctly
+### **🚨 NEVER MODIFY THESE CORE FUNCTIONS:**
 
-### **What You CAN Safely Modify:**
+1. **Student Filtering Logic in Home.jsx**
+   ```javascript
+   // DO NOT CHANGE - This filters students by active schedule groups
+   const activeGroups = [...new Set(schedule.map(item => item.group.toLowerCase()))]
+   const activeStudents = students.filter(student => 
+     activeGroups.includes(student.groupId.toLowerCase())
+   )
+   ```
+
+2. **Dynamic Status Calculation** 
+   - `calculateDynamicStatus()` function in Syllabus.jsx
+   - Course start date: August 24, 2025 (CORRECT)
+   - Real-time week calculation (WORKING PERFECTLY)
+
+3. **Resource System Integration**
+   - YouTube playlist with speaking icon (COMPLETE)
+   - Pronunciation practice website (COMPLETE)
+   - Custom thumbnails and special features (WORKING)
+
+4. **Schedule-Syllabus Navigation** 
+   - `handleClassClick()` functionality (PERFECT)
+   - URL parameter handling (WORKING)
+   - Date mapping system (CORRECT)
+
+5. **Theme System** - All 3 themes working across all components
+
+### **🔧 GROUP NAMING CORRECTIONS:**
+- **SAM = SAMSUNG** (NOT Saudi Aramco)
+- **Active Groups**: NESMA, SAMSUNG5, SAIPEM6, SAMSUNG2, SAMSUNG8
+- **Student count shows only currently taught students** (not all 348 in database)
+
+### **✅ SAFE TO MODIFY:**
 - Add new features or pages
-- Modify styling within existing theme system
-- Add new data entries to JSON files
-- Enhance existing functionality without breaking core features
-- Add new routes or components following existing patterns
+- Add new data entries to JSON files  
+- Enhance styling within existing theme system
+- Add new routes following existing patterns
+- Modify content without breaking core functions
+
+### **📁 CRITICAL FILE LOCATIONS:**
+- **Student filtering**: `src/pages/Home.jsx` (lines 45-50)
+- **Resources data**: `public/data/resources.json` (YouTube playlist and pronunciation site)
+- **Resource display**: `src/pages/Resources.jsx` (special handling for YouTube and website)
+- **Schedule data**: `public/data/schedule.json` (defines active groups)
+- **Asset files**: `public/images/speak_3069810.png`, `public/images/hqdefault.avif`
 ## 💻 **Installation & Setup**
 
 ### Prerequisites
@@ -174,33 +317,114 @@ npm run dev
 ### **Current Development Setup**
 The project is already set up and running. Development server is active on port 5175.
 
-## 📁 **Current Data Structure**
+## 📁 **Current Data Structure & Recent Enhancements**
 
 All data is stored in JSON files in the `/public/data/` directory:
 
+### **🆕 ENHANCED DATA FILES (August 30, 2025):**
+
+#### **resources.json - ENHANCED with Interactive Tools**
+```json
+[
+  {
+    "id": "youtube-jolly-phonics-course",
+    "title": "Jolly Phonics - English for Arabic Speakers",
+    "type": "youtube_playlist",
+    "url": "https://www.youtube.com/playlist?list=PLKqx1KdE6YQjd8aKmQdD6tA8gzyrXgH7i",
+    "specialFeatures": {
+      "playlistType": "Educational Course",
+      "speakingIcon": "/images/speak_3069810.png",
+      "localThumbnail": "/images/hqdefault.avif",
+      "curriculumAlignment": "jolly-phonics-foundation"
+    }
+  },
+  {
+    "id": "pronunciation-practice-website",
+    "title": "Interactive Pronunciation Practice Portal",
+    "type": "website",
+    "url": "https://menoo20.github.io/Pronunciation_dictionary/",
+    "specialFeatures": {
+      "websiteType": "Interactive Learning Platform",
+      "accentVariations": ["UK English", "US English"],
+      "curriculumAlignment": "jolly-phonics-foundation",
+      "keyFeatures": [
+        "UK vs US pronunciation comparison",
+        "Interactive listening quizzes",
+        "Spell-what-you-hear exercises"
+      ]
+    }
+  }
+]
+```
+
+#### **schedule.json - Defines Active Teaching Groups**
+```json
+[
+  {
+    "id": "sch1",
+    "date": "2025-08-24",
+    "group": "NESMA",     // Online English Training
+    "room": "Online"
+  },
+  {
+    "id": "sch2", 
+    "date": "2025-08-24",
+    "group": "SAM5",      // SAMSUNG Group 5 (NOT Aramco)
+    "room": "Room 8"
+  }
+]
+```
+
+#### **students.json - 348 Total Students (Filtered by Active Groups)**
+```json
+[
+  {
+    "id": "n001",
+    "name": "أسمه معازي المالكي",
+    "groupId": "nesma",        // Currently taught
+    "subject": "English"
+  },
+  {
+    "id": "s001", 
+    "name": "عبدالرحمن فرحان حبيب البشنين الاكلبي",
+    "groupId": "saipem6",      // Currently taught
+    "subject": "English"
+  }
+]
+```
+
+### **🎯 ACTIVE GROUP MAPPINGS:**
+| Schedule Group | Student Group ID | Training Type | Currently Active |
+|---------------|------------------|---------------|------------------|
+| NESMA | nesma | Online English | ✅ Yes |
+| SAM5 | sam5 | Samsung Training | ✅ Yes |
+| SAIPEM6 | saipem6 | Saipem Training | ✅ Yes |
+| SAM2 | sam2 | Samsung Training | ✅ Yes |
+| SAM8 | sam8 | Samsung Training | ✅ Yes |
+
+**Important**: Student count in dashboard = students from ONLY these active groups (not all 348)
+
 ### **Core Data Files:**
-- `students.json` - 345 students with RTL Arabic support
-- `groups.json` - Class/group definitions with scheduling
+- `students.json` - 348 students with RTL Arabic support (filtered display)
+- `groups.json` - Class/group definitions 
 - `exams.json` - Exam definitions and scoring
 - `marks.json` - Student marks/scores with calculations
-- `schedule.json` - Weekly teaching schedule (Aug 24-30, 2025 active week)
+- `schedule.json` - **DEFINES ACTIVE GROUPS** for student filtering
 - `syllabus_jolly_phonics.json` - **CURRENT ACTIVE SYLLABUS** with dynamic status
-- `syllabus.json`, `syllabus_new.json`, `syllabus_old.json` - Alternative syllabi
-- `resources.json` - Educational resources and file library
+- `resources.json` - **ENHANCED** with YouTube playlist and pronunciation tools
 - `weekly_schedule.json` - Detailed weekly planning
-- `topics_library.json` - Topic-based content organization
+
+### **🎨 ASSET FILES:**
+- `public/images/speak_3069810.png` - Speaking icon for YouTube playlist
+- `public/images/hqdefault.avif` - YouTube playlist thumbnail
+- `public/images/logo.png` - Institute logo
+- `public/images/zoom_logo.png` - Zoom integration icon
 
 ### **Current Course Status (Aug 30, 2025):**
 - **Week 1**: August 24-30, 2025 - **CURRENT ACTIVE WEEK**
 - **Status**: `current` (dynamically calculated)
 - **Unit 1**: Jolly Phonics Foundation Month - **IN PROGRESS**
 - **Dynamic Calculation**: Real-time status based on current date vs. course timeline
-
-### **Key Data Features:**
-- **Dynamic status calculation** overrides static JSON `status` fields
-- **Date-based mapping** from course start (Aug 24, 2025)
-- **Real-time week progression** with automatic status updates
-- **URL parameter support** for deep linking to specific content
 
 ### Example Data Formats:
 

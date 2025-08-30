@@ -188,7 +188,8 @@ const Resources = () => {
             {filteredResources.map(resource => (
               <div key={resource.id} className={`card hover:shadow-lg transition-shadow ${
                 resource.id === 'nesma-study-portal' ? 'border-2 border-blue-300 bg-gradient-to-br from-blue-50 to-purple-50' : 
-                resource.id === 'jolly-phonics-youtube' ? 'border-2 border-purple-300 bg-gradient-to-br from-purple-50 to-red-50' : ''
+                resource.id === 'jolly-phonics-youtube' ? 'border-2 border-purple-300 bg-gradient-to-br from-purple-50 to-red-50' : 
+                resource.id === 'pronunciation-practice-website' ? 'border-2 border-green-300 bg-gradient-to-br from-green-50 to-blue-50' : ''
               }`}>
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex items-center space-x-2">
@@ -268,6 +269,67 @@ const Resources = () => {
                       >
                         📖 View in Syllabus (Weeks 1-4) →
                       </Link>
+                    </div>
+                  </div>
+                )}
+
+                {/* Special Pronunciation Practice Website Features */}
+                {resource.id === 'pronunciation-practice-website' && resource.specialFeatures && (
+                  <div className="mb-4 space-y-3">
+                    {/* Website Preview */}
+                    <a 
+                      href={resource.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="block relative overflow-hidden rounded-lg border-2 border-green-300 hover:border-green-400 transition-colors group"
+                    >
+                      <div className="bg-gradient-to-r from-green-100 to-blue-100 p-4 text-center">
+                        <div className="flex items-center justify-center mb-2">
+                          <span className="text-3xl mr-2">🎙️</span>
+                          <span className="text-lg font-bold text-green-800">Interactive Pronunciation Practice</span>
+                        </div>
+                        <p className="text-sm text-green-700 mb-2">UK & US English • Voice Recognition • Interactive Quizzes</p>
+                        <div className="inline-flex items-center justify-center bg-green-600 group-hover:bg-green-700 text-white px-4 py-2 rounded-lg font-medium transition-colors">
+                          🌐 Practice Now
+                          <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-1M14 6V4a2 2 0 00-2-2H8a2 2 0 00-2 2v2m8 0h2a2 2 0 012 2v2M9 12h6m-3-3v6" />
+                          </svg>
+                        </div>
+                        <div className="absolute top-2 right-2 bg-green-600 text-white px-2 py-1 rounded text-xs font-medium">
+                          Interactive
+                        </div>
+                      </div>
+                    </a>
+                    
+                    {/* Accent Variations */}
+                    <div className="p-3 bg-gradient-to-r from-green-50 to-blue-50 rounded-lg border border-green-200">
+                      <h5 className="text-sm font-semibold text-green-900 mb-2">🗣️ Accent Variations</h5>
+                      <div className="flex flex-wrap gap-2 text-xs">
+                        {resource.specialFeatures.accentVariations.map((accent, index) => (
+                          <span key={index} className="bg-white border border-green-300 text-green-800 px-2 py-1 rounded-full font-medium">
+                            {accent}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    {/* Learning Features */}
+                    <div className="p-3 bg-white rounded-lg border border-blue-200">
+                      <h5 className="text-sm font-semibold text-blue-900 mb-2">✨ Learning Features</h5>
+                      <div className="grid grid-cols-2 gap-2 text-xs">
+                        <div className="bg-blue-50 p-2 rounded">
+                          <span className="font-medium text-blue-800">🎯 Voice Recognition</span>
+                        </div>
+                        <div className="bg-green-50 p-2 rounded">
+                          <span className="font-medium text-green-800">📊 Progress Tracking</span>
+                        </div>
+                        <div className="bg-purple-50 p-2 rounded">
+                          <span className="font-medium text-purple-800">🎮 Interactive Quizzes</span>
+                        </div>
+                        <div className="bg-yellow-50 p-2 rounded">
+                          <span className="font-medium text-yellow-800">🔄 Repeat Practice</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 )}

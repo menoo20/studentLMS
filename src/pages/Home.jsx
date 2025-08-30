@@ -52,14 +52,26 @@ const Home = () => {
         })
       }
 
-      // Count upcoming classes (today and future)
-      const today = new Date().toISOString().split('T')[0]
-      const upcomingClasses = schedule.filter(item => item.date >= today).length
+      // Get active groups from current schedule
+      const activeGroups = [...new Set(schedule.map(item => item.group.toLowerCase()))]
+      
+      // Filter students to only include those in currently taught groups
+      const activeStudents = students.filter(student => 
+        activeGroups.includes(student.groupId.toLowerCase())
+      )
+
+      // Calculate weekly classes total
+      const weeklyClassesCount = schedule.length
+      
+      // Calculate classes per week (assuming 7 days per week)
+      const uniqueDates = [...new Set(schedule.map(item => item.date))]
+      const totalWeeks = Math.ceil(uniqueDates.length / 7) || 1
+      const averageWeeklyClasses = Math.round(weeklyClassesCount / totalWeeks)
 
       setStats({
-        totalStudents: students.length,
+        totalStudents: activeStudents.length,
         totalExams: exams.length,
-        scheduledClasses: upcomingClasses,
+        scheduledClasses: averageWeeklyClasses,
         totalResources: resources.length,
         averageGrade: avgGrade,
         completedTopics: completed
@@ -91,7 +103,7 @@ const Home = () => {
           <div className="text-2xl font-bold text-gray-900">
             {loading ? '...' : stats.totalStudents}
           </div>
-          <div className="text-sm text-gray-600">Total Students</div>
+          <div className="text-sm text-gray-600">Currently Teaching</div>
         </Link>
         <Link to="/students" className="card text-center hover:shadow-lg transition-all duration-200 hover:scale-105 cursor-pointer">
           <div className="text-3xl mb-2">📊</div>
@@ -105,7 +117,7 @@ const Home = () => {
           <div className="text-2xl font-bold text-gray-900">
             {loading ? '...' : stats.scheduledClasses}
           </div>
-          <div className="text-sm text-gray-600">Upcoming Classes</div>
+          <div className="text-sm text-gray-600">Weekly Classes</div>
         </Link>
         <Link to="/resources" className="card text-center hover:shadow-lg transition-all duration-200 hover:scale-105 cursor-pointer">
           <div className="text-3xl mb-2">📚</div>

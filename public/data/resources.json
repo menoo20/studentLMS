@@ -188,5 +188,54 @@
     "language": "Arabic instruction for English phonics",
     "subtitles": "Arabic",
     "usageInstructions": "Excellent resource for Arabic-speaking students learning English pronunciation. Use alongside phonics curriculum to reinforce correct English letter sounds with native Arabic explanations."
+  },
+  {
+    "id": "pronunciation-practice-website",
+    "title": "Interactive Pronunciation Practice Portal",
+    "description": "Self-practice website for Jolly Phonics students featuring UK and US pronunciation comparison. Students can hear words pronounced in both accents and practice through interactive quizzes that challenge them to listen and write the correct spelling. Perfect for developing phonetic awareness and pronunciation skills.",
+    "category": "Interactive Learning",
+    "type": "website",
+    "url": "https://menoo20.github.io/Pronunciation_dictionary/",
+    "tags": ["pronunciation", "interactive", "self-practice", "UK accent", "US accent", "phonics", "spelling quiz", "listening skills"],
+    "dateAdded": "2025-08-30",
+    "size": "Web Application",
+    "specialFeatures": {
+      "websiteType": "Interactive Learning Platform",
+      "targetSkills": "Pronunciation and Spelling",
+      "methodology": "Self-directed Practice",
+      "accentVariations": ["UK English", "US English"],
+      "curriculumAlignment": "jolly-phonics-foundation",
+      "keyFeatures": [
+        "UK vs US pronunciation comparison",
+        "Interactive listening quizzes",
+        "Word pronunciation practice",
+        "Spell-what-you-hear exercises",
+        "Self-paced learning"
+      ],
+      "learningOutcomes": [
+        "Distinguish between UK and US pronunciations",
+        "Improve phonetic spelling accuracy",
+        "Develop listening comprehension skills",
+        "Build pronunciation confidence",
+        "Practice independent learning"
+      ],
+      "practiceActivities": [
+        "Listen and spell challenges",
+        "Pronunciation comparison exercises",
+        "Interactive phonics quizzes",
+        "Accent recognition practice",
+        "Self-assessment tools"
+      ],
+      "developmentStatus": "Active development - more features coming"
+    },
+    "accessLevel": "public",
+    "instructor": "Pronunciation Specialist",
+    "relatedSyllabus": "syllabus_jolly_phonics.json",
+    "curriculumUnit": "jolly-phonics-foundation",
+    "estimatedDuration": "Self-paced practice sessions",
+    "difficulty": "Beginner to Intermediate",
+    "language": "English (UK and US variants)",
+    "interactive": true,
+    "usageInstructions": "Perfect for independent practice sessions. Students can use this website to practice pronunciation and spelling skills learned in Jolly Phonics lessons. Recommended for homework assignments and self-study."
   }
 ]
