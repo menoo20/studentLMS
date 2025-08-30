@@ -48,9 +48,10 @@ const Layout = ({ children }) => {
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
-                    to={item.href}
+                    to={item.name === 'Syllabus' ? '/my-annual-plan/syllabus' : `/my-annual-plan${item.href}`}
                     className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                      location.pathname === item.href
+                      location.pathname === `/my-annual-plan${item.href}` || 
+                      (item.name === 'Syllabus' && location.pathname.startsWith('/my-annual-plan/syllabus'))
                         ? getThemeStyles(
                             'bg-primary-100 text-primary-700',
                             'bg-blackGold-gold text-blackGold-bg',

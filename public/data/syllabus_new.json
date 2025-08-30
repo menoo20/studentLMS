@@ -186,33 +186,6 @@
     }
   ],
   "shortCourses": [
-    {
-      "id": "short1",
-      "title": "Emergency English",
-      "description": "Quick intensive course for emergency situations",
-      "duration": "2 weeks",
-      "startDate": "2024-11-01",
-      "endDate": "2024-11-14",
-      "status": "planned",
-      "target": "All groups",
-      "objectives": [
-        "Emergency vocabulary",
-        "Calling for help",
-        "Reporting incidents"
-      ],
-      "dailyPlan": [
-        {
-          "day": 1,
-          "focus": "Emergency vocabulary",
-          "activities": "Key emergency words and phrases"
-        },
-        {
-          "day": 2,
-          "focus": "Making emergency calls",
-          "activities": "Phone call practice and role-play"
-        }
-      ]
-    }
   ],
   "progress": {
     "currentWeek": 15,

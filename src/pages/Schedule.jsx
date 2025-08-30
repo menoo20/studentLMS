@@ -124,21 +124,18 @@ const Schedule = () => {
   const handleClassClick = (classItem) => {
     if (!classItem) return
     
-    // Determine which syllabus to navigate to based on the group
-    let syllabusPath = '/syllabus'
-    
-    // Add URL parameters to highlight the specific date and group
+    // Navigate to syllabus with date and group parameters
+    // Determine which syllabus based on group and navigate to dedicated path
     const searchParams = new URLSearchParams()
     searchParams.set('date', classItem.date)
     searchParams.set('group', classItem.group)
     
-    // Navigate to the appropriate syllabus with parameters
+    // Route to specific syllabus based on group
     if (classItem.group === 'NESMA') {
-      // NESMA uses Jolly Phonics syllabus
-      navigate(`${syllabusPath}?${searchParams.toString()}`)
+      navigate(`/syllabus/nesma-english?${searchParams.toString()}`)
     } else {
-      // Other groups (SAM5, SAIPEM6, etc.) use the main syllabus
-      navigate(`${syllabusPath}?${searchParams.toString()}`)
+      // All other groups use jolly-phonics
+      navigate(`/syllabus/jolly-phonics?${searchParams.toString()}`)
     }
   }
 

@@ -204,6 +204,23 @@ const Students = () => {
                     <button
                       onClick={() => {
                         const groupName = groups.find(g => g.id === selectedGroup)?.name || selectedGroup
+                        // Navigate to specific syllabus based on group
+                        if (groupName === 'NESMA') {
+                          navigate(`/syllabus/nesma-english?group=${encodeURIComponent(groupName)}`)
+                        } else {
+                          navigate(`/syllabus/jolly-phonics?group=${encodeURIComponent(groupName)}`)
+                        }
+                      }}
+                      className="flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-lg hover:from-green-600 hover:to-green-700 transition-all duration-200 transform hover:scale-105 shadow-md"
+                    >
+                      <span className="text-lg">📖</span>
+                      <span className="font-medium">My Syllabus</span>
+                      <span className="text-xs opacity-75">Course content & plans</span>
+                    </button>
+                    
+                    <button
+                      onClick={() => {
+                        const groupName = groups.find(g => g.id === selectedGroup)?.name || selectedGroup
                         navigate(`/resources?group=${encodeURIComponent(groupName)}`)
                       }}
                       className="flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-200 transform hover:scale-105 shadow-md"
