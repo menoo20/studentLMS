@@ -167,13 +167,13 @@ const Schedule = () => {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 overflow-x-hidden">
       {/* Header - Responsive Layout */}
       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
         <h2 className={`text-3xl font-bold ${theme === 'blackGold' ? 'text-blackGold-500' : 'text-gray-900'}`}>Teaching Schedule</h2>
         
-        {/* Week Navigation - Horizontal scroll on mobile */}
-        <div className="flex items-center space-x-2 overflow-x-auto pb-2 sm:pb-0">
+        {/* Week Navigation - Responsive without overflow */}
+        <div className="flex items-center justify-center sm:justify-end gap-2 flex-wrap p-4 sm:p-2">
           <button
             onClick={goToPreviousWeek}
             className={`
@@ -188,7 +188,8 @@ const Schedule = () => {
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd"/>
             </svg>
-            Previous Week
+            <span className="hidden sm:inline">Previous Week</span>
+            <span className="sm:hidden">Previous</span>
           </button>
           <button
             onClick={goToCurrentWeek}
@@ -201,7 +202,8 @@ const Schedule = () => {
               hover:scale-105 hover:shadow-xl
             `}
           >
-            Current Week
+            <span className="hidden sm:inline">Current Week</span>
+            <span className="sm:hidden">Current</span>
           </button>
           <button
             onClick={goToNextWeek}
@@ -214,7 +216,8 @@ const Schedule = () => {
               hover:scale-105 hover:shadow-lg flex items-center gap-2
             `}
           >
-            Next Week
+            <span className="hidden sm:inline">Next Week</span>
+            <span className="sm:hidden">Next</span>
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"/>
             </svg>
@@ -291,13 +294,13 @@ const Schedule = () => {
 
           {/* Week View - Responsive Table Layout */}
           {viewMode === 'week' && (
-            <div className="overflow-x-auto">
-              <table className="min-w-full">
+            <div className="-mx-4 px-4 sm:mx-0 sm:px-0">
+              <table className="w-full table-fixed min-w-[640px]">
                 <thead>
                   <tr className="border-b border-gray-200">
-                    <th className="px-3 py-4 text-left text-sm font-semibold text-gray-900 bg-gray-50/80 w-16 min-w-16">Time</th>
+                    <th className="px-2 sm:px-3 py-4 text-left text-sm font-semibold text-gray-900 bg-gray-50/80 w-16 sm:w-20">Time</th>
                     {weekDates.map((date, index) => (
-                      <th key={index} className="px-3 py-4 text-center min-w-40 w-40 bg-gray-50/80">
+                      <th key={index} className="px-1 sm:px-3 py-4 text-center bg-gray-50/80">
                         <div className="font-semibold text-gray-900 text-xs sm:text-sm">{date.toLocaleDateString('en-US', { weekday: 'short' })}</div>
                         <div className="text-xs font-normal text-gray-500 mt-1">
                           {date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
@@ -309,7 +312,7 @@ const Schedule = () => {
               <tbody className="bg-white divide-y divide-gray-100">
                 {timeSlots.map(time => (
                   <tr key={time} className="hover:bg-gray-50/50 transition-colors duration-150">
-                    <td className="px-3 py-4 text-sm font-semibold text-gray-900 bg-gray-50/50 border-r border-gray-100 w-16 min-w-16">
+                    <td className="px-2 sm:px-3 py-4 text-sm font-semibold text-gray-900 bg-gray-50/50 border-r border-gray-100 w-16 sm:w-20">
                       <div className="font-mono text-sm">{time}</div>
                     </td>
                     {weekDates.map((date, index) => {
@@ -324,7 +327,7 @@ const Schedule = () => {
                       return (
                         <td 
                           key={index} 
-                          className="px-3 py-4 text-center relative w-40 min-w-40"
+                          className="px-1 sm:px-3 py-4 text-center relative"
                           rowSpan={classItem && classItem.group === 'NESMA' ? 2 : 1}
                         >
                           {classItem ? (
@@ -433,7 +436,7 @@ const Schedule = () => {
           {viewMode === 'daily' && (
             <div>
               {/* Day Selector */}
-              <div className="flex overflow-x-auto gap-2 mb-6 pb-2">
+              <div className="flex gap-2 mb-6 pb-2">
                 {weekDates.map((date, index) => (
                   <button
                     key={index}

@@ -2,71 +2,71 @@
 // This is the single source of truth for which groups use which syllabi
 
 export const GROUP_SYLLABUS_MAPPING = {
-  // NESMA uses the new workplace English syllabus
+  // NESMA uses the intensive 4-week English communication program
   'NESMA': {
     file: 'syllabus_new.json',
     syllabusId: 'nesma-english',
-    type: 'workplace-english',
+    type: 'intensive-communication',
     title: 'NESMA English Communication',
-    description: 'Workplace English communication skills'
+    description: 'Intensive 4-week program advancing from Level 1 to Level 2'
   },
-  // All SAIPEM groups use Jolly Phonics foundation
+  // All SAIPEM groups use the foundational annual program
   'SAIPEM6': {
     file: 'syllabus_jolly_phonics.json',
     syllabusId: 'jolly-phonics',
-    type: 'phonics-foundation',
+    type: 'foundational-annual',
     title: 'Foundational English',
-    description: 'Phonics-based English foundation'
+    description: 'Annual program building from Level 0 to Level 1-2'
   },
   'SAIPEM5': {
     file: 'syllabus_jolly_phonics.json',
     syllabusId: 'jolly-phonics',
-    type: 'phonics-foundation',
+    type: 'foundational-annual',
     title: 'Foundational English',
-    description: 'Phonics-based English foundation'
+    description: 'Annual program building from Level 0 to Level 1-2'
   },
   'SAIPEM4': {
     file: 'syllabus_jolly_phonics.json',
     syllabusId: 'jolly-phonics',
-    type: 'phonics-foundation',
+    type: 'foundational-annual',
     title: 'Foundational English',
-    description: 'Phonics-based English foundation'
+    description: 'Annual program building from Level 0 to Level 1-2'
   },
   'SAIPEM3': {
     file: 'syllabus_jolly_phonics.json',
     syllabusId: 'jolly-phonics',
-    type: 'phonics-foundation',
+    type: 'foundational-annual',
     title: 'Foundational English',
-    description: 'Phonics-based English foundation'
+    description: 'Annual program building from Level 0 to Level 1-2'
   },
   'SAIPEM2': {
     file: 'syllabus_jolly_phonics.json',
     syllabusId: 'jolly-phonics',
-    type: 'phonics-foundation',
+    type: 'foundational-annual',
     title: 'Foundational English',
-    description: 'Phonics-based English foundation'
+    description: 'Annual program building from Level 0 to Level 1-2'
   },
-  // All SAM groups use Jolly Phonics foundation
+  // All SAM groups use the foundational annual program
   'SAM5': {
     file: 'syllabus_jolly_phonics.json',
     syllabusId: 'jolly-phonics',
-    type: 'phonics-foundation',
+    type: 'foundational-annual',
     title: 'Foundational English',
-    description: 'Phonics-based English foundation'
+    description: 'Annual program building from Level 0 to Level 1-2'
   },
   'SAM8': {
     file: 'syllabus_jolly_phonics.json',
     syllabusId: 'jolly-phonics',
-    type: 'phonics-foundation',
+    type: 'foundational-annual',
     title: 'Foundational English',
-    description: 'Phonics-based English foundation'
+    description: 'Annual program building from Level 0 to Level 1-2'
   },
   'SAM2': {
     file: 'syllabus_jolly_phonics.json',
     syllabusId: 'jolly-phonics',
-    type: 'phonics-foundation',
+    type: 'foundational-annual',
     title: 'Foundational English',
-    description: 'Phonics-based English foundation'
+    description: 'Annual program building from Level 0 to Level 1-2'
   }
 }
 
@@ -74,9 +74,9 @@ export const GROUP_SYLLABUS_MAPPING = {
 export const DEFAULT_SYLLABUS_CONFIG = {
   file: 'syllabus_jolly_phonics.json',
   syllabusId: 'jolly-phonics',
-  type: 'phonics-foundation',
+  type: 'foundational-annual',
   title: 'Foundational English',
-  description: 'Phonics-based English foundation'
+  description: 'Annual program building from Level 0 to Level 1-2'
 }
 
 /**

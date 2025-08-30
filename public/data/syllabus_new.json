@@ -1,99 +1,67 @@
 {
   "courseInfo": {
-    "subject": "English",
-    "courseType": "annual", 
+    "subject": "English Communication - NESMA Intensive Program",
+    "courseType": "intensive", 
     "academicYear": "2024-2025",
-    "totalWeeks": 52,
-    "startDate": "2024-09-01",
-    "endDate": "2025-08-31",
+    "totalWeeks": 4,
+    "startDate": "2025-08-29",
+    "endDate": "2025-09-19",
     "instructor": "English Teacher",
-    "description": "Comprehensive English language training for vocational students"
+    "description": "Intensive 4-week English communication program designed to advance students from Level 1 to Level 2 proficiency. Focuses on foundational English basics, pronunciation enhancement through targeted phonics work, and practical communication skills for vocational contexts.",
+    "methodology": "Intensive communicative approach with targeted phonics for pronunciation improvement",
+    "target_audience": "NESMA vocational students progressing from elementary to pre-intermediate level (A1→A2 ESL)",
+    "learning_outcome": "Students will advance from Level 1 (elementary) to Level 2 (pre-intermediate) English proficiency"
   },
   "units": [
     {
       "id": "unit1",
-      "title": "Basic Communication",
-      "description": "Fundamental English communication skills for workplace",
-      "duration": "8 weeks",
+      "title": "Foundations and Phonics Introduction",
+      "description": "Introduction to Jolly Phonics and vocabulary building",
+      "duration": "1 week",
       "startWeek": 1,
-      "endWeek": 8,
+      "endWeek": 1,
       "status": "completed",
       "objectives": [
-        "Introduce yourself and others",
-        "Ask and answer basic questions",
-        "Use common workplace greetings",
-        "Understand simple instructions"
+        "Learn Group 1 of Jolly Phonics",
+        "Build vocabulary through PowerPoint presentations",
+        "Create simple stories using learned vocabulary",
+        "Establish foundational phonics skills"
       ],
       "weeklyPlan": [
         {
           "week": 1,
-          "topic": "Introductions and Greetings",
+          "topic": "Jolly Phonics Group 1 & Vocabulary Stories",
           "dailyPlans": [
             {
               "day": "Sunday",
-              "focus": "Personal introductions",
-              "activities": "Name practice, greeting role-play",
+              "focus": "No class",
+              "activities": "",
               "notes": ""
             },
             {
               "day": "Monday", 
-              "focus": "Workplace greetings",
-              "activities": "Professional greeting scenarios",
+              "focus": "No class",
+              "activities": "",
               "notes": ""
             },
             {
               "day": "Tuesday",
-              "focus": "Basic questions",
-              "activities": "What/Where/When question practice",
+              "focus": "No class",
+              "activities": "",
               "notes": ""
             },
             {
               "day": "Wednesday",
-              "focus": "Practice session",
-              "activities": "Combined practice and review",
+              "focus": "No class",
+              "activities": "",
               "notes": ""
             },
             {
               "day": "Thursday",
-              "focus": "Assessment",
-              "activities": "Oral assessment of introductions",
-              "notes": ""
-            }
-          ]
-        },
-        {
-          "week": 2,
-          "topic": "Basic Personal Information",
-          "dailyPlans": [
-            {
-              "day": "Sunday",
-              "focus": "Personal details vocabulary",
-              "activities": "Name, age, job, location practice",
-              "notes": ""
-            },
-            {
-              "day": "Monday",
-              "focus": "Asking for information",
-              "activities": "Question formation practice",
-              "notes": ""
-            },
-            {
-              "day": "Tuesday", 
-              "focus": "Giving information",
-              "activities": "Response practice and fluency",
-              "notes": ""
-            },
-            {
-              "day": "Wednesday",
-              "focus": "Information exchange",
-              "activities": "Pair work and conversation practice",
-              "notes": ""
-            },
-            {
-              "day": "Thursday",
-              "focus": "Review and practice",
-              "activities": "Mixed practice session",
-              "notes": ""
+              "date": "2025-08-29",
+              "focus": "Group 1 Jolly Phonics & Vocabulary Story",
+              "activities": "Introduced Group 1 of Jolly Phonics (s, a, t, i, p, n). PowerPoint vocabulary presentation that forms a coherent story. Students practiced letter sounds and recognition.",
+              "notes": "First class - students engaged well with phonics sounds. Story-based vocabulary helped with retention."
             }
           ]
         }
@@ -101,52 +69,55 @@
     },
     {
       "id": "unit2", 
-      "title": "Workplace Safety",
-      "description": "Safety-related English for vocational environments",
-      "duration": "6 weeks",
-      "startWeek": 9,
-      "endWeek": 14,
+      "title": "Phonics Expansion & Communication Skills",
+      "description": "Expanding phonics knowledge and building communication abilities",
+      "duration": "1 week",
+      "startWeek": 2,
+      "endWeek": 2,
       "status": "in-progress",
       "objectives": [
-        "Understand safety signs and warnings",
-        "Report workplace hazards",
-        "Follow safety instructions",
-        "Use emergency vocabulary"
+        "Master Groups 2, 3, and 4 of Jolly Phonics",
+        "Practice story creation and storytelling",
+        "Introduction to parts of speech",
+        "Develop student rapport and assessment"
       ],
       "weeklyPlan": [
         {
-          "week": 9,
-          "topic": "Safety Signs and Symbols",
+          "week": 2,
+          "topic": "Multi-session Phonics & Grammar Introduction", 
           "dailyPlans": [
             {
               "day": "Sunday",
-              "focus": "Safety sign recognition",
-              "activities": "Visual identification and vocabulary",
-              "notes": ""
+              "date": "2025-09-01",
+              "focus": "Session 1: Revision & Group 2 Phonics",
+              "activities": "Revision of Group 1 phonics. Introduction to Group 2 of Jolly Phonics (c, k, e, h, r, m, d). PowerPoint vocabulary presentation without story (story planned for next session). Getting to know students better through interactive activities.",
+              "notes": "Session 1 of 3 for this week"
             },
             {
               "day": "Monday",
-              "focus": "Warning vocabulary",
-              "activities": "Danger, caution, prohibited words",
+              "focus": "No class",
+              "activities": "",
               "notes": ""
             },
             {
               "day": "Tuesday",
-              "focus": "Reading safety signs",
-              "activities": "Sign comprehension exercises",
-              "notes": ""
+              "date": "2025-09-03",
+              "focus": "Session 2: Story Creation & Group 3 Phonics",
+              "activities": "Creating the story from previous session's vocabulary. Introduction to Group 3 of Jolly Phonics (g, o, u, l, f, b). Interactive phonics quiz for practice and assessment. Parts of speech introduction.",
+              "notes": "Session 2 of 3 for this week"
             },
             {
               "day": "Wednesday",
-              "focus": "Practice session",
-              "activities": "Safety sign scenarios",
+              "focus": "No class",
+              "activities": "",
               "notes": ""
             },
             {
               "day": "Thursday",
-              "focus": "Assessment",
-              "activities": "Safety sign quiz",
-              "notes": ""
+              "date": "2025-09-05",
+              "focus": "Session 3: Group 4 Practice & Content Development",
+              "activities": "Group 4 Jolly Phonics introduction and practice (ai, j, oa, ie, ee, or). Phonics practice session. Additional content development and reinforcement activities.",
+              "notes": "Session 3 of 3 for this week"
             }
           ]
         }
@@ -154,43 +125,115 @@
     },
     {
       "id": "unit3",
-      "title": "Technical Vocabulary",
-      "description": "Job-specific English vocabulary for different trades",
-      "duration": "10 weeks",
-      "startWeek": 15,
-      "endWeek": 24,
+      "title": "Advanced Phonics & Communication Practice",
+      "description": "Consolidating phonics skills and expanding communication abilities",
+      "duration": "1 week",
+      "startWeek": 3,
+      "endWeek": 3, 
       "status": "planned",
       "objectives": [
-        "Learn trade-specific vocabulary",
-        "Understand technical instructions",
-        "Describe work processes",
-        "Use measurement and quantity terms"
+        "Complete remaining Jolly Phonics groups",
+        "Integrate phonics with communication skills",
+        "Practice conversational English",
+        "Develop reading and writing skills"
       ],
-      "weeklyPlan": []
+      "weeklyPlan": [
+        {
+          "week": 3,
+          "topic": "Integrated Phonics & Communication",
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "date": "2025-09-08",
+              "focus": "Advanced Phonics Groups",
+              "activities": "Introduction to remaining Jolly Phonics groups. Integration exercises combining phonics with vocabulary building.",
+              "notes": "Placeholder content - to be developed"
+            },
+            {
+              "day": "Monday",
+              "focus": "No class",
+              "activities": "",
+              "notes": ""
+            },
+            {
+              "day": "Tuesday",
+              "date": "2025-09-10",
+              "focus": "Communication Practice",
+              "activities": "Speaking activities using learned phonics patterns. Basic conversation practice with emphasis on pronunciation.",
+              "notes": "Placeholder content - to be developed"
+            },
+            {
+              "day": "Wednesday",
+              "focus": "No class",
+              "activities": "",
+              "notes": ""
+            },
+            {
+              "day": "Thursday",
+              "date": "2025-09-12",
+              "focus": "Reading & Writing Integration",
+              "activities": "Simple reading exercises using phonics knowledge. Basic writing practice with learned vocabulary.",
+              "notes": "Placeholder content - to be developed"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "unit4",
-      "title": "Written Communication",
-      "description": "Basic writing skills for workplace documentation",
-      "duration": "8 weeks",
-      "startWeek": 25,
-      "endWeek": 32,
+      "title": "Integration & Assessment",
+      "description": "Final integration of all learned skills and comprehensive assessment",
+      "duration": "1 week", 
+      "startWeek": 4,
+      "endWeek": 4,
       "status": "planned",
       "objectives": [
-        "Write simple reports",
-        "Fill out forms and documents",
-        "Write basic emails",
-        "Document work activities"
+        "Consolidate all phonics groups",
+        "Demonstrate communication proficiency",
+        "Complete course assessment",
+        "Prepare for Level 2 progression"
       ],
-      "weeklyPlan": []
+      "weeklyPlan": [
+        {
+          "week": 4,
+          "topic": "Final Integration & Assessment",
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "date": "2025-09-15",
+              "focus": "Comprehensive Review",
+              "activities": "Complete review of all Jolly Phonics groups. Comprehensive vocabulary and pronunciation practice.",
+              "notes": "Placeholder content - to be developed"
+            },
+            {
+              "day": "Monday",
+              "focus": "No class",
+              "activities": "",
+              "notes": ""
+            },
+            {
+              "day": "Tuesday",
+              "date": "2025-09-17",
+              "focus": "Communication Assessment",
+              "activities": "Speaking assessment using learned materials. Demonstration of communication skills improvement.",
+              "notes": "Placeholder content - to be developed"
+            },
+            {
+              "day": "Wednesday",
+              "focus": "No class",
+              "activities": "",
+              "notes": ""
+            },
+            {
+              "day": "Thursday",
+              "date": "2025-09-19",
+              "focus": "Course Completion & Progression Planning",
+              "activities": "Course wrap-up and review of progress. Planning for Level 2 English progression. Feedback and next steps.",
+              "notes": "Placeholder content - to be developed"
+            }
+          ]
+        }
+      ]
     }
-  ],
-  "shortCourses": [
-  ],
-  "progress": {
-    "currentWeek": 15,
-    "completedUnits": 1,
-    "totalUnits": 4,
-    "percentageComplete": 25
-  }
+  ]
 }

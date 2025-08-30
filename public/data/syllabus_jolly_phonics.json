@@ -1,15 +1,22 @@
 {
   "courseInfo": {
-    "subject": "English for Adult Vocational Learners",
+    "subject": "Foundational English for Adult Vocational Learners",
     "courseType": "annual", 
     "academicYear": "2024-2025",
     "totalWeeks": 52,
     "startDate": "2024-09-01",
     "endDate": "2025-08-31",
     "instructor": "English Teacher",
-    "description": "Comprehensive English language training for adult vocational students covering phonics, communication, technical vocabulary, and workplace literacy",
-    "methodology": "Multi-approach: Jolly Phonics foundation, communicative language teaching, and vocational English",
-    "target_audience": "Adult vocational trainees (A1-B1 ESL level)"
+    "description": "Comprehensive annual English program designed to build foundational language skills, progressing students from beginner (Level 0) to elementary proficiency (Level 1-2). Includes phonics foundation in the first month, followed by communication skills, technical vocabulary, and workplace literacy.",
+    "methodology": "Multi-approach: Initial phonics foundation month (using Jolly Phonics), followed by communicative language teaching and vocational English",
+    "target_audience": "Adult vocational trainees progressing from beginner to elementary level (A0→A1-A2 ESL)",
+    "learning_outcome": "Students will advance from Level 0 (beginner) to Level 1-2 (elementary) English proficiency",
+    "course_materials": {
+      "primary_textbook": "New Headway Complete Package",
+      "materials_note": "📚 IMPORTANT: Download all course materials from the Resources page before starting. The complete New Headway package includes Student Book, Workbook, Audio Files, and iTutor program.",
+      "materials_link": "Visit Resources → New Headway Complete Learning Package for download access",
+      "usage_instruction": "These materials support the entire 52-week curriculum and should be used systematically according to weekly lesson plans."
+    }
   },
   "units": [
     {
@@ -335,6 +342,24 @@
               "notes": ""
             }
           ]
+        }
+      ],
+      "resources": [
+        {
+          "id": "jolly-phonics-youtube",
+          "title": "English Phonics Course - Arabic Instruction",
+          "description": "Complete phonics course in Arabic teaching correct English letter pronunciation. Created by zAmericanEnglish, this 14-video series covers comprehensive phonetics and sound training for English language learners.",
+          "type": "video_playlist",
+          "url": "https://www.youtube.com/playlist?list=PLp22-4PivYmIiXGqtQMrfE_tzmqE6r7Tc",
+          "provider": "zAmericanEnglish YouTube Channel",
+          "duration": "14 videos",
+          "language": "Arabic instruction for English phonics",
+          "difficulty": "Beginner to Intermediate",
+          "tags": ["phonics", "english pronunciation", "arabic instruction", "letter sounds", "pronunciation training"],
+          "curriculum_alignment": "Directly supports Jolly Phonics Groups 1-7 covered in this unit",
+          "usage_notes": "Excellent resource for Arabic-speaking students learning English pronunciation. Use alongside phonics curriculum to reinforce correct English letter sounds with native Arabic explanations.",
+          "access_level": "public",
+          "last_updated": "June 20, 2019"
         }
       ]
     },
@@ -1395,22 +1420,6 @@
       ]
     },
     {
-      "id": "safety-english",
-      "title": "Safety and Emergency English",
-      "description": "Critical safety vocabulary and emergency procedures",
-      "duration": "4 weeks",
-      "startWeek": 8,
-      "endWeek": 11,
-      "status": "planned",
-      "objectives": [
-        "Master safety vocabulary and warning signs",
-        "Understand emergency procedures and instructions",
-        "Learn to report incidents and hazards",
-        "Practice safety briefing participation"
-      ],
-      "weeklyPlan": []
-    },
-    {
       "id": "technical-vocabulary",
       "title": "Technical Vocabulary by Trade",
       "description": "Job-specific English vocabulary for different trades",
@@ -1473,225 +1482,6 @@
         "Plan for ongoing English development"
       ],
       "weeklyPlan": []
-    }
-  ],
-  "shortCourses": [
-    {
-      "id": "safety-english",
-      "title": "Emergency Safety English",
-      "description": "Critical safety vocabulary and phrases",
-      "duration": "1 week intensive",
-      "schedule": "Week 21",
-      "priority": "high"
-    },
-    {
-      "id": "nesma-basic-english",
-      "title": "Basic English Communication - NESMA Group",
-      "description": "Comprehensive English foundation covering phonics, grammar, and workplace communication for adult learners",
-      "duration": "4 weeks",
-      "schedule": "Aug 24 - Sep 20, 2025",
-      "priority": "in-progress",
-      "group": "NESMA",
-      "instructor": "English Teacher",
-      "students": ["أسمه معازي المالكي", "مشاعل المطيري", "خالد الغامدي"],
-      "objectives": [
-        "Master basic phonics groups 1-3",
-        "Understand sentence structure and parts of speech", 
-        "Form questions correctly",
-        "Apply active and passive voice",
-        "Develop listening and reading comprehension",
-        "Build workplace English vocabulary"
-      ],
-      "weeklyPlan": [
-        {
-          "week": 1,
-          "dates": "Aug 24-30, 2025",
-          "topic": "Phonics Foundation",
-          "status": "completed",
-          "focus": "Basic letter-sound correspondences and phonics groups",
-          "objectives": [
-            "Master phonics groups 1, 2, and 3",
-            "Practice basic letter sounds and blending",
-            "Introduction to simple word formation"
-          ],
-          "content": {
-            "phonics_groups": [
-              {
-                "group": 1,
-                "sounds": ["s", "a", "t", "i", "p", "n"],
-                "focus": "Basic consonants and vowels"
-              },
-              {
-                "group": 2,
-                "sounds": ["c/k", "e", "h", "r", "m", "d"],
-                "focus": "Extended consonants"
-              },
-              {
-                "group": 3,
-                "sounds": ["g", "o", "u", "l", "f", "b"],
-                "focus": "Completing basic alphabet"
-              }
-            ]
-          },
-          "dailyPlans": [
-            {
-              "day": "Sunday",
-              "focus": "Phonics Group 1: s, a, t, i, p, n",
-              "activities": "Sound recognition, letter formation, basic blending",
-              "assessment": "Placement test administered (31/70, 35/70, 22/70)"
-            },
-            {
-              "day": "Tuesday", 
-              "focus": "Phonics Group 2: c/k, e, h, r, m, d",
-              "activities": "Sound practice, CVC word building, pronunciation drills"
-            },
-            {
-              "day": "Thursday",
-              "focus": "Phonics Group 3: g, o, u, l, f, b",
-              "activities": "Complete alphabet review, simple word reading, phonics games"
-            }
-          ]
-        },
-        {
-          "week": 2,
-          "dates": "Aug 31-Sep 6, 2025",
-          "topic": "Grammar Foundations",
-          "status": "current",
-          "focus": "Sentence structure, tenses, and parts of speech",
-          "objectives": [
-            "Understand basic sentence structure (Subject + Verb + Object)",
-            "Identify and use parts of speech correctly",
-            "Master present, past, and future tense structures",
-            "Form simple and compound sentences"
-          ],
-          "content": {
-            "grammar_topics": [
-              "Sentence structure (SVO pattern)",
-              "Parts of speech (nouns, verbs, adjectives, adverbs)",
-              "Present tense (simple and continuous)",
-              "Past tense (simple and continuous)", 
-              "Future tense (will/going to)"
-            ]
-          },
-          "dailyPlans": [
-            {
-              "day": "Sunday",
-              "focus": "Sentence Structure Basics",
-              "activities": "SVO pattern practice, sentence building exercises, identifying subjects and predicates"
-            },
-            {
-              "day": "Tuesday",
-              "focus": "Parts of Speech",
-              "activities": "Noun/verb identification, adjective usage, adverb placement in sentences"
-            },
-            {
-              "day": "Thursday", 
-              "focus": "Tense Structures",
-              "activities": "Present/past/future tense formation, time expressions, tense conversion exercises"
-            }
-          ]
-        },
-        {
-          "week": 3,
-          "dates": "Sep 7-13, 2025",
-          "topic": "Questions and Voice",
-          "status": "upcoming",
-          "focus": "Question formation, active/passive voice, and comprehension skills",
-          "objectives": [
-            "Form WH-questions and Yes/No questions correctly",
-            "Understand and use active and passive voice",
-            "Develop listening comprehension skills",
-            "Improve reading comprehension and vocabulary"
-          ],
-          "content": {
-            "language_skills": [
-              "Question formation (WH-questions, Yes/No questions)",
-              "Question words (who, what, where, when, why, how)",
-              "Active voice construction",
-              "Passive voice transformation",
-              "Listening strategies",
-              "Reading comprehension techniques"
-            ]
-          },
-          "dailyPlans": [
-            {
-              "day": "Sunday",
-              "focus": "Question Formation",
-              "activities": "WH-question practice, Yes/No question drills, question-answer pair work"
-            },
-            {
-              "day": "Tuesday",
-              "focus": "Active and Passive Voice",
-              "activities": "Voice identification, transformation exercises, workplace examples"
-            },
-            {
-              "day": "Thursday",
-              "focus": "Listening and Reading",
-              "activities": "Audio comprehension exercises, reading passages, vocabulary building"
-            }
-          ]
-        },
-        {
-          "week": 4,
-          "dates": "Sep 14-20, 2025",
-          "topic": "Integration and Application",
-          "status": "upcoming",
-          "focus": "Consolidation of skills and practical application",
-          "objectives": [
-            "Integrate all learned grammar concepts",
-            "Apply English skills in workplace scenarios",
-            "Demonstrate improved communication confidence",
-            "Complete final assessment and course evaluation"
-          ],
-          "content": {
-            "integration_activities": [
-              "Comprehensive grammar review",
-              "Workplace communication scenarios",
-              "Presentation skills",
-              "Written communication practice",
-              "Speaking confidence building",
-              "Course assessment and feedback"
-            ]
-          },
-          "dailyPlans": [
-            {
-              "day": "Sunday",
-              "focus": "Grammar Integration",
-              "activities": "Mixed grammar exercises, error correction, comprehensive review games"
-            },
-            {
-              "day": "Tuesday",
-              "focus": "Workplace Communication",
-              "activities": "Job-related vocabulary, workplace scenarios, professional conversations"
-            },
-            {
-              "day": "Thursday",
-              "focus": "Assessment and Graduation",
-              "activities": "Final assessment, course evaluation, progress celebration, next steps discussion"
-            }
-          ]
-        }
-      ],
-      "assessments": [
-        {
-          "type": "placement",
-          "name": "Placement Test",
-          "date": "Aug 24, 2025",
-          "status": "completed"
-        },
-        {
-          "type": "progress",
-          "name": "Mid-Course Assessment",
-          "date": "Sep 7, 2025",
-          "status": "scheduled"
-        },
-        {
-          "type": "final",
-          "name": "Final Assessment",
-          "date": "Sep 20, 2025", 
-          "status": "scheduled"
-        }
-      ]
     }
   ]
 }

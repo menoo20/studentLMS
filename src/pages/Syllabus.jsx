@@ -23,7 +23,7 @@ const Syllabus = () => {
     {
       id: 'jolly-phonics',
       title: 'Foundational English',
-      description: 'Comprehensive annual English program using Jolly Phonics methodology for adult ESL learners',
+      description: 'Comprehensive annual English program designed to move students from beginner (Level 0) to elementary (Level 1-2) proficiency',
       file: 'syllabus_jolly_phonics.json',
       type: 'long-course',
       duration: '52 weeks',
@@ -33,10 +33,10 @@ const Syllabus = () => {
     {
       id: 'nesma-english',
       title: 'English Communication - NESMA',
-      description: 'Comprehensive English language training for vocational students',
+      description: 'Intensive 4-week program to advance students from Level 1 to Level 2, focusing on foundational English basics and pronunciation enhancement',
       file: 'syllabus_new.json',
       type: 'regular-course',
-      duration: '32+ weeks',
+      duration: '4 weeks',
       target: 'NESMA Group',
       color: 'green'
     }

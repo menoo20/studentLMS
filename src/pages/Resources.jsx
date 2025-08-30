@@ -273,6 +273,70 @@ const Resources = () => {
                   </div>
                 )}
 
+                {/* New Headway Complete Package Features */}
+                {resource.id === 'new-headway-complete-package' && (
+                  <div className="mb-4 space-y-3">
+                    {/* Package Thumbnail */}
+                    <a 
+                      href={resource.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block"
+                    >
+                      <div className="relative rounded-lg overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 border border-blue-200 cursor-pointer hover:shadow-lg transition-shadow">
+                        <div className="aspect-video bg-gray-200 relative overflow-hidden">
+                          <img 
+                            src={`${import.meta.env.PROD ? '/my-annual-plan' : ''}/images/curriculum.jpg`}
+                            alt="New Headway Complete Learning Package"
+                            className="w-full h-full object-cover"
+                          />
+                          {/* Download overlay */}
+                          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 opacity-0 hover:opacity-100 transition-opacity">
+                            <div className="bg-blue-600 rounded-full p-3 shadow-lg">
+                              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="absolute top-2 right-2 bg-blue-600 text-white px-2 py-1 rounded text-xs font-medium">
+                          Google Drive
+                        </div>
+                      </div>
+                    </a>
+                    
+                    {/* Package Contents */}
+                    <div className="p-3 bg-gradient-to-r from-blue-50 to-green-50 rounded-lg border border-blue-200">
+                      <p className="text-sm font-medium text-blue-900 mb-2">📦 Complete Package Includes:</p>
+                      <div className="grid grid-cols-2 gap-2 text-xs text-blue-800">
+                        <div className="flex items-center gap-1">
+                          <span>📖</span> Student Book
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <span>📝</span> Workbook
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <span>🎵</span> Audio Files
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <span>💻</span> iTutor Program
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Curriculum Connection */}
+                    <div className="p-3 bg-gradient-to-r from-green-50 to-blue-50 rounded-lg border border-green-200 text-center">
+                      <p className="text-sm font-medium text-green-900 mb-2">📚 Primary Materials for Foundational English</p>
+                      <Link 
+                        to="/syllabus/jolly-phonics" 
+                        className="inline-block bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded text-xs font-medium transition-colors"
+                      >
+                        📖 View Course Syllabus (52 weeks) →
+                      </Link>
+                    </div>
+                  </div>
+                )}
+
                 {/* Special Pronunciation Practice Website Features */}
                 {resource.id === 'pronunciation-practice-website' && resource.specialFeatures && (
                   <div className="mb-4 space-y-3">
