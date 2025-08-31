@@ -205,5 +205,68 @@
     "interactive": true,
     "downloadRequired": true,
     "usageInstructions": "This comprehensive package supports the entire Foundational English curriculum. Students should download all materials at the beginning of the course and use them systematically according to the syllabus progression. The iTutor program provides interactive reinforcement of concepts learned in class."
+  },
+  {
+    "id": "english-for-everyone-business-level-1",
+    "title": "English for Everyone Business English Level 1",
+    "description": "Comprehensive business English course materials designed for beginners entering the professional world. This DK Publishing resource provides structured learning for workplace communication, business vocabulary, professional correspondence, and essential business skills. Perfect for NESMA group students preparing for business English proficiency.",
+    "category": "Business English",
+    "type": "course_materials",
+    "url": "https://drive.google.com/drive/folders/1_sHsSfl5BTd4orlXcgpwIfTHAVuQ_yIA?usp=sharing",
+    "tags": ["business english", "workplace communication", "professional skills", "vocabulary", "correspondence", "dk publishing", "level 1", "beginner business"],
+    "dateAdded": "2025-08-31",
+    "size": "Complete Course Package",
+    "specialFeatures": {
+      "courseType": "Business English Fundamentals",
+      "targetAudience": "NESMA Group Students",
+      "publisher": "DK Publishing",
+      "seriesName": "English for Everyone",
+      "level": "Level 1 (Beginner Business)",
+      "keyTopics": [
+        "Workplace vocabulary and phrases",
+        "Professional email writing",
+        "Business meeting communication",
+        "Phone conversations and etiquette",
+        "Presentation skills basics",
+        "Industry-specific terminology",
+        "Networking and small talk",
+        "Business document comprehension"
+      ],
+      "skillsToMaster": [
+        "Professional communication",
+        "Business writing fundamentals", 
+        "Workplace listening skills",
+        "Meeting participation",
+        "Email correspondence",
+        "Phone communication",
+        "Basic presentation delivery",
+        "Professional vocabulary usage"
+      ],
+      "packageContents": [
+        "Student coursebook with lessons",
+        "Audio materials for listening practice",
+        "Vocabulary building exercises", 
+        "Business scenarios and role-plays",
+        "Writing templates and examples",
+        "Assessment and progress tracking"
+      ],
+      "googleDriveFolder": {
+        "accessibility": "Direct download from Google Drive",
+        "organization": "Structured by units and skills",
+        "fileTypes": "PDF, Audio, Interactive materials"
+      }
+    },
+    "accessLevel": "group_specific",
+    "eligibleStudents": ["NESMA Group"],
+    "instructor": "English Teacher",
+    "relatedSyllabus": "syllabus_new.json",
+    "curriculumAlignment": "NESMA Business English Program",
+    "localThumbnail": "/images/business_english.jpg",
+    "estimatedDuration": "4-week intensive course",
+    "difficulty": "Beginner Business Level",
+    "language": "English (Business Focus)",
+    "interactive": true,
+    "downloadRequired": true,
+    "usageInstructions": "This material is specifically designed for NESMA group students focusing on business English skills. Download all materials from the Google Drive folder and follow the structured progression. Use in conjunction with the 4-week NESMA syllabus for maximum effectiveness. Ideal for students transitioning from general English to workplace communication."
   }
 ]

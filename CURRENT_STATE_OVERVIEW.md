@@ -19,7 +19,7 @@
 ### **📊 CURRENT ACTIVE GROUPS:**
 1. **NESMA** - Online English Training
 2. **SAMSUNG5** - Samsung Vocational Group 5
-3. **SAIPEM6** - Saipem Vocational Group 6  
+3. **SAIPEM6** - Saipem Welding Group 6  
 4. **SAMSUNG2** - Samsung Vocational Group 2
 5. **SAMSUNG8** - Samsung Vocational Group 8
 

@@ -55,7 +55,7 @@ A comprehensive, modern, and fully-featured student management system built with
 ### **🎯 CURRENT ACTIVE GROUPS (Schedule-Based):**
 - **NESMA**: Online English Training (3 students)
 - **SAMSUNG5**: Samsung Vocational Training Group 5
-- **SAIPEM6**: Saipem Vocational Training Group 6  
+- **SAIPEM6**: Saipem Welding Training Group 6  
 - **SAMSUNG2**: Samsung Vocational Training Group 2
 - **SAMSUNG8**: Samsung Vocational Training Group 8
 
@@ -398,7 +398,7 @@ All data is stored in JSON files in the `/public/data/` directory:
 |---------------|------------------|---------------|------------------|
 | NESMA | nesma | Online English | ✅ Yes |
 | SAM5 | sam5 | Samsung Training | ✅ Yes |
-| SAIPEM6 | saipem6 | Saipem Training | ✅ Yes |
+| SAIPEM6 | saipem6 | Saipem Welding Training | ✅ Yes |
 | SAM2 | sam2 | Samsung Training | ✅ Yes |
 | SAM8 | sam8 | Samsung Training | ✅ Yes |
 
