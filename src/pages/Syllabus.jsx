@@ -211,7 +211,7 @@ const Syllabus = () => {
 
   const loadSpecificSyllabus = async (syllabusConfig) => {
     try {
-      const basePath = import.meta.env.PROD ? '/my-annual-plan' : ''
+      const basePath = import.meta.env.PROD ? '/studentLMS' : ''
       const response = await fetch(`${basePath}/data/${syllabusConfig.file}?t=${Date.now()}`)
       const data = await response.json()
       
@@ -546,7 +546,7 @@ const Syllabus = () => {
                   onClick={() => {
                     // Navigate to dedicated short course syllabus page
                     console.log('Navigating to short course:', course.id, 'group:', highlightedGroup || 'NESMA')
-                    navigate(`/my-annual-plan/syllabus?course=${course.id}&group=${highlightedGroup || 'NESMA'}`)
+                    navigate(`/studentLMS/syllabus?course=${course.id}&group=${highlightedGroup || 'NESMA'}`)
                   }}
                 >
                   <div className="flex items-center justify-between mb-2">
@@ -606,7 +606,7 @@ const Syllabus = () => {
           <button 
             onClick={() => {
               const group = searchParams.get('group') || 'NESMA'
-              navigate(`/my-annual-plan/syllabus?group=${group}`)
+              navigate(`/studentLMS/syllabus?group=${group}`)
             }}
             className="text-blue-600 hover:text-blue-700 flex items-center"
           >

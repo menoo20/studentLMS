@@ -14,7 +14,7 @@ import Resources from './pages/Resources';
 // Component to handle development redirects
 const DevRedirect = () => {
   const location = useLocation();
-  const newPath = location.pathname.replace('/my-annual-plan', '') || '/';
+  const newPath = location.pathname.replace('/studentLMS', '') || '/';
   const search = location.search;
   return <Navigate to={newPath + search} replace />;
 };

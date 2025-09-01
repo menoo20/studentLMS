@@ -140,7 +140,7 @@ const Resources = () => {
   useEffect(() => {
     const loadResources = async () => {
       try {
-        const basePath = import.meta.env.PROD ? '/my-annual-plan' : ''
+        const basePath = import.meta.env.PROD ? '/studentLMS' : ''
         const response = await fetch(`${basePath}/data/resources.json`)
         const data = await response.json()
         setResources(data)
@@ -347,7 +347,7 @@ const Resources = () => {
                 }`}>
                   {resource.id === 'jolly-phonics-youtube' && (
                     <img 
-                      src={`${import.meta.env.PROD ? '/my-annual-plan' : ''}/images/speak_3069810.png`}
+                      src={`${import.meta.env.PROD ? '/studentLMS' : ''}/images/speak_3069810.png`}
                       alt="Speaking icon"
                       className="w-5 h-5"
                     />
@@ -377,7 +377,7 @@ const Resources = () => {
                         )}
                         <div className="aspect-video bg-gray-200 relative overflow-hidden">
                           <img 
-                            src={`${import.meta.env.PROD ? '/my-annual-plan' : ''}/images/hqdefault.avif`}
+                            src={`${import.meta.env.PROD ? '/studentLMS' : ''}/images/hqdefault.avif`}
                             alt="Jolly Phonics YouTube Playlist Thumbnail"
                             className="w-full h-full object-cover"
                           />
@@ -425,7 +425,7 @@ const Resources = () => {
                         )}
                         <div className="aspect-video bg-gray-200 relative overflow-hidden">
                           <img 
-                            src={`${import.meta.env.PROD ? '/my-annual-plan' : ''}/images/curriculum.jpg`}
+                            src={`${import.meta.env.PROD ? '/studentLMS' : ''}/images/curriculum.jpg`}
                             alt="New Headway Complete Learning Package"
                             className="w-full h-full object-cover"
                           />
@@ -556,7 +556,7 @@ const Resources = () => {
                         )}
                         <div className="aspect-video bg-gray-200 relative overflow-hidden">
                           <img 
-                            src={`${import.meta.env.PROD ? '/my-annual-plan' : ''}/images/english_for_everyone.jpg`}
+                            src={`${import.meta.env.PROD ? '/studentLMS' : ''}/images/english_for_everyone.jpg`}
                             alt="English for Everyone Business English Level 1"
                             className="w-full h-full object-cover"
                           />

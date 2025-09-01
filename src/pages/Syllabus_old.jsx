@@ -9,7 +9,7 @@ const Syllabus = () => {
   useEffect(() => {
     const loadSyllabus = async () => {
       try {
-        const basePath = import.meta.env.PROD ? '/my-annual-plan' : ''
+        const basePath = import.meta.env.PROD ? '/studentLMS' : ''
         const response = await fetch(`${basePath}/data/syllabus.json`)
         const data = await response.json()
         setSyllabus(data)

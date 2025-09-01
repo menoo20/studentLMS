@@ -17,7 +17,7 @@ const Students = () => {
     // Load data from JSON files
     const loadData = async () => {
       try {
-        const basePath = import.meta.env.PROD ? '/my-annual-plan' : ''
+        const basePath = import.meta.env.PROD ? '/studentLMS' : ''
         const [studentsRes, groupsRes, marksRes, examsRes, configRes] = await Promise.all([
           fetch(`${basePath}/data/students.json`).catch(() => ({ json: () => [] })),
           fetch(`${basePath}/data/groups.json`).catch(() => ({ json: () => [] })),

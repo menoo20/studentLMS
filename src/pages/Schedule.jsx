@@ -46,7 +46,7 @@ const Schedule = () => {
   useEffect(() => {
     const loadSchedule = async () => {
       try {
-        const basePath = import.meta.env.PROD ? '/my-annual-plan' : ''
+        const basePath = import.meta.env.PROD ? '/studentLMS' : ''
         const response = await fetch(`${basePath}/data/schedule.json`)
         const data = await response.json()
         setSchedule(data)
@@ -393,7 +393,7 @@ const Schedule = () => {
                                   <div className="flex items-center justify-center mb-2">
                                     <div className={`p-2 rounded-full bg-white/20`}>
                                       <img 
-                                        src={`${import.meta.env.PROD ? '/my-annual-plan' : ''}/images/zoom_logo.png`}
+                                        src={`${import.meta.env.PROD ? '/studentLMS' : ''}/images/zoom_logo.png`}
                                         alt="Zoom"
                                         className="w-6 h-6 object-contain"
                                       />

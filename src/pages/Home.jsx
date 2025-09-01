@@ -19,7 +19,7 @@ const Home = () => {
 
   const loadStats = async () => {
     try {
-      const basePath = import.meta.env.PROD ? '/my-annual-plan' : ''
+      const basePath = import.meta.env.PROD ? '/studentLMS' : ''
       const [studentsRes, examsRes, scheduleRes, resourcesRes, marksRes, syllabusRes] = await Promise.all([
         fetch(`${basePath}/data/students.json`).catch(() => ({ json: () => [] })),
         fetch(`${basePath}/data/exams.json`).catch(() => ({ json: () => [] })),
