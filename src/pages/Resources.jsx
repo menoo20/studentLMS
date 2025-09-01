@@ -10,6 +10,133 @@ const Resources = () => {
   const [selectedCategory, setSelectedCategory] = useState('')
   const [searchTerm, setSearchTerm] = useState('')
 
+  // Get current user from the actual login system
+  const getCurrentUser = () => {
+    // Check if user is logged in via the header system
+    const authUser = sessionStorage.getItem('authUser')
+    if (authUser) {
+      try {
+        const user = JSON.parse(authUser)
+        console.log('Auth user found:', user)
+        
+        // Map the login system to our access rules
+        if (user.role === 'admin') {
+          return { name: user.name || 'admin', role: 'admin', group: 'admin' }
+        }
+        
+        if (user.role === 'student') {
+          // Check if it's a long course student (SAM, SAIPEM)
+          if (user.subType === 'longCourse') {
+            // For long course, we need to determine if it's SAM or SAIPEM
+            // Default to SAM for now, but this could be enhanced
+            return { name: user.name || 'student', role: 'student', group: 'sam' }
+          }
+          // Short course student (NESMA)
+          else if (user.subType === 'shortCourse') {
+            return { name: user.name || 'student', role: 'student', group: 'nesma' }
+          }
+        }
+      } catch (e) {
+        console.log('Error parsing auth user:', e)
+        // If there's an error parsing, clear the invalid data
+        sessionStorage.removeItem('authUser')
+      }
+    }
+    
+    // Check for admin access via URL parameter (backup)
+    const urlParams = new URLSearchParams(window.location.search)
+    const adminKey = urlParams.get('admin')
+    if (adminKey === 'blackgold2024') {
+      const adminUser = { name: 'admin', role: 'admin', group: 'admin' }
+      return adminUser
+    }
+    
+    // Default to investor (most restrictive) - this covers logged out users
+    return { name: 'guest', role: 'investor', group: 'investor' }
+  }
+
+  // Simple access control - based on user group
+  const canAccessResource = (resource, user) => {
+    console.log('Checking access for:', resource.id, 'User:', user)
+    
+    // Admin can access everything
+    if (user.role === 'admin') {
+      return true
+    }
+    
+    // Investor cannot access anything
+    if (user.role === 'investor') {
+      return false
+    }
+    
+    // For students, check group-specific access
+    if (user.role === 'student') {
+      // NESMA (Short Course) - can access everything EXCEPT New Headway
+      if (user.group === 'nesma') {
+        if (resource.id === 'new-headway-complete-package') {
+          return false  // NESMA cannot access New Headway
+        }
+        return true  // NESMA can access everything else
+      }
+      
+      // SAM/SAIPEM (Long Course) - can access everything EXCEPT NESMA-specific resources
+      if (user.group === 'sam' || user.group === 'saipem') {
+        if (resource.id === 'nesma-study-portal' || resource.id === 'english-for-everyone-business-level-1') {
+          return false  // Long course students cannot access NESMA-specific resources
+        }
+        return true  // Long course students can access everything else
+      }
+    }
+    
+    // Default deny
+    return false
+  }
+
+  // Handle clicks on resources
+  const handleSecureClick = (url, resource, e) => {
+    e.preventDefault()
+    
+    const currentUser = getCurrentUser()
+    console.log('Click attempt - User:', currentUser, 'Resource:', resource.id)
+    
+    // Check if user is an investor
+    if (currentUser.role === 'investor') {
+      alert('🔐 Access Restricted\n\nTo access educational resources, please contact the administrator to get your access key.\n\nThis content is available only for registered students and staff.')
+      return
+    }
+    
+    // Check resource-specific access
+    if (!canAccessResource(resource, currentUser)) {
+      if (currentUser.group === 'nesma') {
+        alert('🚫 Resource Not Available\n\nThis advanced curriculum is designed for Long Course students.\n\nPlease focus on the materials assigned to NESMA Short Course program.')
+      } else {
+        alert('🚫 Resource Not Available\n\nThis resource is specifically designed for NESMA Short Course students.\n\nPlease use the materials designated for Long Course students.')
+      }
+      return
+    }
+    
+    // Open the resource
+    console.log('Opening resource:', url)
+    window.open(url, '_blank', 'noopener,noreferrer')
+  }
+
+  const user = getCurrentUser()
+
+  // Listen for auth changes (logout/login)
+  useEffect(() => {
+    const handleStorageChange = () => {
+      // Force re-render when auth state changes
+      window.location.reload()
+    }
+    
+    // Listen for sessionStorage changes (when user logs out/in)
+    window.addEventListener('storage', handleStorageChange)
+    
+    return () => {
+      window.removeEventListener('storage', handleStorageChange)
+    }
+  }, [])
+
   useEffect(() => {
     const loadResources = async () => {
       try {
@@ -32,9 +159,14 @@ const Resources = () => {
   useEffect(() => {
     const groupParam = searchParams.get('group')
     if (groupParam) {
-      // If NESMA group is specified, filter to show NESMA-related resources
-      if (groupParam.toLowerCase().includes('nesma')) {
-        setSearchTerm('nesma')
+      const groupLower = groupParam.toLowerCase()
+      // If NESMA group is specified, filter to show NESMA-specific short course materials
+      if (groupLower.includes('nesma')) {
+        setSearchTerm('nesma')  // Show NESMA short course content
+      }
+      // If SAM or SAIPEM group is specified, filter to show comprehensive long-course materials
+      else if (groupLower.includes('sam') || groupLower.includes('saipem')) {
+        setSearchTerm('headway')  // Show comprehensive materials for long courses
       }
     }
   }, [searchParams])
@@ -189,7 +321,8 @@ const Resources = () => {
               <div key={resource.id} className={`card hover:shadow-lg transition-shadow ${
                 resource.id === 'nesma-study-portal' ? 'border-2 border-blue-300 bg-gradient-to-br from-blue-50 to-purple-50' : 
                 resource.id === 'jolly-phonics-youtube' ? 'border-2 border-purple-300 bg-gradient-to-br from-purple-50 to-red-50' : 
-                resource.id === 'pronunciation-practice-website' ? 'border-2 border-green-300 bg-gradient-to-br from-green-50 to-blue-50' : ''
+                resource.id === 'pronunciation-practice-website' ? 'border-2 border-green-300 bg-gradient-to-br from-green-50 to-blue-50' : 
+                resource.id === 'english-for-everyone-business-level-1' ? 'border-2 border-orange-300 bg-gradient-to-br from-orange-50 to-yellow-50' : ''
               }`}>
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex items-center space-x-2">
@@ -232,13 +365,16 @@ const Resources = () => {
                 {resource.id === 'jolly-phonics-youtube' && (
                   <div className="mb-4 space-y-3">
                     {/* Clickable Thumbnail */}
-                    <a 
-                      href={resource.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block"
+                    <div 
+                      onClick={(e) => handleSecureClick(resource.url, resource, e)}
+                      className="block cursor-pointer"
                     >
                       <div className="relative rounded-lg overflow-hidden bg-gradient-to-br from-red-50 to-purple-50 border border-red-200 cursor-pointer hover:shadow-lg transition-shadow">
+                        {(!canAccessResource(resource, user)) && (
+                          <div className="absolute top-2 left-2 bg-yellow-500 text-black px-2 py-1 rounded text-xs font-medium z-10">
+                            {user.role === 'investor' ? '🔒 Access Restricted' : '🚫 Not Available'}
+                          </div>
+                        )}
                         <div className="aspect-video bg-gray-200 relative overflow-hidden">
                           <img 
                             src={`${import.meta.env.PROD ? '/my-annual-plan' : ''}/images/hqdefault.avif`}
@@ -258,7 +394,7 @@ const Resources = () => {
                           YouTube
                         </div>
                       </div>
-                    </a>
+                    </div>
                     
                     {/* Curriculum Connection */}
                     <div className="p-3 bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg border border-purple-200 text-center">
@@ -277,13 +413,16 @@ const Resources = () => {
                 {resource.id === 'new-headway-complete-package' && (
                   <div className="mb-4 space-y-3">
                     {/* Package Thumbnail */}
-                    <a 
-                      href={resource.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block"
+                    <div 
+                      onClick={(e) => handleSecureClick(resource.url, resource, e)}
+                      className="block cursor-pointer"
                     >
                       <div className="relative rounded-lg overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 border border-blue-200 cursor-pointer hover:shadow-lg transition-shadow">
+                        {(!canAccessResource(resource, user)) && (
+                          <div className="absolute top-2 left-2 bg-yellow-500 text-black px-2 py-1 rounded text-xs font-medium z-10">
+                            {user.role === 'investor' ? '🔒 Access Restricted' : '🚫 Not Available'}
+                          </div>
+                        )}
                         <div className="aspect-video bg-gray-200 relative overflow-hidden">
                           <img 
                             src={`${import.meta.env.PROD ? '/my-annual-plan' : ''}/images/curriculum.jpg`}
@@ -303,7 +442,7 @@ const Resources = () => {
                           Google Drive
                         </div>
                       </div>
-                    </a>
+                    </div>
                     
                     {/* Package Contents */}
                     <div className="p-3 bg-gradient-to-r from-blue-50 to-green-50 rounded-lg border border-blue-200">
@@ -341,13 +480,16 @@ const Resources = () => {
                 {resource.id === 'pronunciation-practice-website' && resource.specialFeatures && (
                   <div className="mb-4 space-y-3">
                     {/* Website Preview */}
-                    <a 
-                      href={resource.url} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="block relative overflow-hidden rounded-lg border-2 border-green-300 hover:border-green-400 transition-colors group"
+                    <div 
+                      onClick={(e) => handleSecureClick(resource.url, resource, e)}
+                      className="block relative overflow-hidden rounded-lg border-2 border-green-300 hover:border-green-400 transition-colors group cursor-pointer"
                     >
                       <div className="bg-gradient-to-r from-green-100 to-blue-100 p-4 text-center">
+                        {(!canAccessResource(resource, user)) && (
+                          <div className="absolute top-2 left-2 bg-yellow-500 text-black px-2 py-1 rounded text-xs font-medium z-10">
+                            {user.role === 'investor' ? '🔒 Access Restricted' : '🚫 Not Available'}
+                          </div>
+                        )}
                         <div className="flex items-center justify-center mb-2">
                           <span className="text-3xl mr-2">🎙️</span>
                           <span className="text-lg font-bold text-green-800">Interactive Pronunciation Practice</span>
@@ -363,7 +505,7 @@ const Resources = () => {
                           Interactive
                         </div>
                       </div>
-                    </a>
+                    </div>
                     
                     {/* Accent Variations */}
                     <div className="p-3 bg-gradient-to-r from-green-50 to-blue-50 rounded-lg border border-green-200">
@@ -392,6 +534,89 @@ const Resources = () => {
                         </div>
                         <div className="bg-yellow-50 p-2 rounded">
                           <span className="font-medium text-yellow-800">🔄 Repeat Practice</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Business English Course Features */}
+                {resource.id === 'english-for-everyone-business-level-1' && (
+                  <div className="mb-4 space-y-3">
+                    {/* Course Thumbnail */}
+                    <div 
+                      onClick={(e) => handleSecureClick(resource.url, resource, e)}
+                      className="block cursor-pointer"
+                    >
+                      <div className="relative rounded-lg overflow-hidden bg-gradient-to-br from-orange-50 to-yellow-50 border border-orange-200 cursor-pointer hover:shadow-lg transition-shadow">
+                        {(!canAccessResource(resource, user)) && (
+                          <div className="absolute top-2 left-2 bg-yellow-500 text-black px-2 py-1 rounded text-xs font-medium z-10">
+                            {user.role === 'investor' ? '🔒 Access Restricted' : '🚫 Not Available'}
+                          </div>
+                        )}
+                        <div className="aspect-video bg-gray-200 relative overflow-hidden">
+                          <img 
+                            src={`${import.meta.env.PROD ? '/my-annual-plan' : ''}/images/english_for_everyone.jpg`}
+                            alt="English for Everyone Business English Level 1"
+                            className="w-full h-full object-cover"
+                          />
+                          {/* Download overlay */}
+                          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 opacity-0 hover:opacity-100 transition-opacity">
+                            <div className="bg-orange-600 rounded-full p-3 shadow-lg">
+                              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="absolute top-2 right-2 bg-orange-600 text-white px-2 py-1 rounded text-xs font-medium">
+                          Business English
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Course Features */}
+                    <div className="p-3 bg-gradient-to-r from-orange-50 to-yellow-50 rounded-lg border border-orange-200">
+                      <h5 className="text-sm font-semibold text-orange-900 mb-2">💼 Business English Skills</h5>
+                      <div className="grid grid-cols-2 gap-2 text-xs text-orange-800">
+                        <div className="flex items-center gap-1">
+                          <span>📧</span> Email Writing
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <span>🤝</span> Meeting Skills
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <span>📞</span> Phone Calls
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <span>📊</span> Presentations
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* NESMA Connection */}
+                    <div className="p-3 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-lg border border-yellow-200 text-center">
+                      <p className="text-sm font-medium text-yellow-900 mb-2">🎯 NESMA Business English Program</p>
+                      <p className="text-xs text-yellow-800">
+                        DK Publishing materials for professional workplace communication
+                      </p>
+                    </div>
+                    
+                    {/* Package Contents */}
+                    <div className="p-3 bg-white rounded-lg border border-orange-200">
+                      <h5 className="text-sm font-semibold text-orange-900 mb-2">📦 Complete Package</h5>
+                      <div className="grid grid-cols-2 gap-2 text-xs">
+                        <div className="bg-orange-50 p-2 rounded">
+                          <span className="font-medium text-orange-800">📖 Student Book</span>
+                        </div>
+                        <div className="bg-yellow-50 p-2 rounded">
+                          <span className="font-medium text-yellow-800">🎵 Audio Files</span>
+                        </div>
+                        <div className="bg-blue-50 p-2 rounded">
+                          <span className="font-medium text-blue-800">💻 Digital Materials</span>
+                        </div>
+                        <div className="bg-green-50 p-2 rounded">
+                          <span className="font-medium text-green-800">📝 Worksheets</span>
                         </div>
                       </div>
                     </div>
@@ -474,21 +699,25 @@ const Resources = () => {
                   </div>
                   
                   {resource.url ? (
-                    <a
-                      href={resource.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`text-xs py-1 px-3 rounded ${
+                    <div
+                      onClick={(e) => handleSecureClick(resource.url, resource, e)}
+                      className={`text-xs py-1 px-3 rounded cursor-pointer inline-block ${
                         resource.id === 'nesma-study-portal' 
                           ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600'
                           : resource.id === 'jolly-phonics-youtube'
                           ? 'bg-gradient-to-r from-red-500 to-purple-500 text-white hover:from-red-600 hover:to-purple-600 flex items-center gap-1'
                           : 'btn-primary'
-                      }`}
+                      } ${(!canAccessResource(resource, user)) ? 'opacity-75' : ''}`}
                     >
-                      {resource.id === 'nesma-study-portal' ? '🚀 Open Portal' : 
+                      {(!canAccessResource(resource, user)) && (
+                        <span className="mr-1">🔒</span>
+                      )}
+                      {resource.id === 'nesma-study-portal' ? 'Open Portal' : 
                        resource.id === 'jolly-phonics-youtube' ? '▶️ Watch Playlist' : 'Open'}
-                    </a>
+                      {(!user || user.role === 'investor') && (
+                        <span className="ml-1 text-xs opacity-75">(Restricted)</span>
+                      )}
+                    </div>
                   ) : (
                     <button className="btn-secondary text-xs py-1 px-3" disabled>
                       No Link

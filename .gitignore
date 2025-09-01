@@ -1,1 +1,14 @@
 node_modules
+
+# Authentication configuration (contains sensitive keys)
+src/config/auth-config.js
+src/config/auth.js
+
+# Build directories
+dist
+.vscode
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

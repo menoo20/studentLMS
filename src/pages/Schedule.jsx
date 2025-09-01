@@ -8,7 +8,22 @@ const Schedule = () => {
   const navigate = useNavigate()
   const [schedule, setSchedule] = useState([])
   const [loading, setLoading] = useState(true)
-  const [currentWeek, setCurrentWeek] = useState(new Date('2025-08-24')) // Start with the week containing our schedule data
+  const getCurrentDate = () => {
+    // In a real environment, you might want to use new Date()
+    // For now, we'll use the context date of September 1, 2025
+    // You can change this to new Date() when you want to use the actual current date
+    const contextDate = new Date('2025-09-01T10:00:00') // 10 AM on September 1, 2025
+    return contextDate
+  }
+
+  const [currentWeek, setCurrentWeek] = useState(() => {
+    // Initialize with actual current week
+    const today = getCurrentDate()
+    const currentDayOfWeek = today.getDay()
+    const startOfCurrentWeek = new Date(today)
+    startOfCurrentWeek.setDate(today.getDate() - currentDayOfWeek)
+    return startOfCurrentWeek
+  })
   const [viewMode, setViewMode] = useState('week') // 'week', 'daily'
   const [selectedDay, setSelectedDay] = useState(0)
   const [highlightGroup, setHighlightGroup] = useState(null)
@@ -64,9 +79,12 @@ const Schedule = () => {
     const startOfWeek = new Date(date)
     const day = startOfWeek.getDay()
     
-    // Calculate Sunday as start of week (day 0)
-    const diff = startOfWeek.getDate() - day
-    startOfWeek.setDate(diff)
+    // Calculate Sunday as start of week (Arab convention: Sunday = day 1 of week)
+    // In JavaScript: Sunday = 0, Monday = 1, etc.
+    // We want to find the most recent Sunday
+    let daysToSubtract = day === 0 ? 0 : day // If today is Sunday (0), don't subtract. Otherwise subtract day value
+    
+    startOfWeek.setDate(startOfWeek.getDate() - daysToSubtract)
 
     // Only add Sunday through Thursday (5 working days)
     for (let i = 0; i < 5; i++) {
@@ -113,7 +131,7 @@ const Schedule = () => {
   const isClassLive = (classItem) => {
     if (!classItem || classItem.group !== 'NESMA') return false
     
-    const now = new Date()
+    const now = getCurrentDate()
     const classDate = new Date(classItem.date + 'T' + classItem.time)
     const classEndTime = new Date(classDate.getTime() + 120 * 60000) // Add 120 minutes (2 hours)
     
@@ -154,8 +172,15 @@ const Schedule = () => {
   }
 
   const goToCurrentWeek = () => {
-    // Go to the week containing our main schedule data (Aug 24-28, 2025)
-    setCurrentWeek(new Date('2025-08-24'))
+    // Calculate the actual current week based on today's date
+    const today = getCurrentDate()
+    const currentDayOfWeek = today.getDay() // 0 = Sunday, 1 = Monday, etc.
+    
+    // Calculate the start of the current week (Sunday)
+    const startOfCurrentWeek = new Date(today)
+    startOfCurrentWeek.setDate(today.getDate() - currentDayOfWeek)
+    
+    setCurrentWeek(startOfCurrentWeek)
   }
 
   if (loading) {
@@ -527,7 +552,7 @@ const Schedule = () => {
           </h3>
           <div className="space-y-3">
             {schedule
-              .filter(item => new Date(item.date + 'T' + item.time) > new Date())
+              .filter(item => new Date(item.date + 'T' + item.time) > getCurrentDate())
               .sort((a, b) => new Date(a.date + 'T' + a.time) - new Date(b.date + 'T' + b.time))
               .slice(0, 5)
               .map(item => (

@@ -1,9 +1,11 @@
 
 import { Link, useLocation } from 'react-router-dom';
 import { useTheme } from './ThemeContext';
+import { useAuth } from '../contexts/AuthContext';
 
 const Layout = ({ children }) => {
   const location = useLocation()
+  const { user, logout } = useAuth()
 
   const navigation = [
     { name: 'Home', href: '/', icon: '🏠' },
@@ -14,6 +16,30 @@ const Layout = ({ children }) => {
   ]
 
   const { theme, toggleTheme, getThemeStyles } = useTheme();
+
+  const getUserDisplayInfo = () => {
+    if (!user) return null;
+    
+    const roleIcons = {
+      admin: '👑',
+      student: '🎓', 
+      investor: '💼'
+    };
+    
+    const roleNames = {
+      admin: 'Administrator',
+      student: user.subType === 'longCourse' ? 'Long Course Student' : 'Short Course Student',
+      investor: 'Investor'
+    };
+    
+    return {
+      icon: roleIcons[user.role] || '👤',
+      name: roleNames[user.role] || 'User',
+      groups: user.groups?.join(', ') || 'All Groups'
+    };
+  };
+
+  const displayInfo = getUserDisplayInfo();
 
   return (
     <div className={getThemeStyles(
@@ -43,15 +69,61 @@ const Layout = ({ children }) => {
                 Student Management System
               </h1>
             </div>
+            
+            {/* User Info and Navigation */}
             <div className="flex items-center space-x-4">
+              {/* User Info */}
+              {displayInfo && (
+                <div className="hidden sm:flex items-center space-x-3">
+                  <div className={getThemeStyles(
+                    'bg-blue-50 border border-blue-200 rounded-lg px-3 py-2',
+                    'bg-blackGold-gold/20 border border-blackGold-gold rounded-lg px-3 py-2',
+                    'bg-vibrantGradient-pink/20 border border-vibrantGradient-coral rounded-lg px-3 py-2'
+                  )}>
+                    <div className="flex items-center space-x-2">
+                      <span className="text-lg">{displayInfo.icon}</span>
+                      <div className="text-sm">
+                        <div className={getThemeStyles(
+                          'font-semibold text-blue-900',
+                          'font-semibold text-blackGold-gold',
+                          'font-semibold text-white'
+                        )}>
+                          {displayInfo.name}
+                        </div>
+                        {user.role === 'student' && (
+                          <div className={getThemeStyles(
+                            'text-blue-700 text-xs',
+                            'text-blackGold-gold/80 text-xs',
+                            'text-white/80 text-xs'
+                          )}>
+                            {displayInfo.groups}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <button
+                    onClick={logout}
+                    className={getThemeStyles(
+                      'px-3 py-2 rounded-md text-sm font-medium bg-red-100 text-red-700 border border-red-200 hover:bg-red-200 transition-colors',
+                      'px-3 py-2 rounded-md text-sm font-medium bg-red-900/20 text-red-400 border border-red-400 hover:bg-red-900/40 transition-colors',
+                      'px-3 py-2 rounded-md text-sm font-medium bg-red-500/20 text-red-200 border border-red-400 hover:bg-red-500/40 transition-colors'
+                    )}
+                  >
+                    🚪 Logout
+                  </button>
+                </div>
+              )}
+              
               <nav className="hidden md:flex space-x-1">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
-                    to={item.name === 'Syllabus' ? '/my-annual-plan/syllabus' : `/my-annual-plan${item.href}`}
+                    to={item.href}
                     className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                      location.pathname === `/my-annual-plan${item.href}` || 
-                      (item.name === 'Syllabus' && location.pathname.startsWith('/my-annual-plan/syllabus'))
+                      location.pathname === item.href || 
+                      (item.name === 'Syllabus' && location.pathname.startsWith('/syllabus'))
                         ? getThemeStyles(
                             'bg-primary-100 text-primary-700',
                             'bg-blackGold-gold text-blackGold-bg',
@@ -92,6 +164,45 @@ const Layout = ({ children }) => {
         'md:hidden bg-gradient-to-r from-vibrantGradient-900/80 to-vibrantGradient-800/80 border-b border-vibrantGradient-pink/30'
       )}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          {/* Mobile User Info */}
+          {displayInfo && (
+            <div className="sm:hidden py-3 border-b border-gray-200">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-2">
+                  <span className="text-lg">{displayInfo.icon}</span>
+                  <div className="text-sm">
+                    <div className={getThemeStyles(
+                      'font-semibold text-gray-900',
+                      'font-semibold text-blackGold-gold',
+                      'font-semibold text-white'
+                    )}>
+                      {displayInfo.name}
+                    </div>
+                    {user.role === 'student' && (
+                      <div className={getThemeStyles(
+                        'text-gray-600 text-xs',
+                        'text-blackGold-gold/80 text-xs',
+                        'text-white/80 text-xs'
+                      )}>
+                        {displayInfo.groups}
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <button
+                  onClick={logout}
+                  className={getThemeStyles(
+                    'px-2 py-1 rounded text-xs font-medium bg-red-100 text-red-700 border border-red-200 hover:bg-red-200 transition-colors',
+                    'px-2 py-1 rounded text-xs font-medium bg-red-900/20 text-red-400 border border-red-400 hover:bg-red-900/40 transition-colors',
+                    'px-2 py-1 rounded text-xs font-medium bg-red-500/20 text-red-200 border border-red-400 hover:bg-red-500/40 transition-colors'
+                  )}
+                >
+                  Logout
+                </button>
+              </div>
+            </div>
+          )}
+          
           <div className="flex space-x-1 py-2 overflow-x-auto">
             {navigation.map((item) => (
               <Link

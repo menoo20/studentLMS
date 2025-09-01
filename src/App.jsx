@@ -1,7 +1,10 @@
 
 import { ThemeProvider } from './components/ThemeContext';
+import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import Layout from './components/Layout';
+import Login from './components/Login';
 import Home from './pages/Home';
 import Students from './pages/Students';
 import Schedule from './pages/Schedule';
@@ -16,28 +19,40 @@ const DevRedirect = () => {
   return <Navigate to={newPath + search} replace />;
 };
 
+// Main app content that requires authentication
+const AppContent = () => {
+  const { isAuthenticated, initializeAuth } = useAuth();
+
+  useEffect(() => {
+    initializeAuth();
+  }, []);
+
+  if (!isAuthenticated) {
+    return <Login />;
+  }
+
+  return (
+    <Layout>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/students" element={<Students />} />
+        <Route path="/schedule" element={<Schedule />} />
+        <Route path="/syllabus" element={<Syllabus />} />
+        <Route path="/syllabus/jolly-phonics" element={<Syllabus />} />
+        <Route path="/syllabus/nesma-english" element={<Syllabus />} />
+        <Route path="/resources" element={<Resources />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </Layout>
+  );
+};
+
 function App() {
   return (
     <ThemeProvider>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/students" element={<Students />} />
-          <Route path="/schedule" element={<Schedule />} />
-          <Route path="/syllabus" element={<Syllabus />} />
-          <Route path="/syllabus/jolly-phonics" element={<Syllabus />} />
-          <Route path="/syllabus/nesma-english" element={<Syllabus />} />
-          <Route path="/resources" element={<Resources />} />
-          
-          {/* Development redirects - handle manual typing of /my-annual-plan/ */}
-          {!import.meta.env.PROD && (
-            <>
-              <Route path="/my-annual-plan" element={<Navigate to="/" replace />} />
-              <Route path="/my-annual-plan/*" element={<DevRedirect />} />
-            </>
-          )}
-        </Routes>
-      </Layout>
+      <AuthProvider>
+        <AppContent />
+      </AuthProvider>
     </ThemeProvider>
   );
 }
