@@ -1918,5 +1918,105 @@
     "room": "Room 8",
     "type": "Lecture",
     "duration": "60 minutes"
+  },
+  {
+    "id": "sch193",
+    "date": "2025-09-03",
+    "time": "09:00",
+    "subject": "English",
+    "group": "Dabal",
+    "room": "Room 8",
+    "type": "Lecture",
+    "duration": "60 minutes"
+  },
+  {
+    "id": "sch194",
+    "date": "2025-09-03",
+    "time": "10:00",
+    "subject": "English",
+    "group": "SAM1",
+    "room": "Room 8",
+    "type": "Lecture",
+    "duration": "60 minutes"
+  },
+  {
+    "id": "sch195",
+    "date": "2025-09-08",
+    "time": "09:00",
+    "subject": "English",
+    "group": "Dabal",
+    "room": "Room 8",
+    "type": "Lecture",
+    "duration": "60 minutes"
+  },
+  {
+    "id": "sch196",
+    "date": "2025-09-08",
+    "time": "10:00",
+    "subject": "English",
+    "group": "SAM1",
+    "room": "Room 8",
+    "type": "Lecture",
+    "duration": "60 minutes"
+  },
+  {
+    "id": "sch197",
+    "date": "2025-09-10",
+    "time": "09:00",
+    "subject": "English",
+    "group": "Dabal",
+    "room": "Room 8",
+    "type": "Lecture",
+    "duration": "60 minutes"
+  },
+  {
+    "id": "sch198",
+    "date": "2025-09-10",
+    "time": "10:00",
+    "subject": "English",
+    "group": "SAM1",
+    "room": "Room 8",
+    "type": "Lecture",
+    "duration": "60 minutes"
+  },
+  {
+    "id": "sch199",
+    "date": "2025-09-15",
+    "time": "09:00",
+    "subject": "English",
+    "group": "Dabal",
+    "room": "Room 8",
+    "type": "Lecture",
+    "duration": "60 minutes"
+  },
+  {
+    "id": "sch200",
+    "date": "2025-09-15",
+    "time": "10:00",
+    "subject": "English",
+    "group": "SAM1",
+    "room": "Room 8",
+    "type": "Lecture",
+    "duration": "60 minutes"
+  },
+  {
+    "id": "sch201",
+    "date": "2025-09-17",
+    "time": "09:00",
+    "subject": "English",
+    "group": "Dabal",
+    "room": "Room 8",
+    "type": "Lecture",
+    "duration": "60 minutes"
+  },
+  {
+    "id": "sch202",
+    "date": "2025-09-17",
+    "time": "10:00",
+    "subject": "English",
+    "group": "SAM1",
+    "room": "Room 8",
+    "type": "Lecture",
+    "duration": "60 minutes"
   }
 ]
