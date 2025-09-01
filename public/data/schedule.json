@@ -2018,5 +2018,145 @@
     "room": "Room 8",
     "type": "Lecture",
     "duration": "60 minutes"
+  },
+  {
+    "id": "sch203",
+    "date": "2025-09-01",
+    "time": "09:00",
+    "subject": "English",
+    "group": "dabal_fahss",
+    "room": "Room 8",
+    "type": "Lecture",
+    "duration": "60 minutes"
+  },
+  {
+    "id": "sch204",
+    "date": "2025-09-01",
+    "time": "10:00",
+    "subject": "English",
+    "group": "sam1",
+    "room": "Room 8",
+    "type": "Lecture",
+    "duration": "60 minutes"
+  },
+  {
+    "id": "sch205",
+    "date": "2025-09-22",
+    "time": "09:00",
+    "subject": "English",
+    "group": "dabal_fahss",
+    "room": "Room 8",
+    "type": "Lecture",
+    "duration": "60 minutes"
+  },
+  {
+    "id": "sch206",
+    "date": "2025-09-22",
+    "time": "10:00",
+    "subject": "English",
+    "group": "sam1",
+    "room": "Room 8",
+    "type": "Lecture",
+    "duration": "60 minutes"
+  },
+  {
+    "id": "sch207",
+    "date": "2025-09-24",
+    "time": "09:00",
+    "subject": "English",
+    "group": "dabal_fahss",
+    "room": "Room 8",
+    "type": "Lecture",
+    "duration": "60 minutes"
+  },
+  {
+    "id": "sch208",
+    "date": "2025-09-24",
+    "time": "10:00",
+    "subject": "English",
+    "group": "sam1",
+    "room": "Room 8",
+    "type": "Lecture",
+    "duration": "60 minutes"
+  },
+  {
+    "id": "sch209",
+    "date": "2025-09-29",
+    "time": "09:00",
+    "subject": "English",
+    "group": "dabal_fahss",
+    "room": "Room 8",
+    "type": "Lecture",
+    "duration": "60 minutes"
+  },
+  {
+    "id": "sch210",
+    "date": "2025-09-29",
+    "time": "10:00",
+    "subject": "English",
+    "group": "sam1",
+    "room": "Room 8",
+    "type": "Lecture",
+    "duration": "60 minutes"
+  },
+  {
+    "id": "sch211",
+    "date": "2025-10-01",
+    "time": "09:00",
+    "subject": "English",
+    "group": "dabal_fahss",
+    "room": "Room 8",
+    "type": "Lecture",
+    "duration": "60 minutes"
+  },
+  {
+    "id": "sch212",
+    "date": "2025-10-01",
+    "time": "10:00",
+    "subject": "English",
+    "group": "sam1",
+    "room": "Room 8",
+    "type": "Lecture",
+    "duration": "60 minutes"
+  },
+  {
+    "id": "sch213",
+    "date": "2025-10-06",
+    "time": "09:00",
+    "subject": "English",
+    "group": "dabal_fahss",
+    "room": "Room 8",
+    "type": "Lecture",
+    "duration": "60 minutes"
+  },
+  {
+    "id": "sch214",
+    "date": "2025-10-06",
+    "time": "10:00",
+    "subject": "English",
+    "group": "sam1",
+    "room": "Room 8",
+    "type": "Lecture",
+    "duration": "60 minutes"
+  },
+  {
+    "id": "sch215",
+    "date": "2025-10-08",
+    "time": "09:00",
+    "subject": "English",
+    "group": "dabal_fahss",
+    "room": "Room 8",
+    "type": "Lecture",
+    "duration": "60 minutes"
+  },
+  {
+    "id": "sch216",
+    "date": "2025-10-08",
+    "time": "10:00",
+    "subject": "English",
+    "group": "sam1",
+    "room": "Room 8",
+    "type": "Lecture",
+    "duration": "60 minutes"
   }
 ]
