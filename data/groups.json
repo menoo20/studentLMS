@@ -1,0 +1,164 @@
+[
+  {
+    "id": "nesma",
+    "name": "NESMA",
+    "description": "Online English Class - 3 sessions per week",
+    "subject": "English",
+    "position": "Online Training",
+    "year": "2024-2025",
+    "semester": "Fall"
+  },
+  {
+    "id": "saipem6",
+    "name": "SAIPEM 6",
+    "description": "English Class - Welding Major",
+    "subject": "English",
+    "position": "Welding Training",
+    "year": "2024-2025",
+    "semester": "Fall"
+  },
+  {
+    "id": "saipem5",
+    "name": "SAIPEM 5",
+    "description": "English Class - Vocational Training",
+    "subject": "English",
+    "position": "Vocational Training",
+    "year": "2024-2025",
+    "semester": "Fall"
+  },
+  {
+    "id": "saipem4",
+    "name": "SAIPEM 4",
+    "description": "English Class - Vocational Training",
+    "subject": "English",
+    "position": "Vocational Training",
+    "year": "2024-2025",
+    "semester": "Fall"
+  },
+  {
+    "id": "saipem3",
+    "name": "SAIPEM 3",
+    "description": "English Class - Vocational Training",
+    "subject": "English",
+    "position": "Vocational Training",
+    "year": "2024-2025",
+    "semester": "Fall"
+  },
+  {
+    "id": "saipem2",
+    "name": "SAIPEM 2",
+    "description": "English Class - Vocational Training",
+    "subject": "English",
+    "position": "Vocational Training",
+    "year": "2024-2025",
+    "semester": "Fall"
+  },
+  {
+    "id": "saipem1",
+    "name": "SAIPEM 1",
+    "description": "English Class - Vocational Training",
+    "subject": "English",
+    "position": "Vocational Training",
+    "year": "2024-2025",
+    "semester": "Fall"
+  },
+  {
+    "id": "sam1",
+    "name": "SAM 1",
+    "description": "English Class - Welding",
+    "subject": "English",
+    "position": "Welding",
+    "year": "2024-2025",
+    "semester": "Fall"
+  },
+  {
+    "id": "sam2",
+    "name": "SAM 2",
+    "description": "English Class - Welding",
+    "subject": "English",
+    "position": "Welding",
+    "year": "2024-2025",
+    "semester": "Fall"
+  },
+  {
+    "id": "sam3",
+    "name": "SAM 3",
+    "description": "English Class - Rig",
+    "subject": "English",
+    "position": "Rig",
+    "year": "2024-2025",
+    "semester": "Fall"
+  },
+  {
+    "id": "sam4",
+    "name": "SAM 4",
+    "description": "English Class - Rig",
+    "subject": "English",
+    "position": "Rig",
+    "year": "2024-2025",
+    "semester": "Fall"
+  },
+  {
+    "id": "sam5",
+    "name": "SAM 5",
+    "description": "English Class - Scaffolding",
+    "subject": "English",
+    "position": "Scaffolding",
+    "year": "2024-2025",
+    "semester": "Fall"
+  },
+  {
+    "id": "sam6",
+    "name": "SAM 6",
+    "description": "English Class - Scaffolding",
+    "subject": "English",
+    "position": "Scaffolding",
+    "year": "2024-2025",
+    "semester": "Fall"
+  },
+  {
+    "id": "diang",
+    "name": "Diang",
+    "description": "English Class - Vocational Training",
+    "subject": "English",
+    "position": "Vocational Training",
+    "year": "2024-2025",
+    "semester": "Fall"
+  },
+  {
+    "id": "dabal_fahss",
+    "name": "Dabal +Fahss",
+    "description": "English Class - Scaffolding",
+    "subject": "English",
+    "position": "Scaffolding",
+    "year": "2024-2025",
+    "semester": "Fall"
+  },
+  {
+    "id": "aman_elc",
+    "name": "Aman+Elc",
+    "description": "English Class - Welding",
+    "subject": "English",
+    "position": "Welding",
+    "year": "2024-2025",
+    "semester": "Fall"
+  },
+  {
+    "id": "deye",
+    "name": "DEYE",
+    "description": "English Class - Vocational Training",
+    "subject": "English",
+    "position": "Vocational Training",
+    "year": "2024-2025",
+    "semester": "Fall"
+  },
+  {
+    "id": "sam8",
+    "name": "SAM 8",
+    "description": "English Class - Scaffolding",
+    "subject": "English",
+    "position": "Scaffolding",
+    "year": "2024-2025",
+    "semester": "Fall"
+  }
+]

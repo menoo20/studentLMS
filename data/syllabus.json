@@ -1,0 +1,526 @@
+{
+  "courseInfo": {
+    "subject": "English - Jolly Phonics for Adult ESL",
+    "courseType": "annual", 
+    "academicYear": "2024-2025",
+    "totalWeeks": 52,
+    "startDate": "2024-09-01",
+    "endDate": "2025-08-31",
+    "instructor": "English Teacher",
+    "description": "Jolly Phonics methodology adapted for adult vocational ESL learners",
+    "methodology": "Jolly Phonics systematic synthetic phonics approach",
+    "target_audience": "Adult vocational trainees (A1-B1 ESL level)"
+  },
+  "units": [
+    {
+      "id": "jp-foundation",
+      "title": "Jolly Phonics Foundation (Groups 1-3)",
+      "description": "Basic letter-sound correspondences: s a t i p n | c/k e h r m d | g o u l f b",
+      "duration": "4 weeks",
+      "startWeek": 1,
+      "endWeek": 4,
+      "status": "completed",
+      "phonics_groups": [
+        {
+          "group_id": 1,
+          "sounds": ["s", "a", "t", "i", "p", "n"],
+          "focus": "Basic consonants and vowels"
+        },
+        {
+          "group_id": 2, 
+          "sounds": ["c/k", "e", "h", "r", "m", "d"],
+          "focus": "Extended consonants"
+        },
+        {
+          "group_id": 3,
+          "sounds": ["g", "o", "u", "l", "f", "b"],
+          "focus": "Completing basic alphabet"
+        }
+      ],
+      "objectives": [
+        "Master basic letter-sound correspondences",
+        "Develop basic blending skills for CVC words", 
+        "Practice letter formation for workplace documentation",
+        "Introduction to basic tricky words: the, I, no, go, into"
+      ],
+      "weeklyPlan": [
+        {
+          "week": 1,
+          "topic": "Group 1: s a t i p n",
+          "focus": "First sounds and basic blending",
+          "workplace_vocabulary": ["sit", "pan", "tip", "tap", "pin", "pit"],
+          "tricky_words": ["the", "I"],
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Sounds s, a, t",
+              "activities": "Sound introduction, actions, letter formation",
+              "notes": ""
+            },
+            {
+              "day": "Monday", 
+              "focus": "Sounds i, p, n",
+              "activities": "Complete Group 1, basic blending",
+              "notes": ""
+            },
+            {
+              "day": "Tuesday",
+              "focus": "CVC blending practice",
+              "activities": "Blend words: sat, sit, pan, tip",
+              "notes": ""
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Workplace contexts",
+              "activities": "Use Group 1 words in workplace scenarios",
+              "notes": ""
+            },
+            {
+              "day": "Thursday",
+              "focus": "Assessment and review",
+              "activities": "Group 1 sounds check, blending assessment",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "week": 2,
+          "topic": "Group 2: c/k e h r m d",
+          "focus": "Extended consonants and vowel e",
+          "workplace_vocabulary": ["red", "hard", "met", "care", "term"],
+          "tricky_words": ["no", "go"],
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Sounds c/k, e, h",
+              "activities": "New sounds with actions and formation",
+              "notes": ""
+            },
+            {
+              "day": "Monday",
+              "focus": "Sounds r, m, d", 
+              "activities": "Complete Group 2, review Group 1",
+              "notes": ""
+            },
+            {
+              "day": "Tuesday",
+              "focus": "Blending Groups 1-2",
+              "activities": "Blend: red, met, had, him, etc.",
+              "notes": ""
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Workplace application",
+              "activities": "Safety words and basic instructions",
+              "notes": ""
+            },
+            {
+              "day": "Thursday",
+              "focus": "Consolidation",
+              "activities": "Groups 1-2 review and assessment",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "week": 3,
+          "topic": "Group 3: g o u l f b",
+          "focus": "Completing basic phonics foundation",
+          "workplace_vocabulary": ["log", "fuel", "bug", "gulf", "fold"],
+          "tricky_words": ["into"],
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Sounds g, o, u",
+              "activities": "New sounds with workplace contexts",
+              "notes": ""
+            },
+            {
+              "day": "Monday",
+              "focus": "Sounds l, f, b",
+              "activities": "Complete Group 3, cumulative review",
+              "notes": ""
+            },
+            {
+              "day": "Tuesday", 
+              "focus": "Advanced blending",
+              "activities": "Multi-syllable workplace words",
+              "notes": ""
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Reading practice",
+              "activities": "Simple workplace texts and forms",
+              "notes": ""
+            },
+            {
+              "day": "Thursday",
+              "focus": "Foundation assessment",
+              "activities": "Groups 1-3 comprehensive test",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "week": 4,
+          "topic": "Foundation consolidation",
+          "focus": "Strengthening basic skills before advanced phonics",
+          "workplace_vocabulary": ["All Groups 1-3 vocabulary combined"],
+          "tricky_words": ["Review: the, I, no, go, into"],
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Speed and fluency",
+              "activities": "Quick sound recognition drills",
+              "notes": ""
+            },
+            {
+              "day": "Monday",
+              "focus": "Reading fluency",
+              "activities": "Read simple workplace passages",
+              "notes": ""
+            },
+            {
+              "day": "Tuesday",
+              "focus": "Writing practice", 
+              "activities": "Dictation and form completion",
+              "notes": ""
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Real-world application",
+              "activities": "Use phonics in actual workplace tasks",
+              "notes": ""
+            },
+            {
+              "day": "Thursday",
+              "focus": "Preparation for advanced phonics",
+              "activities": "Introduce concept of digraphs and long vowels",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jp-month1",
+      "title": "Jolly Phonics Month 1 (Groups 4-5)",
+      "description": "Advanced phonics patterns: ai j oa ie ee or | z w ng v oo oo",
+      "duration": "4 weeks",
+      "startWeek": 5,
+      "endWeek": 8,
+      "status": "in-progress",
+      "phonics_groups": [
+        {
+          "group_id": 4,
+          "sounds": ["ai", "j", "oa", "ie", "ee", "or"],
+          "focus": "Long vowel patterns and consonant extensions"
+        },
+        {
+          "group_id": 5,
+          "sounds": ["z", "w", "ng", "v", "oo(short)", "oo(long)"],
+          "focus": "Consonant clusters and vowel distinctions"
+        }
+      ],
+      "objectives": [
+        "Consolidate letter-sound knowledge with adult-relevant contexts",
+        "Improve letter formation tied to workplace documentation", 
+        "Blend learned sounds to read job-related words and phrases",
+        "Segment workplace vocabulary for accurate spelling",
+        "Master tricky words: to, do, was, are, said, of"
+      ],
+      "weeklyPlan": [
+        {
+          "week": 5,
+          "topic": "Group 4 Introduction: ai j oa ie ee or",
+          "focus": "Long vowel digraphs and new consonants",
+          "workplace_vocabulary": ["rain", "tail", "jet", "job", "goat", "road", "tree", "sleep", "fork", "storm"],
+          "tricky_words": ["to", "do", "was"],
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "ai and j sounds",
+              "activities": "Maintenance request forms using ai/j words",
+              "notes": ""
+            },
+            {
+              "day": "Monday",
+              "focus": "oa and ie sounds", 
+              "activities": "Safety signage reading with oa/ie",
+              "notes": ""
+            },
+            {
+              "day": "Tuesday",
+              "focus": "ee and or sounds",
+              "activities": "Shift notes writing with ee/or words",
+              "notes": ""
+            },
+            {
+              "day": "Wednesday",
+              "focus": "Group 4 consolidation",
+              "activities": "Workplace scenarios using all Group 4",
+              "notes": ""
+            },
+            {
+              "day": "Thursday",
+              "focus": "Assessment",
+              "activities": "Group 4 sounds and tricky words test",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jp-month2", 
+      "title": "Jolly Phonics Advanced (Groups 6-7)",
+      "description": "Complex phonics patterns for workplace literacy",
+      "duration": "4 weeks",
+      "startWeek": 9,
+      "endWeek": 12,
+      "status": "planned",
+      "objectives": [
+        "Master complex digraphs and trigraphs",
+        "Apply phonics to technical vocabulary",
+        "Develop workplace reading fluency",
+        "Complete comprehensive phonics foundation"
+      ],
+      "weeklyPlan": []
+    },
+    {
+      "id": "reading-fluency",
+      "title": "Reading Fluency & Comprehension", 
+      "description": "Applying phonics skills to workplace texts",
+      "duration": "8 weeks",
+      "startWeek": 13,
+      "endWeek": 20,
+      "status": "planned",
+      "objectives": [
+        "Read workplace documents fluently",
+        "Comprehend safety procedures and instructions",
+        "Complete forms and reports accurately",
+        "Develop independent reading strategies"
+      ],
+      "weeklyPlan": []
+    }
+  ],
+  "shortCourses": [
+    {
+      "id": "safety-english",
+      "title": "Emergency Safety English",
+      "description": "Critical safety vocabulary and phrases",
+      "duration": "1 week intensive",
+      "schedule": "Week 21",
+      "priority": "high"
+    },
+    {
+      "id": "nesma-basic-english",
+      "title": "Basic English Communication - NESMA Group",
+      "description": "Comprehensive English foundation covering phonics, grammar, and workplace communication for adult learners",
+      "duration": "4 weeks",
+      "schedule": "Aug 24 - Sep 20, 2025",
+      "priority": "high",
+      "group": "NESMA",
+      "instructor": "English Teacher",
+      "students": ["أسمه معازي المالكي", "مشاعل المطيري", "خالد الغامدي"],
+      "objectives": [
+        "Master basic phonics groups 1-3",
+        "Understand sentence structure and parts of speech",
+        "Form questions correctly",
+        "Apply active and passive voice",
+        "Develop listening and reading comprehension",
+        "Build workplace English vocabulary"
+      ],
+      "weeklyPlan": [
+        {
+          "week": 1,
+          "dates": "Aug 24-30, 2025",
+          "topic": "Phonics Foundation",
+          "status": "completed",
+          "focus": "Basic letter-sound correspondences and phonics groups",
+          "objectives": [
+            "Master phonics groups 1, 2, and 3",
+            "Practice basic letter sounds and blending",
+            "Introduction to simple word formation"
+          ],
+          "content": {
+            "phonics_groups": [
+              {
+                "group": 1,
+                "sounds": ["s", "a", "t", "i", "p", "n"],
+                "focus": "Basic consonants and vowels"
+              },
+              {
+                "group": 2,
+                "sounds": ["c/k", "e", "h", "r", "m", "d"],
+                "focus": "Extended consonants"
+              },
+              {
+                "group": 3,
+                "sounds": ["g", "o", "u", "l", "f", "b"],
+                "focus": "Completing basic alphabet"
+              }
+            ]
+          },
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Phonics Group 1: s, a, t, i, p, n",
+              "activities": "Sound recognition, letter formation, basic blending",
+              "assessment": "Placement test administered (31/70, 35/70, 22/70)"
+            },
+            {
+              "day": "Tuesday", 
+              "focus": "Phonics Group 2: c/k, e, h, r, m, d",
+              "activities": "Sound practice, CVC word building, pronunciation drills"
+            },
+            {
+              "day": "Thursday",
+              "focus": "Phonics Group 3: g, o, u, l, f, b",
+              "activities": "Complete alphabet review, simple word reading, phonics games"
+            }
+          ]
+        },
+        {
+          "week": 2,
+          "dates": "Aug 31-Sep 6, 2025",
+          "topic": "Grammar Foundations",
+          "status": "current",
+          "focus": "Sentence structure, tenses, and parts of speech",
+          "objectives": [
+            "Understand basic sentence structure (Subject + Verb + Object)",
+            "Identify and use parts of speech correctly",
+            "Master present, past, and future tense structures",
+            "Form simple and compound sentences"
+          ],
+          "content": {
+            "grammar_topics": [
+              "Sentence structure (SVO pattern)",
+              "Parts of speech (nouns, verbs, adjectives, adverbs)",
+              "Present tense (simple and continuous)",
+              "Past tense (simple and continuous)", 
+              "Future tense (will/going to)"
+            ]
+          },
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Sentence Structure Basics",
+              "activities": "SVO pattern practice, sentence building exercises, identifying subjects and predicates"
+            },
+            {
+              "day": "Tuesday",
+              "focus": "Parts of Speech",
+              "activities": "Noun/verb identification, adjective usage, adverb placement in sentences"
+            },
+            {
+              "day": "Thursday", 
+              "focus": "Tense Structures",
+              "activities": "Present/past/future tense formation, time expressions, tense conversion exercises"
+            }
+          ]
+        },
+        {
+          "week": 3,
+          "dates": "Sep 7-13, 2025",
+          "topic": "Questions and Voice",
+          "status": "upcoming",
+          "focus": "Question formation, active/passive voice, and comprehension skills",
+          "objectives": [
+            "Form WH-questions and Yes/No questions correctly",
+            "Understand and use active and passive voice",
+            "Develop listening comprehension skills",
+            "Improve reading comprehension and vocabulary"
+          ],
+          "content": {
+            "language_skills": [
+              "Question formation (WH-questions, Yes/No questions)",
+              "Question words (who, what, where, when, why, how)",
+              "Active voice construction",
+              "Passive voice transformation",
+              "Listening strategies",
+              "Reading comprehension techniques"
+            ]
+          },
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Question Formation",
+              "activities": "WH-question practice, Yes/No question drills, question-answer pair work"
+            },
+            {
+              "day": "Tuesday",
+              "focus": "Active and Passive Voice",
+              "activities": "Voice identification, transformation exercises, workplace examples"
+            },
+            {
+              "day": "Thursday",
+              "focus": "Listening and Reading",
+              "activities": "Audio comprehension exercises, reading passages, vocabulary building"
+            }
+          ]
+        },
+        {
+          "week": 4,
+          "dates": "Sep 14-20, 2025",
+          "topic": "Integration and Application",
+          "status": "upcoming",
+          "focus": "Consolidation of skills and practical application",
+          "objectives": [
+            "Integrate all learned grammar concepts",
+            "Apply English skills in workplace scenarios",
+            "Demonstrate improved communication confidence",
+            "Complete final assessment and course evaluation"
+          ],
+          "content": {
+            "integration_activities": [
+              "Comprehensive grammar review",
+              "Workplace communication scenarios",
+              "Presentation skills",
+              "Written communication practice",
+              "Speaking confidence building",
+              "Course assessment and feedback"
+            ]
+          },
+          "dailyPlans": [
+            {
+              "day": "Sunday",
+              "focus": "Grammar Integration",
+              "activities": "Mixed grammar exercises, error correction, comprehensive review games"
+            },
+            {
+              "day": "Tuesday",
+              "focus": "Workplace Communication",
+              "activities": "Job-related vocabulary, workplace scenarios, professional conversations"
+            },
+            {
+              "day": "Thursday",
+              "focus": "Assessment and Graduation",
+              "activities": "Final assessment, course evaluation, progress celebration, next steps discussion"
+            }
+          ]
+        }
+      ],
+      "assessments": [
+        {
+          "type": "placement",
+          "name": "Placement Test",
+          "date": "Aug 24, 2025",
+          "status": "completed"
+        },
+        {
+          "type": "progress",
+          "name": "Mid-Course Assessment",
+          "date": "Sep 7, 2025",
+          "status": "scheduled"
+        },
+        {
+          "type": "final",
+          "name": "Final Assessment",
+          "date": "Sep 20, 2025", 
+          "status": "scheduled"
+        }
+      ]
+    }
+  ]
+}

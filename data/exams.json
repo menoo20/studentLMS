@@ -1,0 +1,34 @@
+[
+  {
+    "id": "placement_test",
+    "name": "Placement Test",
+    "subject": "English",
+    "date": "2025-08-24",
+    "maxScore": 70,
+    "type": "placement"
+  },
+  {
+    "id": "exam1",
+    "name": "Midterm Exam",
+    "subject": "Mathematics",
+    "date": "2024-03-15",
+    "maxScore": 100,
+    "type": "midterm"
+  },
+  {
+    "id": "exam2",
+    "name": "Quiz 1",
+    "subject": "Mathematics", 
+    "date": "2024-02-15",
+    "maxScore": 50,
+    "type": "quiz"
+  },
+  {
+    "id": "exam3",
+    "name": "Final Exam",
+    "subject": "Mathematics",
+    "date": "2024-05-15", 
+    "maxScore": 100,
+    "type": "final"
+  }
+]

@@ -1,0 +1,272 @@
+[
+  {
+    "id": "nesma-study-portal",
+    "title": "NESMA English Study Portal",
+    "description": "Comprehensive study portal for NESMA students featuring placement test analysis, performance tracking, and personalized study plans",
+    "category": "Student Portal",
+    "type": "portal",
+    "url": "https://menoo20.github.io/Nesma-English-study-plan/index.html",
+    "tags": ["nesma", "english", "placement test", "analysis", "study plan"],
+    "dateAdded": "2025-08-29",
+    "size": "Interactive Portal",
+    "specialFeatures": {
+      "placementTestResults": {
+        "أسمة معازي المالكي": {
+          "score": "31/70",
+          "percentage": "44.3%",
+          "strengths": ["Basic vocabulary", "Simple sentences"],
+          "improvements": ["Grammar structure", "Tenses", "Question formation"]
+        },
+        "مشاعل المطيري": {
+          "score": "35/70", 
+          "percentage": "50.0%",
+          "strengths": ["Reading comprehension", "Phonics sounds"],
+          "improvements": ["Writing skills", "Complex sentences", "Passive voice"]
+        },
+        "خالد الغامدي": {
+          "score": "22/70",
+          "percentage": "31.4%", 
+          "strengths": ["Listening skills", "Basic words"],
+          "improvements": ["Grammar fundamentals", "Sentence structure", "Verb usage"]
+        }
+      },
+      "studyResources": [
+        "Personalized grammar lessons",
+        "Interactive phonics exercises", 
+        "Practice worksheets with corrections",
+        "Audio pronunciation guides",
+        "Progress tracking dashboard"
+      ],
+      "courseAccess": "NESMA Group Only",
+      "lastUpdated": "2025-08-29"
+    },
+    "accessLevel": "restricted",
+    "eligibleStudents": ["أسمة معازي المالكي", "مشاعل المطيري", "خالد الغامدي"],
+    "instructor": "English Teacher"
+  },
+  {
+    "id": "jolly-phonics-youtube",
+    "title": "English Phonics Course - Arabic Instruction",
+    "description": "Complete phonics course in Arabic teaching correct English letter pronunciation. Created by zAmericanEnglish, this 14-video series covers comprehensive phonetics and sound training for English language learners. Perfect for Arabic-speaking students learning English pronunciation from beginner level.",
+    "category": "Video Lectures",
+    "type": "video",
+    "url": "https://www.youtube.com/playlist?list=PLp22-4PivYmIiXGqtQMrfE_tzmqE6r7Tc",
+    "tags": ["phonics", "english pronunciation", "arabic instruction", "zAmericanEnglish", "letter sounds", "pronunciation training", "english learning", "curriculum support"],
+    "dateAdded": "2025-08-30",
+    "size": "14 videos (Last updated Jun 20, 2019)",
+    "specialFeatures": {
+      "playlistType": "Educational Video Series",
+      "targetAge": "Adult learners and students",
+      "methodology": "Arabic-instructed English Phonics",
+      "instructor": "zAmericanEnglish",
+      "videoCount": "14 videos",
+      "lastUpdated": "June 20, 2019",
+      "curriculumAlignment": "jolly-phonics-foundation",
+      "keyTopics": [
+        "English letter pronunciation",
+        "Arabic phonetic instruction", 
+        "Sound recognition and training",
+        "Pronunciation correction techniques",
+        "English phonetics fundamentals"
+      ],
+      "learningOutcomes": [
+        "Master correct English letter pronunciation",
+        "Understand phonetic differences between Arabic and English",
+        "Develop clear English speaking skills",
+        "Build foundation for English communication",
+        "Improve accent and pronunciation accuracy"
+      ],
+      "instructionalFeatures": [
+        "Arabic language instruction",
+        "Step-by-step pronunciation guide",
+        "Comparative phonetics (Arabic vs English)",
+        "Visual pronunciation demonstrations",
+        "Systematic phonetic training"
+      ],
+      "supportsMaterial": [
+        "English alphabet pronunciation",
+        "Phonetic sound training",
+        "Pronunciation exercises",
+        "Audio-visual learning support"
+      ]
+    },
+    "accessLevel": "public",
+    "instructor": "zAmericanEnglish Channel",
+    "relatedSyllabus": "syllabus_jolly_phonics.json",
+    "curriculumUnit": "jolly-phonics-foundation",
+    "localThumbnail": "/images/hqdefault.avif",
+    "estimatedDuration": "14 videos (varies per video)",
+    "difficulty": "Beginner to Intermediate",
+    "language": "Arabic instruction for English phonics",
+    "subtitles": "Arabic",
+    "usageInstructions": "Excellent resource for Arabic-speaking students learning English pronunciation. Use alongside phonics curriculum to reinforce correct English letter sounds with native Arabic explanations."
+  },
+  {
+    "id": "pronunciation-practice-website",
+    "title": "Interactive Pronunciation Practice Portal",
+    "description": "Self-practice website for Jolly Phonics students featuring UK and US pronunciation comparison. Students can hear words pronounced in both accents and practice through interactive quizzes that challenge them to listen and write the correct spelling. Perfect for developing phonetic awareness and pronunciation skills.",
+    "category": "Interactive Learning",
+    "type": "website",
+    "url": "https://menoo20.github.io/Pronunciation_dictionary/",
+    "tags": ["pronunciation", "interactive", "self-practice", "UK accent", "US accent", "phonics", "spelling quiz", "listening skills"],
+    "dateAdded": "2025-08-30",
+    "size": "Web Application",
+    "specialFeatures": {
+      "websiteType": "Interactive Learning Platform",
+      "targetSkills": "Pronunciation and Spelling",
+      "methodology": "Self-directed Practice",
+      "accentVariations": ["UK English", "US English"],
+      "curriculumAlignment": "jolly-phonics-foundation",
+      "keyFeatures": [
+        "UK vs US pronunciation comparison",
+        "Interactive listening quizzes",
+        "Word pronunciation practice",
+        "Spell-what-you-hear exercises",
+        "Self-paced learning"
+      ],
+      "learningOutcomes": [
+        "Distinguish between UK and US pronunciations",
+        "Improve phonetic spelling accuracy",
+        "Develop listening comprehension skills",
+        "Build pronunciation confidence",
+        "Practice independent learning"
+      ],
+      "practiceActivities": [
+        "Listen and spell challenges",
+        "Pronunciation comparison exercises",
+        "Interactive phonics quizzes",
+        "Accent recognition practice",
+        "Self-assessment tools"
+      ],
+      "developmentStatus": "Active development - more features coming"
+    },
+    "accessLevel": "public",
+    "instructor": "Pronunciation Specialist",
+    "relatedSyllabus": "syllabus_jolly_phonics.json",
+    "curriculumUnit": "jolly-phonics-foundation",
+    "estimatedDuration": "Self-paced practice sessions",
+    "difficulty": "Beginner to Intermediate",
+    "language": "English (UK and US variants)",
+    "interactive": true,
+    "usageInstructions": "Perfect for independent practice sessions. Students can use this website to practice pronunciation and spelling skills learned in Jolly Phonics lessons. Recommended for homework assignments and self-study."
+  },
+  {
+    "id": "new-headway-complete-package",
+    "title": "New Headway Complete Learning Package",
+    "description": "Comprehensive English learning materials including New Headway Student Book, Workbook, Audio Files, and iTutor interactive program. This complete package provides structured learning from beginner to intermediate levels with integrated skills development.",
+    "category": "Books",
+    "type": "learning_package", 
+    "url": "https://drive.google.com/drive/folders/1PAh9Wwnxm_Gnb5fUL9CQqrhpSQCvJk6n?usp=sharing",
+    "tags": ["new headway", "student book", "workbook", "audio files", "itutor", "complete package", "beginner to intermediate", "integrated skills"],
+    "dateAdded": "2025-08-31",
+    "size": "Complete Package (Multiple Files)",
+    "localThumbnail": "/images/curriculum.jpg",
+    "specialFeatures": {
+      "packageContents": [
+        "New Headway Student Book - Complete course structure and lessons",
+        "New Headway Workbook - Additional practice exercises and reinforcement",
+        "Audio Files - Pronunciation guides, listening exercises, and speaking practice",
+        "iTutor Program - Interactive digital learning platform with multimedia content"
+      ],
+      "learningApproach": "Integrated Skills Development",
+      "methodology": "Communicative Language Teaching with structured progression",
+      "targetLevels": ["Beginner (A1)", "Elementary (A2)", "Pre-Intermediate (B1)"],
+      "skillsIntegration": [
+        "Reading comprehension with graded texts",
+        "Listening skills with authentic audio",
+        "Speaking practice with guided conversations", 
+        "Writing development through structured exercises",
+        "Grammar instruction in context",
+        "Vocabulary building with thematic units"
+      ],
+      "digitalFeatures": [
+        "iTutor interactive lessons",
+        "Multimedia content integration",
+        "Self-paced learning modules",
+        "Progress tracking capabilities",
+        "Audio-visual learning support"
+      ],
+      "curriculumAlignment": "Foundation English Long Course",
+      "usageGuidelines": [
+        "Follow unit progression for structured learning",
+        "Use audio files for pronunciation practice",
+        "Complete workbook exercises for reinforcement",
+        "Utilize iTutor for interactive practice",
+        "Integrate all components for maximum benefit"
+      ]
+    },
+    "accessLevel": "course_materials",
+    "instructor": "English Teacher", 
+    "relatedSyllabus": "syllabus_jolly_phonics.json",
+    "curriculumSupport": "Foundational English Long Course (52 weeks)",
+    "estimatedDuration": "Full academic year progression",
+    "difficulty": "Beginner to Pre-Intermediate",
+    "language": "English (International)",
+    "interactive": true,
+    "downloadRequired": true,
+    "usageInstructions": "This comprehensive package supports the entire Foundational English curriculum. Students should download all materials at the beginning of the course and use them systematically according to the syllabus progression. The iTutor program provides interactive reinforcement of concepts learned in class."
+  },
+  {
+    "id": "english-for-everyone-business-level-1",
+    "title": "English for Everyone Business English Level 1",
+    "description": "Comprehensive business English course materials designed for beginners entering the professional world. This DK Publishing resource provides structured learning for workplace communication, business vocabulary, professional correspondence, and essential business skills. Perfect for NESMA group students preparing for business English proficiency.",
+    "category": "Business English",
+    "type": "course_materials",
+    "url": "https://drive.google.com/drive/folders/1_sHsSfl5BTd4orlXcgpwIfTHAVuQ_yIA?usp=sharing",
+    "tags": ["business english", "workplace communication", "professional skills", "vocabulary", "correspondence", "dk publishing", "level 1", "beginner business"],
+    "dateAdded": "2025-08-31",
+    "size": "Complete Course Package",
+    "specialFeatures": {
+      "courseType": "Business English Fundamentals",
+      "targetAudience": "NESMA Group Students",
+      "publisher": "DK Publishing",
+      "seriesName": "English for Everyone",
+      "level": "Level 1 (Beginner Business)",
+      "keyTopics": [
+        "Workplace vocabulary and phrases",
+        "Professional email writing",
+        "Business meeting communication",
+        "Phone conversations and etiquette",
+        "Presentation skills basics",
+        "Industry-specific terminology",
+        "Networking and small talk",
+        "Business document comprehension"
+      ],
+      "skillsToMaster": [
+        "Professional communication",
+        "Business writing fundamentals", 
+        "Workplace listening skills",
+        "Meeting participation",
+        "Email correspondence",
+        "Phone communication",
+        "Basic presentation delivery",
+        "Professional vocabulary usage"
+      ],
+      "packageContents": [
+        "Student coursebook with lessons",
+        "Audio materials for listening practice",
+        "Vocabulary building exercises", 
+        "Business scenarios and role-plays",
+        "Writing templates and examples",
+        "Assessment and progress tracking"
+      ],
+      "googleDriveFolder": {
+        "accessibility": "Direct download from Google Drive",
+        "organization": "Structured by units and skills",
+        "fileTypes": "PDF, Audio, Interactive materials"
+      }
+    },
+    "accessLevel": "group_specific",
+    "eligibleStudents": ["NESMA Group"],
+    "instructor": "English Teacher",
+    "relatedSyllabus": "syllabus_new.json",
+    "curriculumAlignment": "NESMA Business English Program",
+    "localThumbnail": "/images/english_for_everyone.jpg",
+    "estimatedDuration": "4-week intensive course",
+    "difficulty": "Beginner Business Level",
+    "language": "English (Business Focus)",
+    "interactive": true,
+    "downloadRequired": true,
+    "usageInstructions": "This material is specifically designed for NESMA group students focusing on business English skills. Download all materials from the Google Drive folder and follow the structured progression. Use in conjunction with the 4-week NESMA syllabus for maximum effectiveness. Ideal for students transitioning from general English to workplace communication."
+  }
+]
