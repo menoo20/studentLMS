@@ -1944,7 +1944,7 @@
     "date": "2025-09-08",
     "time": "09:00",
     "subject": "English",
-    "group": "Dabal",
+    "group": "dabal_fahss",
     "room": "Room 8",
     "type": "Lecture",
     "duration": "60 minutes"
@@ -1954,7 +1954,7 @@
     "date": "2025-09-08",
     "time": "10:00",
     "subject": "English",
-    "group": "SAM1",
+    "group": "sam1",
     "room": "Room 8",
     "type": "Lecture",
     "duration": "60 minutes"
@@ -1964,7 +1964,7 @@
     "date": "2025-09-10",
     "time": "09:00",
     "subject": "English",
-    "group": "Dabal",
+    "group": "dabal_fahss",
     "room": "Room 8",
     "type": "Lecture",
     "duration": "60 minutes"
@@ -1974,7 +1974,7 @@
     "date": "2025-09-10",
     "time": "10:00",
     "subject": "English",
-    "group": "SAM1",
+    "group": "sam1",
     "room": "Room 8",
     "type": "Lecture",
     "duration": "60 minutes"
@@ -1984,7 +1984,7 @@
     "date": "2025-09-15",
     "time": "09:00",
     "subject": "English",
-    "group": "Dabal",
+    "group": "dabal_fahss",
     "room": "Room 8",
     "type": "Lecture",
     "duration": "60 minutes"
@@ -1994,7 +1994,7 @@
     "date": "2025-09-15",
     "time": "10:00",
     "subject": "English",
-    "group": "SAM1",
+    "group": "sam1",
     "room": "Room 8",
     "type": "Lecture",
     "duration": "60 minutes"
@@ -2004,7 +2004,7 @@
     "date": "2025-09-17",
     "time": "09:00",
     "subject": "English",
-    "group": "Dabal",
+    "group": "dabal_fahss",
     "room": "Room 8",
     "type": "Lecture",
     "duration": "60 minutes"
@@ -2014,7 +2014,7 @@
     "date": "2025-09-17",
     "time": "10:00",
     "subject": "English",
-    "group": "SAM1",
+    "group": "sam1",
     "room": "Room 8",
     "type": "Lecture",
     "duration": "60 minutes"
