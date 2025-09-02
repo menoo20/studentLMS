@@ -121,18 +121,18 @@ const Layout = ({ children }) => {
                   <Link
                     key={item.name}
                     to={item.href}
-                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                    className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 transform ${
                       location.pathname === item.href || 
                       (item.name === 'Syllabus' && location.pathname.startsWith('/syllabus'))
                         ? getThemeStyles(
-                            'bg-primary-100 text-primary-700',
-                            'bg-blackGold-gold text-blackGold-bg',
-                            'bg-vibrantGradient-pink text-white shadow-lg'
+                            'bg-blue-100 text-blue-700 shadow-md scale-105 border-b-2 border-blue-500',
+                            'bg-blackGold-gold text-blackGold-bg shadow-lg scale-105 border-b-2 border-blackGold-accent',
+                            'bg-vibrantGradient-pink text-white shadow-lg scale-105 border-b-2 border-vibrantGradient-coral'
                           )
                         : getThemeStyles(
-                            'text-gray-600 hover:text-gray-900 hover:bg-gray-100',
-                            'text-blackGold-gold hover:text-blackGold-accent hover:bg-blackGold-bg',
-                            'text-vibrantGradient-coral hover:text-white hover:bg-vibrantGradient-pink/20'
+                            'text-gray-600 hover:text-blue-700 hover:bg-blue-50 hover:scale-105 hover:shadow-md border-b-2 border-transparent hover:border-blue-300',
+                            'text-blackGold-gold hover:text-blackGold-accent hover:bg-blackGold-bg hover:scale-105 hover:shadow-md border-b-2 border-transparent hover:border-blackGold-gold',
+                            'text-vibrantGradient-coral hover:text-white hover:bg-vibrantGradient-pink/20 hover:scale-105 hover:shadow-md border-b-2 border-transparent hover:border-vibrantGradient-coral'
                           )
                     }`}
                   >
@@ -144,9 +144,9 @@ const Layout = ({ children }) => {
               <button
                 onClick={toggleTheme}
                 className={getThemeStyles(
-                  'px-3 py-2 rounded-md text-sm font-medium bg-gray-100 text-gray-900 border border-gray-300 hover:bg-primary-100 transition-colors',
-                  'px-3 py-2 rounded-md text-sm font-medium bg-blackGold-gold text-blackGold-bg border border-blackGold-gold hover:bg-blackGold-accent transition-colors',
-                  'px-3 py-2 rounded-md text-sm font-medium bg-gradient-to-r from-vibrantGradient-pink to-vibrantGradient-coral text-white border border-vibrantGradient-coral hover:from-vibrantGradient-coral hover:to-vibrantGradient-pink transition-all duration-300 shadow-lg'
+                  'px-3 py-2 rounded-md text-sm font-medium bg-gray-100 text-gray-900 border border-gray-300 hover:bg-blue-100 hover:border-blue-400 hover:scale-105 hover:shadow-md transition-all duration-200 transform',
+                  'px-3 py-2 rounded-md text-sm font-medium bg-blackGold-gold text-blackGold-bg border border-blackGold-gold hover:bg-blackGold-accent hover:scale-105 hover:shadow-lg transition-all duration-200 transform',
+                  'px-3 py-2 rounded-md text-sm font-medium bg-gradient-to-r from-vibrantGradient-pink to-vibrantGradient-coral text-white border border-vibrantGradient-coral hover:from-vibrantGradient-coral hover:to-vibrantGradient-pink hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl transform'
                 )}
                 aria-label="Toggle theme"
               >
@@ -208,17 +208,17 @@ const Layout = ({ children }) => {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`flex items-center px-3 py-2 rounded-md text-sm font-medium whitespace-nowrap transition-colors ${
+                className={`flex items-center px-3 py-2 rounded-md text-sm font-medium whitespace-nowrap transition-all duration-200 transform ${
                   location.pathname === item.href
                     ? getThemeStyles(
-                        'bg-primary-100 text-primary-700',
-                        'bg-blackGold-gold text-blackGold-bg',
-                        'bg-vibrantGradient-pink text-white'
+                        'bg-blue-100 text-blue-700 shadow-md scale-105 border-l-4 border-blue-500',
+                        'bg-blackGold-gold text-blackGold-bg shadow-lg scale-105 border-l-4 border-blackGold-accent',
+                        'bg-vibrantGradient-pink text-white shadow-lg scale-105 border-l-4 border-vibrantGradient-coral'
                       )
                     : getThemeStyles(
-                        'text-gray-600 hover:text-gray-900 hover:bg-gray-100',
-                        'text-blackGold-gold hover:text-blackGold-accent hover:bg-blackGold-bg',
-                        'text-vibrantGradient-coral hover:text-white hover:bg-vibrantGradient-pink/20'
+                        'text-gray-600 hover:text-blue-700 hover:bg-blue-50 hover:scale-105 hover:shadow-md border-l-4 border-transparent hover:border-blue-300',
+                        'text-blackGold-gold hover:text-blackGold-accent hover:bg-blackGold-bg hover:scale-105 hover:shadow-md border-l-4 border-transparent hover:border-blackGold-gold',
+                        'text-vibrantGradient-coral hover:text-white hover:bg-vibrantGradient-pink/20 hover:scale-105 hover:shadow-md border-l-4 border-transparent hover:border-vibrantGradient-coral'
                       )
                 }`}
               >
