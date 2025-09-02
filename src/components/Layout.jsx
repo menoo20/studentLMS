@@ -57,7 +57,7 @@ const Layout = ({ children }) => {
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
               <img 
-                src="/images/logo.png" 
+                src={`${import.meta.env.PROD ? '/studentLMS' : ''}/images/logo.png`}
                 alt="Logo" 
                 className="w-8 mr-3"
               />
