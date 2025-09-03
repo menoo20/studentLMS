@@ -9,11 +9,8 @@ const Schedule = () => {
   const [schedule, setSchedule] = useState([])
   const [loading, setLoading] = useState(true)
   const getCurrentDate = () => {
-    // In a real environment, you might want to use new Date()
-    // For now, we'll use the context date of September 1, 2025
-    // You can change this to new Date() when you want to use the actual current date
-    const contextDate = new Date('2025-09-01T10:00:00') // 10 AM on September 1, 2025
-    return contextDate
+    // Use the actual current date - this will always be today
+    return new Date() // This will be the real current date and time
   }
 
   const [currentWeek, setCurrentWeek] = useState(() => {
@@ -25,7 +22,13 @@ const Schedule = () => {
     return startOfCurrentWeek
   })
   const [viewMode, setViewMode] = useState('week') // 'week', 'daily'
-  const [selectedDay, setSelectedDay] = useState(0)
+  
+  // Initialize selectedDay to today's day of week
+  const [selectedDay, setSelectedDay] = useState(() => {
+    const today = getCurrentDate()
+    return today.getDay() // 0=Sunday, 1=Monday, 2=Tuesday, etc.
+  })
+  
   const [highlightGroup, setHighlightGroup] = useState(null)
 
   // Auto-switch to daily view on small screens
@@ -33,8 +36,9 @@ const Schedule = () => {
     const handleResize = () => {
       if (window.innerWidth < 768) { // md breakpoint
         setViewMode('daily')
-        // Set to Sunday (day 0) when switching to daily view
-        setSelectedDay(0)
+        // Set to today's day when switching to daily view
+        const today = getCurrentDate()
+        setSelectedDay(today.getDay())
       }
     }
     
@@ -69,9 +73,10 @@ const Schedule = () => {
     }
   }, [searchParams])
 
-  // Reset to Sunday when week changes
+  // Reset to current day when week changes
   useEffect(() => {
-    setSelectedDay(0)
+    const today = getCurrentDate()
+    setSelectedDay(today.getDay())
   }, [currentWeek])
 
   const getWeekDates = (date) => {
@@ -304,7 +309,12 @@ const Schedule = () => {
                   📅 Week View
                 </button>
                 <button
-                  onClick={() => setViewMode('daily')}
+                  onClick={() => {
+                    setViewMode('daily')
+                    // Set to today's day when switching to daily view
+                    const today = getCurrentDate()
+                    setSelectedDay(today.getDay())
+                  }}
                   className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
                     viewMode === 'daily'
                       ? 'bg-blue-500 text-white'
@@ -461,12 +471,12 @@ const Schedule = () => {
           {viewMode === 'daily' && (
             <div>
               {/* Day Selector */}
-              <div className="flex gap-2 mb-6 pb-2">
+              <div className="flex gap-1 sm:gap-2 mb-6 pb-2 overflow-x-auto scrollbar-hide">
                 {weekDates.map((date, index) => (
                   <button
                     key={index}
                     onClick={() => setSelectedDay(index)}
-                    className={`flex-shrink-0 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
+                    className={`flex-shrink-0 px-2 sm:px-4 py-3 rounded-lg text-xs sm:text-sm font-medium transition-colors min-w-[60px] sm:min-w-[80px] ${
                       selectedDay === index
                         ? 'bg-blue-500 text-white shadow-lg'
                         : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
