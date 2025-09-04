@@ -220,6 +220,26 @@
     "dateEnrolled": "2024-09-01"
   },
   {
+    "id": "s019_new",
+    "name": "عبد الرحمن مساعد قصيري",
+    "studentId": "20",
+    "groupId": "saipem6",
+    "email": "",
+    "subject": "English",
+    "position": "Vocational Training",
+    "dateEnrolled": "2025-09-04"
+  },
+  {
+    "id": "s019_new2",
+    "name": "جواد سعيد مهدي ال ناصر",
+    "studentId": "21",
+    "groupId": "saipem6",
+    "email": "",
+    "subject": "English",
+    "position": "Vocational Training",
+    "dateEnrolled": "2025-09-04"
+  },
+  {
     "id": "s020",
     "name": "راشد محمد يحي كليبي",
     "studentId": "1",
@@ -3350,5 +3370,305 @@
     "name": "عبدالغفور المدن",
     "groupId": "deye",
     "position": "English Trainee"
+  },
+  {
+    "id": "alfa2_001",
+    "name": "حسن علي حبيب آل محمد علي",
+    "studentId": "A2001",
+    "groupId": "alfa2",
+    "email": "",
+    "subject": "English",
+    "position": "Long Course Training",
+    "dateEnrolled": "2025-09-04"
+  },
+  {
+    "id": "alfa2_002",
+    "name": "علي حسين علي ال نويس",
+    "studentId": "A2002",
+    "groupId": "alfa2",
+    "email": "",
+    "subject": "English",
+    "position": "Long Course Training",
+    "dateEnrolled": "2025-09-04"
+  },
+  {
+    "id": "alfa2_003",
+    "name": "جواد ابراهيم مسلم ال مكي",
+    "studentId": "A2003",
+    "groupId": "alfa2",
+    "email": "",
+    "subject": "English",
+    "position": "Long Course Training",
+    "dateEnrolled": "2025-09-04"
+  },
+  {
+    "id": "alfa2_004",
+    "name": "ابراهيم صالح ابراهيم الدوسري",
+    "studentId": "A2004",
+    "groupId": "alfa2",
+    "email": "",
+    "subject": "English",
+    "position": "Long Course Training",
+    "dateEnrolled": "2025-09-04"
+  },
+  {
+    "id": "alfa2_005",
+    "name": "منير شاكر عبدالله الباكوني",
+    "studentId": "A2005",
+    "groupId": "alfa2",
+    "email": "",
+    "subject": "English",
+    "position": "Long Course Training",
+    "dateEnrolled": "2025-09-04"
+  },
+  {
+    "id": "alfa2_006",
+    "name": "محمد منير عبدالله ال غزوي",
+    "studentId": "A2006",
+    "groupId": "alfa2",
+    "email": "",
+    "subject": "English",
+    "position": "Long Course Training",
+    "dateEnrolled": "2025-09-04"
+  },
+  {
+    "id": "alfa2_007",
+    "name": "محمد جابر علي المنجحي",
+    "studentId": "A2007",
+    "groupId": "alfa2",
+    "email": "",
+    "subject": "English",
+    "position": "Long Course Training",
+    "dateEnrolled": "2025-09-04"
+  },
+  {
+    "id": "alfa2_008",
+    "name": "تركي حسن عثمان المنجحي",
+    "studentId": "A2008",
+    "groupId": "alfa2",
+    "email": "",
+    "subject": "English",
+    "position": "Long Course Training",
+    "dateEnrolled": "2025-09-04"
+  },
+  {
+    "id": "alfa2_009",
+    "name": "ريان ابراهيم مطلق الهدباني",
+    "studentId": "A2009",
+    "groupId": "alfa2",
+    "email": "",
+    "subject": "English",
+    "position": "Long Course Training",
+    "dateEnrolled": "2025-09-04"
+  },
+  {
+    "id": "alfa2_010",
+    "name": "عبدالرحمن صحن صالح العنزي",
+    "studentId": "A2010",
+    "groupId": "alfa2",
+    "email": "",
+    "subject": "English",
+    "position": "Long Course Training",
+    "dateEnrolled": "2025-09-04"
+  },
+  {
+    "id": "alfa2_011",
+    "name": "عبدالله محمد عبدالله غزوي",
+    "studentId": "A2011",
+    "groupId": "alfa2",
+    "email": "",
+    "subject": "English",
+    "position": "Long Course Training",
+    "dateEnrolled": "2025-09-04"
+  },
+  {
+    "id": "alfa2_012",
+    "name": "حسين جاسم علي هنبوبه",
+    "studentId": "A2012",
+    "groupId": "alfa2",
+    "email": "",
+    "subject": "English",
+    "position": "Long Course Training",
+    "dateEnrolled": "2025-09-04"
+  },
+  {
+    "id": "alfa2_013",
+    "name": "كرار حسين عاشور آل كاظم",
+    "studentId": "A2013",
+    "groupId": "alfa2",
+    "email": "",
+    "subject": "English",
+    "position": "Long Course Training",
+    "dateEnrolled": "2025-09-04"
+  },
+  {
+    "id": "alfa2_014",
+    "name": "حيدر حسين محمد المحمدعلي",
+    "studentId": "A2014",
+    "groupId": "alfa2",
+    "email": "",
+    "subject": "English",
+    "position": "Long Course Training",
+    "dateEnrolled": "2025-09-04"
+  },
+  {
+    "id": "alfa2_015",
+    "name": "حسن عبد المجيد عبدالله المحمدعلي",
+    "studentId": "A2015",
+    "groupId": "alfa2",
+    "email": "",
+    "subject": "English",
+    "position": "Long Course Training",
+    "dateEnrolled": "2025-09-04"
+  },
+  {
+    "id": "alfa2_016",
+    "name": "مختار صادق حبيب آل محمد علي",
+    "studentId": "A2016",
+    "groupId": "alfa2",
+    "email": "",
+    "subject": "English",
+    "position": "Long Course Training",
+    "dateEnrolled": "2025-09-04"
+  },
+  {
+    "id": "alfa2_017",
+    "name": "نواف ملفي سلمان ال مساعد",
+    "studentId": "A2017",
+    "groupId": "alfa2",
+    "email": "",
+    "subject": "English",
+    "position": "Long Course Training",
+    "dateEnrolled": "2025-09-04"
+  },
+  {
+    "id": "alfa2_018",
+    "name": "رضا جعفر حبيب ال خميس",
+    "studentId": "A2018",
+    "groupId": "alfa2",
+    "email": "",
+    "subject": "English",
+    "position": "Long Course Training",
+    "dateEnrolled": "2025-09-04"
+  },
+  {
+    "id": "alfa2_019",
+    "name": "مرتضى علي عبدالله الصفواني",
+    "studentId": "A2019",
+    "groupId": "alfa2",
+    "email": "",
+    "subject": "English",
+    "position": "Long Course Training",
+    "dateEnrolled": "2025-09-04"
+  },
+  {
+    "id": "alfa2_020",
+    "name": "راشد فهد مبارك السعد",
+    "studentId": "A2020",
+    "groupId": "alfa2",
+    "email": "",
+    "subject": "English",
+    "position": "Long Course Training",
+    "dateEnrolled": "2025-09-04"
+  },
+  {
+    "id": "alfa2_021",
+    "name": "موسى جعغر حسن غيث",
+    "studentId": "A2021",
+    "groupId": "alfa2",
+    "email": "",
+    "subject": "English",
+    "position": "Long Course Training",
+    "dateEnrolled": "2025-09-04"
+  },
+  {
+    "id": "alfa2_022",
+    "name": "أحمد محمد حبيب السعيد",
+    "studentId": "A2022",
+    "groupId": "alfa2",
+    "email": "",
+    "subject": "English",
+    "position": "Long Course Training",
+    "dateEnrolled": "2025-09-04"
+  },
+  {
+    "id": "alfa2_023",
+    "name": "علي جبر علي ابوابدير",
+    "studentId": "A2023",
+    "groupId": "alfa2",
+    "email": "",
+    "subject": "English",
+    "position": "Long Course Training",
+    "dateEnrolled": "2025-09-04"
+  },
+  {
+    "id": "alfa2_024",
+    "name": "ناصر سفر ناصر الهاجري",
+    "studentId": "A2024",
+    "groupId": "alfa2",
+    "email": "",
+    "subject": "English",
+    "position": "Long Course Training",
+    "dateEnrolled": "2025-09-04"
+  },
+  {
+    "id": "alfa2_025",
+    "name": "أحمد إبراهيم أحمد اليامي",
+    "studentId": "A2025",
+    "groupId": "alfa2",
+    "email": "",
+    "subject": "English",
+    "position": "Long Course Training",
+    "dateEnrolled": "2025-09-04"
+  },
+  {
+    "id": "alfa2_026",
+    "name": "عبدالعزيز حبيب عيسى العبادي",
+    "studentId": "A2026",
+    "groupId": "alfa2",
+    "email": "",
+    "subject": "English",
+    "position": "Long Course Training",
+    "dateEnrolled": "2025-09-04"
+  },
+  {
+    "id": "alfa2_027",
+    "name": "عبدالرحمن عبدالله راشد الخالدي",
+    "studentId": "A2027",
+    "groupId": "alfa2",
+    "email": "",
+    "subject": "English",
+    "position": "Long Course Training",
+    "dateEnrolled": "2025-09-04"
+  },
+  {
+    "id": "alfa2_028",
+    "name": "تركي عبدالله سعيد الشهراني",
+    "studentId": "A2028",
+    "groupId": "alfa2",
+    "email": "",
+    "subject": "English",
+    "position": "Long Course Training",
+    "dateEnrolled": "2025-09-04"
+  },
+  {
+    "id": "alfa2_029",
+    "name": "محمد احمد علي ياسين",
+    "studentId": "A2029",
+    "groupId": "alfa2",
+    "email": "",
+    "subject": "English",
+    "position": "Long Course Training",
+    "dateEnrolled": "2025-09-04"
+  },
+  {
+    "id": "alfa2_030",
+    "name": "كاظم يونس العكروش",
+    "studentId": "A2030",
+    "groupId": "alfa2",
+    "email": "",
+    "subject": "English",
+    "position": "Long Course Training",
+    "dateEnrolled": "2025-09-04"
   }
 ]

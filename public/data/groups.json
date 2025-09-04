@@ -160,5 +160,14 @@
     "position": "Scaffolding",
     "year": "2024-2025",
     "semester": "Fall"
+  },
+  {
+    "id": "alfa2",
+    "name": "ALFA 2",
+    "description": "English Class - Long Course",
+    "subject": "English",
+    "position": "Long Course Training",
+    "year": "2024-2025",
+    "semester": "Fall"
   }
 ]

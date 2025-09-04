@@ -20,21 +20,23 @@ const Home = () => {
   const loadStats = async () => {
     try {
       const basePath = import.meta.env.PROD ? '/studentLMS' : ''
-      const [studentsRes, examsRes, scheduleRes, resourcesRes, marksRes, syllabusRes] = await Promise.all([
+      const [studentsRes, examsRes, weeklyScheduleRes, resourcesRes, marksRes, syllabusRes, teachingConfigRes] = await Promise.all([
         fetch(`${basePath}/data/students.json`).catch(() => ({ json: () => [] })),
         fetch(`${basePath}/data/exams.json`).catch(() => ({ json: () => [] })),
-        fetch(`${basePath}/data/schedule.json`).catch(() => ({ json: () => [] })),
+        fetch(`${basePath}/data/weekly_schedule_template.json`).catch(() => ({ json: () => null })),
         fetch(`${basePath}/data/resources.json`).catch(() => ({ json: () => [] })),
         fetch(`${basePath}/data/marks.json`).catch(() => ({ json: () => [] })),
         fetch(`${basePath}/data/syllabus.json`).catch(() => ({ json: () => ({}) })),
+        fetch(`${basePath}/data/teaching_config.json`).catch(() => ({ json: () => ({ activeGroups: [] }) })),
       ])
 
       const students = await studentsRes.json()
       const exams = await examsRes.json()
-      const schedule = await scheduleRes.json()
+      const weeklySchedule = await weeklyScheduleRes.json()
       const resources = await resourcesRes.json()
       const marks = await marksRes.json()
       const syllabusData = await syllabusRes.json()
+      const teachingConfig = await teachingConfigRes.json()
 
       // Calculate average grade
       const totalMarks = marks.reduce((sum, mark) => sum + mark.score, 0)
@@ -52,26 +54,29 @@ const Home = () => {
         })
       }
 
-      // Get active groups from current schedule
-      const activeGroups = [...new Set(schedule.map(item => item.group.toLowerCase()))]
+      // Get active groups from teaching config
+      const activeGroups = teachingConfig.activeGroups || []
       
       // Filter students to only include those in currently taught groups
       const activeStudents = students.filter(student => 
         activeGroups.includes(student.groupId.toLowerCase())
       )
 
-      // Calculate weekly classes total
-      const weeklyClassesCount = schedule.length
-      
-      // Calculate classes per week (assuming 7 days per week)
-      const uniqueDates = [...new Set(schedule.map(item => item.date))]
-      const totalWeeks = Math.ceil(uniqueDates.length / 7) || 1
-      const averageWeeklyClasses = Math.round(weeklyClassesCount / totalWeeks)
+      // Calculate weekly classes total from weekly template
+      let weeklyClassesCount = 0
+      if (weeklySchedule?.weekly_schedule) {
+        const workingDays = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday']
+        workingDays.forEach(day => {
+          if (weeklySchedule.weekly_schedule[day]) {
+            weeklyClassesCount += weeklySchedule.weekly_schedule[day].length
+          }
+        })
+      }
 
       setStats({
         totalStudents: activeStudents.length,
         totalExams: exams.length,
-        scheduledClasses: averageWeeklyClasses,
+        scheduledClasses: weeklyClassesCount,
         totalResources: resources.length,
         averageGrade: avgGrade,
         completedTopics: completed

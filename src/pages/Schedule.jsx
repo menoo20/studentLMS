@@ -6,8 +6,9 @@ const Schedule = () => {
   const { theme } = useTheme()
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
-  const [schedule, setSchedule] = useState([])
+  const [weeklySchedule, setWeeklySchedule] = useState(null)
   const [loading, setLoading] = useState(true)
+  
   const getCurrentDate = () => {
     // Use the actual current date - this will always be today
     return new Date() // This will be the real current date and time
@@ -51,12 +52,12 @@ const Schedule = () => {
     const loadSchedule = async () => {
       try {
         const basePath = import.meta.env.PROD ? '/studentLMS' : ''
-        const response = await fetch(`${basePath}/data/schedule.json`)
+        const response = await fetch(`${basePath}/data/weekly_schedule_template.json`)
         const data = await response.json()
-        setSchedule(data)
+        setWeeklySchedule(data)
       } catch (error) {
-        console.error('Error loading schedule:', error)
-        setSchedule([])
+        console.error('Error loading weekly schedule:', error)
+        setWeeklySchedule(null)
       } finally {
         setLoading(false)
       }
@@ -108,9 +109,37 @@ const Schedule = () => {
     })
   }
 
+  // Convert day index to day name for weekly schedule lookup
+  const getDayName = (dayIndex) => {
+    const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday']
+    return days[dayIndex] || 'sunday'
+  }
+
+  // Check if date is within the semester period
+  const isWithinSemester = (date) => {
+    if (!weeklySchedule?.schedule_info) return true
+    
+    const startDate = new Date(weeklySchedule.schedule_info.start_date)
+    const endDate = new Date(weeklySchedule.schedule_info.end_date)
+    
+    return date >= startDate && date <= endDate
+  }
+
+  // Get schedule for a specific date using weekly template
   const getScheduleForDate = (date) => {
-    const dateStr = date.toISOString().split('T')[0]
-    return schedule.filter(item => item.date === dateStr)
+    if (!weeklySchedule?.weekly_schedule || !isWithinSemester(date)) return []
+    
+    const dayName = getDayName(date.getDay())
+    const daySchedule = weeklySchedule.weekly_schedule[dayName] || []
+    
+    // Convert to format similar to old schedule for compatibility
+    return daySchedule.map((item, index) => ({
+      ...item,
+      id: `${dayName}_${item.time}_${item.group}`,
+      date: date.toISOString().split('T')[0],
+      room: weeklySchedule.schedule_info.room,
+      duration: weeklySchedule.schedule_info.duration
+    }))
   }
 
   const timeSlots = [
@@ -121,6 +150,16 @@ const Schedule = () => {
   const getClassAtTime = (date, time) => {
     const daySchedule = getScheduleForDate(date)
     return daySchedule.find(item => item.time === time)
+  }
+
+  // Check if weekly schedule has data
+  const hasScheduleData = () => {
+    if (!weeklySchedule?.weekly_schedule) return false
+    const workingDays = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday']
+    return workingDays.some(day => 
+      weeklySchedule.weekly_schedule[day] && 
+      weeklySchedule.weekly_schedule[day].length > 0
+    )
   }
 
   const isNesmaSpanSlot = (date, time) => {
@@ -196,6 +235,16 @@ const Schedule = () => {
     )
   }
 
+  if (!weeklySchedule) {
+    return (
+      <div className="flex justify-center items-center py-12">
+        <div className={`text-lg ${theme === 'blackGold' ? 'text-red-400' : 'text-red-600'}`}>
+          Error loading schedule. Please try again later.
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="space-y-6 overflow-x-hidden">
       {/* Header - Responsive Layout */}
@@ -255,7 +304,7 @@ const Schedule = () => {
         </div>
       </div>
 
-      {schedule.length === 0 ? (
+      {!hasScheduleData() ? (
         <div className="card text-center py-16">
           <div className="text-8xl mb-6">📅</div>
           <h3 className={`text-2xl font-bold mb-4 ${theme === 'blackGold' ? 'text-blackGold-500' : 'text-gray-900'}`}>
@@ -555,69 +604,15 @@ const Schedule = () => {
       )}
 
       {/* Upcoming Classes */}
-      {schedule.length > 0 && (
+      {hasScheduleData() && (
         <div className="card">
           <h3 className={`text-xl font-semibold mb-6 ${theme === 'blackGold' ? 'text-blackGold-500' : 'text-gray-900'}`}>
             📅 Upcoming Classes
           </h3>
           <div className="space-y-3">
-            {schedule
-              .filter(item => new Date(item.date + 'T' + item.time) > getCurrentDate())
-              .sort((a, b) => new Date(a.date + 'T' + a.time) - new Date(b.date + 'T' + b.time))
-              .slice(0, 5)
-              .map(item => (
-                <div key={item.id} className={`
-                  flex items-center justify-between p-4 rounded-xl transition-all duration-200 hover:scale-[1.02]
-                  ${theme === 'blackGold' 
-                    ? 'bg-gray-50 hover:bg-gray-100 shadow-md hover:shadow-lg border border-gray-200' 
-                    : 'bg-gray-50 hover:bg-gray-100 border border-gray-200'
-                  }
-                `}>
-                  <div className="flex items-center gap-4">
-                    <div className={`
-                      w-3 h-3 rounded-full flex-shrink-0
-                      ${item.group === 'NESMA' 
-                        ? theme === 'blackGold' ? 'bg-gradient-to-r from-blue-500 to-blue-600 shadow-lg' : 'bg-blue-500'
-                        : theme === 'blackGold' ? 'bg-gradient-to-r from-indigo-500 to-purple-600 shadow-lg' : 'bg-indigo-500'
-                      }
-                    `}></div>
-                    <div>
-                      <div className={`font-semibold ${theme === 'blackGold' ? 'text-gray-900' : 'text-gray-900'}`}>
-                        {item.subject} • {item.group}
-                      </div>
-                      <div className={`text-sm flex items-center gap-2 mt-1 ${theme === 'blackGold' ? 'text-gray-600' : 'text-gray-600'}`}>
-                        {item.room === 'Online' ? (
-                          <>
-                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                              <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
-                            </svg>
-                            Online Class
-                          </>
-                        ) : (
-                          <>
-                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                              <path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-6a1 1 0 00-1-1H9a1 1 0 00-1 1v6a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clipRule="evenodd"/>
-                            </svg>
-                            {item.room}
-                          </>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                  <div className="text-right flex-shrink-0">
-                    <div className={`text-sm font-semibold ${theme === 'blackGold' ? 'text-blue-600' : 'text-blue-600'}`}>
-                      {new Date(item.date).toLocaleDateString('en-US', { 
-                        weekday: 'short', 
-                        month: 'short', 
-                        day: 'numeric' 
-                      })}
-                    </div>
-                    <div className={`text-sm font-mono ${theme === 'blackGold' ? 'text-gray-700' : 'text-gray-600'}`}>
-                      {item.time}
-                    </div>
-                  </div>
-                </div>
-              ))}
+            <div className={`text-sm ${theme === 'blackGold' ? 'text-gray-600' : 'text-gray-500'}`}>
+              View your weekly schedule above to see all upcoming classes
+            </div>
           </div>
         </div>
       )}
