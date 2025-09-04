@@ -8,6 +8,31 @@ const Schedule = () => {
   const navigate = useNavigate()
   const [weeklySchedule, setWeeklySchedule] = useState(null)
   const [loading, setLoading] = useState(true)
+
+  // Subject color mapping for beautiful timetable design
+  const subjectColors = {
+    'English': 'bg-yellow-200 border-yellow-300 text-yellow-900',
+    'Mathematics': 'bg-red-200 border-red-300 text-red-900',
+    'Engineering': 'bg-blue-200 border-blue-300 text-blue-900',
+    'Geography': 'bg-amber-200 border-amber-300 text-amber-900',
+    'Music': 'bg-green-200 border-green-300 text-green-900',
+    'Religious Education': 'bg-green-300 border-green-400 text-green-900',
+    'Physical Education': 'bg-green-300 border-green-400 text-green-900',
+    'Irish': 'bg-green-200 border-green-300 text-green-900',
+    'Tutorial': 'bg-yellow-100 border-yellow-200 text-yellow-800',
+    'Home Economics': 'bg-yellow-300 border-yellow-400 text-yellow-900',
+    'ALFA': 'bg-purple-200 border-purple-300 text-purple-900',
+    'ALFA2': 'bg-purple-200 border-purple-300 text-purple-900',
+    'SAIPEM': 'bg-cyan-200 border-cyan-300 text-cyan-900',
+    'NESMA': 'bg-yellow-200 border-yellow-300 text-yellow-900',
+    'JP': 'bg-pink-200 border-pink-300 text-pink-900',
+    'default': 'bg-gray-200 border-gray-300 text-gray-900'
+  }
+
+  // Time slots for the timetable (like in your image)
+  const timeSlots = [
+    '8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00'
+  ]
   
   const getCurrentDate = () => {
     // Use the actual current date - this will always be today
@@ -49,80 +74,47 @@ const Schedule = () => {
   }, [])
 
   useEffect(() => {
-    const loadSchedule = async () => {
-      try {
-        const basePath = import.meta.env.PROD ? '/studentLMS' : ''
-        const response = await fetch(`${basePath}/data/weekly_schedule_template.json`)
-        const data = await response.json()
-        setWeeklySchedule(data)
-      } catch (error) {
-        console.error('Error loading weekly schedule:', error)
-        setWeeklySchedule(null)
-      } finally {
-        setLoading(false)
-      }
-    }
-
     loadSchedule()
   }, [])
 
-  // Handle URL parameters for group highlighting
-  useEffect(() => {
-    const highlightParam = searchParams.get('highlight')
-    if (highlightParam) {
-      setHighlightGroup(highlightParam.toLowerCase())
+  const loadSchedule = async () => {
+    try {
+      // Load weekly schedule template instead of schedule.json
+      const response = await fetch('/my-annual-plan/data/weekly_schedule_template.json')
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`)
+      const data = await response.json()
+      setWeeklySchedule(data)
+    } catch (error) {
+      console.error('Error loading weekly schedule:', error)
+    } finally {
+      setLoading(false)
     }
-  }, [searchParams])
+  }
 
-  // Reset to current day when week changes
-  useEffect(() => {
-    const today = getCurrentDate()
-    setSelectedDay(today.getDay())
-  }, [currentWeek])
-
-  const getWeekDates = (date) => {
-    const week = []
-    const startOfWeek = new Date(date)
-    const day = startOfWeek.getDay()
-    
-    // Calculate Sunday as start of week (Arab convention: Sunday = day 1 of week)
-    // In JavaScript: Sunday = 0, Monday = 1, etc.
-    // We want to find the most recent Sunday
-    let daysToSubtract = day === 0 ? 0 : day // If today is Sunday (0), don't subtract. Otherwise subtract day value
-    
-    startOfWeek.setDate(startOfWeek.getDate() - daysToSubtract)
-
-    // Only add Sunday through Thursday (5 working days)
-    for (let i = 0; i < 5; i++) {
-      const workDay = new Date(startOfWeek)
-      workDay.setDate(startOfWeek.getDate() + i)
-      week.push(workDay)
+  const getWeekDates = (startDate) => {
+    const dates = []
+    for (let i = 0; i < 5; i++) { // Sunday to Thursday (5 working days)
+      const date = new Date(startDate)
+      date.setDate(startDate.getDate() + i)
+      dates.push(date)
     }
-    return week
+    return dates
   }
 
-  const formatDate = (date) => {
-    return date.toLocaleDateString('en-US', { 
-      weekday: 'short', 
-      month: 'short', 
-      day: 'numeric' 
-    })
-  }
-
-  // Convert day index to day name for weekly schedule lookup
-  const getDayName = (dayIndex) => {
-    const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday']
-    return days[dayIndex] || 'sunday'
-  }
-
-  // Check if date is within the semester period
+  // Check if date is within semester dates
   const isWithinSemester = (date) => {
     if (!weeklySchedule?.schedule_info) return true
     
-    const startDate = new Date(weeklySchedule.schedule_info.start_date)
-    const endDate = new Date(weeklySchedule.schedule_info.end_date)
+    const checkDate = new Date(date)
+    const semesterStart = new Date(weeklySchedule.schedule_info.semester_start)
+    const semesterEnd = new Date(weeklySchedule.schedule_info.semester_end)
     
-    return date >= startDate && date <= endDate
+    return checkDate >= semesterStart && checkDate <= semesterEnd
+  }
+
+  const getDayName = (dayIndex) => {
+    const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
+    return dayNames[dayIndex]
   }
 
   // Get schedule for a specific date using weekly template
@@ -141,11 +133,6 @@ const Schedule = () => {
       duration: weeklySchedule.schedule_info.duration
     }))
   }
-
-  const timeSlots = [
-    '08:00', '09:00', '10:00', '11:00', '12:00',
-    '13:00', '14:00', '15:00'
-  ]
 
   const getClassAtTime = (date, time) => {
     const daySchedule = getScheduleForDate(date)
@@ -175,9 +162,12 @@ const Schedule = () => {
   const isClassLive = (classItem) => {
     if (!classItem || classItem.group !== 'NESMA') return false
     
-    const now = getCurrentDate()
-    const classDate = new Date(classItem.date + 'T' + classItem.time)
-    const classEndTime = new Date(classDate.getTime() + 120 * 60000) // Add 120 minutes (2 hours)
+    const now = new Date()
+    const classDate = new Date(`${classItem.date}T${classItem.time}:00`)
+    
+    // Assume 2-hour duration for NESMA (spans 2 time slots)
+    const classEndTime = new Date(classDate)
+    classEndTime.setHours(classEndTime.getHours() + 2)
     
     // Check if current time is between class start and end time
     return now >= classDate && now <= classEndTime
@@ -187,7 +177,6 @@ const Schedule = () => {
     if (!classItem) return
     
     // Navigate to syllabus with date and group parameters
-    // Determine which syllabus based on group and navigate to dedicated path
     const searchParams = new URLSearchParams()
     searchParams.set('date', classItem.date)
     searchParams.set('group', classItem.group)
@@ -202,6 +191,43 @@ const Schedule = () => {
   }
 
   const weekDates = getWeekDates(currentWeek)
+
+  // Helper function to get subject color based on group/subject
+  const getSubjectColor = (group) => {
+    const groupName = group.toUpperCase()
+    if (groupName.includes('ENGLISH') || groupName.includes('NESMA')) {
+      return subjectColors['English']
+    }
+    if (groupName.includes('MATH')) {
+      return subjectColors['Mathematics']
+    }
+    if (groupName.includes('ENGINEERING')) {
+      return subjectColors['Engineering']
+    }
+    if (groupName.includes('GEOGRAPHY')) {
+      return subjectColors['Geography']
+    }
+    if (groupName.includes('MUSIC')) {
+      return subjectColors['Music']
+    }
+    if (groupName.includes('ALFA')) {
+      return subjectColors['ALFA']
+    }
+    if (groupName.includes('SAIPEM')) {
+      return subjectColors['SAIPEM']
+    }
+    if (groupName.includes('JP')) {
+      return subjectColors['JP']
+    }
+    return subjectColors['default']
+  }
+
+  // Helper function to calculate end time
+  const getEndTime = (startTime) => {
+    const [hours, minutes] = startTime.split(':').map(Number)
+    const endHour = hours + 1
+    return `${endHour}:${minutes.toString().padStart(2, '0')}`
+  }
 
   const goToPreviousWeek = () => {
     const prevWeek = new Date(currentWeek)
@@ -229,393 +255,278 @@ const Schedule = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center py-12">
-        <div className={`text-lg ${theme === 'blackGold' ? 'text-white' : 'text-gray-600'}`}>Loading schedule...</div>
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-500"></div>
       </div>
     )
   }
 
-  if (!weeklySchedule) {
+  if (!hasScheduleData()) {
     return (
-      <div className="flex justify-center items-center py-12">
-        <div className={`text-lg ${theme === 'blackGold' ? 'text-red-400' : 'text-red-600'}`}>
-          Error loading schedule. Please try again later.
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="text-6xl mb-4">📅</div>
+          <h3 className="text-xl font-semibold text-gray-900 mb-2">No Schedule Data</h3>
+          <p className="text-gray-600">Weekly schedule template is not available or contains no data.</p>
         </div>
       </div>
     )
   }
 
   return (
-    <div className="space-y-6 overflow-x-hidden">
-      {/* Header - Responsive Layout */}
-      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
-        <h2 className={`text-3xl font-bold ${theme === 'blackGold' ? 'text-blackGold-500' : 'text-gray-900'}`}>Teaching Schedule</h2>
-        
-        {/* Week Navigation - Responsive without overflow */}
-        <div className="flex items-center justify-center sm:justify-end gap-2 flex-wrap p-4 sm:p-2">
-          <button
-            onClick={goToPreviousWeek}
-            className={`
-              flex-shrink-0 px-3 py-2 rounded-xl font-medium text-sm transition-all duration-200
-              ${theme === 'blackGold' 
-                ? 'bg-gray-700 text-white hover:bg-gray-600 border border-gray-600' 
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200'
-              }
-              hover:scale-105 hover:shadow-lg flex items-center gap-2
-            `}
-          >
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd"/>
-            </svg>
-            <span className="hidden sm:inline">Previous Week</span>
-            <span className="sm:hidden">Previous</span>
-          </button>
-          <button
-            onClick={goToCurrentWeek}
-            className={`
-              flex-shrink-0 px-4 py-2 rounded-xl font-semibold text-sm transition-all duration-200
-              ${theme === 'blackGold' 
-                ? 'bg-blackGold-500 text-black hover:bg-blackGold-400 shadow-lg shadow-blackGold-500/30' 
-                : 'bg-blue-500 text-white hover:bg-blue-600 shadow-lg shadow-blue-500/30'
-              }
-              hover:scale-105 hover:shadow-xl
-            `}
-          >
-            <span className="hidden sm:inline">Current Week</span>
-            <span className="sm:hidden">Current</span>
-          </button>
-          <button
-            onClick={goToNextWeek}
-            className={`
-              flex-shrink-0 px-3 py-2 rounded-xl font-medium text-sm transition-all duration-200
-              ${theme === 'blackGold' 
-                ? 'bg-gray-700 text-white hover:bg-gray-600 border border-gray-600' 
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200'
-              }
-              hover:scale-105 hover:shadow-lg flex items-center gap-2
-            `}
-          >
-            <span className="hidden sm:inline">Next Week</span>
-            <span className="sm:hidden">Next</span>
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"/>
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      {!hasScheduleData() ? (
-        <div className="card text-center py-16">
-          <div className="text-8xl mb-6">📅</div>
-          <h3 className={`text-2xl font-bold mb-4 ${theme === 'blackGold' ? 'text-blackGold-500' : 'text-gray-900'}`}>
-            No Schedule Data
-          </h3>
-          <p className={`text-lg mb-8 ${theme === 'blackGold' ? 'text-white' : 'text-gray-600'}`}>
-            Add your schedule.json file to the /data folder to display your teaching schedule.
-          </p>
-          <div className={`text-left max-w-lg mx-auto rounded-xl p-6 ${theme === 'blackGold' ? 'bg-gray-800 border border-gray-700' : 'bg-gray-50 border border-gray-200'}`}>
-            <p className={`text-sm font-semibold mb-3 ${theme === 'blackGold' ? 'text-blackGold-500' : 'text-gray-700'}`}>
-              Expected JSON format:
-            </p>
-            <pre className={`text-xs overflow-x-auto font-mono p-3 rounded-lg ${theme === 'blackGold' ? 'bg-gray-900 text-gray-300' : 'bg-white text-gray-600'}`}>
-{`[
-  {
-    "id": "1",
-    "date": "2024-01-15",
-    "time": "09:00",
-    "subject": "Mathematics",
-    "group": "Group A",
-    "room": "Room 101",
-    "type": "Lecture"
-  }
-]`}
-            </pre>
-          </div>
-        </div>
-      ) : (
-        <div className="card">
-          <div className="mb-6">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
-              <div>
-                <h3 className={`text-xl font-semibold text-gray-900`}>
-                  Week of {formatDate(weekDates[0])} — {formatDate(weekDates[4])}
-                </h3>
-                <p className={`text-sm mt-2 text-gray-600`}>
-                  Your weekly teaching schedule • {timeSlots.length} time slots • Working days (Sun-Thu)
-                </p>
-              </div>
-              
-              {/* View Mode Controls - Hidden on mobile (auto-switches) */}
-              <div className="hidden md:flex gap-2">
+    <div className="min-h-screen bg-gray-50 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="mb-8">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900 mb-2">Teaching Schedule</h1>
+              <p className="text-gray-600">
+                Your weekly teaching schedule • {timeSlots.length} time slots • Working days (Sun-Thu)
+              </p>
+            </div>
+            <div className="flex items-center space-x-4 mt-4 md:mt-0">
+              <div className="hidden md:flex items-center space-x-2 bg-white rounded-lg border shadow-sm">
                 <button
                   onClick={() => setViewMode('week')}
-                  className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+                  className={`px-4 py-2 text-sm font-medium rounded-l-lg transition-colors ${
                     viewMode === 'week'
                       ? 'bg-blue-500 text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      : 'text-gray-700 hover:bg-gray-100'
                   }`}
                 >
-                  📅 Week View
+                  Week View
                 </button>
                 <button
-                  onClick={() => {
-                    setViewMode('daily')
-                    // Set to today's day when switching to daily view
-                    const today = getCurrentDate()
-                    setSelectedDay(today.getDay())
-                  }}
-                  className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+                  onClick={() => setViewMode('daily')}
+                  className={`px-4 py-2 text-sm font-medium rounded-r-lg transition-colors ${
                     viewMode === 'daily'
                       ? 'bg-blue-500 text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      : 'text-gray-700 hover:bg-gray-100'
                   }`}
                 >
-                  📱 Daily View
+                  Daily View
                 </button>
               </div>
             </div>
           </div>
 
-          {/* Week View - Responsive Table Layout */}
-          {viewMode === 'week' && (
-            <div className="-mx-4 px-4 sm:mx-0 sm:px-0">
-              <table className="w-full table-fixed min-w-[640px]">
-                <thead>
-                  <tr className="border-b border-gray-200">
-                    <th className="px-2 sm:px-3 py-4 text-left text-sm font-semibold text-gray-900 bg-gray-50/80 w-16 sm:w-20">Time</th>
-                    {weekDates.map((date, index) => (
-                      <th key={index} className="px-1 sm:px-3 py-4 text-center bg-gray-50/80">
-                        <div className="font-semibold text-gray-900 text-xs sm:text-sm">{date.toLocaleDateString('en-US', { weekday: 'short' })}</div>
-                        <div className="text-xs font-normal text-gray-500 mt-1">
-                          {date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
-                        </div>
+          {/* Week Navigation */}
+          <div className="flex items-center justify-between bg-white rounded-lg border shadow-sm p-4">
+            <button
+              onClick={goToPreviousWeek}
+              className="flex items-center space-x-2 px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+            >
+              <span>←</span>
+              <span className="hidden sm:inline">Previous Week</span>
+            </button>
+            
+            <div className="text-center">
+              <div className="text-lg font-semibold text-gray-900">
+                {weekDates[0]?.toLocaleDateString('en-US', { 
+                  month: 'long',
+                  day: 'numeric'
+                })} - {weekDates[4]?.toLocaleDateString('en-US', { 
+                  month: 'long', 
+                  day: 'numeric',
+                  year: 'numeric'
+                })}
+              </div>
+            </div>
+            
+            <div className="flex items-center space-x-2">
+              <button
+                onClick={goToCurrentWeek}
+                className="px-4 py-2 text-sm font-medium text-blue-600 hover:bg-blue-50 rounded-lg transition-colors border border-blue-200"
+              >
+                Today
+              </button>
+              <button
+                onClick={goToNextWeek}
+                className="flex items-center space-x-2 px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+              >
+                <span className="hidden sm:inline">Next Week</span>
+                <span>→</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Weekly View - Beautiful Timetable */}
+        {viewMode === 'week' && (
+          <div className="-mx-4 px-4 sm:mx-0 sm:px-0">
+            {/* Beautiful Timetable Header - like your image */}
+            <div className="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+              <div className="bg-gradient-to-r from-blue-500 to-blue-600 px-6 py-4 flex items-center justify-between">
+                <div className="flex items-center space-x-3">
+                  <div className="bg-white p-2 rounded">
+                    <span className="text-2xl">📅</span>
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-bold text-white">Timetable</h2>
+                    <p className="text-blue-100 text-sm">Week of {weekDates[0]?.toLocaleDateString()}</p>
+                  </div>
+                </div>
+                <div className="bg-white px-4 py-2 rounded text-blue-600 font-medium cursor-pointer hover:bg-blue-50 transition-colors">
+                  Actions ▼
+                </div>
+              </div>
+
+              {/* Enhanced Table */}
+              <div className="overflow-x-auto">
+                <table className="w-full min-w-[900px]">
+                  <thead>
+                    <tr className="border-b-2 border-gray-200 bg-gray-50">
+                      <th className="px-6 py-4 text-center text-sm font-bold text-gray-700 bg-gray-100 w-24 sticky left-0">
+                        <div>Time</div>
                       </th>
-                    ))}
-                  </tr>
-                </thead>
-              <tbody className="bg-white divide-y divide-gray-100">
-                {timeSlots.map(time => (
-                  <tr key={time} className="hover:bg-gray-50/50 transition-colors duration-150">
-                    <td className="px-2 sm:px-3 py-4 text-sm font-semibold text-gray-900 bg-gray-50/50 border-r border-gray-100 w-16 sm:w-20">
-                      <div className="font-mono text-sm">{time}</div>
-                    </td>
-                    {weekDates.map((date, index) => {
-                      const classItem = getClassAtTime(date, time)
-                      const isSpanSlot = isNesmaSpanSlot(date, time)
-                      
-                      // Skip rendering if this is a 10:00 slot occupied by NESMA spanning from 09:00
-                      if (isSpanSlot) {
-                        return null
-                      }
-                      
-                      return (
-                        <td 
-                          key={index} 
-                          className="px-1 sm:px-3 py-4 text-center relative"
-                          rowSpan={classItem && classItem.group === 'NESMA' ? 2 : 1}
-                        >
-                          {classItem ? (
-                            <div 
-                              onClick={() => handleClassClick(classItem)}
-                              className={`
-                              ${classItem.group === 'NESMA' 
-                                ?  'bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 text-white shadow-xl shadow-blue-500/40 border-2 border-blue-300'
-                                :  'bg-gradient-to-br from-indigo-500 to-indigo-600 text-white shadow-lg shadow-indigo-500/30'
-                              }
-                              ${classItem.group === 'NESMA' 
-                                ? 'rounded-xl min-h-28 relative overflow-hidden' 
-                                : 'rounded-lg min-h-20'
-                              }
-                              ${highlightGroup && classItem.group.toLowerCase().includes(highlightGroup) 
-                                ? 'ring-4 ring-yellow-300 ring-opacity-60 transform scale-105 shadow-2xl' 
-                                : ''
-                              }
-                              p-2 text-xs transition-all duration-200 hover:scale-105 hover:shadow-xl cursor-pointer
-                              border border-white/20 w-full
-                            `}>
-                              {/* NESMA Online Class Special Design */}
-                              {classItem.group === 'NESMA' && (
-                                <>
-                                  {/* Live indicator badge - only show during class time */}
+                      {weekDates.map((date, index) => (
+                        <th key={index} className="px-4 py-4 text-center bg-gray-50 min-w-40">
+                          <div className="font-bold text-gray-800 text-base">
+                            {date.toLocaleDateString('en-US', { weekday: 'long' })}
+                          </div>
+                          <div className="text-sm text-red-500 font-semibold mt-1">
+                            {date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: '2-digit' })}
+                          </div>
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-100">
+                    {timeSlots.map(time => (
+                      <tr key={time} className="hover:bg-gray-50/50 transition-all duration-200">
+                        <td className="px-6 py-6 text-center font-bold text-gray-700 bg-gray-50 border-r border-gray-200 sticky left-0">
+                          <div className="text-base">{time}</div>
+                        </td>
+                        {weekDates.map((date, index) => {
+                          const classItem = getClassAtTime(date, time)
+                          const isSpanSlot = isNesmaSpanSlot(date, time)
+                          
+                          // Skip rendering if this is a 10:00 slot occupied by NESMA spanning from 09:00
+                          if (isSpanSlot) {
+                            return null
+                          }
+                          
+                          return (
+                            <td key={index} className="px-3 py-3 relative border-r border-gray-100">
+                              {classItem ? (
+                                <div 
+                                  onClick={() => handleClassClick(classItem)}
+                                  className={`
+                                    relative rounded-lg p-4 h-24 flex flex-col justify-center border-2 shadow-sm cursor-pointer
+                                    transition-all duration-300 hover:shadow-lg hover:scale-105 hover:-translate-y-1
+                                    ${getSubjectColor(classItem.group)}
+                                  `}
+                                >
+                                  <div className="font-bold text-sm mb-1 leading-tight">
+                                    {classItem.subject || classItem.group}
+                                  </div>
+                                  <div className="text-xs opacity-80 leading-tight">
+                                    {classItem.teacher || 'Group: ' + classItem.group}
+                                  </div>
+                                  <div className="text-xs opacity-70 mt-1">
+                                    {classItem.time} - {getEndTime(classItem.time)}
+                                  </div>
                                   {isClassLive(classItem) && (
-                                    <div className={`absolute top-2 right-2 flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold
-                                      ${theme === 'blackGold' ? 'bg-red-600 text-white' : 'bg-red-500 text-white'}
-                                      shadow-lg animate-pulse
-                                    `}>
-                                      {/* Red live indicator dot */}
-                                      <div className="w-2 h-2 bg-red-300 rounded-full animate-ping"></div>
-                                      <span>LIVE</span>
-                                    </div>
-                                  )}
-                                  
-                                  {/* Zoom logo */}
-                                  <div className="flex items-center justify-center mb-2">
-                                    <div className={`p-2 rounded-full bg-white/20`}>
-                                      <img 
-                                        src={`${import.meta.env.PROD ? '/studentLMS' : ''}/images/zoom_logo.png`}
-                                        alt="Zoom"
-                                        className="w-6 h-6 object-contain"
-                                      />
-                                    </div>
-                                  </div>
-                                </>
-                              )}
-                              
-                              <div className={`font-semibold text-sm leading-tight mb-1 ${classItem.group === 'NESMA' ? 'text-center' : ''}`}>
-                                {classItem.subject}
-                              </div>
-                              <div className={`opacity-90 text-xs font-medium mb-2 ${classItem.group === 'NESMA' ? 'text-center font-bold' : ''}`}>
-                                {classItem.group}
-                              </div>
-                              
-                              {classItem.group === 'NESMA' ? (
-                                <div className="text-center space-y-2">
-                                  <div className={`text-xs flex items-center justify-center gap-1 text-white/90`}>
-                                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                      <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
-                                    </svg>
-                                    <span className="font-semibold">Online Class</span>
-                                  </div>
-                                  <div className={`text-lg font-bold text-white`}>
-                                    9:00 - 11:00 AM
-                                  </div>
-                                  {classItem.duration && (
-                                    <div className={`text-xs font-semibold px-3 py-1 rounded-full bg-white/25 text-white`}>                               
-                                      {classItem.duration}
+                                    <div className="absolute top-2 right-2 w-3 h-3 bg-red-500 rounded-full animate-pulse shadow-lg">
+                                      <div className="absolute inset-0 bg-red-500 rounded-full animate-ping"></div>
                                     </div>
                                   )}
                                 </div>
                               ) : (
-                                <>
-                                  <div className="opacity-75 text-xs flex items-center justify-center gap-1 mb-2">
-                                    <svg className="w-3 h-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                      <path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-6a1 1 0 00-1-1H9a1 1 0 00-1 1v6a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clipRule="evenodd"/>
-                                    </svg>
-                                    <span className="truncate">{classItem.room}</span>
+                                <div className="h-24 flex items-center justify-center">
+                                  <div className="w-full h-full bg-gray-50 rounded border border-dashed border-gray-200 flex items-center justify-center text-gray-300">
+                                    <span className="text-xs">—</span>
                                   </div>
-                                  {classItem.duration && (
-                                    <div className="opacity-60 text-xs font-normal bg-black/10 px-2 py-1 rounded-full">
-                                      {classItem.duration}
-                                    </div>
-                                  )}
-                                </>
+                                </div>
                               )}
-                            </div>
-                          ) : (
-                            <div className="h-24 flex items-center justify-center">
-                              <div className="text-gray-300 text-xs">—</div>
+                            </td>
+                          )
+                        })}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Daily View - Mobile Friendly */}
+        {viewMode === 'daily' && (
+          <div>
+            {/* Day Selector */}
+            <div className="flex gap-1 sm:gap-2 mb-6 pb-2 overflow-x-auto scrollbar-hide">
+              {weekDates.map((date, index) => (
+                <button
+                  key={index}
+                  onClick={() => setSelectedDay(index)}
+                  className={`flex-shrink-0 px-3 sm:px-4 py-3 rounded-lg text-xs sm:text-sm font-medium transition-colors min-w-[70px] sm:min-w-[80px] ${
+                    selectedDay === index
+                      ? 'bg-blue-500 text-white shadow-lg'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                >
+                  <div className="font-semibold">{date.toLocaleDateString('en-US', { weekday: 'short' })}</div>
+                  <div className="text-xs opacity-75 mt-1">
+                    {date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                  </div>
+                </button>
+              ))}
+            </div>
+
+            {/* Daily Schedule */}
+            <div className="space-y-3">
+              {timeSlots.map(time => {
+                const classItem = getClassAtTime(weekDates[selectedDay], time)
+                const isSpanSlot = isNesmaSpanSlot(weekDates[selectedDay], time)
+                
+                if (isSpanSlot) return null
+                
+                return (
+                  <div key={time} className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+                    <div className="flex items-center">
+                      <div className="flex-shrink-0 w-16 text-sm font-semibold text-gray-900">
+                        {time}
+                      </div>
+                      {classItem ? (
+                        <div 
+                          onClick={() => handleClassClick(classItem)}
+                          className={`
+                            flex-1 ml-4 p-4 rounded-lg border-2 cursor-pointer
+                            transition-all duration-200 hover:shadow-md
+                            ${getSubjectColor(classItem.group)}
+                          `}
+                        >
+                          <div className="font-bold text-base mb-1">
+                            {classItem.subject || classItem.group}
+                          </div>
+                          <div className="text-sm opacity-80">
+                            {classItem.teacher || 'Group: ' + classItem.group}
+                          </div>
+                          <div className="text-xs opacity-70 mt-2">
+                            {classItem.time} - {getEndTime(classItem.time)}
+                          </div>
+                          {isClassLive(classItem) && (
+                            <div className="flex items-center mt-2">
+                              <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse mr-2"></div>
+                              <span className="text-xs text-red-600 font-semibold">LIVE</span>
                             </div>
                           )}
-                        </td>
-                      )
-                    })}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          )}
-
-          {/* Daily View - Mobile Friendly */}
-          {viewMode === 'daily' && (
-            <div>
-              {/* Day Selector */}
-              <div className="flex gap-1 sm:gap-2 mb-6 pb-2 overflow-x-auto scrollbar-hide">
-                {weekDates.map((date, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setSelectedDay(index)}
-                    className={`flex-shrink-0 px-2 sm:px-4 py-3 rounded-lg text-xs sm:text-sm font-medium transition-colors min-w-[60px] sm:min-w-[80px] ${
-                      selectedDay === index
-                        ? 'bg-blue-500 text-white shadow-lg'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                    }`}
-                  >
-                    <div className="font-semibold">{date.toLocaleDateString('en-US', { weekday: 'short' })}</div>
-                    <div className="text-xs opacity-75 mt-1">
-                      {date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                        </div>
+                      ) : (
+                        <div className="flex-1 ml-4 p-6 text-center text-gray-400 border-2 border-dashed border-gray-200 rounded-lg">
+                          <span className="text-sm">No class scheduled</span>
+                        </div>
+                      )}
                     </div>
-                  </button>
-                ))}
-              </div>
-
-              {/* Daily Schedule */}
-              <div className="space-y-4">
-                <h4 className="text-lg font-semibold text-gray-900 mb-4">
-                  {weekDates[selectedDay].toLocaleDateString('en-US', { 
-                    weekday: 'long', 
-                    month: 'long', 
-                    day: 'numeric' 
-                  })}
-                </h4>
-                
-                {timeSlots.map(time => {
-                  const classItem = getClassAtTime(weekDates[selectedDay], time)
-                  return (
-                    <div key={time} className="flex gap-4 p-4 bg-gray-50 rounded-lg">
-                      <div className="flex-shrink-0 w-20">
-                        <div className="font-mono text-sm font-semibold text-gray-900">{time}</div>
-                      </div>
-                      <div className="flex-1">
-                        {classItem ? (
-                          <div 
-                            onClick={() => handleClassClick(classItem)}
-                            className={`
-                            ${classItem.group === 'NESMA' 
-                              ?  'bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 text-white shadow-xl shadow-blue-500/40 border-2 border-blue-300'
-                              :  'bg-gradient-to-br from-indigo-500 to-indigo-600 text-white shadow-lg shadow-indigo-500/30'
-                            }
-                            ${highlightGroup && classItem.group.toLowerCase().includes(highlightGroup) 
-                              ? 'ring-4 ring-yellow-300 ring-opacity-60 transform scale-105 shadow-2xl' 
-                              : ''
-                            }
-                            p-4 rounded-xl transition-all duration-200 hover:scale-105 hover:shadow-xl cursor-pointer
-                            border border-white/20
-                          `}>
-                            <div className="font-semibold text-sm mb-1">{classItem.subject}</div>
-                            <div className="opacity-90 text-xs font-medium mb-2">{classItem.group}</div>
-                            
-                            {classItem.group === 'NESMA' ? (
-                              <div className="text-xs text-white/90 flex items-center gap-1">
-                                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                  <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
-                                </svg>
-                                <span>Online Class</span>
-                              </div>
-                            ) : (
-                              <>
-                                <div className="text-xs text-white/80 mb-1">📍 {classItem.location}</div>
-                                <div className="text-xs text-white/80">{classItem.duration}</div>
-                              </>
-                            )}
-                          </div>
-                        ) : (
-                          <div className="text-gray-400 text-sm italic">No class scheduled</div>
-                        )}
-                      </div>
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-          )}
-
-        </div>
-      )}
-
-      {/* Upcoming Classes */}
-      {hasScheduleData() && (
-        <div className="card">
-          <h3 className={`text-xl font-semibold mb-6 ${theme === 'blackGold' ? 'text-blackGold-500' : 'text-gray-900'}`}>
-            📅 Upcoming Classes
-          </h3>
-          <div className="space-y-3">
-            <div className={`text-sm ${theme === 'blackGold' ? 'text-gray-600' : 'text-gray-500'}`}>
-              View your weekly schedule above to see all upcoming classes
+                  </div>
+                )
+              })}
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   )
 }
