@@ -102,7 +102,7 @@ class MarksProtectionSystem {
 const marksProtection = new MarksProtectionSystem();
 
 // Reports Content Component
-const ReportsContent = ({ reportData, selectedExamFilter, hideNonEvaluated, allExams }) => {
+const ReportsContent = ({ reportData, selectedExamFilter, hideNonEvaluated, allExams, groups }) => {
   // Get current exam name if filtering by specific exam
   const currentExamName = selectedExamFilter !== 'all' 
     ? allExams.find(e => e.id === selectedExamFilter)?.name || 'Unknown Exam'
@@ -180,9 +180,14 @@ const ReportsContent = ({ reportData, selectedExamFilter, hideNonEvaluated, allE
                   <tr key={studentData.student.id} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                     <td className="px-6 py-4 whitespace-nowrap sticky left-0 bg-inherit">
                       <div className="flex items-center">
-                        <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                        <div className="w-10 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
                           <span className="text-xs font-medium text-blue-800">
-                            {studentData.student.name?.split(' ').map(n => n[0]).join('') || 'ST'}
+                            {(() => {
+                              const group = groups?.find(g => g.id === studentData.student.groupId);
+                              const groupName = group?.name || studentData.student.groupId || 'N/A';
+                              // Show group name, but truncate if too long for better display
+                              return groupName.length > 6 ? groupName.substring(0, 6) : groupName;
+                            })()}
                           </span>
                         </div>
                         <div>
@@ -190,7 +195,10 @@ const ReportsContent = ({ reportData, selectedExamFilter, hideNonEvaluated, allE
                             {studentData.student.name}
                           </div>
                           <div className="text-xs text-gray-500">
-                            ID: {studentData.student.id}
+                            ID: {studentData.student.id} • Group: {(() => {
+                              const group = groups?.find(g => g.id === studentData.student.groupId);
+                              return group?.name || studentData.student.groupId || 'Unknown';
+                            })()}
                           </div>
                         </div>
                       </div>
@@ -533,6 +541,7 @@ const Exams = () => {
               selectedExamFilter={selectedExamFilter}
               hideNonEvaluated={hideNonEvaluated}
               allExams={exams}
+              groups={groups}
             />
           </div>
         </div>
