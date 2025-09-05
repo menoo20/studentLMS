@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useTheme } from '../components/ThemeContext'
 
 const InstituteDashboard = () => {
   const [exams, setExams] = useState([])
