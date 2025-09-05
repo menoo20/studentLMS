@@ -1,196 +1,46 @@
 [
   {
-    "id": "placement_test",
+    "id": "exam_20250905_161518_8859ceae_nesma",
     "name": "Placement Test",
     "subject": "English",
-    "date": "2025-08-24",
-    "maxScore": 70,
-    "type": "placement"
+    "date": "2025-08-25",
+    "maxScore": 70.0,
+    "type": "test",
+    "createdAt": "2025-09-05T16:15:18.539805",
+    "description": "Assess Students initial level before starting the course",
+    "assignedGroups": [
+      "nesma"
+    ]
   },
   {
-    "id": "jp_groups123_saipem1",
-    "name": "JP Groups 1,2,3",
+    "id": "exam_20250905_162701_295c91e9",
+    "name": "Jolly Phonics Group (1,2,3)",
     "subject": "English",
-    "date": "2025-09-04",
-    "maxScore": 16,
+    "date": "2025-09-01",
+    "maxScore": 16.0,
     "type": "quiz",
-    "groupId": "saipem1"
-  },
-  {
-    "id": "jp_groups123_saipem2",
-    "name": "JP Groups 1,2,3",
-    "subject": "English",
-    "date": "2025-09-04",
-    "maxScore": 16,
-    "type": "quiz",
-    "groupId": "saipem2"
-  },
-  {
-    "id": "jp_groups123_saipem3",
-    "name": "JP Groups 1,2,3",
-    "subject": "English",
-    "date": "2025-09-04",
-    "maxScore": 16,
-    "type": "quiz",
-    "groupId": "saipem3"
-  },
-  {
-    "id": "jp_groups123_saipem4",
-    "name": "JP Groups 1,2,3",
-    "subject": "English",
-    "date": "2025-09-04",
-    "maxScore": 16,
-    "type": "quiz",
-    "groupId": "saipem4"
-  },
-  {
-    "id": "jp_groups123_saipem5",
-    "name": "JP Groups 1,2,3",
-    "subject": "English",
-    "date": "2025-09-04",
-    "maxScore": 16,
-    "type": "quiz",
-    "groupId": "saipem5"
-  },
-  {
-    "id": "jp_groups123_saipem6",
-    "name": "JP Groups 1,2,3",
-    "subject": "English",
-    "date": "2025-09-04",
-    "maxScore": 16,
-    "type": "quiz",
-    "groupId": "saipem6"
-  },
-  {
-    "id": "jp_groups123_sam1",
-    "name": "JP Groups 1,2,3",
-    "subject": "English",
-    "date": "2025-09-04",
-    "maxScore": 16,
-    "type": "quiz",
-    "groupId": "sam1"
-  },
-  {
-    "id": "jp_groups123_sam2",
-    "name": "JP Groups 1,2,3",
-    "subject": "English",
-    "date": "2025-09-04",
-    "maxScore": 16,
-    "type": "quiz",
-    "groupId": "sam2"
-  },
-  {
-    "id": "jp_groups123_sam3",
-    "name": "JP Groups 1,2,3",
-    "subject": "English",
-    "date": "2025-09-04",
-    "maxScore": 16,
-    "type": "quiz",
-    "groupId": "sam3"
-  },
-  {
-    "id": "jp_groups123_sam4",
-    "name": "JP Groups 1,2,3",
-    "subject": "English",
-    "date": "2025-09-04",
-    "maxScore": 16,
-    "type": "quiz",
-    "groupId": "sam4"
-  },
-  {
-    "id": "jp_groups123_sam5",
-    "name": "JP Groups 1,2,3",
-    "subject": "English",
-    "date": "2025-09-04",
-    "maxScore": 16,
-    "type": "quiz",
-    "groupId": "sam5"
-  },
-  {
-    "id": "jp_groups123_sam6",
-    "name": "JP Groups 1,2,3",
-    "subject": "English",
-    "date": "2025-09-04",
-    "maxScore": 16,
-    "type": "quiz",
-    "groupId": "sam6"
-  },
-  {
-    "id": "jp_groups123_sam8",
-    "name": "JP Groups 1,2,3",
-    "subject": "English",
-    "date": "2025-09-04",
-    "maxScore": 16,
-    "type": "quiz",
-    "groupId": "sam8"
-  },
-  {
-    "id": "jp_groups123_alfa2",
-    "name": "JP Groups 1,2,3",
-    "subject": "English",
-    "date": "2025-09-04",
-    "maxScore": 16,
-    "type": "quiz",
-    "groupId": "alfa2"
-  },
-  {
-    "id": "jp_groups123_deye",
-    "name": "JP Groups 1,2,3",
-    "subject": "English",
-    "date": "2025-09-04",
-    "maxScore": 16,
-    "type": "quiz",
-    "groupId": "deye"
-  },
-  {
-    "id": "jp_groups123_diang",
-    "name": "JP Groups 1,2,3",
-    "subject": "English",
-    "date": "2025-09-04",
-    "maxScore": 16,
-    "type": "quiz",
-    "groupId": "diang"
-  },
-  {
-    "id": "jp_groups123_dabal_fahss",
-    "name": "JP Groups 1,2,3",
-    "subject": "English",
-    "date": "2025-09-04",
-    "maxScore": 16,
-    "type": "quiz",
-    "groupId": "dabal_fahss"
-  },
-  {
-    "id": "jp_groups123_aman_elc",
-    "name": "JP Groups 1,2,3",
-    "subject": "English",
-    "date": "2025-09-04",
-    "maxScore": 16,
-    "type": "quiz",
-    "groupId": "aman_elc"
-  },
-  {
-    "id": "exam1",
-    "name": "Midterm Exam",
-    "subject": "Mathematics",
-    "date": "2024-03-15",
-    "maxScore": 100,
-    "type": "midterm"
-  },
-  {
-    "id": "exam2",
-    "name": "Quiz 1",
-    "subject": "Mathematics", 
-    "date": "2024-02-15",
-    "maxScore": 50,
-    "type": "quiz"
-  },
-  {
-    "id": "exam3",
-    "name": "Final Exam",
-    "subject": "Mathematics",
-    "date": "2024-05-15", 
-    "maxScore": 100,
-    "type": "final"
+    "createdAt": "2025-09-05T16:27:01.485026",
+    "description": "To students ability to recognize sounds",
+    "assignedGroups": [
+      "alfa2",
+      "aman_elc",
+      "dabal_fahss",
+      "deye",
+      "diang",
+      "nesma",
+      "saipem1",
+      "saipem2",
+      "saipem3",
+      "saipem4",
+      "saipem5",
+      "saipem6",
+      "sam1",
+      "sam2",
+      "sam3",
+      "sam4",
+      "sam5",
+      "sam6",
+      "sam8"
+    ]
   }
 ]

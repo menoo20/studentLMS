@@ -783,7 +783,7 @@
     "id": "s074",
     "name": "عمار حسين علي المحيشي",
     "studentId": "2",
-    "groupId": "saipem2",
+    "groupId": "saipem1",
     "email": "",
     "subject": "English",
     "position": "Vocational Training",
@@ -803,7 +803,7 @@
     "id": "s076",
     "name": "محمد علي منصور عجيان",
     "studentId": "4",
-    "groupId": "saipem2",
+    "groupId": "saipem1",
     "email": "",
     "subject": "English",
     "position": "Vocational Training",
@@ -833,7 +833,7 @@
     "id": "s079",
     "name": "أحمد سلمان بن حيدر دوشي مسرحي",
     "studentId": "7",
-    "groupId": "saipem2",
+    "groupId": "saipem1",
     "email": "",
     "subject": "English",
     "position": "Vocational Training",
@@ -3670,5 +3670,45 @@
     "subject": "English",
     "position": "Long Course Training",
     "dateEnrolled": "2025-09-04"
+  },
+  {
+    "id": "s371",
+    "name": "عباس رائد محمد الدريع",
+    "studentId": "19",
+    "groupId": "saipem1",
+    "email": "",
+    "subject": "English",
+    "position": "Vocational Training",
+    "dateEnrolled": "2024-09-01"
+  },
+  {
+    "id": "s372",
+    "name": "مساعد احمد علي سباعي",
+    "studentId": "20",
+    "groupId": "saipem1",
+    "email": "",
+    "subject": "English",
+    "position": "Vocational Training",
+    "dateEnrolled": "2024-09-01"
+  },
+  {
+    "id": "s373",
+    "name": "عاصم مرعي القحطاني",
+    "studentId": "21",
+    "groupId": "sam2",
+    "email": "",
+    "subject": "English",
+    "position": "Welding",
+    "dateEnrolled": "2024-09-01"
+  },
+  {
+    "id": "s374",
+    "name": "فارس نادر الدوسري",
+    "studentId": "22",
+    "groupId": "sam2",
+    "email": "",
+    "subject": "English",
+    "position": "Welding",
+    "dateEnrolled": "2024-09-01"
   }
 ]
