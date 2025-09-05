@@ -291,7 +291,7 @@ const Exams = () => {
   const [selectedExamFilter, setSelectedExamFilter] = useState('all')
   const [hideNonEvaluated, setHideNonEvaluated] = useState(false)
 
-  const basePath = import.meta.env.VITE_BASE_PATH || ''
+  const basePath = import.meta.env.PROD ? '/studentLMS' : ''
 
   useEffect(() => {
     loadData()

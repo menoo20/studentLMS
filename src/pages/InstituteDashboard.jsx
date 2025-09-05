@@ -7,7 +7,9 @@ const InstituteDashboard = () => {
   const [groups, setGroups] = useState([])
   const [loading, setLoading] = useState(true)
 
-  const basePath = import.meta.env.VITE_BASE_PATH || ''
+  const { theme } = useTheme()
+
+  const basePath = import.meta.env.PROD ? '/studentLMS' : ''
 
   useEffect(() => {
     loadData()
