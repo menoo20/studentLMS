@@ -1,0 +1,223 @@
+{
+  "_instructions": {
+    "description": "Weekly Schedule Template - This file defines the repeating weekly schedule",
+    "usage": "The schedule component reads this template and generates daily schedules based on the current date",
+    "working_days": "Sunday through Thursday (5 days as per Arab work week)",
+    "date_calculation": "System automatically calculates which week to display based on start_date and end_date",
+    "last_updated": "2025-09-04",
+    "note": "No need to create individual daily entries - this template repeats for each week in the semester"
+  },
+  "schedule_info": {
+    "semester": "Fall 2024-2025",
+    "start_date": "2025-09-01",
+    "end_date": "2025-12-31",
+    "working_days": ["sunday", "monday", "tuesday", "wednesday", "thursday"],
+    "room": "Room 8",
+    "duration": "60 minutes"
+  },
+  "weekly_schedule": {
+    "sunday": [
+      {
+        "time": "09:00",
+        "group": "Dabal",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "11:00",
+        "group": "SAM5",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "12:00",
+        "group": "SAIPEM6",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "13:00",
+        "group": "ALFA2",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "14:00",
+        "group": "SAM2",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "15:00",
+        "group": "SAM8",
+        "subject": "English",
+        "type": "Lecture"
+      }
+    ],
+    "monday": [
+      {
+        "time": "09:00",
+        "group": "Dabal",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "09:00",
+        "group": "SAM1",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "10:00",
+        "group": "dabal_fahss",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "11:00",
+        "group": "SAM5",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "12:00",
+        "group": "SAIPEM6",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "13:00",
+        "group": "ALFA2",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "14:00",
+        "group": "SAM2",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "15:00",
+        "group": "SAM8",
+        "subject": "English",
+        "type": "Lecture"
+      }
+    ],
+    "tuesday": [
+      {
+        "time": "11:00",
+        "group": "SAM5",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "12:00",
+        "group": "SAIPEM6",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "13:00",
+        "group": "ALFA2",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "14:00",
+        "group": "SAM2",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "15:00",
+        "group": "SAM8",
+        "subject": "English",
+        "type": "Lecture"
+      }
+    ],
+    "wednesday": [
+      {
+        "time": "09:00",
+        "group": "SAM1",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "10:00",
+        "group": "dabal_fahss",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "11:00",
+        "group": "SAM5",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "12:00",
+        "group": "SAIPEM6",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "13:00",
+        "group": "ALFA2",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "14:00",
+        "group": "SAM2",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "15:00",
+        "group": "SAM8",
+        "subject": "English",
+        "type": "Lecture"
+      }
+    ],
+    "thursday": [
+      {
+        "time": "11:00",
+        "group": "SAM5",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "12:00",
+        "group": "SAIPEM6",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "13:00",
+        "group": "ALFA2",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "14:00",
+        "group": "SAM2",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "15:00",
+        "group": "SAM8",
+        "subject": "English",
+        "type": "Lecture"
+      }
+    ]
+  },
+  "special_groups": {
+    "nesma": {
+      "type": "online",
+      "schedule": "3 sessions per week",
+      "note": "Online classes scheduled separately"
+    }
+  }
+}

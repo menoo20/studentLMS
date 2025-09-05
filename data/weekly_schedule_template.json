@@ -1,0 +1,186 @@
+{
+  "_instructions": {
+    "description": "NEW Weekly Schedule Template - Starting fresh for 2025",
+    "usage": "Static yearly template for the timetable - rebuilt from scratch",
+    "working_days": "Sunday through Thursday (5 days as per Arab work week)",
+    "time_slots": "9 hourly slots from 8:00 to 16:00",
+    "last_updated": "2025-09-05",
+    "note": "Brand new template - all previous schedules cleared"
+  },
+  "schedule_info": {
+    "semester": "Fall 2024-2025",
+    "start_date": "2025-09-01",
+    "end_date": "2025-12-31",
+    "working_days": ["sunday", "monday", "tuesday", "wednesday", "thursday"],
+    "room": "Room 8",
+    "duration": "60 minutes"
+  },
+  "weekly_schedule": {
+    "sunday": [
+      {
+        "time": "09:00",
+        "group": "DABAL",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "10:00",
+        "group": "SAM1",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "11:00",
+        "group": "SAM5",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "12:00",
+        "group": "SAIPEM6",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "13:00",
+        "group": "NESMA",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "14:00",
+        "group": "NESMA",
+        "subject": "English",
+        "type": "Lecture"
+      }
+    ],
+    "monday": [
+      {
+        "time": "09:00",
+        "group": "DABAL",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "10:00",
+        "group": "SAM1",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "11:00",
+        "group": "SAM5",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "12:00",
+        "group": "SAIPEM6",
+        "subject": "English",
+        "type": "Lecture"
+      }
+    ],
+    "tuesday": [
+      {
+        "time": "09:00",
+        "group": "DABAL",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "10:00",
+        "group": "SAM1",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "11:00",
+        "group": "SAM5",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "12:00",
+        "group": "SAIPEM6",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "13:00",
+        "group": "NESMA",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "14:00",
+        "group": "NESMA",
+        "subject": "English",
+        "type": "Lecture"
+      }
+    ],
+    "wednesday": [
+      {
+        "time": "09:00",
+        "group": "DABAL",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "10:00",
+        "group": "SAM1",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "11:00",
+        "group": "SAM5",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "12:00",
+        "group": "SAIPEM6",
+        "subject": "English",
+        "type": "Lecture"
+      }
+    ],
+    "thursday": [
+      {
+        "time": "09:00",
+        "group": "DABAL",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "10:00",
+        "group": "SAM1",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "11:00",
+        "group": "SAM5",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "12:00",
+        "group": "SAIPEM6",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "13:00",
+        "group": "NESMA",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "14:00",
+        "group": "NESMA",
+        "subject": "English",
+        "type": "Lecture"
+      }
+    ]
+  }
+}

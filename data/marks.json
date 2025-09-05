@@ -2,7 +2,7 @@
   {
     "id": "m1",
     "studentId": "s1",
-    "examId": "exam1", 
+    "examId": "exam1",
     "score": 85,
     "date": "2024-03-15"
   },
@@ -15,7 +15,7 @@
   },
   {
     "id": "m3",
-    "studentId": "s2", 
+    "studentId": "s2",
     "examId": "exam1",
     "score": 92,
     "date": "2024-03-15"
@@ -36,7 +36,7 @@
   },
   {
     "id": "m6",
-    "studentId": "s3", 
+    "studentId": "s3",
     "examId": "exam2",
     "score": 35,
     "date": "2024-02-15"
@@ -51,7 +51,7 @@
   {
     "id": "m8",
     "studentId": "s4",
-    "examId": "exam2", 
+    "examId": "exam2",
     "score": 45,
     "date": "2024-02-15"
   },
@@ -75,5 +75,40 @@
     "examId": "placement_test",
     "score": 22,
     "date": "2025-08-24"
+  },
+  {
+    "id": "mark_12",
+    "studentId": "s015",
+    "examId": "jp_groups123_saipem6",
+    "score": 15.5,
+    "date": "2025-09-04"
+  },
+  {
+    "id": "mark_13",
+    "studentId": "s010",
+    "examId": "jp_groups123_saipem6",
+    "score": 12.5,
+    "date": "2025-09-04"
+  },
+  {
+    "id": "mark_14",
+    "studentId": "s019_new",
+    "examId": "jp_groups123_saipem6",
+    "score": 10.5,
+    "date": "2025-09-04"
+  },
+  {
+    "id": "mark_15",
+    "studentId": "s013",
+    "examId": "jp_groups123_saipem6",
+    "score": 2.0,
+    "date": "2025-09-04"
+  },
+  {
+    "id": "mark_16",
+    "studentId": "s016",
+    "examId": "jp_groups123_saipem6",
+    "score": 10.5,
+    "date": "2025-09-04"
   }
 ]
