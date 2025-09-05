@@ -1,5 +1,26 @@
 [
   {
+    "id": "m9",
+    "studentId": "n001",
+    "examId": "placement_test",
+    "score": 31,
+    "date": "2025-08-24"
+  },
+  {
+    "id": "m10",
+    "studentId": "n002",
+    "examId": "placement_test",
+    "score": 35,
+    "date": "2025-08-24"
+  },
+  {
+    "id": "m11",
+    "studentId": "n003",
+    "examId": "placement_test",
+    "score": 22,
+    "date": "2025-08-24"
+  },
+  {
     "id": "mark_12",
     "studentId": "s015",
     "examId": "jp_groups123_saipem6",
