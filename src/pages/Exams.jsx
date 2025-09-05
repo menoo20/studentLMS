@@ -180,13 +180,23 @@ const ReportsContent = ({ reportData, selectedExamFilter, hideNonEvaluated, allE
                   <tr key={studentData.student.id} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                     <td className="px-6 py-4 whitespace-nowrap sticky left-0 bg-inherit">
                       <div className="flex items-center">
-                        <div className="w-10 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                        <div className="w-9 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
                           <span className="text-xs font-medium text-blue-800">
                             {(() => {
                               const group = groups?.find(g => g.id === studentData.student.groupId);
                               const groupName = group?.name || studentData.student.groupId || 'N/A';
-                              // Show group name, but truncate if too long for better display
-                              return groupName.length > 6 ? groupName.substring(0, 6) : groupName;
+                              
+                              // Smart abbreviation: first 3 letters + number
+                              // Extract number from group name (sam1, sam2, saipem3, etc.)
+                              const numberMatch = groupName.match(/(\d+)$/);
+                              const number = numberMatch ? numberMatch[1] : '';
+                              
+                              // Get first 3 letters of the base name (without number)
+                              const baseName = groupName.replace(/\d+$/, '').toLowerCase();
+                              const shortName = baseName.substring(0, 3);
+                              
+                              // Return abbreviated form: sam1, sai3, alf2, dab, etc.
+                              return shortName + number;
                             })()}
                           </span>
                         </div>
