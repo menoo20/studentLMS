@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { useAuth } from '../contexts/AuthContext'
 import { useTheme } from '../components/ThemeContext'
 
@@ -10,6 +10,16 @@ const Login = () => {
   const [credential, setCredential] = useState('')
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(false)
+  const credentialInputRef = useRef(null)
+
+  // Auto-focus the credential input when role is selected and input becomes visible
+  useEffect(() => {
+    if (selectedRole && (selectedRole !== 'student' || selectedStudentType) && credentialInputRef.current) {
+      setTimeout(() => {
+        credentialInputRef.current.focus()
+      }, 100) // Small delay to ensure the input is rendered
+    }
+  }, [selectedRole, selectedStudentType])
 
   const handleLogin = async (e) => {
     e.preventDefault()
@@ -215,6 +225,7 @@ const Login = () => {
               </label>
               <input
                 type="password"
+                ref={credentialInputRef}
                 value={credential}
                 onChange={(e) => setCredential(e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"

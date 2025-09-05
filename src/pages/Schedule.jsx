@@ -37,7 +37,8 @@ const Schedule = () => {
 
   const loadSchedule = async () => {
     try {
-      const response = await fetch('/data/weekly_schedule_template.json')
+      const basePath = import.meta.env.PROD ? '/studentLMS' : ''
+      const response = await fetch(`${basePath}/data/weekly_schedule_template.json`)
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`)
       const data = await response.json()
       setWeeklySchedule(data)
