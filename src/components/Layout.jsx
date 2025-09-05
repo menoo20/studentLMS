@@ -9,10 +9,12 @@ const Layout = ({ children }) => {
 
   const navigation = [
     { name: 'Home', href: '/', icon: '🏠' },
+    { name: 'Institute Dashboard', href: '/institute', icon: '🏛️' },
     { name: 'Students', href: '/students', icon: '👥' },
     { name: 'Schedule', href: '/schedule', icon: '📅' },
     { name: 'Syllabus', href: '/syllabus', icon: '📚' },
     { name: 'Resources', href: '/resources', icon: '📁' },
+    { name: 'Exams', href: '/exams', icon: '📝' },
   ]
 
   const { theme, toggleTheme, getThemeStyles } = useTheme();

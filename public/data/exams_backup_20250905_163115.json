@@ -1,0 +1,211 @@
+[
+  {
+    "id": "exam_20250905_161518_8859ceae_nesma",
+    "name": "Placement Test",
+    "subject": "English",
+    "date": "2025-08-25",
+    "maxScore": 70.0,
+    "type": "test",
+    "createdAt": "2025-09-05T16:15:18.539805",
+    "description": "Assess Students initial level before starting the course",
+    "groupId": "nesma"
+  },
+  {
+    "id": "exam_20250905_162701_295c91e9_saipem6",
+    "name": "Jolly Phonics Group (1,2,3)",
+    "subject": "English",
+    "date": "2025-09-01",
+    "maxScore": 16.0,
+    "type": "quiz",
+    "createdAt": "2025-09-05T16:27:01.485026",
+    "description": "To students ability to recognize sounds",
+    "groupId": "saipem6"
+  },
+  {
+    "id": "exam_20250905_162701_295c91e9_saipem5",
+    "name": "Jolly Phonics Group (1,2,3)",
+    "subject": "English",
+    "date": "2025-09-01",
+    "maxScore": 16.0,
+    "type": "quiz",
+    "createdAt": "2025-09-05T16:27:01.485026",
+    "description": "To students ability to recognize sounds",
+    "groupId": "saipem5"
+  },
+  {
+    "id": "exam_20250905_162701_295c91e9_saipem4",
+    "name": "Jolly Phonics Group (1,2,3)",
+    "subject": "English",
+    "date": "2025-09-01",
+    "maxScore": 16.0,
+    "type": "quiz",
+    "createdAt": "2025-09-05T16:27:01.485026",
+    "description": "To students ability to recognize sounds",
+    "groupId": "saipem4"
+  },
+  {
+    "id": "exam_20250905_162701_295c91e9_saipem3",
+    "name": "Jolly Phonics Group (1,2,3)",
+    "subject": "English",
+    "date": "2025-09-01",
+    "maxScore": 16.0,
+    "type": "quiz",
+    "createdAt": "2025-09-05T16:27:01.485026",
+    "description": "To students ability to recognize sounds",
+    "groupId": "saipem3"
+  },
+  {
+    "id": "exam_20250905_162701_295c91e9_saipem2",
+    "name": "Jolly Phonics Group (1,2,3)",
+    "subject": "English",
+    "date": "2025-09-01",
+    "maxScore": 16.0,
+    "type": "quiz",
+    "createdAt": "2025-09-05T16:27:01.485026",
+    "description": "To students ability to recognize sounds",
+    "groupId": "saipem2"
+  },
+  {
+    "id": "exam_20250905_162701_295c91e9_saipem1",
+    "name": "Jolly Phonics Group (1,2,3)",
+    "subject": "English",
+    "date": "2025-09-01",
+    "maxScore": 16.0,
+    "type": "quiz",
+    "createdAt": "2025-09-05T16:27:01.485026",
+    "description": "To students ability to recognize sounds",
+    "groupId": "saipem1"
+  },
+  {
+    "id": "exam_20250905_162701_295c91e9_sam1",
+    "name": "Jolly Phonics Group (1,2,3)",
+    "subject": "English",
+    "date": "2025-09-01",
+    "maxScore": 16.0,
+    "type": "quiz",
+    "createdAt": "2025-09-05T16:27:01.485026",
+    "description": "To students ability to recognize sounds",
+    "groupId": "sam1"
+  },
+  {
+    "id": "exam_20250905_162701_295c91e9_sam2",
+    "name": "Jolly Phonics Group (1,2,3)",
+    "subject": "English",
+    "date": "2025-09-01",
+    "maxScore": 16.0,
+    "type": "quiz",
+    "createdAt": "2025-09-05T16:27:01.485026",
+    "description": "To students ability to recognize sounds",
+    "groupId": "sam2"
+  },
+  {
+    "id": "exam_20250905_162701_295c91e9_sam3",
+    "name": "Jolly Phonics Group (1,2,3)",
+    "subject": "English",
+    "date": "2025-09-01",
+    "maxScore": 16.0,
+    "type": "quiz",
+    "createdAt": "2025-09-05T16:27:01.485026",
+    "description": "To students ability to recognize sounds",
+    "groupId": "sam3"
+  },
+  {
+    "id": "exam_20250905_162701_295c91e9_sam4",
+    "name": "Jolly Phonics Group (1,2,3)",
+    "subject": "English",
+    "date": "2025-09-01",
+    "maxScore": 16.0,
+    "type": "quiz",
+    "createdAt": "2025-09-05T16:27:01.485026",
+    "description": "To students ability to recognize sounds",
+    "groupId": "sam4"
+  },
+  {
+    "id": "exam_20250905_162701_295c91e9_sam5",
+    "name": "Jolly Phonics Group (1,2,3)",
+    "subject": "English",
+    "date": "2025-09-01",
+    "maxScore": 16.0,
+    "type": "quiz",
+    "createdAt": "2025-09-05T16:27:01.485026",
+    "description": "To students ability to recognize sounds",
+    "groupId": "sam5"
+  },
+  {
+    "id": "exam_20250905_162701_295c91e9_sam6",
+    "name": "Jolly Phonics Group (1,2,3)",
+    "subject": "English",
+    "date": "2025-09-01",
+    "maxScore": 16.0,
+    "type": "quiz",
+    "createdAt": "2025-09-05T16:27:01.485026",
+    "description": "To students ability to recognize sounds",
+    "groupId": "sam6"
+  },
+  {
+    "id": "exam_20250905_162701_295c91e9_diang",
+    "name": "Jolly Phonics Group (1,2,3)",
+    "subject": "English",
+    "date": "2025-09-01",
+    "maxScore": 16.0,
+    "type": "quiz",
+    "createdAt": "2025-09-05T16:27:01.485026",
+    "description": "To students ability to recognize sounds",
+    "groupId": "diang"
+  },
+  {
+    "id": "exam_20250905_162701_295c91e9_dabal_fahss",
+    "name": "Jolly Phonics Group (1,2,3)",
+    "subject": "English",
+    "date": "2025-09-01",
+    "maxScore": 16.0,
+    "type": "quiz",
+    "createdAt": "2025-09-05T16:27:01.485026",
+    "description": "To students ability to recognize sounds",
+    "groupId": "dabal_fahss"
+  },
+  {
+    "id": "exam_20250905_162701_295c91e9_aman_elc",
+    "name": "Jolly Phonics Group (1,2,3)",
+    "subject": "English",
+    "date": "2025-09-01",
+    "maxScore": 16.0,
+    "type": "quiz",
+    "createdAt": "2025-09-05T16:27:01.485026",
+    "description": "To students ability to recognize sounds",
+    "groupId": "aman_elc"
+  },
+  {
+    "id": "exam_20250905_162701_295c91e9_deye",
+    "name": "Jolly Phonics Group (1,2,3)",
+    "subject": "English",
+    "date": "2025-09-01",
+    "maxScore": 16.0,
+    "type": "quiz",
+    "createdAt": "2025-09-05T16:27:01.485026",
+    "description": "To students ability to recognize sounds",
+    "groupId": "deye"
+  },
+  {
+    "id": "exam_20250905_162701_295c91e9_sam8",
+    "name": "Jolly Phonics Group (1,2,3)",
+    "subject": "English",
+    "date": "2025-09-01",
+    "maxScore": 16.0,
+    "type": "quiz",
+    "createdAt": "2025-09-05T16:27:01.485026",
+    "description": "To students ability to recognize sounds",
+    "groupId": "sam8"
+  },
+  {
+    "id": "exam_20250905_162701_295c91e9_alfa2",
+    "name": "Jolly Phonics Group (1,2,3)",
+    "subject": "English",
+    "date": "2025-09-01",
+    "maxScore": 16.0,
+    "type": "quiz",
+    "createdAt": "2025-09-05T16:27:01.485026",
+    "description": "To students ability to recognize sounds",
+    "groupId": "alfa2"
+  }
+]

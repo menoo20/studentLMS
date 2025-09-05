@@ -10,6 +10,8 @@ import Students from './pages/Students';
 import Schedule from './pages/Schedule';
 import Syllabus from './pages/Syllabus';
 import Resources from './pages/Resources';
+import Exams from './pages/Exams';
+import InstituteDashboard from './pages/InstituteDashboard';
 
 // Component to handle development redirects
 const DevRedirect = () => {
@@ -35,12 +37,14 @@ const AppContent = () => {
     <Layout>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/institute" element={<InstituteDashboard />} />
         <Route path="/students" element={<Students />} />
         <Route path="/schedule" element={<Schedule />} />
         <Route path="/syllabus" element={<Syllabus />} />
         <Route path="/syllabus/jolly-phonics" element={<Syllabus />} />
         <Route path="/syllabus/nesma-english" element={<Syllabus />} />
         <Route path="/resources" element={<Resources />} />
+        <Route path="/exams" element={<Exams />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Layout>

@@ -3690,25 +3690,5 @@
     "subject": "English",
     "position": "Vocational Training",
     "dateEnrolled": "2024-09-01"
-  },
-  {
-    "id": "s373",
-    "name": "عاصم مرعي القحطاني",
-    "studentId": "21",
-    "groupId": "sam2",
-    "email": "",
-    "subject": "English",
-    "position": "Welding",
-    "dateEnrolled": "2024-09-01"
-  },
-  {
-    "id": "s374",
-    "name": "فارس نادر الدوسري",
-    "studentId": "22",
-    "groupId": "sam2",
-    "email": "",
-    "subject": "English",
-    "position": "Welding",
-    "dateEnrolled": "2024-09-01"
   }
 ]

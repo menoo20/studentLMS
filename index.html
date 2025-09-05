@@ -19,6 +19,38 @@
         }
       }(window.location))
     </script>
+    
+    <!-- Data Protection System -->
+    <script type="text/javascript">
+      // Prevent multiple tab data conflicts
+      (function() {
+        const TAB_ID = 'tab_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        sessionStorage.setItem('currentTabId', TAB_ID);
+        
+        // Warn about multiple tabs
+        window.addEventListener('focus', function() {
+          const activeTabs = JSON.parse(localStorage.getItem('activeTabs') || '[]');
+          if (activeTabs.length > 1) {
+            console.warn('⚠️ Multiple tabs detected! This may cause data loss.');
+            if (window.showMultipleTabWarning) {
+              window.showMultipleTabWarning();
+            }
+          }
+        });
+        
+        // Register this tab
+        const activeTabs = JSON.parse(localStorage.getItem('activeTabs') || '[]');
+        activeTabs.push(TAB_ID);
+        localStorage.setItem('activeTabs', JSON.stringify(activeTabs));
+        
+        // Cleanup on unload
+        window.addEventListener('beforeunload', function() {
+          const tabs = JSON.parse(localStorage.getItem('activeTabs') || '[]');
+          const filteredTabs = tabs.filter(id => id !== TAB_ID);
+          localStorage.setItem('activeTabs', JSON.stringify(filteredTabs));
+        });
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
