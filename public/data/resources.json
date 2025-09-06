@@ -268,5 +268,64 @@
     "interactive": true,
     "downloadRequired": true,
     "usageInstructions": "This material is specifically designed for NESMA group students focusing on business English skills. Download all materials from the Google Drive folder and follow the structured progression. Use in conjunction with the 4-week NESMA syllabus for maximum effectiveness. Ideal for students transitioning from general English to workplace communication."
+  },
+  {
+    "id": "british-council-youre-hired",
+    "title": "You're Hired - British Council",
+    "description": "Interactive video series for interview and recruitment skills in English. Learn job application techniques, interview preparation, and professional communication. Suitable for B1 to C1 level learners with exercises and transcripts.",
+    "category": "Video Lectures",
+    "type": "video-series",
+    "url": "https://learnenglish.britishcouncil.org/business-english/youre-hired",
+    "tags": ["business english", "interviews", "recruitment", "job skills", "professional communication", "B1-C1"],
+    "dateAdded": "2025-09-07",
+    "size": "Video Series",
+    "specialFeatures": {
+      "videoSeries": "You're Hired - Professional Interview Skills",
+      "targetLevel": "B1 to C1 (Intermediate to Advanced)",
+      "provider": "British Council",
+      "contentType": "Interactive video lessons with exercises",
+      "learningOutcomes": [
+        "Master professional interview techniques",
+        "Develop job application skills",
+        "Improve workplace communication",
+        "Understand recruitment processes",
+        "Build confidence in professional settings"
+      ],
+      "keyFeatures": [
+        "Video-based lessons",
+        "Interactive exercises",
+        "Complete transcripts available",
+        "Self-paced learning",
+        "Professional scenarios",
+        "Real-world applications"
+      ],
+      "skillAreas": [
+        "Job interview preparation",
+        "CV and application writing",
+        "Professional communication",
+        "Recruitment understanding",
+        "Workplace etiquette",
+        "Business English vocabulary"
+      ],
+      "suitableFor": [
+        "Job seekers",
+        "Career changers", 
+        "Students preparing for professional roles",
+        "Business English learners",
+        "Interview skill development"
+      ]
+    },
+    "accessLevel": "open",
+    "eligibleStudents": ["All Groups"],
+    "instructor": "British Council",
+    "localThumbnail": "/images/now-hiring.jpg",
+    "estimatedDuration": "Self-paced video series",
+    "difficulty": "Intermediate to Advanced (B1-C1)",
+    "language": "English (Business Focus)",
+    "interactive": true,
+    "downloadRequired": false,
+    "courseTypes": ["short", "long"],
+    "restrictedGroups": ["investors"],
+    "usageInstructions": "Complete video series covering job search, application, and interview skills. Each episode includes interactive exercises and transcripts. Perfect for students preparing for professional English communication and job interviews."
   }
 ]

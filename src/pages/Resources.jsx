@@ -322,7 +322,8 @@ const Resources = () => {
                 resource.id === 'nesma-study-portal' ? 'border-2 border-blue-300 bg-gradient-to-br from-blue-50 to-purple-50' : 
                 resource.id === 'jolly-phonics-youtube' ? 'border-2 border-purple-300 bg-gradient-to-br from-purple-50 to-red-50' : 
                 resource.id === 'pronunciation-practice-website' ? 'border-2 border-green-300 bg-gradient-to-br from-green-50 to-blue-50' : 
-                resource.id === 'english-for-everyone-business-level-1' ? 'border-2 border-orange-300 bg-gradient-to-br from-orange-50 to-yellow-50' : ''
+                resource.id === 'english-for-everyone-business-level-1' ? 'border-2 border-orange-300 bg-gradient-to-br from-orange-50 to-yellow-50' : 
+                resource.id === 'british-council-youre-hired' ? 'border-2 border-indigo-300 bg-gradient-to-br from-indigo-50 to-blue-50' : ''
               }`}>
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex items-center space-x-2">
@@ -618,6 +619,89 @@ const Resources = () => {
                         <div className="bg-green-50 p-2 rounded">
                           <span className="font-medium text-green-800">📝 Worksheets</span>
                         </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* British Council You're Hired Features */}
+                {resource.id === 'british-council-youre-hired' && (
+                  <div className="mb-4 space-y-3">
+                    {/* Course Thumbnail */}
+                    <div 
+                      onClick={(e) => handleSecureClick(resource.url, resource, e)}
+                      className="block cursor-pointer"
+                    >
+                      <div className="relative rounded-lg overflow-hidden bg-gradient-to-br from-indigo-50 to-blue-50 border border-indigo-200 cursor-pointer hover:shadow-lg transition-shadow">
+                        {(!canAccessResource(resource, user)) && (
+                          <div className="absolute top-2 left-2 bg-yellow-500 text-black px-2 py-1 rounded text-xs font-medium z-10">
+                            {user.role === 'investor' ? '🔒 Access Restricted' : '🚫 Not Available'}
+                          </div>
+                        )}
+                        <div className="aspect-video bg-gray-200 relative overflow-hidden">
+                          <img 
+                            src={`${import.meta.env.PROD ? '/studentLMS' : ''}/images/now-hiring.jpg`}
+                            alt="British Council You're Hired Interview Skills"
+                            className="w-full h-full object-cover"
+                          />
+                          {/* Interactive overlay */}
+                          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 opacity-0 hover:opacity-100 transition-opacity">
+                            <div className="bg-indigo-600 rounded-full p-3 shadow-lg">
+                              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h8m2 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="absolute top-2 right-2 bg-indigo-600 text-white px-2 py-1 rounded text-xs font-medium">
+                          Video Series
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Course Features */}
+                    <div className="p-3 bg-gradient-to-r from-indigo-50 to-blue-50 rounded-lg border border-indigo-200">
+                      <p className="text-sm font-medium text-indigo-900 mb-2">🎯 Professional Interview Skills</p>
+                      <p className="text-xs text-indigo-800">
+                        Interactive video series with exercises and transcripts for B1-C1 learners
+                      </p>
+                    </div>
+                    
+                    {/* Skills Covered */}
+                    <div className="p-3 bg-white rounded-lg border border-blue-200">
+                      <h5 className="text-sm font-semibold text-blue-900 mb-2">💼 Skills You'll Learn</h5>
+                      <div className="grid grid-cols-2 gap-2 text-xs">
+                        <div className="bg-indigo-50 p-2 rounded">
+                          <span className="font-medium text-indigo-800">📝 Job Applications</span>
+                        </div>
+                        <div className="bg-blue-50 p-2 rounded">
+                          <span className="font-medium text-blue-800">🎤 Interview Techniques</span>
+                        </div>
+                        <div className="bg-purple-50 p-2 rounded">
+                          <span className="font-medium text-purple-800">👔 Professional Communication</span>
+                        </div>
+                        <div className="bg-cyan-50 p-2 rounded">
+                          <span className="font-medium text-cyan-800">🔍 Recruitment Process</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Learning Features */}
+                    <div className="p-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200">
+                      <h5 className="text-sm font-semibold text-blue-900 mb-2">✨ Interactive Features</h5>
+                      <div className="flex flex-wrap gap-2 text-xs">
+                        <span className="bg-white border border-indigo-300 text-indigo-800 px-2 py-1 rounded-full font-medium">
+                          📹 Video Lessons
+                        </span>
+                        <span className="bg-white border border-blue-300 text-blue-800 px-2 py-1 rounded-full font-medium">
+                          📋 Transcripts
+                        </span>
+                        <span className="bg-white border border-purple-300 text-purple-800 px-2 py-1 rounded-full font-medium">
+                          🎯 Exercises
+                        </span>
+                        <span className="bg-white border border-green-300 text-green-800 px-2 py-1 rounded-full font-medium">
+                          🏆 B1-C1 Level
+                        </span>
                       </div>
                     </div>
                   </div>
