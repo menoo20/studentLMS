@@ -240,6 +240,16 @@
     "dateEnrolled": "2025-09-04"
   },
   {
+    "id": "s019_new3",
+    "name": "أحمد بن محمد بن يحي كليبي",
+    "studentId": "22",
+    "groupId": "saipem6",
+    "email": "",
+    "subject": "English",
+    "position": "Vocational Training",
+    "dateEnrolled": "2025-09-07"
+  },
+  {
     "id": "s020",
     "name": "راشد محمد يحي كليبي",
     "studentId": "1",
