@@ -249,6 +249,18 @@
     "position": "Vocational Training",
     "dateEnrolled": "2025-09-07"
   },
+
+  {
+  "id": "s019_new4",
+  "name": "محمد حسن مهدي العسيف",
+  "studentId": "23",
+  "groupId": "saipem6",
+  "email": "",
+  "subject": "English",
+  "position": "Vocational Training",
+  "dateEnrolled": "2025-09-07"
+},
+
   {
     "id": "s020",
     "name": "راشد محمد يحي كليبي",
