@@ -270,16 +270,6 @@
     "dateEnrolled": "2024-09-01"
   },
   {
-    "id": "s019_new5",
-    "name": "صالح تركي عبدالله الصقور",
-    "studentId": "25",
-    "groupId": "saipem6",
-    "email": "",
-    "subject": "English",
-    "position": "Vocational Training",
-    "dateEnrolled": "2025-09-08"
-  },
-  {
     "id": "s021",
     "name": "عزام خالد عبدالرحمن الخالدي",
     "studentId": "2",
@@ -1378,16 +1368,6 @@
     "subject": "English",
     "position": "Welding",
     "dateEnrolled": "2024-09-01"
-  },
-  {
-    "id": "s375",
-    "name": "مهدي حسن علي الموسى",
-    "studentId": "s375",
-    "groupId": "sam1",
-    "email": "",
-    "subject": "English",
-    "position": "Vocational Training",
-    "dateEnrolled": "2025-09-08"
   },
   {
     "id": "s131",

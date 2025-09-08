@@ -103,10 +103,90 @@ const marksProtection = new MarksProtectionSystem();
 
 // Reports Content Component
 const ReportsContent = ({ reportData, selectedExamFilter, hideNonEvaluated, allExams, groups }) => {
+  // Sorting state
+  const [sortConfig, setSortConfig] = React.useState({ key: null, direction: 'desc' })
+  
   // Get current exam name if filtering by specific exam
   const currentExamName = selectedExamFilter !== 'all' 
     ? allExams.find(e => e.id === selectedExamFilter)?.name || 'Unknown Exam'
     : 'All Exams'
+
+  // Sort function
+  const handleSort = (key) => {
+    let direction = 'desc'
+    if (sortConfig.key === key && sortConfig.direction === 'desc') {
+      direction = 'asc'
+    }
+    setSortConfig({ key, direction })
+  }
+
+  // Apply sorting to student data
+  const sortedStudents = React.useMemo(() => {
+    if (!sortConfig.key) return reportData.students
+
+    return [...reportData.students].sort((a, b) => {
+      let aValue, bValue
+
+      if (sortConfig.key === 'name') {
+        aValue = a.student.name
+        bValue = b.student.name
+        // For names, use alphabetical sorting
+        return sortConfig.direction === 'asc' 
+          ? aValue.localeCompare(bValue, 'ar')
+          : bValue.localeCompare(aValue, 'ar')
+      } else if (sortConfig.key === 'average') {
+        aValue = parseFloat(a.averagePercentage || 0)
+        bValue = parseFloat(b.averagePercentage || 0)
+      } else {
+        // Exam scores
+        const aExamData = a.examScores[sortConfig.key]
+        const bExamData = b.examScores[sortConfig.key]
+        aValue = aExamData ? parseFloat(aExamData.percentage || 0) : 0
+        bValue = bExamData ? parseFloat(bExamData.percentage || 0) : 0
+      }
+
+      if (sortConfig.direction === 'asc') {
+        return aValue - bValue
+      } else {
+        return bValue - aValue
+      }
+    })
+  }, [reportData.students, sortConfig])
+
+  // Sort arrow component
+  const SortArrow = ({ column, currentSort }) => {
+    if (currentSort.key !== column) {
+      return (
+        <span className="inline-flex flex-col ml-1 opacity-30">
+          <svg className="w-3 h-3 -mb-1" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+          </svg>
+          <svg className="w-3 h-3 rotate-180" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+          </svg>
+        </span>
+      )
+    }
+
+    return (
+      <span className="inline-flex ml-1">
+        <svg 
+          className={`w-3 h-3 ${currentSort.direction === 'desc' ? 'text-blue-600' : 'opacity-30'}`} 
+          fill="currentColor" 
+          viewBox="0 0 20 20"
+        >
+          <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+        </svg>
+        <svg 
+          className={`w-3 h-3 -ml-1 rotate-180 ${currentSort.direction === 'asc' ? 'text-blue-600' : 'opacity-30'}`} 
+          fill="currentColor" 
+          viewBox="0 0 20 20"
+        >
+          <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+        </svg>
+      </span>
+    )
+  }
 
   return (
     <div className="space-y-6">
@@ -158,25 +238,43 @@ const ReportsContent = ({ reportData, selectedExamFilter, hideNonEvaluated, allE
               <thead className="bg-gray-50">
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider sticky left-0 bg-gray-50">
-                    Student Name
+                    <button
+                      onClick={() => handleSort('name')}
+                      className="flex items-center hover:text-gray-700 transition-colors cursor-pointer"
+                    >
+                      Student Name
+                      <SortArrow column="name" currentSort={sortConfig} />
+                    </button>
                   </th>
                   {reportData.exams.map(exam => (
                     <th key={exam.id} className="px-4 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider min-w-[120px]">
-                      <div>
-                        <div className="font-semibold">{exam.name}</div>
+                      <button
+                        onClick={() => handleSort(exam.id)}
+                        className="flex flex-col items-center hover:text-gray-700 transition-colors cursor-pointer w-full"
+                      >
+                        <div className="flex items-center">
+                          <span className="font-semibold">{exam.name}</span>
+                          <SortArrow column={exam.id} currentSort={sortConfig} />
+                        </div>
                         <div className="text-xs text-gray-400">
                           {exam.type} • Max: {exam.maxScore}
                         </div>
-                      </div>
+                      </button>
                     </th>
                   ))}
                   <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider bg-yellow-50 sticky right-0">
-                    Average
+                    <button
+                      onClick={() => handleSort('average')}
+                      className="flex items-center justify-center hover:text-gray-700 transition-colors cursor-pointer w-full"
+                    >
+                      Average
+                      <SortArrow column="average" currentSort={sortConfig} />
+                    </button>
                   </th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {reportData.students.map((studentData, index) => (
+                {sortedStudents.map((studentData, index) => (
                   <tr key={studentData.student.id} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                     <td className="px-6 py-4 whitespace-nowrap sticky left-0 bg-inherit">
                       <div className="flex items-center">

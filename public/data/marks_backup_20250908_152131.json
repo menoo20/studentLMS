@@ -408,55 +408,5 @@
     "percentage": "62.5",
     "date": "2025-09-08",
     "createdAt": "2025-09-08T15:17:06.666641"
-  },
-  {
-    "id": "mark_20250908_152203_6d7b9dab",
-    "studentId": "s118",
-    "examId": "exam_20250905_162701_295c91e9",
-    "score": 9.0,
-    "maxScore": 16.0,
-    "percentage": "56.2",
-    "date": "2025-09-08",
-    "createdAt": "2025-09-08T15:22:03.045926"
-  },
-  {
-    "id": "mark_20250908_152336_a5638bf4",
-    "studentId": "s137",
-    "examId": "exam_20250905_162701_295c91e9",
-    "score": 9.0,
-    "maxScore": 16.0,
-    "percentage": "56.2",
-    "date": "2025-09-08",
-    "createdAt": "2025-09-08T15:23:36.859703"
-  },
-  {
-    "id": "mark_20250908_152553_05a346db",
-    "studentId": "s141",
-    "examId": "exam_20250905_162701_295c91e9",
-    "score": 8.0,
-    "maxScore": 16.0,
-    "percentage": "50.0",
-    "date": "2025-09-08",
-    "createdAt": "2025-09-08T15:25:53.561564"
-  },
-  {
-    "id": "mark_20250908_152620_45517f2b",
-    "studentId": "s126",
-    "examId": "exam_20250905_162701_295c91e9",
-    "score": 8.0,
-    "maxScore": 16.0,
-    "percentage": "50.0",
-    "date": "2025-09-08",
-    "createdAt": "2025-09-08T15:26:20.969151"
-  },
-  {
-    "id": "mark_20250908_152657_1c8517fc",
-    "studentId": "s122",
-    "examId": "exam_20250905_162701_295c91e9",
-    "score": 8.0,
-    "maxScore": 16.0,
-    "percentage": "50.0",
-    "date": "2025-09-08",
-    "createdAt": "2025-09-08T15:26:57.771826"
   }
 ]
