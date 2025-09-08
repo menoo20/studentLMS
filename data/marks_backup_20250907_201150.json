@@ -1,5 +1,39 @@
 [
- 
+  {
+    "id": "mark_12",
+    "studentId": "s015",
+    "examId": "jp_groups123_saipem6",
+    "score": 15.5,
+    "date": "2025-09-04"
+  },
+  {
+    "id": "mark_13",
+    "studentId": "s010",
+    "examId": "jp_groups123_saipem6",
+    "score": 12.5,
+    "date": "2025-09-04"
+  },
+  {
+    "id": "mark_14",
+    "studentId": "s019_new",
+    "examId": "jp_groups123_saipem6",
+    "score": 10.5,
+    "date": "2025-09-04"
+  },
+  {
+    "id": "mark_15",
+    "studentId": "s013",
+    "examId": "jp_groups123_saipem6",
+    "score": 2.0,
+    "date": "2025-09-04"
+  },
+  {
+    "id": "mark_16",
+    "studentId": "s016",
+    "examId": "jp_groups123_saipem6",
+    "score": 10.5,
+    "date": "2025-09-04"
+  },
   {
     "id": "mark_20250905_162138_71cc3480",
     "studentId": "n001",
@@ -309,15 +343,5 @@
     "percentage": "25.0",
     "date": "2025-09-07",
     "createdAt": "2025-09-07T15:57:11.299739"
-  },
-  {
-    "id": "mark_20250907_201212_423780e0",
-    "studentId": "s019_new4",
-    "examId": "exam_20250905_162701_295c91e9",
-    "score": 14.5,
-    "maxScore": 16.0,
-    "percentage": "90.6",
-    "date": "2025-09-07",
-    "createdAt": "2025-09-07T20:12:12.315822"
   }
 ]
