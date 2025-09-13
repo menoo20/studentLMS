@@ -323,7 +323,8 @@ const Resources = () => {
                 resource.id === 'jolly-phonics-youtube' ? 'border-2 border-purple-300 bg-gradient-to-br from-purple-50 to-red-50' : 
                 resource.id === 'pronunciation-practice-website' ? 'border-2 border-green-300 bg-gradient-to-br from-green-50 to-blue-50' : 
                 resource.id === 'english-for-everyone-business-level-1' ? 'border-2 border-orange-300 bg-gradient-to-br from-orange-50 to-yellow-50' : 
-                resource.id === 'british-council-youre-hired' ? 'border-2 border-indigo-300 bg-gradient-to-br from-indigo-50 to-blue-50' : ''
+                resource.id === 'british-council-youre-hired' ? 'border-2 border-indigo-300 bg-gradient-to-br from-indigo-50 to-blue-50' : 
+                resource.id === 'english-grammar-in-use-intermediate' ? 'border-2 border-emerald-300 bg-gradient-to-br from-emerald-50 to-green-50' : ''
               }`}>
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex items-center space-x-2">
@@ -703,6 +704,85 @@ const Resources = () => {
                           🏆 B1-C1 Level
                         </span>
                       </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* English Grammar in Use – Intermediate (Stylized) */}
+                {resource.id === 'english-grammar-in-use-intermediate' && (
+                  <div className="mb-4 space-y-3">
+                    {/* Clickable banner */}
+                    <div 
+                      onClick={(e) => handleSecureClick(resource.url, resource, e)}
+                      className="block cursor-pointer"
+                    >
+                      <div className="relative rounded-lg overflow-hidden bg-gradient-to-br from-emerald-50 to-green-50 border border-emerald-200 hover:shadow-lg transition-shadow">
+                        {(!canAccessResource(resource, user)) && (
+                          <div className="absolute top-2 left-2 bg-yellow-500 text-black px-2 py-1 rounded text-xs font-medium z-10">
+                            {user.role === 'investor' ? '🔒 Access Restricted' : '🚫 Not Available'}
+                          </div>
+                        )}
+                        <div className="aspect-video bg-gray-200 relative overflow-hidden">
+                          <img 
+                            src={`${import.meta.env.PROD ? '/studentLMS' : ''}${resource.localThumbnail || '/images/grammar.webp'}`}
+                            alt="English Grammar in Use – Intermediate"
+                            className="w-full h-full object-cover"
+                          />
+                          {/* Dark overlay for text readability */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+                          {/* Title and subtitle */}
+                          <div className="absolute left-3 bottom-3 right-3">
+                            <div className="text-white font-bold text-base sm:text-lg drop-shadow">English Grammar in Use</div>
+                            <div className="text-white/90 text-[11px] sm:text-xs">Intermediate • Raymond Murphy • Cambridge University Press</div>
+                          </div>
+                          {/* Badges */}
+                          <div className="absolute top-2 right-2 bg-emerald-600 text-white px-2 py-1 rounded text-[10px] sm:text-xs font-medium">
+                            Google Drive
+                          </div>
+                          <div className="absolute top-2 left-2 bg-white/90 border border-emerald-300 text-emerald-800 px-2 py-1 rounded-full text-[10px] sm:text-xs font-medium">
+                            Level: B1–B2
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Why this book */}
+                    <div className="p-3 bg-gradient-to-r from-emerald-50 to-green-50 rounded-lg border border-emerald-200">
+                      <h5 className="text-sm font-semibold text-emerald-900 mb-2">✨ Why this book</h5>
+                      <div className="grid grid-cols-2 gap-2 text-xs text-emerald-800">
+                        <div className="flex items-center gap-1"><span>🧩</span> Two-page units (explain + practice)</div>
+                        <div className="flex items-center gap-1"><span>✅</span> With answers for self-study</div>
+                        <div className="flex items-center gap-1"><span>🎯</span> Targets B1–B2 grammar</div>
+                        <div className="flex items-center gap-1"><span>🧪</span> Study guide to diagnose weak areas</div>
+                      </div>
+                    </div>
+
+                    {/* Topics (chips) */}
+                    {resource.specialFeatures?.topics && (
+                      <div className="p-3 bg-white rounded-lg border border-emerald-200">
+                        <h5 className="text-sm font-semibold text-emerald-900 mb-2">📚 Key Topics</h5>
+                        <div className="flex flex-wrap gap-2 text-xs">
+                          {resource.specialFeatures.topics.slice(0, 10).map((topic, idx) => (
+                            <span key={idx} className="bg-white border border-emerald-300 text-emerald-800 px-2 py-1 rounded-full font-medium">
+                              {topic}
+                            </span>
+                          ))}
+                          {resource.specialFeatures.topics.length > 10 && (
+                            <span className="bg-emerald-50 border border-emerald-200 text-emerald-700 px-2 py-1 rounded-full font-medium">+ more</span>
+                          )}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* How to use */}
+                    <div className="p-3 bg-white rounded-lg border border-green-200">
+                      <h5 className="text-sm font-semibold text-green-900 mb-2">🧭 How to use</h5>
+                      <ul className="list-disc list-inside text-xs text-green-800 space-y-1">
+                        <li>Use the Study Guide to find weak areas first</li>
+                        <li>Do 2–3 units per week (left page read → right page exercises)</li>
+                        <li>Check with the Answer Key and track mistakes</li>
+                        <li>Great for both short and long course students</li>
+                      </ul>
                     </div>
                   </div>
                 )}
