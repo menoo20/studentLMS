@@ -473,35 +473,37 @@ const Exams = () => {
     // Create report data for each student
     let reportData = groupStudents.map(student => {
       const studentMarks = marks.filter(mark => mark.studentId.toString() === student.id)
-      
+
       const examScores = {}
-      let totalScore = 0
-      let totalMaxScore = 0
       let evaluatedExamsCount = 0
+      let sumPercentages = 0
 
       groupExams.forEach(exam => {
         const mark = studentMarks.find(m => m.examId === exam.id)
         if (mark) {
+          // Always recalculate percentage for safety
+          const percentage = mark.percentage
+            ? parseFloat(mark.percentage)
+            : ((mark.score / (mark.maxScore || exam.maxScore)) * 100)
           examScores[exam.id] = {
             score: mark.score,
             maxScore: mark.maxScore || exam.maxScore,
-            percentage: mark.percentage || ((mark.score / (mark.maxScore || exam.maxScore)) * 100).toFixed(1)
+            percentage: percentage.toFixed(1)
           }
-          totalScore += mark.score
-          totalMaxScore += (mark.maxScore || exam.maxScore)
+          sumPercentages += percentage
           evaluatedExamsCount++
         }
       })
 
-      const averagePercentage = totalMaxScore > 0 
-        ? ((totalScore / totalMaxScore) * 100).toFixed(1) 
+      const averagePercentage = evaluatedExamsCount > 0
+        ? (sumPercentages / evaluatedExamsCount).toFixed(1)
         : '0'
 
       return {
         student: student,
         examScores: examScores,
-        totalScore: totalScore,
-        totalMaxScore: totalMaxScore,
+        totalScore: undefined, // not used for display
+        totalMaxScore: undefined, // not used for display
         averagePercentage: averagePercentage,
         totalEvaluated: evaluatedExamsCount
       }
