@@ -328,4 +328,57 @@
     "restrictedGroups": ["investors"],
     "usageInstructions": "Complete video series covering job search, application, and interview skills. Each episode includes interactive exercises and transcripts. Perfect for students preparing for professional English communication and job interviews."
   }
+  ,
+  {
+    "id": "english-grammar-in-use-intermediate",
+    "title": "English Grammar in Use – Intermediate (Raymond Murphy)",
+    "description": "The world's best-selling grammar reference and practice book for intermediate learners of English. Clear explanations with two-page units: left page explanations, right page exercises. Ideal for self-study and classroom use.",
+    "category": "Books",
+    "type": "book",
+    "url": "https://drive.google.com/drive/folders/1FOHNMRIbfF7y0ax3WcM7DD5keIEswDAw?usp=sharing",
+    "tags": ["grammar", "intermediate", "raymond murphy", "self-study", "cambridge", "practice"],
+    "dateAdded": "2025-09-13",
+    "size": "PDF + Answer Key + Supplementary",
+    "specialFeatures": {
+      "author": "Raymond Murphy",
+      "publisher": "Cambridge University Press",
+      "edition": "Intermediate (with answers)",
+      "level": "B1–B2",
+      "structure": "Two-page units (explanation + practice)",
+      "useCases": [
+        "Self-study reference and practice",
+        "Supplement for long and short courses",
+        "Targeted grammar remediation",
+        "Exam preparation (IELTS/B1/B2)"
+      ],
+      "topics": [
+        "Tenses (Present, Past, Present Perfect)",
+        "Articles and Determiners",
+        "Modals and Semi-modals",
+        "Conditionals and Wishes",
+        "Passive Voice",
+        "Reported Speech",
+        "Prepositions and Phrasal Verbs",
+        "Gerunds and Infinitives",
+        "Relative Clauses",
+        "Nouns, Pronouns, Adjectives, Adverbs"
+      ],
+      "extras": [
+        "Answer key for independent learning",
+        "Study guide to diagnose weak areas",
+        "Additional exercises for consolidation"
+      ]
+    },
+    "accessLevel": "open",
+    "eligibleStudents": ["All Groups (Short + Long)"] ,
+    "restrictedGroups": ["investors"],
+    "instructor": "English Department",
+    "localThumbnail": "/images/07-1.webp",
+    "estimatedDuration": "Use alongside weekly lessons or for targeted review",
+    "difficulty": "Intermediate (B1–B2)",
+    "language": "English",
+    "interactive": false,
+    "downloadRequired": true,
+    "usageInstructions": "Open the Google Drive folder and download the PDF (with answers). Use the Study Guide at the back to identify weak areas, then complete the relevant units. Recommended: 2–3 units per week with correction using the answer key."
+  }
 ]
