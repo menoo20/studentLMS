@@ -4,8 +4,8 @@
     "usage": "Static yearly template for the timetable - rebuilt from scratch",
     "working_days": "Sunday through Thursday (5 days as per Arab work week)",
     "time_slots": "9 hourly slots from 8:00 to 16:00",
-    "last_updated": "2025-09-05",
-    "note": "Brand new template - all previous schedules cleared"
+    "last_updated": "2025-09-15",
+    "note": "Updated schedule with new groups: DYEY, ELECO2, SAM2, SAM8 added"
   },
   "schedule_info": {
     "semester": "Fall 2024-2025",
@@ -18,6 +18,12 @@
   "weekly_schedule": {
     "sunday": [
       {
+        "time": "08:00",
+        "group": "DYEY",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
         "time": "09:00",
         "group": "DABAL",
         "subject": "English",
@@ -50,12 +56,24 @@
       {
         "time": "14:00",
         "group": "NESMA",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "15:00",
+        "group": "SAM8",
         "subject": "English",
         "type": "Lecture"
       }
     ],
     "monday": [
       {
+        "time": "08:00",
+        "group": "DYEY",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
         "time": "09:00",
         "group": "DABAL",
         "subject": "English",
@@ -76,12 +94,36 @@
       {
         "time": "12:00",
         "group": "SAIPEM6",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "13:00",
+        "group": "ELECO2",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "14:00",
+        "group": "SAM2",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "15:00",
+        "group": "SAM8",
         "subject": "English",
         "type": "Lecture"
       }
     ],
     "tuesday": [
       {
+        "time": "08:00",
+        "group": "DYEY",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
         "time": "09:00",
         "group": "DABAL",
         "subject": "English",
@@ -114,12 +156,24 @@
       {
         "time": "14:00",
         "group": "NESMA",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "15:00",
+        "group": "SAM8",
         "subject": "English",
         "type": "Lecture"
       }
     ],
     "wednesday": [
       {
+        "time": "08:00",
+        "group": "DYEY",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
         "time": "09:00",
         "group": "DABAL",
         "subject": "English",
@@ -142,9 +196,33 @@
         "group": "SAIPEM6",
         "subject": "English",
         "type": "Lecture"
+      },
+      {
+        "time": "13:00",
+        "group": "ELECO2",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "14:00",
+        "group": "SAM2",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "15:00",
+        "group": "SAM8",
+        "subject": "English",
+        "type": "Lecture"
       }
     ],
     "thursday": [
+      {
+        "time": "08:00",
+        "group": "DYEY",
+        "subject": "English",
+        "type": "Lecture"
+      },
       {
         "time": "09:00",
         "group": "DABAL",
@@ -178,6 +256,12 @@
       {
         "time": "14:00",
         "group": "NESMA",
+        "subject": "English",
+        "type": "Lecture"
+      },
+      {
+        "time": "15:00",
+        "group": "SAM8",
         "subject": "English",
         "type": "Lecture"
       }
