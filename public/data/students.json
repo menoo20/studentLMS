@@ -3760,5 +3760,155 @@
     "subject": "English",
     "position": "Welding",
     "dateEnrolled": "2024-09-01"
+  },
+  {
+    "id": "s375",
+    "name": "عواد معاشي حليس الرويلي",
+    "studentId": "1",
+    "groupId": "sam8",
+    "email": "",
+    "subject": "English",
+    "position": "Vocational Training",
+    "dateEnrolled": "2025-09-15"
+  },
+  {
+    "id": "s376",
+    "name": "عبدالله محمد حدروج الشمراني",
+    "studentId": "2",
+    "groupId": "sam8",
+    "email": "",
+    "subject": "English",
+    "position": "Vocational Training",
+    "dateEnrolled": "2025-09-15"
+  },
+  {
+    "id": "s377",
+    "name": "علي احمد ابرهيم ال يتيم",
+    "studentId": "3",
+    "groupId": "sam8",
+    "email": "",
+    "subject": "English",
+    "position": "Vocational Training",
+    "dateEnrolled": "2025-09-15"
+  },
+  {
+    "id": "s378",
+    "name": "عبدالله ماجد عبدالله العيسى",
+    "studentId": "4",
+    "groupId": "sam8",
+    "email": "",
+    "subject": "English",
+    "position": "Vocational Training",
+    "dateEnrolled": "2025-09-15"
+  },
+  {
+    "id": "s379",
+    "name": "عبدالله عبدالعزيز عبدالله المطيري",
+    "studentId": "5",
+    "groupId": "sam8",
+    "email": "",
+    "subject": "English",
+    "position": "Vocational Training",
+    "dateEnrolled": "2025-09-15"
+  },
+  {
+    "id": "s380",
+    "name": "احمد صالح محمد السهيمي",
+    "studentId": "6",
+    "groupId": "sam8",
+    "email": "",
+    "subject": "English",
+    "position": "Vocational Training",
+    "dateEnrolled": "2025-09-15"
+  },
+  {
+    "id": "s381",
+    "name": "محمد متعب مسفر السهيمي",
+    "studentId": "7",
+    "groupId": "sam8",
+    "email": "",
+    "subject": "English",
+    "position": "Vocational Training",
+    "dateEnrolled": "2025-09-15"
+  },
+  {
+    "id": "s382",
+    "name": "هادي محمد البناي",
+    "studentId": "8",
+    "groupId": "sam8",
+    "email": "",
+    "subject": "English",
+    "position": "Vocational Training",
+    "dateEnrolled": "2025-09-15"
+  },
+  {
+    "id": "s383",
+    "name": "حسن علي ابراهيم اليوسف",
+    "studentId": "9",
+    "groupId": "sam8",
+    "email": "",
+    "subject": "English",
+    "position": "Vocational Training",
+    "dateEnrolled": "2025-09-15"
+  },
+  {
+    "id": "s384",
+    "name": "فيصل سعد خلف الدوسري",
+    "studentId": "10",
+    "groupId": "sam8",
+    "email": "",
+    "subject": "English",
+    "position": "Vocational Training",
+    "dateEnrolled": "2025-09-15"
+  },
+  {
+    "id": "s385",
+    "name": "عايض عبدالعزيز المطيري",
+    "studentId": "11",
+    "groupId": "sam8",
+    "email": "",
+    "subject": "English",
+    "position": "Vocational Training",
+    "dateEnrolled": "2025-09-15"
+  },
+  {
+    "id": "s386",
+    "name": "اسماعيل محمد شايع موشر",
+    "studentId": "12",
+    "groupId": "sam8",
+    "email": "",
+    "subject": "English",
+    "position": "Vocational Training",
+    "dateEnrolled": "2025-09-15"
+  },
+  {
+    "id": "s387",
+    "name": "فيصل تركي الدوسري",
+    "studentId": "13",
+    "groupId": "sam8",
+    "email": "",
+    "subject": "English",
+    "position": "Vocational Training",
+    "dateEnrolled": "2025-09-15"
+  },
+  {
+    "id": "s388",
+    "name": "الياس بدر احمد جعام",
+    "studentId": "14",
+    "groupId": "sam8",
+    "email": "",
+    "subject": "English",
+    "position": "Vocational Training",
+    "dateEnrolled": "2025-09-15"
+  },
+  {
+    "id": "s389",
+    "name": "محمد جمال حسن النطعه",
+    "studentId": "15",
+    "groupId": "sam8",
+    "email": "",
+    "subject": "English",
+    "position": "Vocational Training",
+    "dateEnrolled": "2025-09-15"
   }
 ]
