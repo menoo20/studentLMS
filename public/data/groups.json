@@ -2,18 +2,18 @@
   {
     "id": "nesma",
     "name": "NESMA",
-    "description": "Online English Class - 3 sessions per week",
+    "description": "Online English Short Course - 3 sessions per week",
     "subject": "English",
-    "position": "Online Training",
+    "position": "Online Training (Short Course)",
     "year": "2024-2025",
     "semester": "Fall"
   },
   {
     "id": "saipem6",
     "name": "SAIPEM 6",
-    "description": "English Class - Welding Major",
+    "description": "English Long Course - Welding Major",
     "subject": "English",
-    "position": "Welding Training",
+    "position": "Welding Training (Long Course)",
     "year": "2024-2025",
     "semester": "Fall"
   },
@@ -65,18 +65,18 @@
   {
     "id": "sam1",
     "name": "SAM 1",
-    "description": "English Class - Welding",
+    "description": "English Long Course - Welding",
     "subject": "English",
-    "position": "Welding",
+    "position": "Welding (Long Course)",
     "year": "2024-2025",
     "semester": "Fall"
   },
   {
     "id": "sam2",
     "name": "SAM 2",
-    "description": "English Class - Welding",
+    "description": "English Long Course - Welding",
     "subject": "English",
-    "position": "Welding",
+    "position": "Welding (Long Course)",
     "year": "2024-2025",
     "semester": "Fall"
   },
@@ -101,9 +101,9 @@
   {
     "id": "sam5",
     "name": "SAM 5",
-    "description": "English Class - Scaffolding",
+    "description": "English Long Course - Scaffolding",
     "subject": "English",
-    "position": "Scaffolding",
+    "position": "Scaffolding (Long Course)",
     "year": "2024-2025",
     "semester": "Fall"
   },
@@ -128,9 +128,9 @@
   {
     "id": "dabal_fahss",
     "name": "Dabal +Fahss",
-    "description": "English Class - Scaffolding",
+    "description": "English Long Course - Scaffolding",
     "subject": "English",
-    "position": "Scaffolding",
+    "position": "Scaffolding (Long Course)",
     "year": "2024-2025",
     "semester": "Fall"
   },
@@ -155,9 +155,9 @@
   {
     "id": "sam8",
     "name": "SAM 8",
-    "description": "English Class - Scaffolding",
+    "description": "English Long Course - Scaffolding",
     "subject": "English",
-    "position": "Scaffolding",
+    "position": "Scaffolding (Long Course)",
     "year": "2024-2025",
     "semester": "Fall"
   },
@@ -173,18 +173,18 @@
   {
     "id": "dyey",
     "name": "DYEY",
-    "description": "English Class - Morning Session",
+    "description": "English Long Course - Morning Session",
     "subject": "English",
-    "position": "Vocational Training",
+    "position": "Vocational Training (Long Course)",
     "year": "2024-2025",
     "semester": "Fall"
   },
   {
     "id": "eleco2",
     "name": "ELECO 2",
-    "description": "English Class - Electrical/Electronics",
+    "description": "English Long Course - Electrical/Electronics",
     "subject": "English",
-    "position": "Electrical Training",
+    "position": "Electrical Training (Long Course)",
     "year": "2024-2025",
     "semester": "Fall"
   }
