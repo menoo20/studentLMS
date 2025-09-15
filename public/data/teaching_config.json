@@ -1,15 +1,16 @@
 {
   "currentSemester": "Fall 2024-2025",
   "activeGroups": [
-    "nesma",
-    "sam1",
-    "sam2",
-    "sam5",
-    "sam8",
-    "saipem6",
+    "dyey",
     "dabal_fahss",
-    "alfa2"
+    "sam1",
+    "sam5",
+    "saipem6",
+    "nesma",
+    "eleco2",
+    "sam2",
+    "sam8"
   ],
-  "lastUpdated": "2025-09-01",
-  "notes": "These are the groups currently being taught. Modify this list when schedule changes."
+  "lastUpdated": "2025-09-15",
+  "notes": "Updated to match new schedule: DYEY, DABAL, SAM1, SAM5, SAIPEM6, NESMA, ELECO2, SAM2, SAM8"
 }

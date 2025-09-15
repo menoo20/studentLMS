@@ -169,5 +169,23 @@
     "position": "Long Course Training",
     "year": "2024-2025",
     "semester": "Fall"
+  },
+  {
+    "id": "dyey",
+    "name": "DYEY",
+    "description": "English Class - Morning Session",
+    "subject": "English",
+    "position": "Vocational Training",
+    "year": "2024-2025",
+    "semester": "Fall"
+  },
+  {
+    "id": "eleco2",
+    "name": "ELECO 2",
+    "description": "English Class - Electrical/Electronics",
+    "subject": "English",
+    "position": "Electrical Training",
+    "year": "2024-2025",
+    "semester": "Fall"
   }
 ]
