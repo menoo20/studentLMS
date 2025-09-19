@@ -280,16 +280,6 @@
     "dateEnrolled": "2025-09-08"
   },
   {
-    "id": "s019_new6",
-    "name": "يوسف بن احمد بن عبدالله الهاشم",
-    "studentId": "26",
-    "groupId": "saipem6",
-    "email": "",
-    "subject": "English",
-    "position": "Vocational Training",
-    "dateEnrolled": "2025-09-19"
-  },
-  {
     "id": "s021",
     "name": "عزام خالد عبدالرحمن الخالدي",
     "studentId": "2",
@@ -3600,6 +3590,26 @@
     "subject": "English",
     "position": "Welding",
     "dateEnrolled": "2024-09-01"
+  },
+  {
+    "id": "s375",
+    "name": "عواد معاشي حليس الرويلي",
+    "studentId": "1",
+    "groupId": "sam8",
+    "email": "",
+    "subject": "English",
+    "position": "Vocational Training",
+    "dateEnrolled": "2025-09-15"
+  },
+  {
+    "id": "s376",
+    "name": "عبدالله محمد حدروج الشمراني",
+    "studentId": "2",
+    "groupId": "sam8",
+    "email": "",
+    "subject": "English",
+    "position": "Vocational Training",
+    "dateEnrolled": "2025-09-15"
   },
   {
     "id": "s377",
