@@ -3592,6 +3592,26 @@
     "dateEnrolled": "2024-09-01"
   },
   {
+    "id": "s375",
+    "name": "عواد معاشي حليس الرويلي",
+    "studentId": "1",
+    "groupId": "sam8",
+    "email": "",
+    "subject": "English",
+    "position": "Vocational Training",
+    "dateEnrolled": "2025-09-15"
+  },
+  {
+    "id": "s376",
+    "name": "عبدالله محمد حدروج الشمراني",
+    "studentId": "2",
+    "groupId": "sam8",
+    "email": "",
+    "subject": "English",
+    "position": "Vocational Training",
+    "dateEnrolled": "2025-09-15"
+  },
+  {
     "id": "s377",
     "name": "علي احمد ابرهيم ال يتيم",
     "studentId": "3",
