@@ -406,6 +406,7 @@ const Exams = () => {
   const [selectedGroupForReport, setSelectedGroupForReport] = useState('all')
   const [selectedExamFilter, setSelectedExamFilter] = useState('all')
   const [hideNonEvaluated, setHideNonEvaluated] = useState(false)
+  const [searchStudentName, setSearchStudentName] = useState('')
 
   const basePath = import.meta.env.PROD ? '/studentLMS' : ''
 
@@ -514,6 +515,13 @@ const Exams = () => {
       reportData = reportData.filter(studentData => studentData.totalEvaluated > 0)
     }
 
+    // Filter by student name search if provided
+    if (searchStudentName.trim()) {
+      reportData = reportData.filter(studentData => 
+        studentData.student.name.toLowerCase().includes(searchStudentName.toLowerCase().trim())
+      )
+    }
+
     // Get group info
     const groupInfo = groupId === 'all' 
       ? { id: 'all', name: 'All Groups' }
@@ -587,7 +595,8 @@ const Exams = () => {
           <div className="flex flex-col gap-6">
             <h2 className="text-xl font-semibold text-gray-900">Filters & Options</h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {/* First Row - Dropdowns */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
               {/* Group Filter */}
               <div className="flex items-center gap-3">
                 <label htmlFor="groupFilter" className="text-sm font-medium text-gray-700 min-w-fit">
@@ -622,6 +631,24 @@ const Exams = () => {
                     <option key={exam.id} value={exam.id}>{exam.name} ({exam.type})</option>
                   ))}
                 </select>
+              </div>
+            </div>
+
+            {/* Second Row - Search and Options */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* Search by Student Name */}
+              <div className="flex items-center gap-3">
+                <label htmlFor="studentSearch" className="text-sm font-medium text-gray-700 min-w-fit">
+                  Student:
+                </label>
+                <input
+                  type="text"
+                  id="studentSearch"
+                  placeholder="Search by name..."
+                  value={searchStudentName}
+                  onChange={(e) => setSearchStudentName(e.target.value)}
+                  className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
+                />
               </div>
 
               {/* Hide Non-Evaluated Toggle */}
